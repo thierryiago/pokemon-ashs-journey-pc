@@ -70,10 +70,17 @@ module RTB
       base * RTB.stage_mult(@stages[key])
     end
 
-    # Velocidade de movimento em px/s, a partir do atributo Speed.
+    # Velocidade de movimento em px/s. Usa o Speed base da espécie (e não o do
+    # nível), para um Pokémon de nível baixo não ficar arrastado: base 20 anda
+    # ~110 px/s, base 90 ~145, base 150 ~175 (o jogador anda ~128 px/s).
     def move_speed
-      v = 70.0 + @pkmn.speed * 0.6
-      v = 70.0 if v < 70.0
+      base = begin
+        @pkmn.species_data.base_stats[:SPEED]
+      rescue StandardError
+        nil
+      end
+      v = base ? 100.0 + base * 0.5 : 70.0 + @pkmn.speed * 0.6
+      v = 100.0 if v < 100.0
       v = 190.0 if v > 190.0
       v *= RTB.stage_mult(@stages[:spe]).clamp(0.5, 1.6)
       v *= 0.5 if status == :PARALYSIS
