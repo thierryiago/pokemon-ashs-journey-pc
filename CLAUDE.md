@@ -18,6 +18,8 @@ Plano: "Plano de Desenvolvimento — Pokémon Ash's Journey v0.5" (doc no claude
   do `Scripts.rxdata`, **depois dos plugins**. Instalar/atualizar o carregador: `ruby tools/install_loader.rb`.
 - Não editar as seções originais do `Scripts.rxdata`; sobrescrever por alias/redefinição em `Mods/`.
 - `Mods/000_ash_journey.rb`: configuração geral (batalha em tempo real, ajustes de dano e recarga).
+- `Mods/010_data_overrides.rb` + `Mods/data/*.rb`: mudanças de conteúdo (encontros etc.) em texto,
+  aplicadas depois do `GameData.load_all`; os `.dat` ficam como no Fire Ash.
 - `Mods/rt_battle/`: batalha em tempo real. `010_moves` e `020_sim` são Ruby puro (testáveis fora do jogo);
   `030_scene` desenha no mapa; `040_hook` troca a batalha selvagem quando possível.
 - Testes fora do jogo: `ruby test/rt_sim_test.rb` e `ruby test/rt_scene_test.rb` (dublês do RGSS). Rodar antes de commitar.
