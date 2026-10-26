@@ -11,6 +11,7 @@ module RTB
 
   def wild_eligible?(args)
     return false unless defined?(AshJourney) && AshJourney::REALTIME_WILD_BATTLES
+    return false if $PokemonSystem.respond_to?(:aj_battle_mode) && $PokemonSystem.aj_battle_mode != 0
     rules = $PokemonTemp.battleRules
     return false if rules["size"] && !["single", "1v1"].include?(rules["size"])
     return false if $PokemonGlobal.partner && !rules["noPartner"]

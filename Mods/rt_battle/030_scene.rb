@@ -279,11 +279,25 @@ module RTB
       @border.bitmap.fill_rect(aw * 32 - 2, 0, 2, ah * 32, c)
       @border.z = 1
       build_hud
+      hide_followers
       @input = { mx: 0, my: 0 }
       $Trainer.pokedex.register(@foe_pkmn)
       @bgm_before = $game_system.getPlayingBGM
       $game_system.bgm_pause
       pbBGMPlay(pbGetWildBattleBGM([@foe_pkmn]))
+    end
+
+    # Esconde quem segue o jogador (ex.: o Pikachu do Fire Ash) durante a luta,
+    # para não aparecer um Pokémon repetido ao lado do que está lutando.
+    def hide_followers
+      @followers_visible = $PokemonGlobal.followers.map { |f| [f, f.visible] }
+      @followers_visible.each { |f, _| f.visible = false }
+    rescue StandardError
+      @followers_visible = []
+    end
+
+    def restore_followers
+      (@followers_visible || []).each { |f, v| f.visible = v }
     end
 
     def dir_vector(d)
@@ -316,6 +330,7 @@ module RTB
     end
 
     def intro
+      $game_screen.start_flash(Color.new(255, 255, 255, 180), 8) rescue nil
       float_text(@enemy, _INTL("Um {1} selvagem apareceu!", @foe_pkmn.name), Color.new(255, 255, 255), 1.4)
       float_text(@mine, _INTL("Vai, {1}!", @mine.name), Color.new(255, 255, 160), 1.0)
       @sim.frozen = true
@@ -539,21 +554,32 @@ module RTB
       end
     end
 
-    def draw_effects
-      @fx_sprites.each(&:dispose)
-      @fx_sprites.clear
-      @sim.projectiles.each do |p|
+    # Sprites de efeito reaproveitados de um quadro para o outro (criar e
+    # descartar sprites a cada quadro pesa no mkxp-z).
+    def fx_sprite(i)
+      s = @fx_sprites[i]
+      unless s
         s = Sprite.new(@viewport)
+        @fx_sprites[i] = s
+      end
+      s.visible = true
+      s.zoom_x = 1.0; s.zoom_y = 1.0; s.angle = 0; s.opacity = 255
+      s
+    end
+
+    def draw_effects
+      n = 0
+      @sim.projectiles.each do |p|
+        s = fx_sprite(n); n += 1
         r = [p.r.to_i, 3].max
         s.bitmap = RTB.circle_bitmap(r, RTB.type_color(p.spec.type))
         s.ox = r; s.oy = r
         s.x, s.y = RTB.screen_xy(p.x, p.y)
         s.z = 9000
-        @fx_sprites.push(s)
       end
       @sim.effects.each do |e|
         prog = e.t / e.max
-        s = Sprite.new(@viewport)
+        s = fx_sprite(n); n += 1
         s.z = 9001
         case e.kind
         when :beam
@@ -580,8 +606,8 @@ module RTB
           s.opacity = (200 * (1 - prog)).to_i
           s.x, s.y = RTB.screen_xy(e.x, e.y)
         end
-        @fx_sprites.push(s)
       end
+      (n...@fx_sprites.length).each { |i| @fx_sprites[i].visible = false }
     end
 
     def build_hud
@@ -637,7 +663,7 @@ module RTB
         b.fill_rect(x, y, 4, 26, RTB.type_color(spec.type))
         cd = m.cds[i]
         if cd > 0
-          frac = [cd / spec.cooldown, 1.0].min
+          frac = [cd / (spec.cooldown * RTB.cooldown_scale), 1.0].min
           b.fill_rect(x + 4, y, (118 * frac).round, 26, Color.new(0, 0, 0, 120))
         end
         pp = m.move_pp(i)
@@ -689,6 +715,7 @@ module RTB
       @border.bitmap.dispose; @border.dispose
       @hud.bitmap.dispose; @hud.dispose
       @viewport.dispose; @hud_vp.dispose
+      restore_followers
       $game_system.bgm_resume(@bgm_before) if @decision != 2
     end
 

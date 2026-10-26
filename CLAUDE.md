@@ -13,6 +13,15 @@ Plano: "Plano de Desenvolvimento — Pokémon Ash's Journey v0.5" (doc no claude
 - Desvios do canônico vão para `docs/canon/exceptions.yml`.
 - O jogo só roda no Windows do usuário: toda mudança precisa de teste dele no Game.exe.
 
+## Código novo (Mods/)
+- Todo código novo fica em `Mods/**/*.rb`, carregado em ordem alfabética pela seção `AJ_ModLoader`
+  do `Scripts.rxdata`, **depois dos plugins**. Instalar/atualizar o carregador: `ruby tools/install_loader.rb`.
+- Não editar as seções originais do `Scripts.rxdata`; sobrescrever por alias/redefinição em `Mods/`.
+- `Mods/000_ash_journey.rb`: configuração geral (batalha em tempo real, ajustes de dano e recarga).
+- `Mods/rt_battle/`: batalha em tempo real. `010_moves` e `020_sim` são Ruby puro (testáveis fora do jogo);
+  `030_scene` desenha no mapa; `040_hook` troca a batalha selvagem quando possível.
+- Testes fora do jogo: `ruby test/rt_sim_test.rb` e `ruby test/rt_scene_test.rb` (dublês do RGSS). Rodar antes de commitar.
+
 ## Ferramentas
 - `ruby tools/extract_scripts.rb` — exporta scripts e plugins para `scripts/`.
 - `ruby tools/dump_data.rb` — exporta os `.dat` (espécies, golpes, treinadores, encontros, itens...) para `data/*.yaml`.

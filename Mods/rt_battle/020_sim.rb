@@ -12,6 +12,15 @@ module RTB
   DODGE_DIST = 70.0
   DODGE_CD   = 1.0
 
+  # Ajustes do 000_ash_journey.rb (1.0 quando o arquivo de config não existe, ex.: testes).
+  def self.damage_scale
+    defined?(AshJourney::RT_DAMAGE_SCALE) ? AshJourney::RT_DAMAGE_SCALE : 1.0
+  end
+
+  def self.cooldown_scale
+    defined?(AshJourney::RT_COOLDOWN_SCALE) ? AshJourney::RT_COOLDOWN_SCALE : 1.0
+  end
+
   def self.stage_mult(s)
     s >= 0 ? (2.0 + s) / 2.0 : 2.0 / (2.0 - s)
   end
@@ -242,7 +251,7 @@ module RTB
       else
         f.pkmn.moves[slot].pp -= 1
       end
-      f.cds[slot] = spec.cooldown
+      f.cds[slot] = spec.cooldown * RTB.cooldown_scale
       f.cds[slot] *= 1.25 if f.status == :PARALYSIS
       aim_assist(f, spec)
       f.lock = spec.windup
@@ -349,6 +358,7 @@ module RTB
       base *= 1.5 if crit
       base *= 0.5 if physical && att.status == :BURN
       base *= (85 + @rng.rand(16)) / 100.0
+      base *= RTB.damage_scale
       [base.floor, 1].max
     end
 
