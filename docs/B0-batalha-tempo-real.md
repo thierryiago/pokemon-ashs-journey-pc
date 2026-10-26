@@ -17,6 +17,7 @@ Treinadores, duplas, Safari, Concurso de Insetos, batalhas na água e o Grandeur
 | F | Poké Bola (sempre acerta; a chance segue a fórmula clássica) |
 | Q | Troca para o próximo Pokémon da equipe que pode lutar |
 | Segurar Esc/X | Fugir |
+| Enter | Pausar / voltar |
 
 No menu **Opções** há "Batalha selvagem: Tempo real / Turnos" para voltar ao modo clássico.
 

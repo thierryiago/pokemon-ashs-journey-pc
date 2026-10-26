@@ -179,6 +179,7 @@ def pbSEPlay(*); end
 def pbGetWildBattleBGM(*) = nil
 def pbGetWildVictoryME = nil
 def pbSetSmallFont(*); end
+def pbSetSystemFont(*); end
 $messages = []
 def pbMessage(t) = $messages << t
 def pbNickname(*); end

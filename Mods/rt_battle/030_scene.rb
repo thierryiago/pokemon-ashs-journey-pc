@@ -318,6 +318,11 @@ module RTB
         Input.update
         pbUpdateSceneMap
         dt = 1.0 / Graphics.frame_rate
+        toggle_pause if RTB.key_trigger?(:RETURN) && !@end_t
+        if @paused
+          @pause_sprite.visible = true
+          next
+        end
         unless @end_t
           handle_input(dt)
           @sim.update(dt, { 0 => @input })
@@ -786,7 +791,22 @@ module RTB
       (n...@fx_sprites.length).each { |i| @fx_sprites[i].visible = false }
     end
 
+    def toggle_pause
+      @paused = !@paused
+      @pause_sprite.visible = @paused
+    end
+
     def build_hud
+      @pause_sprite = Sprite.new(@hud_vp)
+      @pause_sprite.bitmap = Bitmap.new(Graphics.width, Graphics.height)
+      @pause_sprite.bitmap.fill_rect(0, 0, Graphics.width, Graphics.height, Color.new(0, 0, 0, 110))
+      pbSetSystemFont(@pause_sprite.bitmap)
+      @pause_sprite.bitmap.font.color = Color.new(255, 255, 255)
+      @pause_sprite.bitmap.draw_text(0, Graphics.height / 2 - 30, Graphics.width, 32, _INTL("PAUSA"), 1)
+      pbSetSmallFont(@pause_sprite.bitmap)
+      @pause_sprite.bitmap.draw_text(0, Graphics.height / 2 + 4, Graphics.width, 26, _INTL("Enter: voltar"), 1)
+      @pause_sprite.z = 50
+      @pause_sprite.visible = false
       @hud = Sprite.new(@hud_vp)
       @hud.bitmap = Bitmap.new(Graphics.width, Graphics.height)
       pbSetSmallFont(@hud.bitmap)
@@ -849,7 +869,7 @@ module RTB
         draw_text_shadow(b, x + 8, y + 18, 116, 22, "PP #{pp}/#{mv ? mv.total_pp : 0}", 2,
                          Color.new(200, 200, 200))
       end
-      draw_text_shadow(b, gw - 264, gh - 106, 260, 22, _INTL("F: Poké Bola  Q: trocar  Esc: fugir"), 2,
+      draw_text_shadow(b, gw - 264, gh - 106, 260, 22, _INTL("F: Bola  Q: trocar  Esc: fugir  Enter: pausa"), 2,
                        Color.new(220, 220, 220))
     end
 
@@ -920,6 +940,7 @@ module RTB
       @text_sprites.each { |t| t[0].bitmap.dispose; t[0].dispose }
       @border.bitmap.dispose; @border.dispose
       @hud.bitmap.dispose; @hud.dispose
+      @pause_sprite.bitmap.dispose; @pause_sprite.dispose
       @viewport.dispose; @hud_vp.dispose
       restore_followers
       $game_system.bgm_resume(@bgm_before) if @decision != 2
