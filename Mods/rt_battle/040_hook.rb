@@ -64,3 +64,71 @@ def pbWildBattleCore(*args)
   pbSet(outcomeVar, decision)
   decision
 end
+
+#------------------------------------------------------------------------------
+# Batalhas de treinador (um treinador, um contra um). Ligadas pela opção
+# "Batalha de treinador: Tempo real"; o padrão continua por turno até o teste.
+#------------------------------------------------------------------------------
+module RTB
+  GRANDEUR_CLUB_MAPS = [141, 151, 214]
+
+  module_function
+
+  def trainer_eligible?(args)
+    return false unless defined?(AshJourney) && AshJourney::REALTIME_WILD_BATTLES
+    return false unless $PokemonSystem.respond_to?(:aj_trainer_mode) && $PokemonSystem.aj_trainer_mode == 1
+    return false if args.length != 1
+    rules = $PokemonTemp.battleRules
+    return false if rules["size"] && !["single", "1v1"].include?(rules["size"])
+    return false if $PokemonGlobal.partner && !rules["noPartner"]
+    return false if $PokemonGlobal.surfing || $PokemonGlobal.diving
+    return false if GRANDEUR_CLUB_MAPS.include?($game_map.map_id)
+    return false if $Trainer.able_pokemon_count == 0
+    true
+  rescue StandardError
+    false
+  end
+end
+
+unless defined?(aj_turn_based_pbTrainerBattleCore)
+  alias aj_turn_based_pbTrainerBattleCore pbTrainerBattleCore
+end
+
+def pbTrainerBattleCore(*args)
+  return aj_turn_based_pbTrainerBattleCore(*args) unless RTB.trainer_eligible?(args)
+  arg = args[0]
+  if arg.is_a?(NPCTrainer)
+    trainer = arg
+  elsif arg.is_a?(Array)
+    trainer = pbLoadTrainer(arg[0], arg[1], arg[2])
+    pbMissingTrainer(arg[0], arg[1], arg[2]) if !trainer
+    return 0 if !trainer
+    Events.onTrainerPartyLoad.trigger(nil, trainer)
+    trainer.lose_text = arg[3] if arg[3] && !arg[3].to_s.empty?
+  else
+    return aj_turn_based_pbTrainerBattleCore(*args)
+  end
+  return aj_turn_based_pbTrainerBattleCore(trainer) if trainer.party.none? { |p| p.able? }
+  outcomeVar = $PokemonTemp.battleRules["outcomeVar"] || 1
+  canLose    = $PokemonTemp.battleRules["canLose"] || false
+  Events.onStartBattle.trigger(nil)
+  event = (pbMapInterpreterRunning? ? pbMapInterpreter.get_character(0) : nil) rescue nil
+  event = nil unless event.is_a?(Game_Event)
+  $PokemonTemp.clearBattleRules
+  Audio.me_stop
+  $game_temp.in_battle = true
+  decision = 0
+  begin
+    decision = RTB::Battle.new(nil, false, trainer: trainer, trainer_event: event, can_lose: canLose).run
+  ensure
+    $game_temp.in_battle = false
+  end
+  $PokemonGlobal.nextBattleBGM       = nil
+  $PokemonGlobal.nextBattleME        = nil
+  $PokemonGlobal.nextBattleCaptureME = nil
+  $PokemonGlobal.nextBattleBack      = nil
+  pbAfterBattle(decision, canLose)
+  Input.update
+  pbSet(outcomeVar, decision)
+  decision
+end

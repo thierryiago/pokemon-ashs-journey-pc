@@ -44,7 +44,7 @@ def pbPostToFile(url, postdata, file)
 end
 
 #------------------------------------------------------------------------------
-# Opção "Batalha selvagem" no menu de opções (R4): tempo real ou por turno.
+# Opções "Batalha selvagem" e "Batalha de treinador" no menu (R4): tempo real ou por turno.
 # Fica no $PokemonSystem, salvo junto com as outras opções; saves antigos
 # começam em "Tempo real".
 #------------------------------------------------------------------------------
@@ -53,6 +53,12 @@ class PokemonSystem
 
   def aj_battle_mode
     @aj_battle_mode || 0   # 0 = tempo real, 1 = por turno
+  end
+
+  attr_writer :aj_trainer_mode
+
+  def aj_trainer_mode
+    @aj_trainer_mode || 0  # 0 = por turno (padrão no B0), 1 = tempo real
   end
 end
 
@@ -66,6 +72,9 @@ class PokemonOption_Scene
     options.push(EnumOption.new(_INTL("Batalha selvagem"), [_INTL("Tempo real"), _INTL("Turnos")],
                                 proc { $PokemonSystem.aj_battle_mode },
                                 proc { |value| $PokemonSystem.aj_battle_mode = value }))
+    options.push(EnumOption.new(_INTL("Batalha de treinador"), [_INTL("Turnos"), _INTL("Tempo real")],
+                                proc { $PokemonSystem.aj_trainer_mode },
+                                proc { |value| $PokemonSystem.aj_trainer_mode = value }))
     options
   end
 end

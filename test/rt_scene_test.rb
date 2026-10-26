@@ -139,11 +139,22 @@ class Pokemon
 end
 class Pokedex; def register(*); end; def set_owned(*); end; end
 class TrainerStub
-  attr_accessor :party, :name, :id, :has_pokedex
-  def initialize(party); @party = party; @name = 'Ash'; @id = 1; @has_pokedex = true; end
+  attr_accessor :party, :name, :id, :has_pokedex, :money
+  def initialize(party); @party = party; @name = 'Ash'; @id = 1; @has_pokedex = true; @money = 3000; end
+  def badge_count = 2
   def pokedex = Pokedex.new
   def owned?(*) = false
 end
+class NPCTrainerStub
+  attr_accessor :party, :name, :lose_text
+  def initialize(name, party); @name = name; @party = party; @lose_text = 'Perdi!'; end
+  def full_name = "Bug Catcher #{@name}"
+  def base_money = 16
+end
+class Integer; def to_s_formatted = to_s; end
+$game_switches = []
+def pbGetTrainerBattleBGM(*) = nil
+def pbGetTrainerVictoryME(*) = nil
 class BagStub
   def initialize(n); @n = n; end
   def pbHasItem?(i) = i == :POKEBALL && @n > 0
@@ -252,6 +263,22 @@ end
 d = b.run
 puts "  E: decisão #{d}, hp #{$Trainer.party.map(&:hp).inspect}, quadros #{Graphics.frames}"
 check.(d == 1 && b.instance_variable_get(:@participants) == [0, 1], "troca com Q e vitória (participantes #{b.instance_variable_get(:@participants).inspect})")
+
+# F) Treinador com dois Pokémon: manda o segundo quando o primeiro cai; dinheiro e EXP no fim
+setup_world([Pokemon.new(:PIKACHU, 14, [:THUNDERSHOCK, :QUICKATTACK])], 5)
+t = NPCTrainerStub.new('Rick', [Pokemon.new(:CATERPIE, 4, [:TACKLE]), Pokemon.new(:WEEDLE, 5, [:POISONSTING])])
+b = RTB::Battle.new(nil, false, trainer: t)
+Input.script = lambda do |kind, k, f|
+  (kind == :triggerex && k == :NUMBER_1 && f % 8 == 0) || (kind == :pressex && chase_key(b, k)) ||
+    (kind == :triggerex && k == :F && f == 20) || (kind == :press && k == Input::BACK && f < 60)
+end
+money_before = $Trainer.money
+d = b.run
+exp_msgs = $messages.count { |m| m.include?('EXP') }
+check.(d == 1 && t.party.all? { |p| p.hp == 0 }, "venceu o treinador (decisão #{d}, #{Graphics.frames} quadros)")
+check.($Trainer.money == money_before + 5 * 16, "ganhou dinheiro (#{$Trainer.money - money_before})")
+check.(exp_msgs == 2, "EXP pelos dois Pokémon do treinador (#{exp_msgs} mensagens)")
+check.($PokemonBag.pbHasItem?(:POKEBALL), 'não gastou Poké Bola contra treinador')
 
 puts fails.zero? ? "\nTUDO OK" : "\n#{fails} FALHA(S)"
 exit(fails.zero? ? 0 : 1)

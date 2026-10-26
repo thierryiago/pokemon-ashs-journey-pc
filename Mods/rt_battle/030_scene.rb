@@ -202,12 +202,18 @@ module RTB
   class Battle
     attr_reader :decision
 
-    # foe: Pokemon selvagem. can_run: false em batalhas de evento sem fuga.
-    def initialize(foe, can_run = true)
-      @foe_pkmn = foe
-      @can_run = can_run
+    # foe: Pokémon selvagem (ou o primeiro do treinador).
+    # trainer: NPCTrainer numa batalha de treinador; trainer_event: o evento dele no mapa.
+    def initialize(foe, can_run = true, trainer: nil, trainer_event: nil, can_lose: false)
+      @trainer = trainer
+      @trainer_event = trainer_event
+      @foe_party = trainer ? trainer.party : [foe]
+      @foe_pkmn = trainer ? @foe_party.find { |p| p.able? } : foe
+      @can_run = can_run && !trainer
+      @can_lose = can_lose
       @decision = 0
       @participants = []
+      @defeated = []   # [Pokémon derrotado, índices de quem lutou contra ele]
       @caught = nil
       @texts = []
       @run_hold = 0.0
@@ -259,7 +265,7 @@ module RTB
       type_mult = lambda do |mtype, dtypes|
         Effectiveness.calculate(mtype, *dtypes[0, 3]).to_f / Effectiveness::NORMAL_EFFECTIVE
       end
-      @sim = Sim.new(arena: arena, walkable: walkable, type_mult: type_mult, ai_level: 0,
+      @sim = Sim.new(arena: arena, walkable: walkable, type_mult: type_mult, ai_level: @trainer ? 1 : 0,
                      rng: RTB.rng_override || Random.new)
       # Posições iniciais: o Pokémon do jogador ao lado do treinador, o selvagem à frente
       px = $game_player.x * 32 + 16; py = $game_player.y * 32 + 16
@@ -269,10 +275,17 @@ module RTB
       me = spawn_point(px + dx * 36 - dy * 28, py + dy * 36 + dx * 28, arena, walkable)
       @mine = add_player_fighter(@lead_index, me[0], me[1])
       @mine.fx, @mine.fy = dx, dy
-      foe_at = spawn_point(px + dx * 130, py + dy * 130, arena, walkable)
-      @enemy = @sim.add(Fighter.new(@foe_pkmn, 1, @foe_pkmn.moves.map { |m| RTB.spec_for_move(m) },
-                                    foe_at[0], foe_at[1]))
-      @enemy.fx, @enemy.fy = -dx, -dy
+      if @trainer_event
+        # O Pokémon do treinador sai na frente dele, virado para o jogador
+        ex = @trainer_event.x * 32 + 16; ey = @trainer_event.y * 32 + 16
+        ux, uy = norm_dir(px - ex, py - ey)
+        foe_at = spawn_point(ex + ux * 40, ey + uy * 40, arena, walkable)
+      else
+        foe_at = spawn_point(px + dx * 130, py + dy * 130, arena, walkable)
+      end
+      @foe_at = foe_at
+      @enemy = add_foe_fighter(@foe_pkmn, foe_at[0], foe_at[1])
+      @enemy.fx, @enemy.fy = norm_dir(me[0] - foe_at[0], me[1] - foe_at[1])
       @sprites = [FighterSprite.new(@mine, @viewport), FighterSprite.new(@enemy, @viewport)]
       @fx_sprites = []
       @text_sprites = []
@@ -290,7 +303,16 @@ module RTB
       $Trainer.pokedex.register(@foe_pkmn)
       @bgm_before = $game_system.getPlayingBGM
       $game_system.bgm_pause
-      pbBGMPlay(pbGetWildBattleBGM([@foe_pkmn]))
+      pbBGMPlay(@trainer ? pbGetTrainerBattleBGM([@trainer]) : pbGetWildBattleBGM([@foe_pkmn]))
+    end
+
+    def norm_dir(x, y)
+      l = Math.sqrt(x * x + y * y)
+      l > 0 ? [x / l, y / l] : [0.0, 1.0]
+    end
+
+    def add_foe_fighter(pkmn, x, y)
+      @sim.add(Fighter.new(pkmn, 1, pkmn.moves.map { |m| RTB.spec_for_move(m) }, x, y))
     end
 
     # Esconde quem segue o jogador (ex.: o Pikachu do Fire Ash) durante a luta,
@@ -337,7 +359,12 @@ module RTB
 
     def intro
       $game_screen.start_flash(Color.new(255, 255, 255, 180), 8) rescue nil
-      float_text(@enemy, _INTL("Um {1} selvagem apareceu!", @foe_pkmn.name), Color.new(255, 255, 255), 1.4)
+      if @trainer
+        float_text(@enemy, _INTL("{1} quer lutar!", @trainer.full_name), Color.new(255, 255, 255), 1.4)
+        float_text(@enemy, _INTL("{1} mandou {2}!", @trainer.name, @foe_pkmn.name), Color.new(255, 220, 220), 1.4)
+      else
+        float_text(@enemy, _INTL("Um {1} selvagem apareceu!", @foe_pkmn.name), Color.new(255, 255, 255), 1.4)
+      end
       float_text(@mine, _INTL("Vai, {1}!", @mine.name), Color.new(255, 255, 160), 1.0)
       @sim.frozen = true
       (Graphics.frame_rate * 0.6).to_i.times do
@@ -380,7 +407,8 @@ module RTB
 
     def try_run
       if !@can_run
-        float_text(@mine, _INTL("Não dá para fugir!"), Color.new(255, 160, 160), 0.9)
+        msg = @trainer ? _INTL("Não dá para fugir de um treinador!") : _INTL("Não dá para fugir!")
+        float_text(@mine, msg, Color.new(255, 160, 160), 0.9)
         return
       end
       pbSEPlay("Battle flee")
@@ -421,6 +449,10 @@ module RTB
     #--------------------------------------------------------------------------
     def throw_ball
       return if @enemy.fainted? || @sim.frozen
+      if @trainer
+        float_text(@enemy, _INTL("Não dá para capturar o Pokémon de um treinador!"), Color.new(255, 160, 160), 1.0)
+        return
+      end
       ball = BALLS.keys.find { |b| GameData::Item.exists?(b) && $PokemonBag.pbHasItem?(b) }
       unless ball
         float_text(@mine, _INTL("Você não tem Poké Bolas!"), Color.new(255, 160, 160), 0.9)
@@ -692,8 +724,20 @@ module RTB
         return
       end
       if @enemy.fainted?
-        pbMEPlay(pbGetWildVictoryME)
-        finish(1, 1.2)
+        unless @defeated.any? { |d| d[0].equal?(@enemy.pkmn) }
+          @defeated.push([@enemy.pkmn, @participants.select { |i| $Trainer.party[i] }])
+        end
+        nxt = @foe_party.find { |p| p.able? }
+        if nxt
+          @foe_next_t ||= 1.0
+          @foe_next_t -= dt
+          return if @foe_next_t > 0
+          @foe_next_t = nil
+          foe_send_out(nxt)
+        else
+          pbMEPlay(@trainer ? pbGetTrainerVictoryME([@trainer]) : pbGetWildVictoryME)
+          finish(1, 1.2)
+        end
       elsif @mine.fainted?
         @next_t ||= 1.0
         @next_t -= dt
@@ -706,6 +750,23 @@ module RTB
           finish(2, 1.0)
         end
       end
+    end
+
+    # O treinador manda o próximo Pokémon dele.
+    def foe_send_out(pkmn)
+      old = @enemy
+      @sim.remove(old)
+      @sprites.find { |s| s.fighter == old }&.dispose
+      @sprites.reject! { |s| s.fighter == old }
+      @foe_pkmn = pkmn
+      $Trainer.pokedex.register(pkmn)
+      @enemy = add_foe_fighter(pkmn, @foe_at[0], @foe_at[1])
+      @enemy.fx, @enemy.fy = norm_dir(@mine.x - @foe_at[0], @mine.y - @foe_at[1])
+      @enemy.lock = 0.5
+      @sprites.push(FighterSprite.new(@enemy, @viewport))
+      @participants = [$Trainer.party.index(@mine.pkmn)].compact
+      float_text(@enemy, _INTL("{1} mandou {2}!", @trainer.name, pkmn.name), Color.new(255, 220, 220), 1.2)
+      @hud_tick = 0
     end
 
     def finish(decision, delay)
@@ -727,12 +788,49 @@ module RTB
 
     def after_battle
       case @decision
-      when 1 then give_exp
+      when 1
+        @defeated.each { |foe, gainers| give_exp(foe, gainers) }
+        if @trainer
+          pbMessage(_INTL("Você derrotou {1}!", @trainer.full_name))
+          speech = @trainer.lose_text
+          pbMessage(_INTL("{1}: {2}", @trainer.full_name, speech)) if speech && !speech.to_s.empty?
+          gain_money
+        end
       when 4
-        give_exp if Settings::GAIN_EXP_FOR_CAPTURE
+        give_exp(@foe_pkmn, @participants) if Settings::GAIN_EXP_FOR_CAPTURE
         store_caught
       when 2
         pbMessage(_INTL("{1} não tem mais Pokémon em condições de lutar!", $Trainer.name))
+        lose_money unless @can_lose
+      end
+    end
+
+    # Mesma conta do pbGainMoney do Essentials.
+    def gain_money
+      max_level = @trainer.party.map(&:level).max || 0
+      money = max_level * @trainer.base_money
+      return if money <= 0
+      old = $Trainer.money
+      $Trainer.money += money
+      gained = $Trainer.money - old
+      pbMessage(_INTL("Você ganhou ${1} pela vitória!", gained.to_s_formatted)) if gained > 0
+    end
+
+    # Mesma conta do pbLoseMoney do Essentials.
+    def lose_money
+      return if defined?(Settings::NO_MONEY_LOSS) && $game_switches[Settings::NO_MONEY_LOSS]
+      max_level = $Trainer.party.map(&:level).max || 0
+      mult = [8, 16, 24, 36, 48, 64, 80, 100, 120]
+      money = max_level * mult[[$Trainer.badge_count, mult.length - 1].min]
+      money = $Trainer.money if money > $Trainer.money
+      old = $Trainer.money
+      $Trainer.money -= money
+      lost = old - $Trainer.money
+      return if lost <= 0
+      if @trainer
+        pbMessage(_INTL("Você deu ${1} para o vencedor...", lost.to_s_formatted))
+      else
+        pbMessage(_INTL("Na correria, você deixou cair ${1}...", lost.to_s_formatted))
       end
     end
 
@@ -752,10 +850,9 @@ module RTB
       pbStorePokemon(pkmn)
     end
 
-    # EXP no modelo do Essentials (pbGainExpOne), só para quem lutou.
-    def give_exp
-      foe = @foe_pkmn
-      gainers = @participants.select { |i| $Trainer.party[i] && $Trainer.party[i].able? }
+    # EXP no modelo do Essentials (pbGainExpOne), só para quem lutou contra foe.
+    def give_exp(foe, participants)
+      gainers = participants.select { |i| $Trainer.party[i] && $Trainer.party[i].able? }
       return if gainers.empty?
       gainers.each do |i|
         pkmn = $Trainer.party[i]
@@ -770,6 +867,7 @@ module RTB
         else
           exp /= 7
         end
+        exp = (exp * 1.5).floor if @trainer
         exp = (exp * 1.5).floor if pkmn.owner.id != $Trainer.id
         exp = (exp * 1.5).floor if GameData::Item.exists?(:EXPCHARM) && $PokemonBag.pbHasItem?(:EXPCHARM)
         gain_evs(pkmn, foe)
