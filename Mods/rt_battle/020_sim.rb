@@ -157,6 +157,7 @@ module RTB
       @fighters.dup.each do |f|
         next if f.fainted? || f.hidden
         tick_timers(f, dt)
+        next if f.fainted?   # pode ter caído por veneno/queimadura/semente agora
         input = inputs[f.side] || ai_input(f, dt)
         step_fighter(f, input, dt)
       end

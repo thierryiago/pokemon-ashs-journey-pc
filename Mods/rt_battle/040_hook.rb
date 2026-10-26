@@ -7,14 +7,30 @@
 #   1 vitória, 2 derrota, 3 fuga, 4 captura.
 #==============================================================================
 module RTB
+  # Regras de batalha que a versão em tempo real entende. Qualquer outra
+  # (limite de itens, efeito de campo...) mantém a batalha por turno.
+  SUPPORTED_RULES = %w[size outcomeVar canLose canRun noPartner roamerFlees expGain moneyGain
+                       environment backdrop base defaultWeather defaultTerrain switchStyle battleAnims]
+
   module_function
+
+  def rules_supported?
+    rules = $PokemonTemp.battleRules
+    return false if rules["size"] && !["single", "1v1"].include?(rules["size"])
+    return false if $PokemonGlobal.partner && !rules["noPartner"]
+    (rules.keys - SUPPORTED_RULES).empty?
+  end
+
+  # Max Raids (plugin ZUD) ficam por turno (R4).
+  def max_raid?
+    defined?(Settings::MAXRAID_SWITCH) && $game_switches[Settings::MAXRAID_SWITCH]
+  end
 
   def wild_eligible?(args)
     return false unless defined?(AshJourney) && AshJourney::REALTIME_WILD_BATTLES
     return false if $PokemonSystem.respond_to?(:aj_battle_mode) && $PokemonSystem.aj_battle_mode != 0
-    rules = $PokemonTemp.battleRules
-    return false if rules["size"] && !["single", "1v1"].include?(rules["size"])
-    return false if $PokemonGlobal.partner && !rules["noPartner"]
+    return false unless rules_supported?
+    return false if max_raid?
     return false if $PokemonGlobal.surfing || $PokemonGlobal.diving
     return false if $Trainer.able_pokemon_count == 0
     pokemon_count = args.count { |a| a.is_a?(Pokemon) || a.is_a?(Array) }
@@ -44,14 +60,15 @@ def pbWildBattleCore(*args)
   return aj_turn_based_pbWildBattleCore(*args) unless RTB.wild_eligible?(args)
   outcomeVar = $PokemonTemp.battleRules["outcomeVar"] || 1
   canLose    = $PokemonTemp.battleRules["canLose"] || false
-  canRun     = !$PokemonTemp.battleRules["cannotRun"]
+  canRun     = $PokemonTemp.battleRules["canRun"] != false
+  expGain    = $PokemonTemp.battleRules["expGain"] != false
   Events.onStartBattle.trigger(nil)
   foe = RTB.wild_from_args(args)
   $PokemonTemp.clearBattleRules
   $game_temp.in_battle = true
   decision = 0
   begin
-    decision = RTB::Battle.new(foe, canRun).run
+    decision = RTB::Battle.new(foe, canRun, can_lose: canLose, exp_gain: expGain).run
   ensure
     $game_temp.in_battle = false
   end
@@ -78,9 +95,8 @@ module RTB
     return false unless defined?(AshJourney) && AshJourney::REALTIME_WILD_BATTLES
     return false unless $PokemonSystem.respond_to?(:aj_trainer_mode) && $PokemonSystem.aj_trainer_mode == 1
     return false if args.length != 1
-    rules = $PokemonTemp.battleRules
-    return false if rules["size"] && !["single", "1v1"].include?(rules["size"])
-    return false if $PokemonGlobal.partner && !rules["noPartner"]
+    return false unless rules_supported?
+    return false if max_raid?
     return false if $PokemonGlobal.surfing || $PokemonGlobal.diving
     return false if GRANDEUR_CLUB_MAPS.include?($game_map.map_id)
     return false if $Trainer.able_pokemon_count == 0
@@ -111,6 +127,8 @@ def pbTrainerBattleCore(*args)
   return aj_turn_based_pbTrainerBattleCore(trainer) if trainer.party.none? { |p| p.able? }
   outcomeVar = $PokemonTemp.battleRules["outcomeVar"] || 1
   canLose    = $PokemonTemp.battleRules["canLose"] || false
+  expGain    = $PokemonTemp.battleRules["expGain"] != false
+  moneyGain  = $PokemonTemp.battleRules["moneyGain"] != false
   Events.onStartBattle.trigger(nil)
   event = (pbMapInterpreterRunning? ? pbMapInterpreter.get_character(0) : nil) rescue nil
   event = nil unless event.is_a?(Game_Event)
@@ -119,7 +137,8 @@ def pbTrainerBattleCore(*args)
   $game_temp.in_battle = true
   decision = 0
   begin
-    decision = RTB::Battle.new(nil, false, trainer: trainer, trainer_event: event, can_lose: canLose).run
+    decision = RTB::Battle.new(nil, false, trainer: trainer, trainer_event: event, can_lose: canLose,
+                               exp_gain: expGain, money_gain: moneyGain).run
   ensure
     $game_temp.in_battle = false
   end

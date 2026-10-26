@@ -22,7 +22,8 @@ Plano: "Plano de Desenvolvimento — Pokémon Ash's Journey v0.5" (doc no claude
   aplicadas depois do `GameData.load_all`; os `.dat` ficam como no Fire Ash.
 - `Mods/rt_battle/`: batalha em tempo real. `010_moves` e `020_sim` são Ruby puro (testáveis fora do jogo);
   `030_scene` desenha no mapa; `040_hook` troca a batalha selvagem quando possível.
-- Testes fora do jogo: `ruby test/rt_sim_test.rb` e `ruby test/rt_scene_test.rb` (dublês do RGSS). Rodar antes de commitar.
+- Testes fora do jogo (rodar antes de commitar): `ruby test/rt_sim_test.rb`, `ruby test/rt_scene_test.rb`,
+  `ruby test/rt_hook_test.rb` e `LANG=C.UTF-8 ruby test/rt_fuzz_test.rb 100` (batalhas aleatórias).
 
 ## Ferramentas
 - `ruby tools/extract_scripts.rb` — exporta scripts e plugins para `scripts/`.

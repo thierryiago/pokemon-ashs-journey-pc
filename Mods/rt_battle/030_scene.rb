@@ -293,7 +293,10 @@ module RTB
 
     # foe: Pokémon selvagem (ou o primeiro do treinador).
     # trainer: NPCTrainer numa batalha de treinador; trainer_event: o evento dele no mapa.
-    def initialize(foe, can_run = true, trainer: nil, trainer_event: nil, can_lose: false)
+    def initialize(foe, can_run = true, trainer: nil, trainer_event: nil, can_lose: false,
+                   exp_gain: true, money_gain: true)
+      @exp_gain = exp_gain
+      @money_gain = money_gain
       @trainer = trainer
       @trainer_event = trainer_event
       @foe_party = trainer ? trainer.party : [foe]
@@ -562,6 +565,7 @@ module RTB
       @sprites.reject! { |s| s.fighter == old }
       @sprites.push(FighterSprite.new(new_f, @viewport))
       @mine = new_f
+      @next_t = nil   # cancela a troca automática pendente, se havia
       float_text(new_f, text, Color.new(255, 255, 160), 1.0)
       RTB.play_cry(new_f.pkmn)
       @hud_tick = 0
@@ -949,19 +953,19 @@ module RTB
     def after_battle
       case @decision
       when 1
-        @defeated.each { |foe, gainers| give_exp(foe, gainers) }
+        @defeated.each { |foe, gainers| give_exp(foe, gainers) } if @exp_gain
         if @trainer
           pbMessage(_INTL("Você derrotou {1}!", @trainer.full_name))
           speech = @trainer.lose_text
           pbMessage(_INTL("{1}: {2}", @trainer.full_name, speech)) if speech && !speech.to_s.empty?
-          gain_money
+          gain_money if @money_gain
         end
       when 4
-        give_exp(@foe_pkmn, @participants) if Settings::GAIN_EXP_FOR_CAPTURE
+        give_exp(@foe_pkmn, @participants) if Settings::GAIN_EXP_FOR_CAPTURE && @exp_gain
         store_caught
       when 2
         pbMessage(_INTL("{1} não tem mais Pokémon em condições de lutar!", $Trainer.name))
-        lose_money unless @can_lose
+        lose_money unless @can_lose || !@money_gain
       end
     end
 
