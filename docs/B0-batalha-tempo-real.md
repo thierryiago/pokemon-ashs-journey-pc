@@ -46,8 +46,13 @@ No menu **Opções** há "Batalha selvagem: Tempo real / Turnos" para voltar ao 
 | Buff | status em si mesmo | Swords Dance, Recover |
 | Sem efeito ainda | armadilhas, clima, terreno e efeitos únicos | Spikes, Rain Dance |
 
-Distribuição atual: 283 projéteis, 240 corpo a corpo, 107 área, 41 feixes, 32 buffs, 25 avanços,
-23 de status, 5 reduções e 313 ainda sem efeito em tempo real (a maioria golpes de status com efeito único).
+Distribuição atual: 283 projéteis, 240 corpo a corpo, 107 área, 51 buffs, 41 feixes, 31 de status,
+25 avanços, 6 reduções e 285 ainda sem efeito em tempo real (a maioria golpes de status com efeito único,
+como Disable, Encore, armadilhas e clima).
+
+Efeitos de status já tratados: sono, veneno, paralisia, queimadura, congelamento, confusão, mudanças de
+atributo, cura, Protect/Detect/Endure, Leech Seed, Rest, Roar/Whirlwind e Teleport (encerram a batalha
+selvagem, como no jogo), Haze, Focus Energy/Laser Focus. Precisão e evasão viram velocidade (aproximação).
 
 ## Limites conhecidos do protótipo
 
@@ -55,4 +60,5 @@ Distribuição atual: 283 projéteis, 240 corpo a corpo, 107 área, 41 feixes, 3
 - Shiny e formas alternativas usam o sprite normal quando não houver arquivo próprio.
 - A Poké Bola usada é a mais simples que houver na bolsa (Poké, Great, Ultra, Premier).
 - Habilidades, itens segurados e Exp. Share/Exp. All ainda não agem na batalha em tempo real.
+- A IA contorna obstáculos e o adversário sempre nasce num ponto alcançável a pé.
 - Golpes de efeito único (Protect, Substitute, Teleport, Metronome…) aparecem como "ainda sem efeito".

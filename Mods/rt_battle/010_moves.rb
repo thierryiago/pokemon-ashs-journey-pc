@@ -63,6 +63,16 @@ module RTB
     "0A2" => { user_stages: { def: 1 } },  "0A3" => { user_stages: { spd: 1 } },
     "023" => { user_stages: { crit: 2 } },
     "051" => { haze: true },
+    "021" => { user_stages: { spd: 1 } },           # Charge
+    "035" => { user_stages: { atk: 2, spa: 2, spe: 2, def: -1, spd: -1 } },  # Shell Smash
+    "10D" => { user_stages: { atk: 1, def: 1, spe: -1 } },  # Curse (sem a versão fantasma)
+    "112" => { user_stages: { def: 1, spd: 1 } },   # Stockpile
+    "114" => { heal: 0.5 },                         # Swallow
+    "0DA" => { heal: 0.25 },                        # Aqua Ring (cura de uma vez)
+    "17E" => { heal: 0.25 },                        # Life Dew
+    "15E" => { user_stages: { crit: 3 } },          # Laser Focus
+    "040" => { status: :CONFUSED },                 # Flatter
+    "0E8" => { protect: 0.6 },                      # Endure
     "0AA" => { protect: 1.0 },           # Protect/Detect: invencível por 1 s
     "0D9" => { heal: 1.0, rest: true },  # Rest: cura tudo e dorme
     "0DC" => { leech: true },            # Leech Seed
