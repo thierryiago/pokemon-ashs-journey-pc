@@ -76,7 +76,40 @@ module RTB
   end
 
   #----------------------------------------------------------------------------
-  # Sprite de um Pokémon em campo (sprite de seguidor do Fire Ash, 4x4)
+  # Sprites do PMD SpriteCollab (Graphics/RTB/<ESPÉCIE>/, ver tools/fetch_pmd_sprites.py)
+  #----------------------------------------------------------------------------
+  @pmd = {}
+
+  # { "Walk" => { w:, h:, durs: [quadros a 60 fps], hit:, bitmap: }, ... } ou nil
+  def pmd_anims(species)
+    key = species.to_s
+    return @pmd[key] if @pmd.key?(key)
+    data = nil
+    path = "Graphics/RTB/#{key}/anim.txt"
+    if File.exist?(path)
+      data = {}
+      File.readlines(path).each do |line|
+        name, w, h, durs, hit = line.split
+        next unless name && w
+        file = pbResolveBitmap("Graphics/RTB/#{key}/#{name}")
+        next unless file
+        data[name] = { w: w.to_i, h: h.to_i, durs: durs.split(",").map(&:to_i), hit: hit.to_i,
+                       bitmap: RPG::Cache.load_bitmap("", file) }
+      end
+      data = nil unless data["Walk"]
+    end
+    @pmd[key] = data
+  end
+
+  # Linha da folha do PMD para a direção (fx, fy): 0 baixo, 2 direita, 4 cima, 6 esquerda.
+  def pmd_row(fx, fy)
+    ang = Math.atan2(fy, fx) * 180 / Math::PI
+    ((90 - ang) / 45.0).round % 8
+  end
+
+  #----------------------------------------------------------------------------
+  # Sprite de um Pokémon em campo: PMD (8 direções, ataque) quando houver;
+  # senão o sprite de seguidor do Fire Ash (4 direções).
   #----------------------------------------------------------------------------
   class FighterSprite
     attr_reader :fighter
@@ -87,21 +120,51 @@ module RTB
       @shadow = Sprite.new(viewport)
       @shadow.bitmap = RTB.circle_bitmap(9, Color.new(0, 0, 0, 90))
       @shadow.ox = 9; @shadow.oy = 9; @shadow.zoom_y = 0.5
-      @sprite.bitmap = RTB.pokemon_bitmap(fighter.pkmn)
-      @fw = @sprite.bitmap.width / 4
-      @fh = @sprite.bitmap.height / 4
-      @sprite.ox = @fw / 2
-      @sprite.oy = @fh - 6
+      @pmd = RTB.pmd_anims(fighter.pkmn.species)
+      unless @pmd
+        @sprite.bitmap = RTB.pokemon_bitmap(fighter.pkmn)
+        @fw = @sprite.bitmap.width / 4
+        @fh = @sprite.bitmap.height / 4
+        @sprite.ox = @fw / 2
+        @sprite.oy = @fh - 6
+      end
       @last = [fighter.x, fighter.y]
       @frame_t = 0.0
       @frame = 0
       @appear = 0.0
+      @anim = nil
+      @action = nil      # animação de golpe em andamento ("Attack"/"Shoot")
+      @action_t = 0.0
     end
 
     def update(dt)
       f = @fighter
       moving = (f.x - @last[0]).abs > 0.1 || (f.y - @last[1]).abs > 0.1
       @last = [f.x, f.y]
+      @pmd ? update_pmd(f, moving, dt) : update_follower(f, moving, dt)
+      sx, sy = RTB.screen_xy(f.x, f.y)
+      @sprite.x = sx; @sprite.y = sy
+      @shadow.x = sx; @shadow.y = sy + (@pmd ? 4 : 0)
+      @sprite.z = sy.to_i + 2
+      @shadow.z = sy.to_i
+      @appear += dt
+      @sprite.visible = !f.hidden
+      @shadow.visible = !f.hidden && !f.fainted?
+      @sprite.opacity = f.fainted? ? [@sprite.opacity - 12, 0].max : [(@appear / 0.3 * 255).to_i, 255].min
+      @sprite.opacity = 140 if f.invuln > 0 && f.dodge
+      @sprite.color =
+        if f.flash > 0 then Color.new(255, 255, 255, 200)
+        elsif f.status == :PARALYSIS then Color.new(248, 208, 48, 60)
+        elsif f.status == :BURN then Color.new(240, 96, 48, 60)
+        elsif f.status == :POISON then Color.new(160, 64, 160, 70)
+        elsif f.status == :FROZEN then Color.new(152, 216, 248, 140)
+        elsif f.status == :SLEEP then Color.new(40, 40, 80, 80)
+        else Color.new(0, 0, 0, 0)
+        end
+      @sprite.tone = (f.lock > 0 && f.pending) ? Tone.new(40, 40, 40) : Tone.new(0, 0, 0)
+    end
+
+    def update_follower(f, moving, dt)
       @frame_t += dt
       if moving && @frame_t > 0.12
         @frame = (@frame + 1) % 4; @frame_t = 0
@@ -114,37 +177,50 @@ module RTB
               f.fx < 0 ? 1 : 2
             end
       @sprite.src_rect.set(@frame * @fw, row * @fh, @fw, @fh)
-      sx, sy = RTB.screen_xy(f.x, f.y)
-      @sprite.x = sx; @sprite.y = sy
-      @shadow.x = sx; @shadow.y = sy
-      @sprite.z = sy.to_i + 2
-      @shadow.z = sy.to_i
-      @appear += dt
-      vis = !f.hidden && !(f.fainted? && f.anim_t > 0)
-      @sprite.visible = !f.hidden
-      @shadow.visible = !f.hidden
-      @sprite.opacity = f.fainted? ? [@sprite.opacity - 12, 0].max : [(@appear / 0.3 * 255).to_i, 255].min
-      @sprite.opacity = 140 if vis && f.invuln > 0 && f.dodge
-      if f.flash > 0
-        @sprite.color = Color.new(255, 255, 255, 200)
-      elsif f.status == :PARALYSIS
-        @sprite.color = Color.new(248, 208, 48, 60)
-      elsif f.status == :BURN
-        @sprite.color = Color.new(240, 96, 48, 60)
-      elsif f.status == :POISON
-        @sprite.color = Color.new(160, 64, 160, 70)
-      elsif f.status == :FROZEN
-        @sprite.color = Color.new(152, 216, 248, 140)
-      elsif f.status == :SLEEP
-        @sprite.color = Color.new(40, 40, 80, 80)
-      else
-        @sprite.color = Color.new(0, 0, 0, 0)
+    end
+
+    def update_pmd(f, moving, dt)
+      # Começa a animação de golpe quando ele é preparado
+      if f.pending && !@action
+        kind = f.pending[0].kind
+        @action = [:melee, :dash].include?(kind) ? "Attack" : "Shoot"
+        @action = "Attack" unless @pmd[@action]
+        @action_t = 0.0
       end
-      if f.lock > 0 && f.pending
-        @sprite.tone = Tone.new(40, 40, 40)
-      else
-        @sprite.tone = Tone.new(0, 0, 0)
+      name =
+        if f.fainted? || f.flash > 0 then "Hurt"
+        elsif @action then @action
+        elsif moving || f.dash || f.dodge then "Walk"
+        else "Idle"
+        end
+      name = "Walk" unless @pmd[name]
+      a = @pmd[name]
+      if name != @anim
+        @anim = name; @frame = 0; @frame_t = 0.0
       end
+      total = a[:durs].sum / 60.0
+      @frame_t += dt
+      if @action && name == @action
+        @action_t += dt
+        @action = nil if @action_t >= total && !f.pending
+      end
+      t = name == "Hurt" && f.fainted? ? total - 0.001 : @frame_t % total
+      acc = 0.0
+      @frame = a[:durs].length - 1
+      a[:durs].each_with_index do |d, i|
+        acc += d / 60.0
+        if t < acc
+          @frame = i
+          break
+        end
+      end
+      @frame = 0 if name == "Walk" && !moving && !f.dash && !f.dodge
+      @sprite.bitmap = a[:bitmap]
+      row = RTB.pmd_row(f.fx, f.fy)
+      row = 0 if a[:bitmap].height < (row + 1) * a[:h]   # folhas de uma direção só
+      @sprite.src_rect.set(@frame * a[:w], row * a[:h], a[:w], a[:h])
+      @sprite.ox = a[:w] / 2
+      @sprite.oy = a[:h] / 2 + 6
     end
 
     def dispose
