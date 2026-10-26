@@ -531,8 +531,9 @@ module RTB
                else 120
                end
       mx = 0.0; my = 0.0
-      if d > want_d + 18
-        mx, my = ux, uy
+      blocked = !line_clear?(f.x, f.y, foe.x, foe.y)
+      if blocked || d > want_d + 18
+        mx, my = blocked ? path_dir(f, foe, ux, uy) : [ux, uy]
       elsif d < want_d - 25
         mx, my = -ux, -uy
       else
@@ -589,6 +590,52 @@ module RTB
         end
       end
       best
+    end
+
+    # Há linha livre entre os dois pontos? (amostra a cada 8 px)
+    def line_clear?(x1, y1, x2, y2)
+      n = (Math.hypot(x2 - x1, y2 - y1) / 8).ceil
+      (1...n).all? do |i|
+        t = i.to_f / n
+        @walkable.call(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t)
+      end
+    end
+
+    # Direção do próximo passo pelo caminho mais curto em tiles (BFS), refeito a cada 0,4 s.
+    def path_dir(f, foe, ux, uy)
+      ai = f.ai
+      if !ai[:path_t] || ai[:path_t] <= @time
+        ai[:path_t] = @time + 0.4
+        ai[:path] = bfs_next(f.x, f.y, foe.x, foe.y)
+      end
+      nxt = ai[:path]
+      return [ux, uy] unless nxt
+      norm(nxt[0] * 32 + 16 - f.x, nxt[1] * 32 + 16 - f.y)
+    end
+
+    def bfs_next(x1, y1, x2, y2)
+      start = [(x1 / 32).floor, (y1 / 32).floor]
+      goal = [(x2 / 32).floor, (y2 / 32).floor]
+      return nil if start == goal
+      tx0 = (@arena[0] / 32); ty0 = (@arena[1] / 32)
+      tx1 = (@arena[2] / 32); ty1 = (@arena[3] / 32)
+      prev = { start => nil }
+      queue = [start]
+      until queue.empty?
+        cur = queue.shift
+        break if cur == goal
+        [[1, 0], [-1, 0], [0, 1], [0, -1]].each do |dx, dy|
+          n = [cur[0] + dx, cur[1] + dy]
+          next if prev.key?(n) || n[0] < tx0 || n[0] > tx1 || n[1] < ty0 || n[1] > ty1
+          next unless n == goal || @walkable.call(n[0] * 32 + 16, n[1] * 32 + 16)
+          prev[n] = cur
+          queue.push(n)
+        end
+      end
+      return nil unless prev.key?(goal)
+      step = goal
+      step = prev[step] while prev[step] && prev[step] != start
+      step
     end
 
     #--------------------------------------------------------------------------
