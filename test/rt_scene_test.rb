@@ -191,6 +191,8 @@ def setup_world(party, balls)
   Graphics.frames = 0
   Input.frame = 0
   $messages = []
+  RTB.rng_override = Random.new(42)
+  srand(42)
 end
 
 # Tecla de direção que leva o Pokémon do jogador até o inimigo.

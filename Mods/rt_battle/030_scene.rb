@@ -26,6 +26,11 @@ module RTB
 
   BALLS = { POKEBALL: 1.0, GREATBALL: 1.5, ULTRABALL: 2.0, PREMIERBALL: 1.0 }
 
+  # Gerador de números da batalha. Os testes fixam uma semente aqui.
+  class << self
+    attr_accessor :rng_override
+  end
+
   module_function
 
   def key_press?(sym)
@@ -254,7 +259,8 @@ module RTB
       type_mult = lambda do |mtype, dtypes|
         Effectiveness.calculate(mtype, *dtypes[0, 3]).to_f / Effectiveness::NORMAL_EFFECTIVE
       end
-      @sim = Sim.new(arena: arena, walkable: walkable, type_mult: type_mult, ai_level: 0)
+      @sim = Sim.new(arena: arena, walkable: walkable, type_mult: type_mult, ai_level: 0,
+                     rng: RTB.rng_override || Random.new)
       # Posições iniciais: o Pokémon do jogador ao lado do treinador, o selvagem à frente
       px = $game_player.x * 32 + 16; py = $game_player.y * 32 + 16
       dx, dy = dir_vector($game_player.direction)
