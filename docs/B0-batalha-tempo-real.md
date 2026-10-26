@@ -1,7 +1,9 @@
 # B0 — Protótipo da batalha em tempo real
 
-Plano v0.5, seção 7 (decisões R1–R6). Este protótipo cobre **batalhas selvagens um contra um**.
-Treinadores, duplas, Safari, Concurso de Insetos, batalhas na água e o Grandeur Club continuam por turno.
+Plano v0.5, seção 7 (decisões R1–R6). Este protótipo cobre **batalhas selvagens um contra um** e, como opção, **batalhas contra um treinador**.
+Continuam por turno: duplas e triplas, batalhas com parceiro, Safari, Concurso de Insetos, batalhas
+surfando ou mergulhando, Max Raids, Grandeur Club e qualquer batalha com regra especial (limite de itens,
+efeito de campo). Lendários de evento entram em tempo real e respeitam "não pode fugir".
 
 ## Como testar
 
@@ -19,7 +21,10 @@ Treinadores, duplas, Safari, Concurso de Insetos, batalhas na água e o Grandeur
 | Segurar Esc/X | Fugir |
 | Enter | Pausar / voltar |
 
-No menu **Opções** há "Batalha selvagem: Tempo real / Turnos" para voltar ao modo clássico.
+No menu **Opções**:
+
+- "Batalha selvagem: Tempo real / Turnos" (padrão: Tempo real);
+- "Batalha de treinador: Turnos / Tempo real" (padrão: Turnos, até você testar).
 
 ## O que conferir e me contar
 
