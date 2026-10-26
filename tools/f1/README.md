@@ -12,3 +12,9 @@ python3 tools/f1/kanto_encounters.py /tmp/frlg/wild.json > docs/F1-kanto-encontr
 python3 tools/f1/kanto_leaders.py /tmp/frlg/parties.h > docs/F1-kanto-lideres.md
 python3 tools/f1/kanto_maps.py /tmp/frlg/map_groups.json > docs/F1-kanto-mapas.md
 ```
+
+Encontros do FireRed prontos para a F3 (arquivo inativo até ser copiado para `Mods/data/`):
+
+```bash
+python3 tools/f1/gen_kanto_encounters.py /tmp/frlg/wild.json   # gera content/kanto_encounters_frlg.rb
+```
