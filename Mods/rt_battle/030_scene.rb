@@ -46,6 +46,18 @@ module RTB
     false
   end
 
+  def play_se(name)
+    pbSEPlay(name)
+  rescue StandardError
+    nil
+  end
+
+  def play_cry(pkmn, volume = 90)
+    GameData::Species.play_cry_from_pokemon(pkmn, volume)
+  rescue StandardError
+    nil
+  end
+
   def type_color(type, alpha = 255)
     c = TYPE_COLORS[type.to_s.to_sym] || [255, 255, 255]
     Color.new(c[0], c[1], c[2], alpha)
@@ -463,6 +475,7 @@ module RTB
 
     def intro
       $game_screen.start_flash(Color.new(255, 255, 255, 180), 8) rescue nil
+      RTB.play_cry(@foe_pkmn)
       if @trainer
         float_text(@enemy, _INTL("{1} quer lutar!", @trainer.full_name), Color.new(255, 255, 255), 1.4)
         float_text(@enemy, _INTL("{1} mandou {2}!", @trainer.name, @foe_pkmn.name), Color.new(255, 220, 220), 1.4)
@@ -515,7 +528,7 @@ module RTB
         float_text(@mine, msg, Color.new(255, 160, 160), 0.9)
         return
       end
-      pbSEPlay("Battle flee")
+      RTB.play_se("Battle flee")
       float_text(@mine, _INTL("Fugiu em segurança!"), Color.new(255, 255, 255), 0.8)
       finish(3, 0.6)
     end
@@ -545,6 +558,7 @@ module RTB
       @sprites.push(FighterSprite.new(new_f, @viewport))
       @mine = new_f
       float_text(new_f, text, Color.new(255, 255, 160), 1.0)
+      RTB.play_cry(new_f.pkmn)
       @hud_tick = 0
     end
 
@@ -568,6 +582,7 @@ module RTB
       ball_sprite = Sprite.new(@viewport)
       ball_sprite.bitmap = RTB.circle_bitmap(5, Color.new(230, 40, 40))
       ball_sprite.ox = 5; ball_sprite.oy = 5; ball_sprite.z = 9999
+      RTB.play_se("Battle throw")
       sx = $game_player.x * 32 + 16; sy = $game_player.y * 32
       frames = (Graphics.frame_rate * 0.45).to_i
       frames.times do |i|
@@ -580,17 +595,18 @@ module RTB
       end
       @enemy.hidden = true
       update_visuals(0)
-      pbSEPlay("Battle recall")
+      RTB.play_se("Battle ball hit")
+      RTB.play_se("Battle recall")
       [shakes, 3].min.times do
         (Graphics.frame_rate / 2).times do |i|
           ball_sprite.angle = Math.sin(i * 0.6) * 25
           Graphics.update; Input.update; pbUpdateSceneMap
         end
-        pbSEPlay("Battle ball shake")
+        RTB.play_se("Battle ball shake")
       end
       ball_sprite.dispose
       if shakes >= 4
-        pbSEPlay("Battle catch click")
+        RTB.play_se("Battle catch click")
         @caught = ball
         float_text(@enemy, _INTL("Gotcha! {1} foi capturado!", @foe_pkmn.name), Color.new(255, 255, 160), 1.6)
         finish(4, 1.4)
@@ -634,13 +650,14 @@ module RTB
           dmg, mult, crit = ev[2], ev[3], ev[4]
           col = mult > 1 ? Color.new(255, 220, 80) : (mult < 1 ? Color.new(180, 180, 180) : Color.new(255, 255, 255))
           float_text(f, crit ? "#{dmg}!" : dmg.to_s, col, 0.6)
+          RTB.play_se(mult > 1 ? "Battle damage super" : (mult < 1 ? "Battle damage weak" : "Battle damage normal"))
           float_text(f, _INTL("É super efetivo!"), col, 0.9) if mult > 1 && f.side == 1 && dmg > 0
           @hud_tick = 0
         when :heal
           float_text(f, "+#{ev[2]}", Color.new(120, 255, 120), 0.7); @hud_tick = 0
         when :faint
           float_text(f, _INTL("{1} desmaiou!", f.name), Color.new(255, 140, 140), 1.2)
-          pbSEPlay("Battle damage weak") rescue nil
+          RTB.play_cry(f.pkmn, 70)
           @hud_tick = 0
         when :status
           float_text(f, "#{f.name} #{STATUS_NAMES[ev[2]] || ev[2]}!", Color.new(255, 200, 120), 1.0)
@@ -885,6 +902,7 @@ module RTB
       @enemy.fx, @enemy.fy = norm_dir(@mine.x - @foe_at[0], @mine.y - @foe_at[1])
       @enemy.lock = 0.5
       @sprites.push(FighterSprite.new(@enemy, @viewport))
+      RTB.play_cry(pkmn)
       @participants = [$Trainer.party.index(@mine.pkmn)].compact
       float_text(@enemy, _INTL("{1} mandou {2}!", @trainer.name, pkmn.name), Color.new(255, 220, 220), 1.2)
       @hud_tick = 0
