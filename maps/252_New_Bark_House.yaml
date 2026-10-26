@@ -1,0 +1,71 @@
+---
+id: 252
+name: New Bark House
+parent: 251
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 251
+      - 24
+      - 15
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 4
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 28
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThere are all kinds of different experience in Johto."
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe sure to enjoy them all."
+    - i: 0
+      code: 0
+      p: []

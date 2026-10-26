@@ -1,0 +1,994 @@
+---
+id: 822
+name: Reflection Cave
+parent: 821
+width: 71
+height: 70
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Exit south
+  x: 11
+  "y": 63
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 821
+      - 28
+      - 12
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:MOONSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 12
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:NESTBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 33
+  "y": 57
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SABLENITE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Item
+  x: 37
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:BLACKBELT)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 47
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:IRON)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(4)
+  x: 11
+  "y": 35
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bAre you lost yet?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Lane")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI was just trying to help."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(4)
+  x: 43
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bAre you going to Geosenge Town?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Dunstan")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's all about the journey, not the destination."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(2)
+  x: 48
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWoah! You scared me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Monique")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm glad it isn't pitch black in here."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(2)
+  x: 35
+  "y": 52
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHiya!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Hedvig")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWoah woah woah."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(2)
+  x: 38
+  "y": 53
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHoh!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Igor")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI was shameful."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(2)
+  x: 28
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PICNICKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHelp me... please."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PICNICKER,"Monami")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy leg is broken and I can't walk. Please find help "
+    - i: 0
+      code: 401
+      p:
+      - and come back.
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(4)
+  x: 30
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: NPC 74
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bCare if I take a photo?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Trevor,"Trevor")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 74
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm going to meet every Pokémon in the Pokédex."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(2)
+  x: 46
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CAMPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm so excited."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CAMPER,"Yuu")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm about to lose control."
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(2)
+  x: 48
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PICNICKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rOne way or another."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PICNICKER,"Ami")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm gonna get ya."
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Trainer(2)
+  x: 52
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou don't stand a chance."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Emil")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI never lose. How did you do that?"
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Trainer(3)
+  x: 29
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: NPC 77
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bAre you here to see my dancing skills?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Tierno,"Tierno")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 77
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThere are a lot of strategies you can do with "
+    - i: 0
+      code: 401
+      p:
+      - dancing. You should try them.
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Exit south
+  x: 57
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 823
+      - 60
+      - 56
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Xerneas
+  x: 17
+  "y": 55
+  pages:
+  - condition: {}
+    graphic: XERNEAS_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 716Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Kalos
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:XERNEAS,30)
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Trainer(4)
+  x: 26
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: NPC 73
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHi there! It is so so nice to meet you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Shauna,"Shauna")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 73
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm a Performer. It is only for girls."
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,593 @@
+---
+id: 444
+name: Izabe House
+parent: 443
+width: 40
+height: 65
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 443
+      - 46
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 6
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis island isn't on most maps."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 22
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBe careful in the forest. There are Trainers in there."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 2
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar040
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis place can get pretty rough. We live a hard life."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 7
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe just moved here. It seems like a nice place so "
+    - i: 0
+      code: 401
+      p:
+      - far.
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is a relic from the past. I hope you get as much "
+    - i: 0
+      code: 401
+      p:
+      - joy from it as I once did.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM107)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe just moved here. It seems like a nice place so "
+    - i: 0
+      code: 401
+      p:
+      - far.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trader - Basic
+  x: 22
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm looking for a Magneton."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to trade it for my Togetic?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :MAGNETON"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOK, let's do this."
+    - i: 2
+      code: 355
+      p:
+      - pbStartTrade(pbGet(1),
+    - i: 2
+      code: 655
+      p:
+      - ' :TOGETIC,_I("Togetic"),_I("Barry")'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Magneton for Togetic!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBest trade ever."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 1
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDid you find any rare Pokémon? This island has "
+    - i: 0
+      code: 401
+      p:
+      - quite a few of them.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 8
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: trchar039
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI caught a Mawile! I've been trying for ages."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Person
+  x: 6
+  "y": 57
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOur ferry system is used often. Some people "
+    - i: 0
+      code: 401
+      p:
+      - spend all day off the island.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 443
+      - 62
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Exit
+  x: 3
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 443
+      - 28
+      - 84
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Exit
+  x: 22
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 443
+      - 41
+      - 77
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 3
+  "y": 45
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 443
+      - 101
+      - 79
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Exit
+  x: 23
+  "y": 45
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 443
+      - 113
+      - 64
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Exit
+  x: 3
+  "y": 61
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 443
+      - 117
+      - 75
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

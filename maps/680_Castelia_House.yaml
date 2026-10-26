@@ -1,0 +1,281 @@
+---
+id: 680
+name: Castelia House
+parent: 678
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 8
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 677
+      - 70
+      - 78
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Pokemon
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: VENIPEDE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 543Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:VENIPEDE,15)
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 219
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Team Rocket
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 247
+      p: []
+    - i: 0
+      code: 241
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Team Rocket OW Unova
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: These things are out of control! Who would "
+    - i: 0
+      code: 401
+      p:
+      - have thought it would have this kind of side effect?
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: Maybe a loud noise will get rid of them?"
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: The mission is our priority, worry about the "
+    - i: 0
+      code: 401
+      p:
+      - Venipede later.
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Looks like another problem came up!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET,"Jessie and James",nil,false,20,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 219
+      - 219
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - Team Rocket blasting off scared off the Venipede.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 248
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Team Rocket
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar072
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 11
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: VENIPEDE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 543Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:VENIPEDE,15)
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 219
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Team Rocket
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

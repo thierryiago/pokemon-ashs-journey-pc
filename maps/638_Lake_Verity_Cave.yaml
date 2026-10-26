@@ -1,0 +1,95 @@
+---
+id: 638
+name: Lake Verity Cave
+parent: 512
+width: 30
+height: 25
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Exit south
+  x: 13
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 512
+      - 28
+      - 15
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Encouter Pokemon
+  x: 13
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: MESPRIT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 481Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Sinnoh
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:MESPRIT,50)
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

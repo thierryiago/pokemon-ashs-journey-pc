@@ -1,0 +1,384 @@
+---
+id: 11
+name: Pokémon Institute
+parent: 7
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 7
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 7
+      - 35
+      - 28
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Fossil reviver
+  x: 10
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 2
+      - B
+      - 1
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh, hello. I'm a scientist."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI can turn fossils into living, breathing Pokémon!"
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bAiyah! You come again!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbChooseItemFromList(
+    - i: 0
+      code: 655
+      p:
+      - _I("<c2=6546675A>Do you have a fossil for me to revive?"),9,
+    - i: 0
+      code: 655
+      p:
+      - ":HELIXFOSSIL,:DOMEFOSSIL,:OLDAMBER,"
+    - i: 0
+      code: 655
+      p:
+      - ":ROOTFOSSIL,:CLAWFOSSIL,"
+    - i: 0
+      code: 655
+      p:
+      - ":SKULLFOSSIL,:ARMORFOSSIL,"
+    - i: 0
+      code: 655
+      p:
+      - ":COVERFOSSIL,:PLUMEFOSSIL)"
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 9
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 108
+      p:
+      - Player cancelled choosing a fossil.
+    - i: 1
+      code: 101
+      p:
+      - "\\bLet me know when you want me to revive a "
+    - i: 1
+      code: 401
+      p:
+      - fossil for you.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 9
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 108
+      p:
+      - Player has no fossils.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 108
+      p:
+      - Player chose a fossil.
+    - i: 2
+      code: 355
+      p:
+      - "$PokemonBag.pbDeleteItem(pbGet(9))"
+    - i: 2
+      code: 355
+      p:
+      - "$game_variables[3]=PBItems.getName(pbGet(9))"
+    - i: 2
+      code: 101
+      p:
+      - "\\bOkay. I'll see if I can revive your \\v[3]."
+    - i: 2
+      code: 101
+      p:
+      - "\\bCome back later."
+    - i: 2
+      code: 108
+      p:
+      - Convert fossil into species now.
+    - i: 2
+      code: 355
+      p:
+      - pbConvertItemToPokemon(9,[
+    - i: 2
+      code: 655
+      p:
+      - ":HELIXFOSSIL,:OMANYTE,"
+    - i: 2
+      code: 655
+      p:
+      - ":DOMEFOSSIL,:KABUTO,"
+    - i: 2
+      code: 655
+      p:
+      - ":OLDAMBER,:AERODACTYL,"
+    - i: 2
+      code: 655
+      p:
+      - ":ROOTFOSSIL,:LILEEP,"
+    - i: 2
+      code: 655
+      p:
+      - ":CLAWFOSSIL,:ANORITH,"
+    - i: 2
+      code: 655
+      p:
+      - ":SKULLFOSSIL,:CRANIDOS,"
+    - i: 2
+      code: 655
+      p:
+      - ":ARMORFOSSIL,:SHIELDON,"
+    - i: 2
+      code: 655
+      p:
+      - ":COVERFOSSIL,:TIRTOUGA,"
+    - i: 2
+      code: 655
+      p:
+      - ":PLUMEFOSSIL,:ARCHEN])"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 121
+      p:
+      - 13
+      - 13
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 9
+      - 0
+      - 0
+      - 3
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhere have you been?  I've finished reviving your"
+    - i: 1
+      code: 401
+      p:
+      - fossil.
+    - i: 1
+      code: 355
+      p:
+      - "$game_variables[3]=PBSpecies.getName(pbGet(9))"
+    - i: 1
+      code: 101
+      p:
+      - "\\bIt was \\v[3] like I thought."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbAddToParty(pbGet(9),1)
+    - i: 2
+      code: 122
+      p:
+      - 9
+      - 9
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou have no room left.  Make room, then come see "
+    - i: 2
+      code: 401
+      p:
+      - me.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bI managed to revive your fossil."
+    - i: 1
+      code: 101
+      p:
+      - "\\bHowever, what I brought back didn't live long...\\1 "
+    - i: 1
+      code: 401
+      p:
+      - fortunately.
+    - i: 1
+      code: 101
+      p:
+      - "\\bSorry."
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 13
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI told you, come back later."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: PC
+  x: 1
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 0
+      p: []

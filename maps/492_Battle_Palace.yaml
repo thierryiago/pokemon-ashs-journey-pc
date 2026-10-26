@@ -1,0 +1,266 @@
+---
+id: 492
+name: Battle Palace
+parent: 491
+width: 30
+height: 30
+tileset: 3
+bgm: Hall of Fame
+events:
+- id: 1
+  name: Heal
+  x: 8
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbSetPokemonCenter
+    - i: 0
+      code: 101
+      p:
+      - "\\rNurse Joy: You should take a break."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 1
+    graphic: NPC 16
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFirst, you should restore your Pokémon to full "
+    - i: 0
+      code: 401
+      p:
+      - health.
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 1
+      - 1
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 11
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is too much for me. I never thought I would "
+    - i: 0
+      code: 401
+      p:
+      - have to participate.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: PC
+  x: 20
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 14
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 491
+      - 35
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 16
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wonder if I should sneak around back and train "
+    - i: 0
+      code: 401
+      p:
+      - there?
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Cop
+  x: 21
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThrough here you battle Spenser. Are you ready?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 493
+      - 8
+      - 17
+      - 6
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 143
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou have already beat Spenser."
+    - i: 0
+      code: 0
+      p: []

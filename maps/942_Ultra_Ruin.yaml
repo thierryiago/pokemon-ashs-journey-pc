@@ -1,0 +1,373 @@
+---
+id: 942
+name: Ultra Ruin
+parent: 889
+width: 30
+height: 30
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Gate
+  x: 16
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 889
+      - 32
+      - 13
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(1)
+  x: 13
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat the? How did you get here?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Dia")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSo a Tapu Koko brought you to my world. It must "
+    - i: 0
+      code: 401
+      p:
+      - 'have been from an overlap from the electrical energy '
+    - i: 0
+      code: 401
+      p:
+      - 'between your Tapu and mine. '
+    - i: 0
+      code: 101
+      p:
+      - "\\bThere's a Guzzlord that's been terrorizing the area. "
+    - i: 0
+      code: 401
+      p:
+      - 'If you can defeat it, it just might encourage Tapu Koko '
+    - i: 0
+      code: 401
+      p:
+      - to send you back.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHuh. Why did you come back?"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Guzzlord
+  x: 12
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: GUZZLORD
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 799Cry
+        pitch: 100
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Ultra Beast
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:GUZZLORD,45)
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 889
+      - 32
+      - 27
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 121
+      p:
+      - 385
+      - 385
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 296
+      - 296
+      - 1
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 595
+    graphic: GUZZLORD
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 799Cry
+        pitch: 100
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Ultra Beast
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:GUZZLORD,45)
+    - i: 0
+      code: 121
+      p:
+      - 595
+      - 595
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Gate
+  x: 17
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 889
+      - 33
+      - 13
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Gate
+  x: 16
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Gate
+  x: 17
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Gate
+  x: 16
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Gate
+  x: 17
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

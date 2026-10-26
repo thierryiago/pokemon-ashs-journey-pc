@@ -1,0 +1,283 @@
+---
+id: 182
+name: Route 19 House
+parent: 181
+width: 30
+height: 18
+tileset: 14
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 181
+      - 55
+      - 8
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Pokemon
+  x: 5
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: TOGEPI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 175Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rToge! Togepi!"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Team Rocket
+  x: 6
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar072
+    trigger: 3
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 247
+      p: []
+    - i: 0
+      code: 241
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Team Rocket OW Kanto
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: We're the ones who will get that rare "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: That's right! I'll raise it as if it were my "
+    - i: 0
+      code: 401
+      p:
+      - own.
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Will you two shut up and grab it!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET,"Jessie and James",nil,false,3,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 248
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Team Rocket
+  x: 5
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Misty
+  x: 5
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONTRAINER_Misty)
+    - i: 0
+      code: 101
+      p:
+      - " \\rMisty: Don't think I'm just going to let you have this "
+    - i: 0
+      code: 401
+      p:
+      - adorable Pokémon without a fight.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Misty,"Misty")
+    - i: 1
+      code: 121
+      p:
+      - 49
+      - 49
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: It looks like Togepi choose me as"
+    - i: 0
+      code: 401
+      p:
+      - its Trainer. Sorry \PN.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Team Rocket
+  x: 4
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

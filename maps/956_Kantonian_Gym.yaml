@@ -1,0 +1,644 @@
+---
+id: 956
+name: Kantonian Gym
+parent: 954
+width: 20
+height: 35
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Trainer(3)
+  x: 2
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 402'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rPrepare, newcomer."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Adrian")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so ashamed."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 402
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so ashamed."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Koga
+  x: 7
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar203
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Ryuki)
+    - i: 0
+      code: 101
+      p:
+      - "\\bRyuki: YO! Welcome to my gym. You wouldn't "
+    - i: 0
+      code: 401
+      p:
+      - believe it, but we based it off of the gyms in Kanto.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWait... you're from Kanto? And not every gym is like "
+    - i: 0
+      code: 401
+      p:
+      - this? No matter, we still-
+    - i: 0
+      code: 101
+      p:
+      - "\\bAnd they all specialize in only one type, not "
+    - i: 0
+      code: 401
+      p:
+      - 'many? Quiet! I''ll show you I''m just as good as the '
+    - i: 0
+      code: 401
+      p:
+      - gyms you're used to. Let us begin, my babies!
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Ryuki,"Ryuki")
+    - i: 1
+      code: 101
+      p:
+      - "\\bRyuki: Woah! You're amazing! Take this reward."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:KANTONIANBADGE)
+    - i: 2
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 2
+      code: 355
+      p:
+      - pbReceiveItem(:TM131)
+    - i: 2
+      code: 101
+      p:
+      - "\\bTM131 contains Dragon Rush. It has a chance to "
+    - i: 2
+      code: 401
+      p:
+      - make your opponent flinch.
+    - i: 2
+      code: 121
+      p:
+      - 402
+      - 402
+      - 0
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 108
+      p:
+      - Set the partner event's Self Switch "A" on.
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(50,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar203
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRyuki: My babies won't lose to you next time!"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(2)
+  x: 12
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 402'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rLet's do this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Shirataki")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou seem like you know what you're doing."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 402
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou seem like you know what you're doing."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(2)
+  x: 2
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 402'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rNinja strike."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Dallas")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNinja lost."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 402
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNinja lost."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(2)
+  x: 5
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 402'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet us begin."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Darley")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wasn't expecting this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 402
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wasn't expecting this."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(3)
+  x: 0
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 402'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThink you're ready?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Farley")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou are very strong."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 402
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou are very strong."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(2)
+  x: 11
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 402'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHa! You thought I was just going to let you walk by?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Charlie")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis Gym isn't normal?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 402
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis Gym isn't normal?"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 7
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 953
+      - 31
+      - 21
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Gym Guy
+  x: 9
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRyuki uses Dragon type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Dragon, Ice, and Fairy types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Dragon. They are "
+    - i: 0
+      code: 401
+      p:
+      - resistant to Electric, Fire, Grass, and Water.
+    - i: 0
+      code: 0
+      p: []

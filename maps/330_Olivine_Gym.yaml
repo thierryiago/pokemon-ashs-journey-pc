@@ -1,0 +1,337 @@
+---
+id: 330
+name: Olivine Gym
+parent: 309
+width: 20
+height: 25
+tileset: 1
+bgm: gym
+events:
+- id: 1
+  name: Exit
+  x: 11
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 308
+      - 16
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Jasmine
+  x: 11
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar086
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Jasmine)
+    - i: 0
+      code: 101
+      p:
+      - "\\rJasmine: I would like to thank you again for getting "
+    - i: 0
+      code: 401
+      p:
+      - the medicine.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI know you have waited a long time for me, so let's "
+    - i: 0
+      code: 401
+      p:
+      - not waste any time.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Jasmine,"Jasmine")
+    - i: 1
+      code: 101
+      p:
+      - "\\rJasmine: You've earned the Mineral Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:MINERALBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[13]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM91)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM91 contains Flash Cannon. A powerful "
+    - i: 1
+      code: 401
+      p:
+      - Steel type move that can lower Special Defense.
+    - i: 1
+      code: 121
+      p:
+      - 88
+      - 88
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar086
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJasmine: Please visit Amphy whenever you feel like "
+    - i: 0
+      code: 401
+      p:
+      - it. He is very grateful for what you did.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(3)
+  x: 10
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 88'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm the Gym Leader. Are you ready?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Janina")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'll be a Gym Leader one day."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 88
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'll be a Gym Leader one day."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(3)
+  x: 12
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 88'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis should be fun."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Coco")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're strong."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 88
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're strong."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Gym Guy
+  x: 12
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJasmine uses Steel type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against Fighting, Fire, and Ground types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Ice, Rock, and Fairy. They "
+    - i: 0
+      code: 401
+      p:
+      - 'resist Bug, Dragon, Flying, Grass, Ice, Normal, '
+    - i: 0
+      code: 401
+      p:
+      - Psychic, Rock, and Steel. They are immune to Poison.
+    - i: 0
+      code: 0
+      p: []

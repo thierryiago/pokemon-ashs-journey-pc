@@ -1,0 +1,1250 @@
+---
+id: 834
+name: Route 14
+parent: 789
+width: 60
+height: 82
+tileset: 1
+bgm: Kalos Route
+events:
+- id: 1
+  name: Day Care
+  x: 27
+  "y": 69
+  pages:
+  - condition: {}
+    graphic: NPC 07
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbDayCareDeposited == 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bKeanan: Hello there. Would you like me to train one "
+    - i: 1
+      code: 401
+      p:
+      - of your Pokémon?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemonCount <= 1"
+    - i: 3
+      code: 101
+      p:
+      - "\\bOh?  But you only have one with you."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich Pokémon would you like me to raise?"
+    - i: 2
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1, 3)
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 101
+      p:
+      - "\\bVery well."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "!pbCheckAble(pbGet(1))"
+    - i: 3
+      code: 101
+      p:
+      - "\\bIf you leave me that Pokémon, what are you going "
+    - i: 3
+      code: 401
+      p:
+      - to battle with?
+    - i: 3
+      code: 101
+      p:
+      - "\\bCome back when you have enough to make it out "
+    - i: 3
+      code: 401
+      p:
+      - there.
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 355
+      p:
+      - pbDayCareDeposit(pbGet(1))
+    - i: 2
+      code: 101
+      p:
+      - "\\bI'll raise your \\v[3] for a while."
+    - i: 2
+      code: 118
+      p:
+      - RaiseAnother
+    - i: 2
+      code: 101
+      p:
+      - "\\bI can raise two of your Pokémon. Would you like "
+    - i: 2
+      code: 401
+      p:
+      - me to raise another?
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemonCount <= 1"
+    - i: 4
+      code: 101
+      p:
+      - "\\bOh?  But you only have one Pokémon with you."
+    - i: 4
+      code: 101
+      p:
+      - "\\bYou can't go off without a Pokémon. Come back "
+    - i: 4
+      code: 401
+      p:
+      - another time.
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\bWhich Pokémon should I raise for you?"
+    - i: 3
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1, 3)
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 4
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "!pbCheckAble(pbGet(1))"
+    - i: 4
+      code: 101
+      p:
+      - "\\bIf you leave me that Pokémon, what are"
+    - i: 4
+      code: 401
+      p:
+      - you gonna battle with?
+    - i: 4
+      code: 101
+      p:
+      - "\\bCome back with some common sense."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareDeposit(pbGet(1))
+    - i: 3
+      code: 101
+      p:
+      - "\\bFine, I'll raise your \\v[3] for a while."
+    - i: 3
+      code: 101
+      p:
+      - "\\bCome back for it later."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 111
+      p:
+      - 2
+      - A
+      - 0
+    - i: 4
+      code: 119
+      p:
+      - TakeBack
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bVery well."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bHey \\PN. How's it going? Your Pokémon got "
+    - i: 1
+      code: 401
+      p:
+      - stronger.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbDayCareGetLevelGain(0,3,4) && $game_variables[4]>0
+    - i: 2
+      code: 101
+      p:
+      - "\\bBy level, your \\v[3] has grown by about \\v[4]."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbDayCareGetLevelGain(1,3,4) && $game_variables[4]>0
+    - i: 2
+      code: 101
+      p:
+      - "\\bBy level, your \\v[3] has grown by about \\v[4]."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbDayCareDeposited == 1
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 119
+      p:
+      - RaiseAnother
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 118
+      p:
+      - TakeBack
+    - i: 2
+      code: 101
+      p:
+      - "\\bDo you want your Pokémon back?"
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 118
+      p:
+      - TakeBackChosen
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "$Trainer.party.length>=6"
+    - i: 4
+      code: 101
+      p:
+      - "\\bYour Pokémon team is full. Make room, then come "
+    - i: 4
+      code: 401
+      p:
+      - see me.
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareChoose(
+    - i: 3
+      code: 655
+      p:
+      - '  _I("Which one do you want back?"),1)'
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 4
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareGetDeposited(pbGet(1), 3, 4)
+    - i: 3
+      code: 101
+      p:
+      - "\\G\\bIf you want your \\v[3] back, it will cost $\\v[4]."
+    - i: 3
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 3
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 4
+      code: 122
+      p:
+      - 5
+      - 5
+      - 0
+      - 7
+      - 2
+    - i: 4
+      code: 111
+      p:
+      - 1
+      - 5
+      - 1
+      - 4
+      - 4
+    - i: 5
+      code: 101
+      p:
+      - "\\G\\bYou don't have enough money..."
+    - i: 5
+      code: 115
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 125
+      p:
+      - 1
+      - 1
+      - 4
+    - i: 4
+      code: 355
+      p:
+      - pbDayCareWithdraw(pbGet(1))
+    - i: 4
+      code: 101
+      p:
+      - "\\G\\bAwesome\\nHere's your Pokémon."
+    - i: 4
+      code: 101
+      p:
+      - "\\PN took \\v[3] back from Keanan."
+    - i: 4
+      code: 111
+      p:
+      - 12
+      - pbDayCareDeposited == 1
+    - i: 5
+      code: 101
+      p:
+      - "\\bDo you want to take back the other one, too?"
+    - i: 5
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 5
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 6
+      code: 119
+      p:
+      - TakeBackChosen
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 6
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 404
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 411
+      p: []
+    - i: 5
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 4
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 404
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Gate entrance, size(2,1)
+  x: 23
+  "y": 74
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 793
+      - 37
+      - 9
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: HiddenItem
+  x: 19
+  "y": 67
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SUPERPOTION)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Item
+  x: 16
+  "y": 45
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:RARECANDY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 44
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:CLEANSETAG)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 18
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:BANETTITE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Item
+  x: 37
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:DAMPROCK)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: HiddenItem
+  x: 30
+  "y": 56
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:REVIVE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(3)
+  x: 21
+  "y": 59
+  pages:
+  - condition: {}
+    graphic: trchar222
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSerena: \\PN! I've figured out what I want to do. I'm "
+    - i: 0
+      code: 401
+      p:
+      - 'going to be a Pokémon Performer. It''s not a traditional '
+    - i: 0
+      code: 401
+      p:
+      - path, but I think it will work out.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI see you already have half the badges. Why don't "
+    - i: 0
+      code: 401
+      p:
+      - 'you show me the power of someone who''s moving '
+    - i: 0
+      code: 401
+      p:
+      - along so well.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONPERFORMER_Serena,"Serena")
+    - i: 1
+      code: 101
+      p:
+      - "\\rI'm going to get even better \\PN. I'll make myself "
+    - i: 1
+      code: 401
+      p:
+      - someone you can look up to.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar222
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSerena: I can't wait to achieve my goal!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 254
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(3)
+  x: 20
+  "y": 47
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rNo one should be out here."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_F,"Melina")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe sure to stay safe. The swamp can cause a lot "
+    - i: 0
+      code: 401
+      p:
+      - of problems.
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(4)
+  x: 24
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWho goes there?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_F,"Imogen")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe careful. Sneaking up on someone is a bad idea."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(4)
+  x: 32
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhere are you going?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_M,"Reed")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow are you doing today?"
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(4)
+  x: 18
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bTrying to slip by were you?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_M,"Nash")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGoomy has been struggling as the weakest dragon "
+    - i: 0
+      code: 401
+      p:
+      - 'type. They''ve evolved to the point that it happens '
+    - i: 0
+      code: 401
+      p:
+      - earlier than it used to.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(4)
+  x: 21
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHANELLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe gone."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHANELLER,"Anina")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe careful. Someone is watching you."
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,572 @@
+---
+id: 718
+name: Mistralton Tower 3F
+parent: 716
+width: 25
+height: 25
+tileset: 13
+bgm: PkmRS-MtPyre
+events:
+- id: 1
+  name: Stairs up
+  x: 20
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - Followers.prevent_y_movement
+          code: 45
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 8
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - Followers.prevent_y_movement
+        code: 45
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 8
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 719
+      - 19
+      - 12
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Stairs down
+  x: 2
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 717
+      - 3
+      - 12
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(3)
+  x: 11
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat's up?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Micki")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI love the taste of defeat. I can learn from it."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(4)
+  x: 9
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rSigh."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_F,"Lin")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm just not feeling it, you know."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 10
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bTry and stop me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Bryce")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'll just be here I guess."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 15
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:HYPERPOTION)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(4)
+  x: 18
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI don't think you will win."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_F,"Sachiko")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're getting close to the top."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(4)
+  x: 10
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't underestimate me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_F,"Belle")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSome people climb the tower before challenging "
+    - i: 0
+      code: 401
+      p:
+      - Skyla. They think it will help them.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: block
+  x: 19
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,321 @@
+---
+id: 837
+name: Laverre Pokémon Fan Club
+parent: 836
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Pokemon
+  x: 4
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: SCEPTILE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 254Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rSceptile"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 4
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't touch my buddy."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're a Trainer aren't you?\\nCome see me when "
+    - i: 0
+      code: 401
+      p:
+      - you beat the Gym Leader of this town.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 254
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGood job on defeating her! Take this for your "
+    - i: 0
+      code: 401
+      p:
+      - efforts.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:BEEDRILLITE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThat should help your Beedrill out."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 7
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHmmph."
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy Heracross is so beautiful. I bet no one else "
+    - i: 0
+      code: 401
+      p:
+      - around has one better.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: HERACROSS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 214Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rHeracross"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 5
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello there.\\nWould you like to hear about my "
+    - i: 0
+      code: 401
+      p:
+      - Spritzee?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bWell let's see.. he is loyal."
+    - i: 1
+      code: 101
+      p:
+      - "\\bThank you for listening to that. You can have this; "
+    - i: 1
+      code: 401
+      p:
+      - it's no trouble. I am a bit too old to be using it.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SACREDASH)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bVery well then."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello \\PN!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bDid you come to hear about my Pokémon again?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bNo?\\nOh well."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 5
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 835
+      - 36
+      - 19
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Pokemon
+  x: 10
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: VIVILLON_19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 666Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rViv?"
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,816 @@
+---
+id: 608
+name: Celestic House
+parent: 607
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 607
+      - 10
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 3
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe Celestic Ruins have been here for ages. Few "
+    - i: 0
+      code: 401
+      p:
+      - people are allowed to enter.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokemon
+  x: 8
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: XATU
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 178Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bXatu!"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 4
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 607
+      - 15
+      - 38
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 26
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome. Have you seen the ruins in town here? "
+    - i: 0
+      code: 401
+      p:
+      - They tell the story of Dialga and Palkia.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 158
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 27
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Celestic Town Historical Research "
+    - i: 0
+      code: 401
+      p:
+      - Center. Feel free to look around.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 1
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 1
+    graphic: trchar019
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFirst, you should restore your Pokémon to full "
+    - i: 0
+      code: 401
+      p:
+      - health.
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 1
+      - 1
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 24
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 434
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can't believe they took the orb. What are we going "
+    - i: 0
+      code: 401
+      p:
+      - to do?
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Pokemon
+  x: 8
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: PSYDUCK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 054Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPsy?"
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Pokemon
+  x: 1
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: Pokemon 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: '008Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rWartortle!"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Pokemon
+  x: 10
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: AIPOM
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 190Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bAipom"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Pokemon
+  x: 7
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: CHIMCHAR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 390Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rChimchar"
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 28
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 607
+      - 35
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Item
+  x: 30
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFrom our research we have discover two orbs. "
+    - i: 0
+      code: 401
+      p:
+      - Show me Dialga and I will give you one.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.has_species?(:DIALGA)"
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh, you have one. Please take this."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:ADAMANTORB)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back anytime."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Adamant Orb boosts the power of Dialga's "
+    - i: 0
+      code: 401
+      p:
+      - STAB attacks.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Item
+  x: 31
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFrom our research we have discover two orbs. "
+    - i: 0
+      code: 401
+      p:
+      - Show me Palkia and I will give you one.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.has_species?(:PALKIA)"
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh, you have one. Please take this."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:LUSTROUSORB)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back anytime."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Lustrous Orb boosts the power of Palkia's "
+    - i: 0
+      code: 401
+      p:
+      - STAB attacks.
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Exit
+  x: 27
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 607
+      - 23
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: EV017
+  x: 32
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Trainer(6)
+  x: 25
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 185
+    graphic: trchar210
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC_Saturn)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bSaturn: Oh, you again? Don't think you'll stop us this "
+    - i: 0
+      code: 401
+      p:
+      - time.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC_Saturn,"Saturn")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar210
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSaturn: The Lustrous Orb is secured. Mars, let us "
+    - i: 0
+      code: 401
+      p:
+      - retreat.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 434
+      - 434
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 433
+      - 433
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 496
+      - 496
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Trainer(6)
+  x: 31
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 185
+    graphic: trchar211
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC_Mars)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rMars: Haha. You're too late."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC_Mars,"Mars")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar211
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 434
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: EV020
+  x: 34
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

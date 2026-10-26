@@ -1,0 +1,337 @@
+---
+id: 744
+name: Undella House
+parent: 743
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 743
+      - 25
+      - 9
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trader - Basic
+  x: 6
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm looking for a Cinccino."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to trade it for my Munchlax?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :CINCCINO"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOK, let's do this."
+    - i: 2
+      code: 355
+      p:
+      - pbStartTrade(pbGet(1),
+    - i: 2
+      code: 655
+      p:
+      - ' :MUNCHLAX,_I("Munchlax"),_I("Harry")'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Cinccino for Munchlax!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks! Don't let Munchlax get too crazy on you."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 1
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI don't live here. I just come when I can. It's a good "
+    - i: 0
+      code: 401
+      p:
+      - vacation spot.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 3
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI never understood trading. Keep what you earned, "
+    - i: 0
+      code: 401
+      p:
+      - not what someone else did.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 743
+      - 31
+      - 9
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 3
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 743
+      - 37
+      - 9
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Item
+  x: 26
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:LEFTOVERS)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

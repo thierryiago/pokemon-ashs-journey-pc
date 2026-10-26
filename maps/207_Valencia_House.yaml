@@ -1,0 +1,1623 @@
+---
+id: 207
+name: Valencia House
+parent: 209
+width: 40
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 28
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 209
+      - 19
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 35
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so glad you came to get it. It's been exhausting "
+    - i: 0
+      code: 401
+      p:
+      - taking care of it.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: PC
+  x: 31
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 25
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe have tried everything to transport this ball, but it "
+    - i: 0
+      code: 401
+      p:
+      - won't budge.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Professor Ivy
+  x: 28
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 56
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIvy: Hello \\PN. I've been expecting you. On that table "
+    - i: 0
+      code: 401
+      p:
+      - 'there is the ball that I want Professor Oak to look at. '
+    - i: 0
+      code: 401
+      p:
+      - Please take care of it.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI heard you were also interested in the league our "
+    - i: 0
+      code: 401
+      p:
+      - 'islands have. The closest Gym would be on Mikan '
+    - i: 0
+      code: 401
+      p:
+      - Island.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 72
+    graphic: NPC 56
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIvy: I heard you were also interested in the league "
+    - i: 0
+      code: 401
+      p:
+      - our islands have. The closest Gym would be on
+    - i: 0
+      code: 401
+      p:
+      - Mikan Island.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: NPC 56
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIvy: You won the Orange League? Impressive."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe work on this island with Professor Ivy."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: GS Ball
+  x: 29
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: Object ball special
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIvy: That is the GS Ball. Please take good care of it."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:GSBALL)
+    - i: 1
+      code: 121
+      p:
+      - 69
+      - 69
+      - 1
+    - i: 1
+      code: 121
+      p:
+      - 72
+      - 72
+      - 0
+    - i: 1
+      code: 121
+      p:
+      - 496
+      - 496
+      - 1
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Teleport
+  x: 32
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Where would you like to go?\ch[1,-1,Kanto,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 283
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Where would you like to go?\ch[1,-1,Kanto,
+    - i: 0
+      code: 401
+      p:
+      - Johto,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 112
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Where would you like to go?\ch[1,-1,Kanto,
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 153
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Where would you like to go?\ch[1,-1,Kanto,
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 199
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Where would you like to go?\ch[1,-1,Kanto,
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 257
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Where would you like to go?\ch[1,-1,Kanto,
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Kalos,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 796
+      - 2
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Where would you like to go?\ch[1,-1,Kanto,
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Kalos,Alola,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 7
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 796
+      - 2
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 892
+      - 20
+      - 18
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 496
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 538
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Where would you like to go?\ch[1,-1,Kanto,
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Kalos,Alola,Galar,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 8
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 796
+      - 2
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 892
+      - 20
+      - 18
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 7
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 988
+      - 2
+      - 9
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 209
+      - 28
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

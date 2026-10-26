@@ -1,0 +1,1938 @@
+---
+id: 62
+name: Battle Factory
+parent: 52
+width: 20
+height: 15
+tileset: 3
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Exit left
+  x: 6
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 52
+      - 28
+      - 24
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit right
+  x: 7
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 52
+      - 28
+      - 24
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: PC
+  x: 6
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Single battles NPC
+  x: 3
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Battle Factory."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWould you like to participate in a single battle?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.set("factorysingleopen",7,
+    - i: 1
+      code: 655
+      p:
+      - pbBattleFactoryRules(false,true))
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbSaveScreen
+    - i: 2
+      code: 101
+      p:
+      - "\\bPlease come this way."
+    - i: 2
+      code: 355
+      p:
+      - pbBattleChallenge.start
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters:
+          - 4
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 4
+        code: 15
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters:
+          - 4
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 4
+        code: 15
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 2
+      code: 210
+      p: []
+    - i: 2
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 106
+      p:
+      - 8
+    - i: 2
+      code: 201
+      p:
+      - 0
+      - 63
+      - 4
+      - 9
+      - 0
+      - 1
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 119
+      p:
+      - End
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 118
+      p:
+      - End
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back another time."
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbCancel
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 28
+    graphic: trchar028
+    trigger: 3
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - If Won
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBattleChallenge.decision==1
+    - i: 1
+      code: 101
+      p:
+      - "\\bCongratulations for winning."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI will take your rental Pokémon back and return your "
+    - i: 1
+      code: 401
+      p:
+      - own Pokémon.
+    - i: 1
+      code: 101
+      p:
+      - "\\bPlease take this prize."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!Kernel.pbReceiveItem(PBItems::RARECANDY)"
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou have no room for it.  At least you won, though."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$PokemonTemp.lastbattle!=nil"
+    - i: 2
+      code: 101
+      p:
+      - "\\bWould you like to record your last battle?"
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 355
+      p:
+      - pbRecordLastBattle
+    - i: 3
+      code: 101
+      p:
+      - "\\se[expfull]The battle was recorded."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - Your results will be recorded.\wtnp[15]
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbEnd
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back another time."
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - If Lost or Forfeited
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBattleChallenge.decision==2
+    - i: 1
+      code: 101
+      p:
+      - "\\bThanks for playing."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI will take your rental Pokémon back and return your "
+    - i: 1
+      code: 401
+      p:
+      - own Pokémon.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$PokemonTemp.lastbattle!=nil"
+    - i: 2
+      code: 101
+      p:
+      - "\\bWould you like to record your last battle?"
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 355
+      p:
+      - pbRecordLastBattle
+    - i: 3
+      code: 101
+      p:
+      - "\\se[expfull]The battle was recorded."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - Your results will be recorded.\wtnp[15]
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbEnd
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back another time."
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBattleChallenge.pbResting?
+    - i: 1
+      code: 101
+      p:
+      - "\\bWe've been waiting for you.  Please come this "
+    - i: 1
+      code: 401
+      p:
+      - way.
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbGoOn
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters:
+          - 4
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 4
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters:
+          - 4
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 4
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 63
+      - 4
+      - 9
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bExcuse me, but you didn't save before finishing "
+    - i: 1
+      code: 401
+      p:
+      - your challenge last time.
+    - i: 1
+      code: 101
+      p:
+      - "\\bSorry, but your challenge has been canceled."
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbEnd
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Double battles NPC
+  x: 10
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Battle Factory."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWould you like to participate in a double battle?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.set("factorydoubleopen",7,
+    - i: 1
+      code: 655
+      p:
+      - pbBattleFactoryRules(false,true))
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbSaveScreen
+    - i: 2
+      code: 101
+      p:
+      - "\\bPlease come this way."
+    - i: 2
+      code: 355
+      p:
+      - pbBattleChallenge.start
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters:
+          - 4
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 4
+        code: 15
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters:
+          - 4
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 4
+        code: 15
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 2
+      code: 210
+      p: []
+    - i: 2
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 106
+      p:
+      - 8
+    - i: 2
+      code: 201
+      p:
+      - 0
+      - 63
+      - 4
+      - 9
+      - 0
+      - 1
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 119
+      p:
+      - End
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 118
+      p:
+      - End
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back another time."
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbCancel
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 28
+    graphic: trchar028
+    trigger: 3
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - If Won
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBattleChallenge.decision==1
+    - i: 1
+      code: 101
+      p:
+      - "\\bCongratulations for winning."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI will take your rental Pokémon back and return your "
+    - i: 1
+      code: 401
+      p:
+      - own Pokémon.
+    - i: 1
+      code: 101
+      p:
+      - "\\bPlease take this prize."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!Kernel.pbReceiveItem(PBItems::RARECANDY)"
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou have no room for it.  At least you won, though."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$PokemonTemp.lastbattle!=nil"
+    - i: 2
+      code: 101
+      p:
+      - "\\bWould you like to record your last battle?"
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 355
+      p:
+      - pbRecordLastBattle
+    - i: 3
+      code: 101
+      p:
+      - "\\se[expfull]The battle was recorded."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - Your results will be recorded.\wtnp[15]
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbEnd
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back another time."
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - If Lost or Forfeited
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBattleChallenge.decision==2
+    - i: 1
+      code: 101
+      p:
+      - "\\bThanks for playing."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI will take your rental Pokémon back and return your "
+    - i: 1
+      code: 401
+      p:
+      - own Pokémon.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$PokemonTemp.lastbattle!=nil"
+    - i: 2
+      code: 101
+      p:
+      - "\\bWould you like to record your last battle?"
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 355
+      p:
+      - pbRecordLastBattle
+    - i: 3
+      code: 101
+      p:
+      - "\\se[expfull]The battle was recorded."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - Your results will be recorded.\wtnp[15]
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbEnd
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back another time."
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBattleChallenge.pbResting?
+    - i: 1
+      code: 101
+      p:
+      - "\\bWe've been waiting for you.  Please come this "
+    - i: 1
+      code: 401
+      p:
+      - way.
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbGoOn
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters:
+          - 4
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 4
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters:
+          - 4
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 4
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 63
+      - 4
+      - 9
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bExcuse me, but you didn't save before finishing "
+    - i: 1
+      code: 401
+      p:
+      - your challenge last time.
+    - i: 1
+      code: 101
+      p:
+      - "\\bSorry, but your challenge has been canceled."
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbEnd
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Single results
+  x: 4
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: invisible
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - "$game_variables[1]="
+    - i: 0
+      code: 655
+      p:
+      - pbBattleChallenge.getPreviousWins("factorysingleopen")
+    - i: 0
+      code: 655
+      p:
+      - "$game_variables[2]="
+    - i: 0
+      code: 655
+      p:
+      - pbBattleChallenge.getMaxWins("factorysingleopen")
+    - i: 0
+      code: 101
+      p:
+      - "\\PN's Battle Factory Single Battle results:"
+    - i: 0
+      code: 101
+      p:
+      - 'Last win streak: \v[1]\nRecord win streak: \v[2]'
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Double results
+  x: 11
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: invisible
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - "$game_variables[1]="
+    - i: 0
+      code: 655
+      p:
+      - pbBattleChallenge.getPreviousWins("factorydoubleopen")
+    - i: 0
+      code: 655
+      p:
+      - "$game_variables[2]="
+    - i: 0
+      code: 655
+      p:
+      - pbBattleChallenge.getMaxWins("factorydoubleopen")
+    - i: 0
+      code: 101
+      p:
+      - "\\PN's Battle Factory Double Battle results:"
+    - i: 0
+      code: 101
+      p:
+      - 'Last win streak: \v[1]\nRecord win streak: \v[2]'
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Battle recorder
+  x: 7
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: invisible
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 102
+      p:
+      - - Battle Palace rules
+        - Play recorded battle
+        - Cancel
+      - 3
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - Battle Palace rules
+    - i: 2
+      code: 118
+      p:
+      - Choices
+    - i: 2
+      code: 101
+      p:
+      - Which heading do you want to read?\ch[1,-1,
+    - i: 2
+      code: 401
+      p:
+      - 'Basic Rules,Swap: Partner,Swap: Number,'
+    - i: 2
+      code: 401
+      p:
+      - 'Swap: Notes,Exit]'
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 3
+      code: 101
+      p:
+      - 'In a Battle Swap event, you may use only three '
+    - i: 3
+      code: 401
+      p:
+      - Pokémon.
+    - i: 3
+      code: 101
+      p:
+      - 'Whether you''re renting or swapping, your team may '
+    - i: 3
+      code: 401
+      p:
+      - not have two or more of the same Pokémon.
+    - i: 3
+      code: 119
+      p:
+      - Choices
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 3
+      code: 101
+      p:
+      - You may swap Pokémon only with the Trainer you
+    - i: 3
+      code: 401
+      p:
+      - have just defeated.
+    - i: 3
+      code: 101
+      p:
+      - You may swap for only those Pokémon used by the
+    - i: 3
+      code: 401
+      p:
+      - beaten Trainer.
+    - i: 3
+      code: 119
+      p:
+      - Choices
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 3
+      code: 101
+      p:
+      - After every battle you win, you may swap for one
+    - i: 3
+      code: 401
+      p:
+      - of your defeated opponent's Pokémon.
+    - i: 3
+      code: 101
+      p:
+      - You will not be able to swap Pokémon with the
+    - i: 3
+      code: 401
+      p:
+      - last Trainer in the event.
+    - i: 3
+      code: 119
+      p:
+      - Choices
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 3
+      code: 101
+      p:
+      - 'There are two key points to be aware of when '
+    - i: 3
+      code: 401
+      p:
+      - swapping Pokémon.
+    - i: 3
+      code: 101
+      p:
+      - 'First, when swapping, you can''t check the stats of '
+    - i: 3
+      code: 401
+      p:
+      - the Pokémon you are about to receive.
+    - i: 3
+      code: 101
+      p:
+      - 'Second, the Pokémon in your team are lined up in '
+    - i: 3
+      code: 401
+      p:
+      - 'sequence, depending on the order in which you '
+    - i: 3
+      code: 401
+      p:
+      - rented them.
+    - i: 3
+      code: 101
+      p:
+      - 'This sequence remains unchanged even when '
+    - i: 3
+      code: 401
+      p:
+      - swaps are made.
+    - i: 3
+      code: 119
+      p:
+      - Choices
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - Play recorded battle
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "$PokemonGlobal.lastbattle!=nil"
+    - i: 3
+      code: 355
+      p:
+      - pbPlayLastBattle
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - There is no battle recorded.
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 2
+      - Cancel
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []

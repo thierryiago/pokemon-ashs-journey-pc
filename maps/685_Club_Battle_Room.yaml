@@ -1,0 +1,361 @@
+---
+id: 685
+name: Club Battle Room
+parent: 684
+width: 20
+height: 15
+tileset: 14
+bgm: ''
+events:
+- id: 1
+  name: Trainer(3)
+  x: 14
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rAs if you'll ever beat me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Burgundy",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't look at me. It was a fluke."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(3)
+  x: 11
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rTry to keep up."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Georgia",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't lose. If I can't win you might as well."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(3)
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TAMER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMay the best Trainer win."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TAMER,"Dino")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle. Good luck with the rest."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Counter(2)
+  x: 5
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar121
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: I'm not gonna lose."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Iris,"Iris",nil,false,2,false,0)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar121
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: You got lucky, that's all."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 0
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:HEALTHFEATHER)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:MUSCLEFEATHER)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:RESISTFEATHER)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:GENIUSFEATHER)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:CLEVERFEATHER)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SWIFTFEATHER)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:PRETTYFEATHER)
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 684
+      - 5
+      - 4
+      - 2
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 121
+      p:
+      - 220
+      - 220
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

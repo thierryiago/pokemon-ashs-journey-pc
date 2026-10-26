@@ -1,0 +1,3201 @@
+---
+id: 957
+name: Manalo Stadium
+parent: 888
+width: 65
+height: 40
+tileset: 1
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Cop
+  x: 32
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome. Where would you like to go?"
+    - i: 0
+      code: 102
+      p:
+      - - Hau'oli City
+        - Exit
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Hau'oli City
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 894
+      - 49
+      - 52
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Exit
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Vendor
+  x: 21
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":FRESHWATER,"
+    - i: 0
+      code: 655
+      p:
+      - ":SODAPOP,"
+    - i: 0
+      code: 655
+      p:
+      - ":LEMONADE,"
+    - i: 0
+      code: 655
+      p:
+      - ":BERRYJUICE,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Vendor
+  x: 42
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":CHERIBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":CHESTOBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":PECHABERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":RAWSTBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":ASPEARBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":ORANBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":LUMBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":SITRUSBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Vendor
+  x: 16
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":FULLINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":LAXINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":LUCKINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":ODDINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":PUREINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":ROCKINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":ROSEINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":SEAINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":WAVEINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Poké Center door
+  x: 32
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: doors6
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - _class: RPG::AudioFile
+            volume: 100
+            name: Entering Door
+            pitch: 100
+          code: 44
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - _class: RPG::AudioFile
+          volume: 100
+          name: Entering Door
+          pitch: 100
+        code: 44
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 117
+      p:
+      - 46
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 958
+      - 16
+      - 16
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: doors6
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 208
+      p:
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - _class: RPG::AudioFile
+            volume: 100
+            name: Entering Door
+            pitch: 100
+          code: 44
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - _class: RPG::AudioFile
+          volume: 100
+          name: Entering Door
+          pitch: 100
+        code: 44
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 208
+      p:
+      - 1
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Smoke
+  x: 30
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Smoke
+  x: 34
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Kiawe
+  x: 36
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I need to get in some extra training."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Top 16 is only the beginning. Don't lose "
+    - i: 0
+      code: 401
+      p:
+      - before we get a chance to let loose.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 410
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Sophocles and I are battling next. Wish us "
+    - i: 0
+      code: 401
+      p:
+      - luck.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Lets meet in the finals, \\PN."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I may be out, but you still have a chance. "
+    - i: 0
+      code: 401
+      p:
+      - Don't waste it.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Guzma
+  x: 41
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar202
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGuzma: What do you want, punk?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar202
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGuzma: Get lost. I don't have time for you."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 410
+    graphic: trchar202
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGuzma: Get lost. I don't have time for you."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: trchar202
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGuzma: I'll crush you the moment you step foot in "
+    - i: 0
+      code: 401
+      p:
+      - the ring.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Tsareena
+  x: 39
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: TSAREENA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 763Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTsareena"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Mallow
+  x: 38
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Are you ready, \\PN?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Lana is my opponent. This isn't good."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 410
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Lana beat me. I'm rooting for her."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Lana was defeated. That Guzma sure is "
+    - i: 0
+      code: 401
+      p:
+      - strong.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: The finals, huh? You've got this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 43
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bForget about the battles. Do you see everything "
+    - i: 0
+      code: 401
+      p:
+      - they are selling here?
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Person
+  x: 49
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThat shop looks... so empty to me. \\nWhat do you "
+    - i: 0
+      code: 401
+      p:
+      - think?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThat shop looks shady to me.\\nWhat do you think?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThat shop looks shady to me.\\nWhat do you think?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThat shop looks shady to me.\\nWhat do you think?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThat shop looks... so empty to me. \\nWhat do you "
+    - i: 0
+      code: 401
+      p:
+      - think?
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Faba
+  x: 27
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar246
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFaba: Hmm, a Battle Royal. I'll need a good strategy "
+    - i: 0
+      code: 401
+      p:
+      - to move on.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar246
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFaba: No hard feelings, but I'm going to have to "
+    - i: 0
+      code: 401
+      p:
+      - crush you. The prize is too good to pass up.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 410
+    graphic: trchar246
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFaba: Though I lost, I'm not upset. Another "
+    - i: 0
+      code: 401
+      p:
+      - opportunity will come.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: trchar246
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFaba: Though I lost, I'm not upset. Another "
+    - i: 0
+      code: 401
+      p:
+      - opportunity will come.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: trchar246
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFaba: Personally, I'd like young master Gladion to "
+    - i: 0
+      code: 401
+      p:
+      - win.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Marowak
+  x: 38
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: MAROWAK_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 105Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMarowak"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Turtonator
+  x: 38
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: TURTONATOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 776Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bTurtonator"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Person
+  x: 21
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rStock up on items. They might just save you."
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Person
+  x: 27
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar039
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy team is going to be unstoppable. I have only a "
+    - i: 0
+      code: 401
+      p:
+      - Geodude.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar039
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy Geodude wasn't enough..."
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Person
+  x: 31
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNeed to practice. No time for distractions."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDistractions are everywhere."
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Hau
+  x: 26
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar199
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHau: Haha, you're here. Time for that rematch, isn't "
+    - i: 0
+      code: 401
+      p:
+      - it?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar199
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHau: I'm fighting Samson. Sounds fun."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 410
+    graphic: trchar199
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHau: I guess it's you against me next match. I won't "
+    - i: 0
+      code: 401
+      p:
+      - lose with my grandfather watching.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: trchar199
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHau: You beat me. I'm rooting for you."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: trchar199
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHau: I'm counting on you to win."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: James
+  x: 46
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar073_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: What's our plan?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar073_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames:... I suppose I'll lose."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 410
+    graphic: trchar073_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: I can win this next match."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Jessie
+  x: 47
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar072_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: We'll figure something out."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar072_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Obviously I should win."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 410
+    graphic: trchar072_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Wobbuffet shouldn't have lost. You can't "
+    - i: 0
+      code: 401
+      p:
+      - lose now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Ilima
+  x: 29
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: NPC 46
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIlima: This isn't the Kalos League, but it looks "
+    - i: 0
+      code: 401
+      p:
+      - promising.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: NPC 46
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIlima: Top 16. No surprise, but exciting."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 410
+    graphic: NPC 46
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIlima: Guzma wiped the floor with me. Be careful if "
+    - i: 0
+      code: 401
+      p:
+      - you go up against him.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: NPC 46
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIlima: Guzma wiped the floor with me. Be careful."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: NPC 46
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIlima: The finals at last. Good luck to you."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Mina
+  x: 39
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: NPC 45
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMina: Ah... sorry, got distracted. What do you need?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: NPC 45
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMina: I made it. Next round should be something."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 410
+    graphic: NPC 45
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMina: I lost. Oh well."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: NPC 45
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMina: I lost. Oh well."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: NPC 45
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMina: I lost. Oh well."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Vendor
+  x: 48
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: MEOWTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":CLEANSETAG,"
+    - i: 0
+      code: 655
+      p:
+      - ":DESTINYKNOT,"
+    - i: 0
+      code: 655
+      p:
+      - ":EVERSTONE,"
+    - i: 0
+      code: 655
+      p:
+      - ":POKEDOLL,"
+    - i: 0
+      code: 655
+      p:
+      - ":HEARTSCALE,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: MEOWTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":CLEANSETAG,"
+    - i: 0
+      code: 655
+      p:
+      - ":DESTINYKNOT,"
+    - i: 0
+      code: 655
+      p:
+      - ":EVERSTONE,"
+    - i: 0
+      code: 655
+      p:
+      - ":POKEDOLL,"
+    - i: 0
+      code: 655
+      p:
+      - ":HEARTSCALE,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: MEOWTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":CLEANSETAG,"
+    - i: 0
+      code: 655
+      p:
+      - ":DESTINYKNOT,"
+    - i: 0
+      code: 655
+      p:
+      - ":EVERSTONE,"
+    - i: 0
+      code: 655
+      p:
+      - ":POKEDOLL,"
+    - i: 0
+      code: 655
+      p:
+      - ":HEARTSCALE,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Team Rocket
+  x: 49
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: WOBBUFFET
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWobbuffet!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: WOBBUFFET
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWobbuffet!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: WOBBUFFET
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWobbuffet!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Person
+  x: 48
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: trchar073_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Welcome to our shop."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: trchar073_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Welcome to our shop."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar073_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Welcome to our shop."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Person
+  x: 49
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 411
+    graphic: trchar072_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: How can we help you?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 412
+    graphic: trchar072_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: How can we help you?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar072_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: How can we help you?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Guzzlord
+  x: 38
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: GUZZLORD
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 799Cry
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(PBSpecies::GUZZLORD,50)
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Guzzlord
+  x: 14
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: GUZZLORD Shiny
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 799Cry
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(PBSpecies::GUZZLORD,50)
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Hau
+  x: 14
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar199
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHau: We've got this!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Guzzlord
+  x: 32
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: GUZZLORD Shiny
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 799Cry
+        pitch: 100
+    - i: 0
+      code: 121
+      p:
+      - 31
+      - 31
+      - 0
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:GUZZLORD,50)
+    - i: 0
+      code: 121
+      p:
+      - 31
+      - 31
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 414
+      - 414
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Mallow
+  x: 12
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Don't slow down."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 34
+  name: Sophocles
+  x: 15
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: We can handle this one."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 35
+  name: Kiawe
+  x: 15
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Our burning hearts will prevail."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 36
+  name: Lana
+  x: 15
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: It's only one. I think we can manage."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 37
+  name: Hala
+  x: 38
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar182
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHala: Us Kahuna's can handle this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 38
+  name: Lillie
+  x: 13
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Don't worry about us."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 39
+  name: Gladion
+  x: 14
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar181
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGladion: This is ours."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 40
+  name: Olivia
+  x: 37
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar183
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlivia: Help somewhere else!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 41
+  name: Nanu
+  x: 38
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu: Stay back, kid. Don't want you getting hurt."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 42
+  name: Hapu
+  x: 39
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar185
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHapu: Gotta focus."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 43
+  name: Kukui
+  x: 32
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: trchar188
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 101
+      p:
+      - "\\bMasked Royal: Good, help from our new Champion. "
+    - i: 0
+      code: 401
+      p:
+      - Don't hold back.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: trchar204
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Good job, Champion. The Guzzlord..."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWait, where's my mask!? How did it... I guess you "
+    - i: 0
+      code: 401
+      p:
+      - 'deserve the truth, \PN. I''ve been the Masked Royal '
+    - i: 0
+      code: 401
+      p:
+      - the entire time.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat won't change our exhibition match any. In fact, "
+    - i: 0
+      code: 401
+      p:
+      - let's make it a full battle.
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar204
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Let's make it a full battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 415
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 44
+  name: Encouter Pokemon
+  x: 38
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 413
+    graphic: NAGANADEL
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - It's a Naganadel. Would you like to take it with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:NAGANADEL,50,$Trainer)
+    - i: 1
+      code: 655
+      p:
+      - p.calcStats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:THUNDERBOLT)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:XSCISSOR)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:SLUDGEBOMB)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:DRAGONPULSE)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 45
+  name: Team Skull
+  x: 32
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTupp: Yo, the boss is going to love that we're "
+    - i: 0
+      code: 401
+      p:
+      - 'destroying this league. Forget Kukui and his dumb '
+    - i: 0
+      code: 401
+      p:
+      - dream.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMSKULL,"Tupp Rapp & Zipp",nil,false,3,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar219
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTupp: No way. Yo, this isn't cool. Let's get out of "
+    - i: 0
+      code: 401
+      p:
+      - here.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 444
+      - 444
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 46
+  name: Team Skull
+  x: 31
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bZipp: Yo yo yo."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 47
+  name: Team Skull
+  x: 33
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar219_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rRapp: Yo, what do you think you're doing?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 48
+  name: Team Skull
+  x: 45
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar219_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYo, down with the league."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 49
+  name: Team Skull
+  x: 27
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar219_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYo, down with the league."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 50
+  name: Team Skull
+  x: 21
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar219_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYo, down with the league."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 51
+  name: Team Skull
+  x: 19
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar219_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYo, down with the league."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 52
+  name: Team Skull
+  x: 40
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar219_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYo, down with the league."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 53
+  name: Team Skull
+  x: 28
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar219_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYo, down with the league."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 54
+  name: Team Skull
+  x: 24
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYo, this league sucks."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 55
+  name: Team Skull
+  x: 34
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYo, this league sucks."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 56
+  name: Team Skull
+  x: 39
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYo, this league sucks."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 57
+  name: Team Skull
+  x: 22
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYo, this league sucks."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 58
+  name: Team Skull
+  x: 16
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYo, this league sucks."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 59
+  name: Team Skull
+  x: 42
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYo, this league sucks."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 60
+  name: Team Skull
+  x: 43
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYo, this league sucks."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 61
+  name: Team Skull
+  x: 46
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar219
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYo, this league sucks."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 444
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,149 @@
+---
+id: 479
+name: Battle Arena Stage
+parent: 478
+width: 20
+height: 15
+tileset: 14
+bgm: evolv
+events:
+- id: 1
+  name: Greta
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar099
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ARENATYCOON_Greta)
+    - i: 0
+      code: 101
+      p:
+      - "\\rGreta: Welcome to the Battle Arena. The name is "
+    - i: 0
+      code: 401
+      p:
+      - Greta.
+    - i: 0
+      code: 101
+      p:
+      - "\\rMind. Skill. Body. All of these are important aspects "
+    - i: 0
+      code: 401
+      p:
+      - 'of any battle. Show me that you are the master of all '
+    - i: 0
+      code: 401
+      p:
+      - three.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ARENATYCOON_Greta,"Greta")
+    - i: 1
+      code: 101
+      p:
+      - "\\rGreta: You've earned the Guts Symbol."
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:DOUBLEABILITY)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:GUTSSYMBOL)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTucker of the Battle Dome seems like a good "
+    - i: 1
+      code: 401
+      p:
+      - 'challenge for you. I suggest you visit him next. He is '
+    - i: 1
+      code: 401
+      p:
+      - located near Lavender Town.
+    - i: 1
+      code: 121
+      p:
+      - 140
+      - 140
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar099
+    trigger: 3
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 478
+      - 11
+      - 5
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning."
+    - i: 0
+      code: 0
+      p: []

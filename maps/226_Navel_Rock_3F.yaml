@@ -1,0 +1,252 @@
+---
+id: 226
+name: Navel Rock 3F
+parent: 223
+width: 62
+height: 50
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Ladder
+  x: 12
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 225
+      - 11
+      - 39
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Ladder
+  x: 50
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 225
+      - 51
+      - 9
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: HiddenItem
+  x: 8
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:FIRESTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(3)
+  x: 37
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar026
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bOne last challenge before the Gym."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"David",_I("You're ready."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDanny is diverse, be careful."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: North door left
+  x: 36
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 227
+      - 9
+      - 12
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,664 @@
+---
+id: 617
+name: Canalave Gym
+parent: 614
+width: 40
+height: 55
+tileset: 1
+bgm: gym
+events:
+- id: 1
+  name: Exit
+  x: 18
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 613
+      - 16
+      - 30
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Byron
+  x: 18
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar112
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Byron)
+    - i: 0
+      code: 101
+      p:
+      - "\\bByron: Ah! That's Oreburgh's Gym Badge! I see "
+    - i: 0
+      code: 401
+      p:
+      - 'you''ve defeated my son. '
+    - i: 0
+      code: 101
+      p:
+      - "\\bHe still has much to learn. In place of my son Roark, "
+    - i: 0
+      code: 401
+      p:
+      - I, Byron, will take your challenge!
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Byron,"Byron")
+    - i: 1
+      code: 101
+      p:
+      - "\\bByron: You've earned the Mine Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:MINEBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[29]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM74)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM74 contains Gyro Ball. The slower you are the "
+    - i: 1
+      code: 401
+      p:
+      - harder it hits.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI see you have six badges now. Why not head to "
+    - i: 1
+      code: 401
+      p:
+      - 'Snowpoint City? You can get there going east from '
+    - i: 1
+      code: 401
+      p:
+      - Eterna City.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI almost forgot. Take this too."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:ARMORFOSSIL)
+    - i: 2
+      code: 121
+      p:
+      - 159
+      - 159
+      - 0
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar112
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bByron: I used to be in charge of the Rock Gym here "
+    - i: 0
+      code: 401
+      p:
+      - 'in Sinnoh. I''ve given it to my son and moved on to '
+    - i: 0
+      code: 401
+      p:
+      - 'Steel types. '
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Gym Guy
+  x: 14
+  "y": 45
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bByron uses Steel type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against Fighting, Fire, and Ground types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Ice, Rock and Fairy. They "
+    - i: 0
+      code: 401
+      p:
+      - 'resist Bug, Dragon, Flying, Grass, Ice, Normal, '
+    - i: 0
+      code: 401
+      p:
+      - Psychic, Rock, and Steel. They are immune to Poison.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(7)
+  x: 14
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 159'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou dare to think you will advance?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Ricky")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle. Good luck with the rest."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 159
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle. Good luck with the rest."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(7)
+  x: 22
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 159'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ENGINEER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'll electrify you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ENGINEER,"Gary")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI lost to a child..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 159
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI lost to a child..."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(5)
+  x: 15
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 159'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ENGINEER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's rumble."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ENGINEER,"Jackson")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bByron may use Steel types, but he used to be a "
+    - i: 0
+      code: 401
+      p:
+      - Rock Trainer.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 159
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bByron may use Steel types, but he used to be a "
+    - i: 0
+      code: 401
+      p:
+      - Rock Trainer.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(5)
+  x: 21
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 159'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiyahh"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"David")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAn excellent battle, thank you."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 159
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAn excellent battle, thank you."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(3)
+  x: 16
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 159'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe final battle. Are you ready?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Breanna")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou beat me. Take your prize."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 159
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou beat me. Take your prize."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(3)
+  x: 20
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 159'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's finish this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Cesar")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bByron is defensive. Be careful."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 159
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bByron is defensive. Be careful."
+    - i: 0
+      code: 0
+      p: []

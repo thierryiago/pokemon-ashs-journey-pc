@@ -1,0 +1,340 @@
+---
+id: 441
+name: Mossdeep Space Center
+parent: 438
+width: 30
+height: 35
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 6
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHere at the institute we study how to get into "
+    - i: 0
+      code: 401
+      p:
+      - space. We just launched a shuttle a few days ago.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 17
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar029
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm sorry that you can't go up any higher. Take this "
+    - i: 0
+      code: 401
+      p:
+      - as a gift for coming though.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SUNSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou still can't go up."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 12
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 437
+      - 67
+      - 35
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 10
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Space Center. Feel free to look "
+    - i: 0
+      code: 401
+      p:
+      - around.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 17
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTate and Liza spend a lot of time here. If they aren't "
+    - i: 0
+      code: 401
+      p:
+      - in the gym they are usually here.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 12
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, you're here to challenge the Gym? "
+    - i: 0
+      code: 101
+      p:
+      - "\\bThose two are my children. They won't be easy to "
+    - i: 0
+      code: 401
+      p:
+      - beat.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 119
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou ended up beating my kids? They do have "
+    - i: 0
+      code: 401
+      p:
+      - a hard time getting along after all.
+    - i: 0
+      code: 101
+      p:
+      - "\\bSo you want to go to Sootopolis City. That place is "
+    - i: 0
+      code: 401
+      p:
+      - hard to get into without the proper preperations.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe have a psychic in town who may be able to "
+    - i: 0
+      code: 401
+      p:
+      - teleport you there. Why don't you go ask them?
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Sophocles
+  x: 14
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: Good, there you are. Ampharos here "
+    - i: 0
+      code: 401
+      p:
+      - 'and I need to guide a space probe back to earth. But, '
+    - i: 0
+      code: 401
+      p:
+      - um, Ampharos lost its confidence.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI was thinking a battle might cheer it up. Seeing you "
+    - i: 0
+      code: 401
+      p:
+      - battle always gave me a boost.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Sophocles,"Sophocles",nil,false,8,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 524
+      - 524
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bSophocles: I think that did the trick. Thanks for your "
+    - i: 1
+      code: 401
+      p:
+      - help.
+    - i: 1
+      code: 101
+      p:
+      - 'Rotom Phone: Announcement. New scheduled match '
+    - i: 1
+      code: 401
+      p:
+      - 'for the World Coronation Series. The match will take '
+    - i: 1
+      code: 401
+      p:
+      - place at Wyndon Stadium against Marnie.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: Thanks for the help."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Ampharos
+  x: 15
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: AMPHAROS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: AMPHAROS
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rAmpharos..."
+    - i: 0
+      code: 0
+      p: []

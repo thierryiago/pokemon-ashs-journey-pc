@@ -1,0 +1,1154 @@
+---
+id: 500
+name: Battle Pyramid
+parent: 499
+width: 30
+height: 30
+tileset: 3
+bgm: Hall of Fame
+events:
+- id: 1
+  name: Exit, size(2,1)
+  x: 12
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 499
+      - 21
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: PC
+  x: 16
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Pokemon
+  x: 9
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: CHARIZARD
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 006Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rChar!"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Day Care
+  x: 9
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDayCareDeposited == 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rLiza: Hello again \\PN. Nice to see you."
+    - i: 1
+      code: 101
+      p:
+      - "\\rWould you like me to train one of your Pokémon?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemonCount<=1"
+    - i: 3
+      code: 101
+      p:
+      - "\\rOh?  But you only have one with you."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rWhich Pokémon would you like me to raise?"
+    - i: 2
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1, 3)
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 101
+      p:
+      - "\\rFine."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "!pbCheckAble(pbGet(1))"
+    - i: 3
+      code: 101
+      p:
+      - "\\rIf you leave me that Pokémon, what are you gonna "
+    - i: 3
+      code: 401
+      p:
+      - battle with?
+    - i: 3
+      code: 101
+      p:
+      - "\\rCome back with some common sense."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 355
+      p:
+      - pbDayCareDeposit(pbGet(1))
+    - i: 2
+      code: 101
+      p:
+      - "\\rI'll raise your \\v[3] for a while."
+    - i: 2
+      code: 118
+      p:
+      - RaiseAnother
+    - i: 2
+      code: 101
+      p:
+      - "\\rI can raise two of your Pokémon. Would you like "
+    - i: 2
+      code: 401
+      p:
+      - me to raise another?
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemonCount<=1"
+    - i: 4
+      code: 101
+      p:
+      - "\\rOh? But you only have one Pokémon with you."
+    - i: 4
+      code: 101
+      p:
+      - "\\rYou can't go off without a Pokémon. Come back "
+    - i: 4
+      code: 401
+      p:
+      - another time.
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\rWhich Pokémon would you like me to raise?"
+    - i: 3
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1, 3)
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 4
+      code: 101
+      p:
+      - "\\rVery good. Come again."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "!pbCheckAble(pbGet(1))"
+    - i: 4
+      code: 101
+      p:
+      - "\\rIf you leave me that Pokémon, what are you gonna "
+    - i: 4
+      code: 401
+      p:
+      - battle with?
+    - i: 4
+      code: 101
+      p:
+      - "\\rCome back another time."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareDeposit(pbGet(1))
+    - i: 3
+      code: 101
+      p:
+      - "\\rFine, I'll raise your \\v[3] for a while."
+    - i: 3
+      code: 101
+      p:
+      - "\\rCome back for it later."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 111
+      p:
+      - 2
+      - A
+      - 0
+    - i: 4
+      code: 119
+      p:
+      - TakeBack
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 101
+      p:
+      - "\\rVery good. Come again."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\rOh, fine, then.\\nCome again."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rHey \\PN. How's it going? Your Pokémon got "
+    - i: 1
+      code: 401
+      p:
+      - stronger.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbDayCareGetLevelGain(0,3,4) && $game_variables[4]>0
+    - i: 2
+      code: 101
+      p:
+      - "\\rBy level, your \\v[3] has grown by about \\v[4]."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbDayCareGetLevelGain(1,3,4) && $game_variables[4]>0
+    - i: 2
+      code: 101
+      p:
+      - "\\rBy level, your \\v[3] has grown by about \\v[4]."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDayCareDeposited == 1
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 119
+      p:
+      - RaiseAnother
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 118
+      p:
+      - TakeBack
+    - i: 2
+      code: 101
+      p:
+      - "\\rDo you want your Pokémon back?"
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 118
+      p:
+      - TakeBackChosen
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "$Trainer.party.length>=6"
+    - i: 4
+      code: 101
+      p:
+      - "\\rYour Pokémon team is full. Make room, then come "
+    - i: 4
+      code: 401
+      p:
+      - see me.
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareChoose(
+    - i: 3
+      code: 655
+      p:
+      - '  _I("Which one do you want back?"),1)'
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 4
+      code: 101
+      p:
+      - "\\rVery good. Come again."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareGetDeposited(pbGet(1), 3, 4)
+    - i: 3
+      code: 101
+      p:
+      - "\\G\\rIf you want your \\v[3] back, it will cost $\\v[4]."
+    - i: 3
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 3
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 4
+      code: 122
+      p:
+      - 5
+      - 5
+      - 0
+      - 7
+      - 2
+    - i: 4
+      code: 111
+      p:
+      - 1
+      - 5
+      - 1
+      - 4
+      - 4
+    - i: 5
+      code: 101
+      p:
+      - "\\G\\rYou don't have enough money..."
+    - i: 5
+      code: 115
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 125
+      p:
+      - 1
+      - 1
+      - 4
+    - i: 4
+      code: 355
+      p:
+      - pbDayCareWithdraw(pbGet(1))
+    - i: 4
+      code: 101
+      p:
+      - "\\G\\rAwesome\\nHere's your Pokémon."
+    - i: 4
+      code: 101
+      p:
+      - "\\PN took \\v[3] back from Liza."
+    - i: 4
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDayCareDeposited == 1
+    - i: 5
+      code: 101
+      p:
+      - "\\rDo you want to take back the other one, too?"
+    - i: 5
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 5
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 6
+      code: 119
+      p:
+      - TakeBackChosen
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 6
+      code: 101
+      p:
+      - "\\rVery good. Come again."
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 404
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 411
+      p: []
+    - i: 5
+      code: 101
+      p:
+      - "\\rVery good. Come again."
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 4
+      code: 101
+      p:
+      - "\\rVery good. Come again."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 404
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 101
+      p:
+      - "\\rVery good. Come again."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Cop
+  x: 12
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: NPC 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrandon is currently out training right now. Try "
+    - i: 0
+      code: 401
+      p:
+      - coming back later.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 148
+    graphic: NPC 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThrough here you battle Brandon. Are you ready?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 502
+      - 7
+      - 12
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 149
+    graphic: NPC 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrandon will be ready shortly. Come back in a few "
+    - i: 0
+      code: 401
+      p:
+      - minutes.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 150
+    graphic: NPC 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou need a Frontier Pass to battle Brandon."
+    - i: 0
+      code: 101
+      p:
+      - "\\bAn Aipom stole yours? That's happened a few "
+    - i: 0
+      code: 401
+      p:
+      - 'times actually. It usually goes to the Indigo Plateau '
+    - i: 0
+      code: 401
+      p:
+      - after taking something.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 151
+    graphic: NPC 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThrough here you battle Brandon. Are you ready?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 502
+      - 7
+      - 12
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 145
+    graphic: NPC 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou have already beat Brandon."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 15
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMost people don't get to come to this place. It "
+    - i: 0
+      code: 401
+      p:
+      - ocassionaly moves to keep it secret.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Gift Pokemon
+  x: 16
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 145
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - This ball contain a Regirock. Would you like to take it?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbAddPokemon(:REGIROCK,60)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Gift Pokemon
+  x: 16
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 145
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - This ball contain a Regice. Would you like to take it?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbAddPokemon(:REGICE,60)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Gift Pokemon
+  x: 16
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 145
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - This ball contain a Registeel. Would you like to take it?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbAddPokemon(:REGISTEEL,60)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Heal
+  x: 9
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNurse Joy: You should take a break."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []

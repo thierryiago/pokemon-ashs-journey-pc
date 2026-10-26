@@ -1,0 +1,1737 @@
+---
+id: 944
+name: Seafolk Village
+parent: 888
+width: 55
+height: 50
+tileset: 1
+bgm: cinnabar
+events:
+- id: 1
+  name: Cop
+  x: 34
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome. Where would you like to go?"
+    - i: 0
+      code: 102
+      p:
+      - - Hau'oli
+        - Exit
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Hau'oli
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 894
+      - 49
+      - 52
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Exit
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: back door, size(3,1)
+  x: 26
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 945
+      - 48
+      - 43
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokemon
+  x: 20
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: DHELMISE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: DHELMISE
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Dhelmise
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Pokemon
+  x: 44
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: TENTACRUEL
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: TENTACRUEL
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bTentacruel"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Sign
+  x: 29
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - Seafolk Village
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Home door
+  x: 9
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: doors5
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - _class: RPG::AudioFile
+            volume: 100
+            name: Entering Door
+            pitch: 100
+          code: 44
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - _class: RPG::AudioFile
+          volume: 100
+          name: Entering Door
+          pitch: 100
+        code: 44
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 117
+      p:
+      - 46
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 946
+      - 57
+      - 16
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: doors5
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 208
+      p:
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - _class: RPG::AudioFile
+            volume: 100
+            name: Entering Door
+            pitch: 100
+          code: 44
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - _class: RPG::AudioFile
+          volume: 100
+          name: Entering Door
+          pitch: 100
+        code: 44
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 208
+      p:
+      - 1
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: back door
+  x: 39
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 946
+      - 57
+      - 42
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 29
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOur Island Kahuna retired recently."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Person
+  x: 30
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm sure Tapu Fini will pick someone soon."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 41
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhat's your hurry? Sit down and relax."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Pokemon
+  x: 23
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: MEOWTH_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 052Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 20
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar043
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't rush me. I'll get in when I'm good and ready."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Pokemon
+  x: 37
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: MAREANIE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 747Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMareanie"
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: back door, size(1,2)
+  x: 43
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 946
+      - 5
+      - 4
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Pokemon
+  x: 31
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: HELIOPTILE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Item
+  x: 23
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDo you ever just want to disappear?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SMOKEBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't ever say I've done nothing for you."
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Poké Center door
+  x: 18
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: doors3
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - _class: RPG::AudioFile
+            volume: 100
+            name: Entering Door
+            pitch: 100
+          code: 44
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - _class: RPG::AudioFile
+          volume: 100
+          name: Entering Door
+          pitch: 100
+        code: 44
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 117
+      p:
+      - 46
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 947
+      - 7
+      - 8
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: doors3
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 208
+      p:
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - _class: RPG::AudioFile
+            volume: 100
+            name: Entering Door
+            pitch: 100
+          code: 44
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - _class: RPG::AudioFile
+          volume: 100
+          name: Entering Door
+          pitch: 100
+        code: 44
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 208
+      p:
+      - 1
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Lillie
+  x: 31
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 390
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Hi \\PN. How is your project coming? Have you "
+    - i: 0
+      code: 401
+      p:
+      - caught any new Pokémon? Please show me.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Lillie,"Lillie",nil,false,4,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 391
+      - 391
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: You're looking for the Island Kahuna. Maybe "
+    - i: 0
+      code: 401
+      p:
+      - 'you should check in with my brother. I think he is on '
+    - i: 0
+      code: 401
+      p:
+      - the Ancient Poni Path.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 313
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Move Tutor
+  x: 14
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm always willing to teach this move to travelers."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWant to learn Seed Bomb?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:SEEDBOMB)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Item
+  x: 14
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:WATERIUMZ)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

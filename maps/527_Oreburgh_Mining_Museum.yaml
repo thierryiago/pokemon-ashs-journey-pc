@@ -1,0 +1,239 @@
+---
+id: 527
+name: Oreburgh Mining Museum
+parent: 524
+width: 40
+height: 40
+tileset: 18
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 7
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 523
+      - 68
+      - 13
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Sign, size(2,1)
+  x: 14
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - It's an Aerodactyl Fossil.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Sign
+  x: 20
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Inside is a Lileep and Anorith Fossil.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Sign
+  x: 20
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Inside is a Kabuto and Omanyte Fossil.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Sign
+  x: 20
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Inside is a Cranidos and Shieldon Fossil.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 8
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: NPC 17
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome to the Museum."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 15
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wish I had a fossil. They are so rare and cool."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Person
+  x: 16
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe spend a lot of time on working to revive fossils. "
+    - i: 0
+      code: 401
+      p:
+      - Roark is a big help with that.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 10
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHi... Sorry, I'm not in the mood to revive any fossils. "
+    - i: 0
+      code: 401
+      p:
+      - Ever since Byron left I haven't had the energy.
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 5
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWould you like to see some of the fossils we've "
+    - i: 0
+      code: 401
+      p:
+      - revived?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SCIENTIST,"Kenzo")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm the director here."
+    - i: 0
+      code: 0
+      p: []

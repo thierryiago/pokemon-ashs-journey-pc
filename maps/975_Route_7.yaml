@@ -1,0 +1,827 @@
+---
+id: 975
+name: Route 7
+parent: 243
+width: 60
+height: 38
+tileset: 1
+bgm: Galar Route
+events:
+- id: 1
+  name: Entrance
+  x: 8
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 440
+      - 94
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 208
+      p:
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 106
+      p:
+      - 6
+    - i: 1
+      code: 208
+      p:
+      - 1
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 27
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SAFETYGOGGLES)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 27
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:CHOICESPECS)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 12
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:POMEGBERRY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: HiddenItem
+  x: 30
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:QUICKBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: HiddenItem
+  x: 38
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:QUICKBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: HiddenItem
+  x: 14
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:QUICKBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(2)
+  x: 13
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CAMPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHave you been keeping up with the fast-paced "
+    - i: 0
+      code: 401
+      p:
+      - battles? I'm supporting Sinnoh.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CAMPER,"Caden")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCynthia is my favorite."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(4)
+  x: 24
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIRDKEEPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI don't see many people around these parts."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIRDKEEPER,"Salz")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar025
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'd stay clear of the next town over. Nothing but "
+    - i: 0
+      code: 401
+      p:
+      - missed opportunity.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(4)
+  x: 39
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar013
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThinking of crossing my bridge?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIKER,"Mat")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar013
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI suppose you can pass."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(4)
+  x: 39
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar013
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWho goes there?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIKER,"Quinn")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar013
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI like you. Have a good day."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(4)
+  x: 39
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIRDKEEPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Champion? Please battle me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIRDKEEPER,"Elliot")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar025
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm rooting for you!"
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Person
+  x: 32
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMe? Don't mind me."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(2)
+  x: 34
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIRDKEEPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bDo you think I can climb this?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIRDKEEPER,"Jamie")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar025
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can use the birds to scale the cliff. Why didn't I "
+    - i: 0
+      code: 401
+      p:
+      - think of it before?
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Person
+  x: 19
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar236_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou don't need to go this way. Why? Well, "
+    - i: 0
+      code: 401
+      p:
+      - because.
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Entrance
+  x: 51
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 976
+      - 8
+      - 17
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 208
+      p:
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 106
+      p:
+      - 6
+    - i: 1
+      code: 208
+      p:
+      - 1
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Person
+  x: 35
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMe? Don't mind me."
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,259 @@
+---
+id: 468
+name: Grande Top 16
+parent: 464
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 2
+  name: Entrance
+  x: 8
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(1)
+  x: 8
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 67
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI don't really want to do this. Let's just do it."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Morrison")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 67
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 133
+      - 133
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 134
+      - 134
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it to the Top 16."
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be the Top 8."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 29
+      - 6
+    graphic: NPC 67
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGood to see you again \\PN! Let's do this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Morrison",nil,false,2,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bJust like last time, huh?"
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'll beat Tyson for you \\PN, don't worry!"
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 29
+      - 7
+    graphic: NPC 67
+    trigger: 3
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it to the Top 4."
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be the Finals."
+    - i: 0
+      code: 0
+      p: []

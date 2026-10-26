@@ -1,0 +1,221 @@
+---
+id: 107
+name: Bill's Lighthouse
+parent: 105
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 9
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 104
+      - 47
+      - 92
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Bill
+  x: 9
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: KABUTO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBill: Hi there. No I'm not a Pokémon, I just got stuck in "
+    - i: 0
+      code: 401
+      p:
+      - this costume.
+    - i: 0
+      code: 101
+      p:
+      - "\\bBill: Would you mind helping me out?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bBill: Thanks so much! Here, take this item as thanks."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:OLDROD)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bBill: That there is an Old Rod. Use it to catch "
+    - i: 2
+      code: 401
+      p:
+      - Pokémon at sea.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bBill: Aw, why not?"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 25
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBill: I've been studying here for a long time now, "
+    - i: 0
+      code: 401
+      p:
+      - trying to see a rare Pokémon.
+    - i: 0
+      code: 355
+      p:
+      - "$PokemonGlobal.seenStorageCreator=true"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: PC
+  x: 16
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - "$PokemonStorage.pbUnlockBox(26)"
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.seen_storage_creator=true"
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

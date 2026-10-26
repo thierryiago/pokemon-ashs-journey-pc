@@ -1,0 +1,252 @@
+---
+id: 864
+name: Snowbelle House
+parent: 863
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 863
+      - 21
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 3
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 863
+      - 22
+      - 38
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 8
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHave at me."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 3
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHave you been to the Pokémon Village? It's such a "
+    - i: 0
+      code: 401
+      p:
+      - nice place.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Move Tutor
+  x: 26
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI jump from place to place, but I can teach you this "
+    - i: 0
+      code: 401
+      p:
+      - move because of it.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to learn Bounce?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:BOUNCE)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 863
+      - 45
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 5
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:ALAKAZITE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

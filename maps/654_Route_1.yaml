@@ -1,0 +1,862 @@
+---
+id: 654
+name: Route 1
+parent: 650
+width: 30
+height: 52
+tileset: 1
+bgm: Unova Route
+events:
+- id: 1
+  name: Person
+  x: 11
+  "y": 36
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThere's a Route 1 in Kanto? Are you sure?"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 16
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis might help you out."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:POTION)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't wander in grass wihtout supplies."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Counter(8)
+  x: 11
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: OSHAWOTT
+    trigger: 2
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 501Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bOshawott!"
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - 0
+      - 6
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - 0
+      - 6
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - 'Oshawott looks like it wants to join you. Would you '
+    - i: 0
+      code: 401
+      p:
+      - like to add Oshawott to your team?
+    - i: 0
+      code: 101
+      p:
+      - 'Hmm. It seems like Oshawott is already owned by '
+    - i: 0
+      code: 401
+      p:
+      - Professor Juniper. Go speak with her about it.
+    - i: 0
+      code: 121
+      p:
+      - 208
+      - 208
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: OSHAWOTT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 501Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bOshawott!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 209
+    graphic: OSHAWOTT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 501Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bOshawott!"
+    - i: 0
+      code: 101
+      p:
+      - Would you like to take Oshawott with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:OSHAWOTT,5)
+    - i: 1
+      code: 655
+      p:
+      - 'p.makeMale #Male'
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:WATERGUN)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:TACKLE)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:RAZORSHELL)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:AQUAJET)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bOsha..."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Counter(6)
+  x: 12
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar121
+    trigger: 2
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - 0
+      - 6
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: Hey! What are you doing here?"
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - 0
+      - 6
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhy are you looking at me like that? What!? You "
+    - i: 0
+      code: 401
+      p:
+      - thought my hair was a Pokémon?
+    - i: 0
+      code: 101
+      p:
+      - "\\rThat's it, prepare for battle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Iris,"Iris")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: Fine. I'll let you off with a warning. But don't go "
+    - i: 0
+      code: 401
+      p:
+      - 'assuming people are Pokémon. What are you, a little '
+    - i: 0
+      code: 401
+      p:
+      - kid?
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - 0
+      - 2
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pidove
+  x: 9
+  "y": 43
+  pages:
+  - condition: {}
+    graphic: PIDOVE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 519Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPidove"
+    - i: 0
+      code: 101
+      p:
+      - Would you like to take Pidove with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:PIDOVE,2)
+    - i: 1
+      code: 655
+      p:
+      - 'p.makeFemale #Female'
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:GUST)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:QUICKATTACK)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:AIRCUTTER)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,306 @@
+---
+id: 962
+name: Manalo 4
+parent: 958
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Nanu
+  x: 3
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu: I got dragged into this. Still, maybe it will be "
+    - i: 0
+      code: 401
+      p:
+      - worth a watch.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Guzma
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar202
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGuzma: Hmph. Hurry up and lose."
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SKULLBOSS,"Guzma",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:ALOLA)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar202
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 411
+      - 411
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 412
+      - 412
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - "\\bGuzma: Later, kid. Say hi to Kukui for me."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 958
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning your third match."
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be on the right."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 8
+    graphic: trchar202
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGuzma: Heh. I'll beat you down properly this time!"
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SKULLBOSS,"Guzma",nil,false,2,true)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:ALOLA)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bGuzma: Hahaha! Don't underestimate my brand"
+    - i: 1
+      code: 401
+      p:
+      - of destruction!
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 958
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 9
+    graphic: trchar202
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGuzma: Later, kid. Say hi to Kukui for me."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 958
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning your third match."
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be on the right."
+    - i: 0
+      code: 0
+      p: []

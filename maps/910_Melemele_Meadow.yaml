@@ -1,0 +1,455 @@
+---
+id: 910
+name: Melemele Meadow
+parent: 901
+width: 30
+height: 30
+tileset: 1
+bgm: PkmRS-CaveForest
+events:
+- id: 1
+  name: Item
+  x: 14
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:YELLOWNECTAR)
+    - i: 1
+      code: 121
+      p:
+      - 318
+      - 318
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 352
+    graphic: Pokemon 109
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 794Cry
+        pitch: 100
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Ultra Beast
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:BUZZWOLE,37)
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s head back home. It looks like the '
+    - i: 0
+      code: 401
+      p:
+      - Ultra Beast is taken care of.
+    - i: 0
+      code: 121
+      p:
+      - 353
+      - 353
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 296
+      - 296
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 353
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 591
+    graphic: Pokemon 109
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 794Cry
+        pitch: 100
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Ultra Beast
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:BUZZWOLE,37)
+    - i: 0
+      code: 121
+      p:
+      - 591
+      - 591
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: back door, size(1,2)
+  x: 21
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 901
+      - 25
+      - 65
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Team Rocket
+  x: 13
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 247
+      p: []
+    - i: 0
+      code: 241
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Team Rocket OW Alola
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: We should be able to use this nectar for "
+    - i: 0
+      code: 401
+      p:
+      - something.
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Still, should we just be stealing it? Couldn't "
+    - i: 0
+      code: 401
+      p:
+      - we just buy some?
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: We're Team Rocket. Of course we have "
+    - i: 0
+      code: 401
+      p:
+      - to steal it!
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Oh no. Not this again."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWobbuffet!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET,"Jessie and James",nil,false,29,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 248
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Team Rocket
+  x: 15
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar072
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Team Rocket
+  x: 14
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Team Rocket
+  x: 14
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: WOBBUFFET
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

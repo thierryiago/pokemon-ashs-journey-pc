@@ -1,0 +1,308 @@
+---
+id: 715
+name: Clubsplosion Room
+parent: 714
+width: 20
+height: 15
+tileset: 14
+bgm: ''
+events:
+- id: 1
+  name: Trainer(3)
+  x: 5
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI hope you're ready to lose."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Montgomery")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle. Good luck with the rest."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(3)
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI guess it's my job to beat you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Betty")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou really beat me brother."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(3)
+  x: 14
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar008
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou are not taking this from me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIKER,"Angus")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar008
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhatever. My sister will win this."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 0
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:HPUP)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:PROTEIN)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:IRON)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:CALCIUM)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:ZINC)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:CARBOS)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:PPMAX)
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 714
+      - 5
+      - 4
+      - 2
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 121
+      p:
+      - 226
+      - 226
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,625 @@
+---
+id: 178
+name: Fuchsia Gym
+parent: 170
+width: 20
+height: 35
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Gym Guy
+  x: 9
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKoga uses Poison type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Ground and Psychic types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Grass and Fairy. Poison, "
+    - i: 0
+      code: 401
+      p:
+      - 'Fighting, Bug, Grass, and  Fairy moves also don''t do '
+    - i: 0
+      code: 401
+      p:
+      - much damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Koga
+  x: 7
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar063
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Koga)
+    - i: 0
+      code: 101
+      p:
+      - "\\bKoga: Welcome child, to the Fuchsia Gym."
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot every battle is about brute strength. Patience, "
+    - i: 0
+      code: 401
+      p:
+      - strategy, and skill are just as important.
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's begin. "
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Koga,"Koga")
+    - i: 1
+      code: 101
+      p:
+      - "\\bKoga: You've earned the Soul Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:SOULBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[5]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM06)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM06 contains Toxic. It is a status move that "
+    - i: 1
+      code: 401
+      p:
+      - 'does more damage for every turn the Pokémon is in '
+    - i: 1
+      code: 401
+      p:
+      - battle.
+    - i: 1
+      code: 121
+      p:
+      - 9
+      - 9
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar063
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKoga: Continue to practice and hone your skills."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(2)
+  x: 2
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:JUGGLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bKoga is a master of disguise."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:JUGGLER,"Nate",_I("Not good enough."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThere are hidden walls in the Gym."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 9
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThere are hidden walls in the Gym."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(2)
+  x: 11
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TAMER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bKoga is good, but not as good as me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TAMER,"Edgar",_I("You'll pay for this."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI like poison and sleep techniques, they"
+    - i: 0
+      code: 401
+      p:
+      - linger after battle!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 9
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI like poison and sleep techniques, they"
+    - i: 0
+      code: 401
+      p:
+      - linger after battle!
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(2)
+  x: 12
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:JUGGLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've always wanted to train next to Koga."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:JUGGLER,"Kayden",_I("How will I impress him now?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bEven though I lost, I will continue to"
+    - i: 0
+      code: 401
+      p:
+      - train under Koga.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 9
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bEven though I lost, I will continue to"
+    - i: 0
+      code: 401
+      p:
+      - train under Koga.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(2)
+  x: 5
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rReady to lose?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Aya",_I("Guess not."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI have much to learn."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 9
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI have much to learn."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(3)
+  x: 0
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:JUGGLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI don't particurally like Poison types."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:JUGGLER,"Kirk",_I("Did you like it?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLook very closely for gaps in the invisible"
+    - i: 0
+      code: 401
+      p:
+      - walls!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 9
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLook very closely for gaps in the invisible"
+    - i: 0
+      code: 401
+      p:
+      - walls!
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(2)
+  x: 2
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:JUGGLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLight and shadow. Which is better?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:JUGGLER,"Shawn",_I("Good answer."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLight or shadow? Which do you pick?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 9
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLight or shadow? Which do you pick?"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 7
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 170
+      - 31
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

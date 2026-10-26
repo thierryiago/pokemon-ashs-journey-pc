@@ -1,0 +1,454 @@
+---
+id: 400
+name: Mirage Kingdom
+parent: 399
+width: 40
+height: 45
+tileset: 1
+bgm: Radio - March
+events:
+- id: 1
+  name: Person
+  x: 19
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is the Mirage Kingdom. We are a small group "
+    - i: 0
+      code: 401
+      p:
+      - that worship the Togepi family.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 23
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't you just love how peaceful they are?"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokemon
+  x: 24
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: TOGEPI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 175Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTogepi"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Pokemon
+  x: 20
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: TOGEPI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 175Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTogepi"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 24
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: TOGEPI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 175Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTogepi"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Pokemon
+  x: 16
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: TOGEPI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 175Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bTogepi"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Pokemon
+  x: 19
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: TOGEPI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 175Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTogepi"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Pokemon
+  x: 22
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: TOGEPI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 175Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bTogepi"
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 13
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe king and queen live in the palace up there."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 22
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm sorry, but only the royal family is allowed in here."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(1)
+  x: 17
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar060_1
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: \\PN, what are you doing here?"
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 101
+      p:
+      - "\\rAren't these Togepi just beautiful? I actually just "
+    - i: 0
+      code: 401
+      p:
+      - released my Togetic so it could stay here with them.
+    - i: 0
+      code: 101
+      p:
+      - "\\rA battle might take my mind off it. What do you say?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Misty1,"Misty")
+    - i: 1
+      code: 121
+      p:
+      - 284
+      - 284
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar060_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: I'm going to miss Togetic."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Item
+  x: 27
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe don't let many people do this but your Pokémon "
+    - i: 0
+      code: 401
+      p:
+      - seem to care a lot for you.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWould you like a Togepi?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbAddPokemon(:TOGEPI,15)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bNot a problem."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBe sure to raise it with lots of love."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Pokemon
+  x: 24
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: TOGEPI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 175Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTogepi"
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Entrance, size(1,2)
+  x: 12
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 399
+      - 32
+      - 41
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

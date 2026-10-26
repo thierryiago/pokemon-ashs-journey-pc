@@ -1,0 +1,554 @@
+---
+id: 853
+name: Anistar Gym
+parent: 850
+width: 20
+height: 20
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Gym Guy
+  x: 11
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOlympia uses Psychic type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Bug, Ghost, and Dark types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Fighting and Poison. "
+    - i: 0
+      code: 401
+      p:
+      - 'Psychic and Fighting moves also don''t do much '
+    - i: 0
+      code: 401
+      p:
+      - damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 9
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 849
+      - 41
+      - 12
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Olympia
+  x: 9
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar162
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Olympia)
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlympia: You've made it. Let's begin."
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Olympia,"Olympia",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar162
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou've earned the Psychic Badge."
+    - i: 0
+      code: 355
+      p:
+      - pbReceiveItem(:PSYCHICBADGE)
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.badges[46]=true"
+    - i: 0
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 0
+      code: 355
+      p:
+      - pbReceiveItem(:TM119)
+    - i: 0
+      code: 101
+      p:
+      - "\\rTM119 contains Light Screen. It filters special"
+    - i: 0
+      code: 401
+      p:
+      - damage deal to your team for five turns.
+    - i: 0
+      code: 121
+      p:
+      - 255
+      - 255
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar162
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlympia: Kalos is counting on you. Don't let us "
+    - i: 0
+      code: 401
+      p:
+      - down.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(6)
+  x: 6
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 255'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou think you stand a chance?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Paschal")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI take back what I said."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 255
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI take back what I said."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(6)
+  x: 12
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 255'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wonder what will happen."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Arthur")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt all happened so fast."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 255
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt all happened so fast."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(6)
+  x: 6
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 255'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI know the future."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Harry")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI need more practice."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 255
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI need more practice."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(6)
+  x: 12
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 255'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rNot you!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_F,"Charlene")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLeave now!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 255
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLeave now!"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(6)
+  x: 12
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 255'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHANELLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHere we go."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_F,"Carrie")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou better have a dark type."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 255
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou better have a dark type."
+    - i: 0
+      code: 0
+      p: []

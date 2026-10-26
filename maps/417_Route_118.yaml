@@ -1,0 +1,887 @@
+---
+id: 417
+name: Route 118
+parent: 355
+width: 87
+height: 40
+tileset: 1
+bgm: Hoenn Route
+events:
+- id: 1
+  name: Gate entrance
+  x: 10
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 394
+      - 60
+      - 13
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 11
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:STARDUST)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 56
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:LEAFSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: HiddenItem
+  x: 51
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:HEARTSCALE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: HiddenItem
+  x: 33
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:IRON)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(3)
+  x: 17
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:AROMALADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is my favorite place."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:AROMALADY,"Rose")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe grass feels so nice."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(1)
+  x: 22
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:FISHERMAN)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bDarn it! You scared the fish away!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:FISHERMAN,"Wade")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNow what do I do?"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(2)
+  x: 26
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SAILOR)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI think my crew forgot me..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SAILOR,"Dalton")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat do I do now?"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(1)
+  x: 44
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:FISHERMAN)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot now. I need to focus."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:FISHERMAN,"Barny")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI need to do better than the other guy."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(3)
+  x: 52
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIRDKEEPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHi. Good luck."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIRDKEEPER,"Shane")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI tried my best. That's what's important."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(2)
+  x: 44
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIRDKEEPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're not worth my time."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIRDKEEPER,"Volt")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGet out of here."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(1)
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ROCKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bFinally I spotted a Trainer! You're going down!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"Kutz")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMaybe I did win. Yea you lost."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(5)
+  x: 38
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy did the Wailmer cross the road?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Doug",nil,false,2,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI have dreams too you know."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Double trainer F
+  x: 27
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou'll need at least two Pokémon if you want to "
+    - i: 1
+      code: 401
+      p:
+      - battle us.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLCOUPLE)
+    - i: 0
+      code: 101
+      p:
+      - "\\rAh, looks like a challenging Trainer.  Ready, Oscar?"
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLCOUPLE,"Oscar & Andi",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 108
+      p:
+      - Set the partner event's Self Switch "A" on.
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(15,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh Andi, how could you?"
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Double trainer M
+  x: 28
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou'll need at least two Pokémon if you want to "
+    - i: 1
+      code: 401
+      p:
+      - battle us.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLCOUPLE)
+    - i: 0
+      code: 101
+      p:
+      - "\\bAh, looks like a challenging trainer.  Ready, Andi?"
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLCOUPLE,"Oscar & Andi",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 108
+      p:
+      - Set the partner event's Self Switch "A" on.
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(14,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm sorry Andi."
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: HiddenItem
+  x: 39
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: berrytreeRAWSTBERRY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SITRUSBERRY,6)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: HiddenItem
+  x: 38
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: berrytreeRAWSTBERRY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SITRUSBERRY,4)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

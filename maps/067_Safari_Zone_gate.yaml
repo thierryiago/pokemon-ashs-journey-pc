@@ -1,0 +1,798 @@
+---
+id: 67
+name: Safari Zone gate
+parent: 66
+width: 20
+height: 15
+tileset: 3
+bgm: route
+events:
+- id: 1
+  name: Exit
+  x: 4
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 66
+      - 12
+      - 7
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Counter(4)
+  x: 7
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 07
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Safari Zone!"
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 101
+      p:
+      - "\\G\\bFor just $500, you can play the Safari Game."
+    - i: 0
+      code: 101
+      p:
+      - "\\G\\bYou can roam the wide-open safari and catch "
+    - i: 0
+      code: 401
+      p:
+      - what you like.
+    - i: 0
+      code: 101
+      p:
+      - "\\G\\bWould you like to play?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbBoxesFull?
+    - i: 2
+      code: 101
+      p:
+      - "\\G\\bSorry, your PC boxes are full."
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 2
+      code: 210
+      p: []
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 7
+      - 499
+      - 1
+    - i: 2
+      code: 101
+      p:
+      - "\\G\\bOops!\\nNot enough money!"
+    - i: 2
+      code: 101
+      p:
+      - "\\G\\bCome again."
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 2
+      code: 210
+      p: []
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 125
+      p:
+      - 1
+      - 0
+      - 500
+    - i: 2
+      code: 101
+      p:
+      - "\\G\\bThat'll be $500, please!"
+    - i: 2
+      code: 101
+      p:
+      - "\\G\\bWe only use a special kind of Poké Ball here."
+    - i: 2
+      code: 101
+      p:
+      - "\\G\\PN received 30 Safari Balls from the attendant."
+    - i: 2
+      code: 401
+      p:
+      - "\\se[itemlevel]\\wtnp[20]"
+    - i: 2
+      code: 101
+      p:
+      - "\\G\\bWe'll call you on the PA when you run out of time "
+    - i: 2
+      code: 401
+      p:
+      - or Safari Balls.
+    - i: 2
+      code: 101
+      p:
+      - "\\G\\bWell, I'll wish you the best of luck!"
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "$game_player.x==3"
+    - i: 3
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "$game_player.x==5"
+    - i: 4
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 210
+      p: []
+    - i: 2
+      code: 355
+      p:
+      - pbSafariState.pbStart(30)
+    - i: 2
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 106
+      p:
+      - 8
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 255
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 255
+        code: 42
+    - i: 2
+      code: 201
+      p:
+      - 0
+      - 68
+      - 25
+      - 27
+      - 0
+      - 1
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\G\\bOkay.\\nPlease come again!"
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 25
+    graphic: NPC 07
+    trigger: 3
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbSafariState.decision==0
+    - i: 1
+      code: 101
+      p:
+      - "\\bAre you going to leave the Safari Zone early?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 101
+      p:
+      - "\\bPlease return any Safari Balls you may have left."
+    - i: 2
+      code: 355
+      p:
+      - pbSafariState.pbEnd
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 2
+      code: 210
+      p: []
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bGood luck!"
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 2
+      code: 210
+      p: []
+    - i: 2
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 106
+      p:
+      - 8
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 255
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 255
+        code: 42
+    - i: 2
+      code: 201
+      p:
+      - 0
+      - 68
+      - 25
+      - 27
+      - 0
+      - 1
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbSafariState.decision==1
+    - i: 1
+      code: 101
+      p:
+      - "\\bDid you catch your fair share?  Come again!"
+    - i: 1
+      code: 355
+      p:
+      - pbSafariState.pbEnd
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []

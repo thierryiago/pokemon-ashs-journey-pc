@@ -1,0 +1,806 @@
+---
+id: 250
+name: Route 45
+parent: 249
+width: 52
+height: 40
+tileset: 1
+bgm: Johto Route
+events:
+- id: 1
+  name: Gate entrance
+  x: 43
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 197
+      - 9
+      - 8
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 31
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm in the middle of a battle. Leave me alone."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 90
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokemon
+  x: 31
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: MACHOKE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 067Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rMachoke"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 90
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 31
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar025
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bUgh. What should I do?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 90
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 31
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: FEAROW
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 022Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bFearow!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 90
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Gate entrance
+  x: 8
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 342
+      - 42
+      - 34
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Move Tutor
+  x: 18
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Silver Conference can be hard. I can teach you "
+    - i: 0
+      code: 401
+      p:
+      - a scorching move to help.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhich Pokémon would you like me to teach?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:HEATWAVE)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Counter(3)
+  x: 17
+  "y": 7
+  pages:
+  - condition:
+      switch1: 111
+    graphic: NPC 01
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe Silver Conference is over. Come again next "
+    - i: 0
+      code: 401
+      p:
+      - year.
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - 0
+      - 4
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe look forward to seeing you rematch the Silver "
+    - i: 0
+      code: 401
+      p:
+      - League, Monarch \PN.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Gift egg
+  x: 10
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: Object egg
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - It's a Pokémon Egg. Would you like to take it with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'pbGenerateEgg can only add an egg to the player''s '
+    - i: 1
+      code: 408
+      p:
+      - party, so a space is required.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbGenerateEgg(:LARVITAR,_I("..."))
+    - i: 2
+      code: 355
+      p:
+      - egg=$Trainer.party[
+    - i: 2
+      code: 655
+      p:
+      - "$Trainer.party.length-1]"
+    - i: 2
+      code: 655
+      p:
+      - egg.learn_move(:SCREECH)
+    - i: 2
+      code: 655
+      p:
+      - egg.learn_move(:HIDDENPOWER)
+    - i: 2
+      code: 655
+      p:
+      - egg.learn_move(:HARDEN)
+    - i: 2
+      code: 655
+      p:
+      - egg.learn_move(:BITE)
+    - i: 2
+      code: 655
+      p:
+      - egg.steps_to_hatch = 100
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - Oh, you can't carry it with you.
+    - i: 2
+      code: 101
+      p:
+      - Make some space in your party and come back.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(3)
+  x: 10
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar043
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI plan on being a Gym Leader one day."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Dorian")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar043
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow do I become a Gym Leader?"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(3)
+  x: 8
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bEver seen Entei?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SUPERNERD,"Nelson")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI will find Entei one day."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(3)
+  x: 13
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: NPC 64
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PICNICKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy team is perfect now. You're not beating me this "
+    - i: 0
+      code: 401
+      p:
+      - time.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BASEBALLFAN,"Casey",nil,false,2,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 64
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI suppose you're the better Trainer. I'm okay with "
+    - i: 0
+      code: 401
+      p:
+      - that.
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(2)
+  x: 10
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI just evolved my Magby. You have to see it."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Satchel")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's exciting to evolve a Pokémon."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(3)
+  x: 8
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBe careful. There is an Egg nearby."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_M,"Mason")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou can take the Egg. I'm sure you'll be a good "
+    - i: 0
+      code: 401
+      p:
+      - Trainer.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(2)
+  x: 8
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rEver want to meet a king?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_F,"Alice")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm letting Arthur go. He's too good to be tied down."
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,709 @@
+---
+id: 414
+name: Route 112
+parent: 355
+width: 51
+height: 45
+tileset: 1
+bgm: Hoenn Route
+events:
+- id: 1
+  name: CutTree
+  x: 44
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: CutTree
+  x: 44
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: CutTree
+  x: 44
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 46
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't worry. I'll get these trees out of the way in no "
+    - i: 0
+      code: 401
+      p:
+      - time.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTold you I would clear it out."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 45
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: HERACROSS_female
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: 214Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bHeracross!"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit south
+  x: 12
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 415
+      - 11
+      - 17
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 208
+      p:
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 106
+      p:
+      - 6
+    - i: 1
+      code: 208
+      p:
+      - 1
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 23
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:GUARDSPEC)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Item
+  x: 44
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:NUGGET)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: HiddenItem
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:BIGMUSHROOM)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(3)
+  x: 16
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CAMPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Valley of Steel is home of many Steel types."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CAMPER,"Larry")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI caught my Skarmory in there."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: HiddenItem
+  x: 1
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: berrytreeRAZZBERRY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:RAZZBERRY,4)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(1)
+  x: 10
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Valley of Steel is rough. It's full of Steel types."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Trent")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFor some reason I have a hard time winning."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(3)
+  x: 43
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHeading to Lavaridge?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Brice")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLavaridge is next to the Fiery Path, a home to Fire "
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(6)
+  x: 33
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis Spinda belongs to me and my fiancée, Kain."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Claire")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI can't wait to be married."
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: HiddenItem
+  x: 3
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: berrytreePECHABERRY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:PECHABERRY,4)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: HiddenItem
+  x: 4
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: berrytreeRAWSTBERRY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:RAWSTBERRY,4)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: HiddenItem
+  x: 2
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: berrytreePERSIMBERRY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:PERSIMBERRY,3)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

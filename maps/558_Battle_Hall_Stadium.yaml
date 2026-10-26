@@ -1,0 +1,171 @@
+---
+id: 558
+name: Battle Hall Stadium
+parent: 557
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(6)
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bShame you are going to lose so quick."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Vinny")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 167
+      - 167
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 169
+      - 169
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - "\\bI don't want to give up already..."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 557
+      - 7
+      - 12
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(6)
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SCIENTIST)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bVictory is ours."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SCIENTIST,"Victor")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh no."
+    - i: 0
+      code: 0
+      p: []

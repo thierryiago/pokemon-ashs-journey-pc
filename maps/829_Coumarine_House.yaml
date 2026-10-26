@@ -1,0 +1,567 @@
+---
+id: 829
+name: Coumarine House
+parent: 828
+width: 40
+height: 55
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 25
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAllow me to take you across."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 829
+      - 4
+      - 23
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Vendor
+  x: 22
+  "y": 44
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":FULLINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":LAXINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":LUCKINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":ODDINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":PUREINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":ROCKINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":ROSEINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":SEAINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":WAVEINCENSE,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 2
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:LUCKYEGG)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI feel so lucky. No one would ever take my Lucky "
+    - i: 0
+      code: 401
+      p:
+      - Egg.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 26
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy Pokémon has a Hasty Nature. It has a higher "
+    - i: 0
+      code: 401
+      p:
+      - Speed stat than my other Pokémon.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMaybe Nature has something to do with how stats "
+    - i: 0
+      code: 401
+      p:
+      - grow?
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 4
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAllow me to take you across."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 829
+      - 25
+      - 23
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 29
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:METRONOME)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Exit
+  x: 3
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 828
+      - 43
+      - 33
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 24
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 828
+      - 45
+      - 65
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 3
+  "y": 49
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 828
+      - 31
+      - 74
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Exit
+  x: 23
+  "y": 49
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 828
+      - 35
+      - 74
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Exit
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 828
+      - 36
+      - 65
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 828
+      - 34
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Item
+  x: 0
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:LOPUNNITE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 0
+      p: []

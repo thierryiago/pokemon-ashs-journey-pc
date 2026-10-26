@@ -1,0 +1,181 @@
+---
+id: 300
+name: Ecruteak House
+parent: 299
+width: 35
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 26
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 299
+      - 28
+      - 40
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 23
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIf I were you I would stay away from the burned "
+    - i: 0
+      code: 401
+      p:
+      - tower. Its footing isn't what it used to be.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 26
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI wanna play in the burned tower. My parents are "
+    - i: 0
+      code: 401
+      p:
+      - so mean.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHey there. Wanna get a life changing item?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bOf course you do."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:ITEMFINDER)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat can find any item in the world...I think."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 299
+      - 19
+      - 32
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

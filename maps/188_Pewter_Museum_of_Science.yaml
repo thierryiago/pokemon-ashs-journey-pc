@@ -1,0 +1,517 @@
+---
+id: 188
+name: Pewter Museum of Science
+parent: 83
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 7
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 82
+      - 36
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: PC
+  x: 1
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 4
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFossils are amazing. To think, we can bring back "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon from ancient times.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 12
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI came to learn more about Fossils. Did you know "
+    - i: 0
+      code: 401
+      p:
+      - most of the Pokémon that come from them are Rock-
+    - i: 0
+      code: 401
+      p:
+      - type?
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Fossil reviver
+  x: 10
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trainer_SCIENTIST
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'The fossil reviver finishes reviving the Pokémon as '
+    - i: 0
+      code: 408
+      p:
+      - 'soon as you step out of the door. See the exit event '
+    - i: 0
+      code: 408
+      p:
+      - on this map.
+    - i: 0
+      code: 111
+      p:
+      - 2
+      - B
+      - 1
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh, hello. I'm a scientist."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI can turn fossils into living, breathing Pokémon!"
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bAiyah! You come again!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bDo you have a fossil for me?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhich fossil do you want me to revive?"
+    - i: 1
+      code: 355
+      p:
+      - pbChooseFossil(9)
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbGet(9) == :NONE
+    - i: 2
+      code: 108
+      p:
+      - Player didn't choose a fossil.
+    - i: 2
+      code: 101
+      p:
+      - "\\bLet me know when you want me to revive a "
+    - i: 2
+      code: 401
+      p:
+      - fossil for you.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 108
+      p:
+      - Player chose a fossil.
+    - i: 2
+      code: 355
+      p:
+      - "$PokemonBag.pbDeleteItem(pbGet(9))"
+    - i: 2
+      code: 355
+      p:
+      - data = GameData::Item.get(pbGet(9))
+    - i: 2
+      code: 655
+      p:
+      - pbSet(3, data.name)
+    - i: 2
+      code: 101
+      p:
+      - "\\bOkay. I'll see if I can revive your \\v[3]."
+    - i: 2
+      code: 101
+      p:
+      - "\\bCome back later."
+    - i: 2
+      code: 108
+      p:
+      - Convert fossil into species now.
+    - i: 2
+      code: 355
+      p:
+      - conversion_hash = {
+    - i: 2
+      code: 655
+      p:
+      - "  :HELIXFOSSIL => :OMANYTE,"
+    - i: 2
+      code: 655
+      p:
+      - "  :DOMEFOSSIL  => :KABUTO,"
+    - i: 2
+      code: 655
+      p:
+      - "  :OLDAMBER    => :AERODACTYL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :ROOTFOSSIL  => :LILEEP,"
+    - i: 2
+      code: 655
+      p:
+      - "  :CLAWFOSSIL  => :ANORITH,"
+    - i: 2
+      code: 655
+      p:
+      - "  :SKULLFOSSIL => :CRANIDOS,"
+    - i: 2
+      code: 655
+      p:
+      - "  :ARMORFOSSIL => :SHIELDON"
+    - i: 2
+      code: 655
+      p:
+      - "}"
+    - i: 2
+      code: 355
+      p:
+      - conversion_hash.merge!({
+    - i: 2
+      code: 655
+      p:
+      - "  :COVERFOSSIL => :TIRTOUGA,"
+    - i: 2
+      code: 655
+      p:
+      - "  :PLUMEFOSSIL => :ARCHEN,"
+    - i: 2
+      code: 655
+      p:
+      - "  :JAWFOSSIL   => :TYRUNT,"
+    - i: 2
+      code: 655
+      p:
+      - "  :SAILFOSSIL  => :AMAURA"
+    - i: 2
+      code: 655
+      p:
+      - "})"
+    - i: 2
+      code: 355
+      p:
+      - item = pbGet(9)
+    - i: 2
+      code: 655
+      p:
+      - species = conversion_hash[item]
+    - i: 2
+      code: 655
+      p:
+      - pbSet(9, species)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 121
+      p:
+      - 13
+      - 13
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 108
+      p:
+      - Player doesn't want to choose a fossil.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'll be here if you want my help."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trainer_SCIENTIST
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbGet(9).is_a?(Symbol)
+    - i: 1
+      code: 355
+      p:
+      - data = GameData::Species.get(
+    - i: 1
+      code: 655
+      p:
+      - "  pbGet(9))"
+    - i: 1
+      code: 655
+      p:
+      - pbSet(3, data.name)
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhere have you been? I've finished reviving your"
+    - i: 1
+      code: 401
+      p:
+      - fossil.
+    - i: 1
+      code: 101
+      p:
+      - "\\bIt was \\v[3] like I thought."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbAddToParty(pbGet(9),1)
+    - i: 2
+      code: 122
+      p:
+      - 9
+      - 9
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou have no room left. Make room, then come see "
+    - i: 2
+      code: 401
+      p:
+      - me.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 108
+      p:
+      - 'This only happens when the fossil reviver is given an '
+    - i: 1
+      code: 408
+      p:
+      - item that couldn't be turned into a species on page 1.
+    - i: 1
+      code: 108
+      p:
+      - 'This should never happen. If it does, there is a '
+    - i: 1
+      code: 408
+      p:
+      - 'mistake in the conversion_hash on page 1, namely '
+    - i: 1
+      code: 408
+      p:
+      - 'that it doesn''t contain a "fossil => species" pair for '
+    - i: 1
+      code: 408
+      p:
+      - the item given to the fossil reviver.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI managed to revive your fossil."
+    - i: 1
+      code: 101
+      p:
+      - "\\bHowever, what I brought back didn't live long...\\1 "
+    - i: 1
+      code: 401
+      p:
+      - fortunately.
+    - i: 1
+      code: 101
+      p:
+      - "\\bSorry."
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 13
+    graphic: trainer_SCIENTIST
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI told you, come back later."
+    - i: 0
+      code: 0
+      p: []

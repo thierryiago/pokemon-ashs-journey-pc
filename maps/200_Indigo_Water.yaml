@@ -1,0 +1,294 @@
+---
+id: 200
+name: Indigo Water
+parent: 198
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: League Battle
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMandi: Well, what an easy first challenge. Oh well,"
+    - i: 0
+      code: 401
+      p:
+      - prepare to lose to The Astounding Mandi.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:JUGGLER,"Mandi")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:KANTO)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar019
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 67
+      - 67
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 62
+      - 62
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 63
+      - 63
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - "\\bMandi: What! But how did I, The Astounding"
+    - i: 0
+      code: 401
+      p:
+      - Mandi, lose?
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 198
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning your first match.\\nYour "
+    - i: 0
+      code: 401
+      p:
+      - next battle will be on the Rock stage.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar019
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMandi: You again? No, no, no, no, nooooo!"
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:JUGGLER,"Mandi",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 27
+      - 27
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 655
+      p:
+      - pbSetSelfSwitch(22, "A", true, 198)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bMandi: Haha, the Astounding Mandi wins!"
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 198
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 25
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar019
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMandi: Ah, damn it. The Astounding"
+    - i: 0
+      code: 401
+      p:
+      - Mandi loses to you again.
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:KANTO)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 198
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 0
+      p: []

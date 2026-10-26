@@ -1,0 +1,198 @@
+---
+id: 69
+name: Route 8
+parent: 1
+width: 46
+height: 35
+tileset: 2
+bgm: route
+events:
+- id: 1
+  name: Harbour entrance left
+  x: 30
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 71
+      - 8
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Harbour entrance middle
+  x: 31
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 71
+      - 8
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Harbour entrance right
+  x: 32
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 71
+      - 8
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Swimmer
+  x: 24
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - I'm just swimming around.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 22
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar046
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER2_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm a swimming trainer, just like any other"
+    - i: 0
+      code: 401
+      p:
+      - trainer!
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER2_F,"Ariel",_I("Washed out!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar046
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJust make sure swimming trainers don't"
+    - i: 0
+      code: 401
+      p:
+      - try to swim over land to get to the player when they
+    - i: 0
+      code: 401
+      p:
+      - spot them.
+    - i: 0
+      code: 0
+      p: []

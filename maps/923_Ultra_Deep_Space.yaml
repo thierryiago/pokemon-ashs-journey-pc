@@ -1,0 +1,725 @@
+---
+id: 923
+name: Ultra Deep Space
+parent: 922
+width: 70
+height: 35
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Solgaleo
+  x: 13
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: SOLGALEO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 791Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Would you like to go back?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 922
+      - 13
+      - 11
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Nihilego
+  x: 13
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: NIHILEGO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 346
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 590
+    graphic: NIHILEGO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 793Cry
+        pitch: 100
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Ultra Beast
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:NIHILEGO,35)
+    - i: 0
+      code: 121
+      p:
+      - 590
+      - 590
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Lusamine
+  x: 13
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar187
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLusamine: \\PN? Run while you can... It has control "
+    - i: 0
+      code: 401
+      p:
+      - of me and my Pokémon... Oh no, it's too late!
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:AETHERPRESIDENT,"Lusamine")
+    - i: 1
+      code: 121
+      p:
+      - 346
+      - 346
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar187
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLusamine: You did it. You drove it away. Let's get "
+    - i: 0
+      code: 401
+      p:
+      - out of here quickly.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 922
+      - 13
+      - 11
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 347
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:ULTRANECROZIUMZ)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Lunala
+  x: 58
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: LUNALA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 792Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Would you like to go back?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 922
+      - 13
+      - 11
+      - 6
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Poipole
+  x: 49
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: POIPOLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 803Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Poipole
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Poipole
+  x: 52
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: POIPOLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 803Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Poipole
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Poipole
+  x: 58
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: POIPOLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 803Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Poipole
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Poipole
+  x: 55
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: POIPOLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 803Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Poipole
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Poipole
+  x: 53
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: POIPOLE_Shiny
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 803Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Poipole
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Poipole
+  x: 58
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: POIPOLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 803Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Poipole
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Poipole
+  x: 49
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: POIPOLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 803Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Poipole
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Necrozma
+  x: 13
+  "y": 10
+  pages:
+  - condition:
+      switch1: 589
+    graphic: NECROZMA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 800Cry
+        pitch: 100
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Battle! Ultra Necrozma
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:NECROZMA,45)
+    - i: 0
+      code: 121
+      p:
+      - 589
+      - 589
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Necrozma
+  x: 53
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: NECROZMA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'You are about to enter a battle with a legendary that '
+    - i: 0
+      code: 401
+      p:
+      - 'will be unobtainable until the post game if it is not '
+    - i: 0
+      code: 401
+      p:
+      - caught here. Save?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbSaveScreen"
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 800Cry
+        pitch: 100
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Battle! Ultra Necrozma
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:NECROZMA,45)
+    - i: 0
+      code: 101
+      p:
+      - "\\bGladion: I'm getting word from the others that things "
+    - i: 0
+      code: 401
+      p:
+      - 'are returning to normal back home. Looks like dealing '
+    - i: 0
+      code: 401
+      p:
+      - with this Pokémon worked.
+    - i: 0
+      code: 121
+      p:
+      - 382
+      - 382
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 296
+      - 296
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Solgaleo
+  x: 50
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: SOLGALEO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 791Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Solgaleo
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Gladion
+  x: 55
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar181
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGladion: You can handle this."
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Poipole
+  x: 48
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: POIPOLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 803Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Poipole
+    - i: 0
+      code: 0
+      p: []

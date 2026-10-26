@@ -1,0 +1,223 @@
+---
+id: 561
+name: Battle Hall Stadium
+parent: 558
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Trainer(6)
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Good luck you guys."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONCOORDINATOR_Dawn,"Dawn",nil,false,2,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle. Good luck with the rest."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(6)
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWho will be the victor?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SUPERNERD,"Conway")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar022
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 171
+      - 171
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 168
+      - 168
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 496
+      - 496
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 176
+      - 176
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - "\\bHmm, I guess my calculations were off."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 557
+      - 11
+      - 13
+      - 8
+      - 0
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 101
+      p:
+      - "\\rCongatulations on winning. Here is your prize."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SOOTHEBELL)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

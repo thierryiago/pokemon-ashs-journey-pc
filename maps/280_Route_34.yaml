@@ -1,0 +1,599 @@
+---
+id: 280
+name: Route 34
+parent: 249
+width: 46
+height: 66
+tileset: 1
+bgm: Johto Route
+events:
+- id: 1
+  name: Item
+  x: 27
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: trchar006
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI found this earlier, but I don't need it."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:MYSTICWATER)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar006
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe grass feels nice, dosen't it?"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 29
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:NUGGET)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: HiddenItem
+  x: 20
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:RARECANDY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: HiddenItem
+  x: 34
+  "y": 47
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SUPERPOTION)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(1)
+  x: 25
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CAMPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm in the middle of something."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CAMPER,"Todd",_I("Seriously?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGo away."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(2)
+  x: 37
+  "y": 35
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMANIAC)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat Pokémon you have?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMANIAC,"Brandon",_I("Wait. I didn't get a good enough look!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI must find a rare one."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(4)
+  x: 27
+  "y": 53
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI could go for a battle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Samuel",_I("That was fun."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome battle me again sometime."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(1)
+  x: 24
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PICNICKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWoop woop."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PICNICKER,"Olesia")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAren't Wooper the best?"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(1)
+  x: 10
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar013
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy bike isn't working."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIKER,"Kutz",_I("Bully."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar013
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy mom told me I shouldn't bother."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(3)
+  x: 30
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm going to be the best psychic ever."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_F,"Cherry")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rEveryone will know my name one day. I'll be as "
+    - i: 0
+      code: 401
+      p:
+      - good as Sabrina.
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(4)
+  x: 19
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GENTLEMAN)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm willing if you are."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GENTLEMAN,"Keith",_I("Very good."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGoldenrod is the biggest city in Johto."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit north left, size(2,1)
+  x: 26
+  "y": 57
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 277
+      - 76
+      - 9
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

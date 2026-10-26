@@ -1,0 +1,666 @@
+---
+id: 687
+name: Nimbasa House
+parent: 686
+width: 45
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 8
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar044
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe city is known for all the activities you can "
+    - i: 0
+      code: 401
+      p:
+      - enjoy.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 3
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 686
+      - 22
+      - 25
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 29
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 686
+      - 29
+      - 25
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 686
+      - 22
+      - 36
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Effort ribbon giver
+  x: 31
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'Looks at the total EVs of the lead Pokémon, and '
+    - i: 0
+      code: 408
+      p:
+      - rewards a ribbon to it if the total is maxed (255).
+    - i: 0
+      code: 355
+      p:
+      - pkmn = $Trainer.first_pokemon
+    - i: 0
+      code: 655
+      p:
+      - total = 0
+    - i: 0
+      code: 655
+      p:
+      - pkmn.ev.each_value { |v| total += v }
+    - i: 0
+      code: 655
+      p:
+      - maxed = 0
+    - i: 0
+      code: 655
+      p:
+      - if total >= Pokemon::EV_LIMIT
+    - i: 0
+      code: 655
+      p:
+      - "  maxed = 1"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 655
+      p:
+      - maxed = 2 if pkmn.hasRibbon?(:SPECIAL)
+    - i: 0
+      code: 655
+      p:
+      - pbSet(1, pkmn.name)
+    - i: 0
+      code: 655
+      p:
+      - pbSet(2, maxed)
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh?\\nYour \\v[1]..."
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 2
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 108
+      p:
+      - Pokémon already has an Effort Ribbon.
+    - i: 1
+      code: 101
+      p:
+      - "\\rOh! Your \\v[1], that Ribbon looks good on it!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 2
+      - 0
+      - 1
+      - 0
+    - i: 2
+      code: 108
+      p:
+      - 'Pokémon has full EVs and does not already have an '
+    - i: 2
+      code: 408
+      p:
+      - Effort Ribbon - give it that ribbon.
+    - i: 2
+      code: 101
+      p:
+      - "\\rWent for it stupendously!"
+    - i: 2
+      code: 101
+      p:
+      - "\\rAs its reward, please give it this Ribbon."
+    - i: 2
+      code: 355
+      p:
+      - pkmn = $Trainer.firstPokemon
+    - i: 2
+      code: 655
+      p:
+      - pkmn.giveRibbon(:SPECIAL)
+    - i: 2
+      code: 101
+      p:
+      - "\\PN received the Special Ribbon."
+    - i: 2
+      code: 401
+      p:
+      - "\\me[Item get]\\wtnp[20]"
+    - i: 2
+      code: 101
+      p:
+      - "\\PN put the Special Ribbon on \\v[1]."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 108
+      p:
+      - Pokémon does not have full EVs.
+    - i: 2
+      code: 101
+      p:
+      - "\\rYou have to go for it a little harder."
+    - i: 2
+      code: 101
+      p:
+      - "\\rIf you do, I'll give your Pokémon something nice."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Stairs up
+  x: 10
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - Followers.prevent_y_movement
+          code: 45
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 8
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - Followers.prevent_y_movement
+        code: 45
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 8
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 687
+      - 37
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 30
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou must be here because you love stones too. "
+    - i: 0
+      code: 401
+      p:
+      - Take this from one stone lover to another.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SUNSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bStones are useful for many things. Don't confuse "
+    - i: 0
+      code: 401
+      p:
+      - them with fossils.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Stairs down
+  x: 36
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 687
+      - 9
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Item
+  x: 34
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy sister loves judging the effort of Pokémon. "
+    - i: 0
+      code: 401
+      p:
+      - Use this, it will help with that.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:MACHOBRACE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPokémon gain a lot from friendship. Some even "
+    - i: 0
+      code: 401
+      p:
+      - evolve with it, like Woobat and Swadloon.
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Mom
+  x: 7
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy brother is upstairs. He loves looking at stones."
+    - i: 0
+      code: 0
+      p: []

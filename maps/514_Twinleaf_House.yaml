@@ -1,0 +1,440 @@
+---
+id: 514
+name: Twinleaf House
+parent: 513
+width: 45
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Pokemon
+  x: 11
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: GLAMEOW
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 431Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bGlameow"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 513
+      - 10
+      - 6
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Stairs up
+  x: 10
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - Followers.prevent_y_movement
+          code: 45
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 8
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - Followers.prevent_y_movement
+        code: 45
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 8
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 514
+      - 37
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Stairs down
+  x: 36
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 514
+      - 9
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Johanna
+  x: 4
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 28
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJohanna: Have you met my daughter Dawn? She "
+    - i: 0
+      code: 401
+      p:
+      - 'just started her journey. I wonder what starter she '
+    - i: 0
+      code: 401
+      p:
+      - picked.
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 28
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJohanna: Ah you look tired. Why don't you take a "
+    - i: 0
+      code: 401
+      p:
+      - rest.
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 187
+    graphic: NPC 28
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJohanna: My daughter says you're a good friend to "
+    - i: 0
+      code: 401
+      p:
+      - her. Let me repay you with some experience.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Johanna")
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: NPC 28
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJohanna: Ah you look tired. Why don't you take a "
+    - i: 0
+      code: 401
+      p:
+      - rest.
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []

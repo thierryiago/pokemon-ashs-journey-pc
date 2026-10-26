@@ -1,0 +1,318 @@
+---
+id: 382
+name: Granite Cave
+parent: 379
+width: 70
+height: 35
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Exit south
+  x: 56
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 379
+      - 17
+      - 11
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit south
+  x: 11
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 383
+      - 23
+      - 24
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Steven
+  x: 16
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 32
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSteven: Nice to meet you. Have you come in search "
+    - i: 0
+      code: 401
+      p:
+      - of stones as well?
+    - i: 0
+      code: 101
+      p:
+      - "\\bNo... Well, no problem. So you are searching for a "
+    - i: 0
+      code: 401
+      p:
+      - 'way to Route 106. I suggest looking around the area '
+    - i: 0
+      code: 401
+      p:
+      - with the strange rock.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI found this as well. I don't need it so please take it "
+    - i: 0
+      code: 401
+      p:
+      - off my hands.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM110)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM110 contains Steel Wing. It may raise your "
+    - i: 1
+      code: 401
+      p:
+      - defense.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 32
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSteven: You're searching for a way to Route 106."
+    - i: 0
+      code: 401
+      p:
+      - 'I suggest looking around the area with the strange '
+    - i: 0
+      code: 401
+      p:
+      - rock.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 114
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM110)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 114
+      self_switch: A
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Block
+  x: 20
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - You revealed the path.
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Item
+  x: 55
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:EVERSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: HiddenItem
+  x: 60
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:RARECANDY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

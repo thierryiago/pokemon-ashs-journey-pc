@@ -1,0 +1,757 @@
+---
+id: 763
+name: Vetress 8
+parent: 758
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: League Battle
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b... Oh, a Trainer? Battle time?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Cameron")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 240
+      - 240
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 241
+      - 241
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - "\\bHey, sorry about that."
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:UNOVA)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 758
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou placed in the Top 8 this year. Come back next "
+    - i: 0
+      code: 401
+      p:
+      - year to try again. Thank you for competing.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 31
+      - 5
+    graphic: trchar030
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI never thought you'd become the Monarch."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TAMER,"Dino",nil,false,1,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bI can see why you're the Monarch. Keep fighting well."
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:UNOVA)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 31
+      - 31
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 758
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bCongratulations on making it to the Top 8."
+    - i: 1
+      code: 401
+      p:
+      - "\\nYour next battle will be the Top 4, which is also here."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou're still incredibly strong."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 758
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 37
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 31
+      - 6
+    graphic: NPC 40
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTrip: Heh. Can't wait to beat you properly again!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Trip",nil,false,6,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'm not surprised."
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:UNOVA)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 31
+      - 31
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 758
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bCongratulations on making it to the Top 4."
+    - i: 1
+      code: 401
+      p:
+      - "\\nYour next battle will be the Finals, which is also here."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bIs that all?"
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 758
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 37
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 31
+      - 7
+    graphic: trchar033
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHey \\PN. Glad we get to fight here at the League"
+    - i: 0
+      code: 401
+      p:
+      - unlike last time.
+    - i: 0
+      code: 101
+      p:
+      - "\\bGood luck, from one League Champion to the Monarch!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_M,"Virgil",nil,false,2,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bThat was great. Let's battle again some time."
+    - i: 1
+      code: 122
+      p:
+      - 31
+      - 31
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou fought well. Let's battle again some time."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 758
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 37
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:UNOVA)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 31
+      - 8
+    graphic: trchar039
+    trigger: 3
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:CHAMPION)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbHallOfFameEntry
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 758
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning the Vetress Conference!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:VICTINI)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(26, "A", false, 682)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:COBALION)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 750)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:TERRAKION)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 751)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:VIRIZION)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 752)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:KELDEO)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 885)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:TORNADUS)"
+    - i: 1
+      code: 121
+      p:
+      - 581
+      - 581
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:THUNDERUS)"
+    - i: 1
+      code: 121
+      p:
+      - 582
+      - 582
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:LANDORUS)"
+    - i: 1
+      code: 121
+      p:
+      - 583
+      - 583
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:RESHIRAM)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 771)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:ZEKROM)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(15, "A", false, 651)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:KYUREM)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 886)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:MELOETTA)"
+    - i: 1
+      code: 121
+      p:
+      - 584
+      - 584
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:GENESECT)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(6, "A", false, 766)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 122
+      p:
+      - 31
+      - 31
+      - 0
+      - 0
+      - 0
+    - i: 0
+      code: 0
+      p: []

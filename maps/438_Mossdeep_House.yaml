@@ -1,0 +1,461 @@
+---
+id: 438
+name: Mossdeep House
+parent: 437
+width: 32
+height: 45
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 27
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI moved all the way here to join the Space Center. "
+    - i: 0
+      code: 401
+      p:
+      - Did you know some Pokémon come from space?
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 24
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 437
+      - 31
+      - 25
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 5
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 437
+      - 22
+      - 31
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 24
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 437
+      - 57
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 6
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Gym battle here is a Double Battle. Be sure to "
+    - i: 0
+      code: 401
+      p:
+      - go in with a strategy for it.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 5
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 437
+      - 72
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 7
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 32
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSteven: Hello again. Come to visit my hometown, "
+    - i: 0
+      code: 401
+      p:
+      - have you?
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow would you like a Beldum as a part of your "
+    - i: 0
+      code: 401
+      p:
+      - team? You seem like the perfect person to train it.
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbAddPokemon(:BELDUM,30)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bThe offer always stands."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 32
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow is my Beldum doing? I'm sure you are treating "
+    - i: 0
+      code: 401
+      p:
+      - it well.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 3
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't you just love the sea? It just makes me so "
+    - i: 0
+      code: 401
+      p:
+      - glad I live here.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 437
+      - 22
+      - 25
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 1
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't get too close. I'm cooking."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Vendor
+  x: 25
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":CHERIBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":CHESTOBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":PECHABERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":RAWSTBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":ASPEARBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":ORANBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":LUMBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - ":SITRUSBERRY,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Vendor
+  x: 22
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":NETBALL,"
+    - i: 0
+      code: 655
+      p:
+      - ":DIVEBALL,"
+    - i: 0
+      code: 655
+      p:
+      - ":LUREBALL,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []

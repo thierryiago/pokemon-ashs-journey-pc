@@ -1,0 +1,611 @@
+---
+id: 860
+name: Route 21
+parent: 789
+width: 46
+height: 60
+tileset: 1
+bgm: Kalos Route
+events:
+- id: 1
+  name: Gate entrance
+  x: 9
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 863
+      - 62
+      - 34
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(1)
+  x: 35
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar046
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER2_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rTake a dip."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER2_F,"Coral")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar046
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMaybe I should get a water type."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(4)
+  x: 22
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: NPC 73
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHello!!! Isn't today so nice?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Shauna,"Shauna",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 73
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSerena and I just competed for the title of Kalos "
+    - i: 0
+      code: 401
+      p:
+      - Queen. Sadly, neither of us got it.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(4)
+  x: 18
+  "y": 43
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bAny luck on your end?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_M,"Shinobu")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'll find me a Tauros soon."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(4)
+  x: 25
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rThink you can stop me?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Sera")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou did not just do that."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Diantha
+  x: 27
+  "y": 36
+  pages:
+  - condition: {}
+    graphic: trchar165
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDiantha: Good to see you again \\PN. I just came "
+    - i: 0
+      code: 401
+      p:
+      - 'from a talk with Olympia. She said you have an '
+    - i: 0
+      code: 401
+      p:
+      - important role in the future of this region.
+    - i: 0
+      code: 101
+      p:
+      - "\\rAs the champion of Kalos I feel it's my job to test "
+    - i: 0
+      code: 401
+      p:
+      - you. I hope you can keep up with me.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Diantha,"Diantha",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\rThankfully you pass. But I'm sure what will come "
+    - i: 1
+      code: 401
+      p:
+      - will be harder than me. Be prepared.
+    - i: 1
+      code: 101
+      p:
+      - "\\rI have other matters to take care of. Good luck."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 32
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:TM88)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Item
+  x: 12
+  "y": 47
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:MANECTITE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(4)
+  x: 38
+  "y": 42
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI will be Kalos Queen."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Amelia")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI can't complain again. I need to improve."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(3)
+  x: 35
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ROCKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI want to challenge you!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"Jimmy")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAmazing battle! That was hype!"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: field bg, size(1,4)
+  x: 38
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 204
+      p:
+      - 2
+      - ''
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: field bg, size(1,4)
+  x: 34
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 204
+      p:
+      - 2
+      - ''
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: water bg, size(1,4)
+  x: 35
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - changeMapBg("water")
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: water bg, size(1,4)
+  x: 37
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - changeMapBg("water")
+    - i: 0
+      code: 0
+      p: []

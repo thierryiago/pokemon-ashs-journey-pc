@@ -1,0 +1,1283 @@
+---
+id: 466
+name: Ever Grande Doubles
+parent: 464
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Exit
+  x: 4
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 7
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(4)
+  x: 6
+  "y": 5
+  pages:
+  - condition:
+      switch1: 131
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou'll need at least two Pokémon if you "
+    - i: 1
+      code: 401
+      p:
+      - want to battle me.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou don't stand a chance."
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Dominick",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 131
+      - 131
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 136
+      - 136
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it through the Doubles "
+    - i: 0
+      code: 401
+      p:
+      - round.
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be another Doubles battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 136
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou'll need at least two Pokémon if you "
+    - i: 1
+      code: 401
+      p:
+      - want to battle me.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rGood luck to you."
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PICNICKER,"Kaylee",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar034
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 136
+      - 136
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 137
+      - 137
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it through the Doubles "
+    - i: 0
+      code: 401
+      p:
+      - battle.
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be another Double battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 137
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou'll need at least two Pokémon if you "
+    - i: 1
+      code: 401
+      p:
+      - want to battle me.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bThink you're prepared?"
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Clark",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: C
+    graphic: trchar035
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 137
+      - 137
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 132
+      - 132
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it through the Doubles "
+    - i: 0
+      code: 401
+      p:
+      - round.
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be the Top 8."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 29
+      - 2
+    graphic: trchar035
+    trigger: 3
+    commands:
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it through the Doubles "
+    - i: 0
+      code: 401
+      p:
+      - battle.
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be another Double battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 29
+      - 5
+    graphic: trchar035
+    trigger: 3
+    commands:
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it through the Doubles "
+    - i: 0
+      code: 401
+      p:
+      - round.
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be the Top 32."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 100
+      - 1
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou'll need at least two Pokémon if you "
+    - i: 1
+      code: 401
+      p:
+      - want to battle me.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou don't stand a chance, even if you're the Monarch."
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Dominick",nil,false,1,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bForgive me... your Pokémon work very well together."
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 100
+      - 100
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bTold you!"
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 100
+      - 2
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou'll need at least two Pokémon if you "
+    - i: 1
+      code: 401
+      p:
+      - want to battle me.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rGood luck to you again?"
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PICNICKER,"Kaylee",nil,false,1,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\rYeah, you really didn't need it."
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 100
+      - 100
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rOops, looks like you're having a bad day or something."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 100
+      - 3
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou'll need at least two Pokémon if you "
+    - i: 1
+      code: 401
+      p:
+      - want to battle me.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bThink you're prepared, Monarch?"
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Clark",nil,false,1,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bLooks like I couldn't conduct my victory this time."
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 100
+      - 100
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bThank you for allowing me to have my best performance"
+    - i: 1
+      code: 401
+      p:
+      - ever, Monarch.
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 100
+      - 4
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou'll need at least two Pokémon if you "
+    - i: 1
+      code: 401
+      p:
+      - want to battle me.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's an honour to have the opportunity to spar with"
+    - i: 0
+      code: 401
+      p:
+      - you, Monarch.
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Gavin",nil,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bI concede defeat."
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 100
+      - 100
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bThanks for the battle."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 100
+      - 5
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou'll need at least two Pokémon if you "
+    - i: 1
+      code: 401
+      p:
+      - want to battle me.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're going down, Monarch!"
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Johnny",nil,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bUgh... I'll beat you next time!"
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 100
+      - 100
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bBarely a challenge compared to Tyson."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 11
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []

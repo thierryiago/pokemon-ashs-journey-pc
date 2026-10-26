@@ -1,0 +1,725 @@
+---
+id: 430
+name: Weather Institute
+parent: 418
+width: 30
+height: 35
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 6
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat do we do? The data can't fall into the wrong "
+    - i: 0
+      code: 401
+      p:
+      - hands.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHere at the institute we study the different effects "
+    - i: 0
+      code: 401
+      p:
+      - 'of weather. We have even found a Pokémon that '
+    - i: 0
+      code: 401
+      p:
+      - focuses around it.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 5
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh no."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI finally did it! I made a rock that extends the effects "
+    - i: 0
+      code: 401
+      p:
+      - of Rain. Please take it and spread the word.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:DAMPROCK)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar029
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back later. I may have made more."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 21
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThank you so much."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThank you for your help. How would you like to "
+    - i: 0
+      code: 401
+      p:
+      - train a Castform? It changes based on the weather.
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbAddPokemon(:CASTFORM,30)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bPity. It could be very helpful."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTake good care of it."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 17
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 418
+      - 17
+      - 21
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: PC
+  x: 8
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Move Tutor
+  x: 11
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wanted to show you something, but now isn't the "
+    - i: 0
+      code: 401
+      p:
+      - best time.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI learned this to help out, but no one wants it."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWould you like to learn Swift?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:SWIFT)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bPlease come again!"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(4)
+  x: 12
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar205
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMAQUA)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy are you in here?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMAQUA,"Elend")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar205
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow did I lose?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(3)
+  x: 12
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar205
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMAQUA)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of the way."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMAQUA,"Gerald")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar205
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow did I lose?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(2)
+  x: 18
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar207
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMAQUA_Shelly)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rShelly: Are you trying to save the Castform? Too "
+    - i: 0
+      code: 401
+      p:
+      - bad, we need the data chip its carrying.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMAQUA_Shelly,"Shelly")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar207
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rShelly: You win this round. Grunts, get ready to "
+    - i: 0
+      code: 401
+      p:
+      - retreat.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: CutTree
+  x: 18
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: CutTree
+  x: 19
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: CutTree
+  x: 18
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: CutTree
+  x: 19
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 420
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Brodie
+  x: 21
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhat are you doing? Did you scare them away?"
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat am I doing? I already have the data chip. "
+    - i: 0
+      code: 401
+      p:
+      - There's no need for the disguise anymore.
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - trchar206
+          - 0
+          - 2
+          - 0
+          code: 41
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - trchar206
+        - 0
+        - 2
+        - 0
+        code: 41
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMMAGMA,"Brodie")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar206
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTime to return to base. Later."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 420
+      - 420
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

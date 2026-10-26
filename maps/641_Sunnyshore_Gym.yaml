@@ -1,0 +1,1223 @@
+---
+id: 641
+name: Sunnyshore Gym
+parent: 633
+width: 40
+height: 55
+tileset: 11
+bgm: gym
+events:
+- id: 1
+  name: Volkner
+  x: 14
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar114
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Volkner)
+    - i: 0
+      code: 101
+      p:
+      - "\\bVolkner: Well you seem like you have some "
+    - i: 0
+      code: 401
+      p:
+      - potential. Don't disappoint me, okay.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Volkner,"Volkner")
+    - i: 1
+      code: 101
+      p:
+      - "\\bVolkner: Someone is messing with Sunnyshore "
+    - i: 1
+      code: 401
+      p:
+      - 'Tower. We can pick up the battle after we find out '
+    - i: 1
+      code: 401
+      p:
+      - what's happening.
+    - i: 1
+      code: 121
+      p:
+      - 190
+      - 190
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar114
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bVolkner: Someone is tampering with Sunnyshore "
+    - i: 0
+      code: 401
+      p:
+      - Tower. We need to check it out.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 191
+    graphic: trchar114
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Volkner)
+    - i: 0
+      code: 101
+      p:
+      - "\\bVolkner: Thank you for handling the intruders. I "
+    - i: 0
+      code: 401
+      p:
+      - 'know it took some time to fix the gym, but let''s get '
+    - i: 0
+      code: 401
+      p:
+      - back to our battle.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Volkner,"Volkner",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bVolkner: You've earned the Beacon Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:BEACONBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[31]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM93)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM93 contains Wild Charge. A powerful electrical "
+    - i: 1
+      code: 401
+      p:
+      - tackle that causes recoil.
+    - i: 1
+      code: 121
+      p:
+      - 161
+      - 161
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar114
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bVolkner: I'm going to stay a gym leader for a while. "
+    - i: 0
+      code: 401
+      p:
+      - 'Thanks for showing me there are still strong Trainers '
+    - i: 0
+      code: 401
+      p:
+      - out there.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+    graphic: trchar114
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Volkner)
+    - i: 0
+      code: 101
+      p:
+      - "\\bVolkner: Good to see you again. Show me once "
+    - i: 0
+      code: 401
+      p:
+      - more why battles are so exciting.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Volkner,"Volkner",nil,false,2,false,0)
+    - i: 1
+      code: 101
+      p:
+      - 'Rotom Phone: Based on performance, your rank is '
+    - i: 1
+      code: 401
+      p:
+      - now 64.
+    - i: 1
+      code: 121
+      p:
+      - 515
+      - 515
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: C
+    graphic: trchar114
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bVolkner: Continue to train. The Master Class won't "
+    - i: 0
+      code: 401
+      p:
+      - 'take it easy on you. '
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 15
+  "y": 35
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 632
+      - 17
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Gym Guy
+  x: 17
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bVolkner uses Electric type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against only the Ground type.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Flying and Water. Flying, "
+    - i: 0
+      code: 401
+      p:
+      - 'Electric, and Steel moves also don''t do much '
+    - i: 0
+      code: 401
+      p:
+      - damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(1)
+  x: 23
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't think you're going to win."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Tiera")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVolker will beat you. He beats everyone."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 161
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVolker will beat you. He beats everyone."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't think you're going to win."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Tiera")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVolker will beat you. He beats everyone."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 515
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVolker will beat you. He beats everyone."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(1)
+  x: 23
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot going easy."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Forrest")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou may be able to beat Volkner."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 161
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou may be able to beat Volkner."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot going easy."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Forrest")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou may be able to beat Volkner."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 515
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou may be able to beat Volkner."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(3)
+  x: 27
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ROCKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's roll."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"Jerry")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSick moves man."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 161
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSick moves man."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ROCKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's roll."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"Jerry")
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSick moves man."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 515
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSick moves man."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(3)
+  x: 21
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ROCKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHey!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"Lonnie")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCan you beat everyone?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 161
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCan you beat everyone?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ROCKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHey!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"Lonnie")
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCan you beat everyone?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 515
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCan you beat everyone?"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(1)
+  x: 13
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLast chance to quit."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Zachery")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHope you beat him."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 161
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHope you beat him."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLast chance to quit."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Zachery")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHope you beat him."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 515
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHope you beat him."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(1)
+  x: 15
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm not losing."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Destiny")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVolkner is an expert at Electric types. Use a Ground "
+    - i: 0
+      code: 401
+      p:
+      - type.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 161
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVolkner is an expert at Electric types. Use a Ground "
+    - i: 0
+      code: 401
+      p:
+      - type.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm not losing."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Destiny")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 514
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVolkner is an expert at Electric types. Use a Ground "
+    - i: 0
+      code: 401
+      p:
+      - type.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 515
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVolkner is an expert at Electric types. Use a Ground "
+    - i: 0
+      code: 401
+      p:
+      - type.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Reset Trainers
+  x: 9
+  "y": 11
+  pages:
+  - condition:
+      switch1: 514
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - This event is just to ensure that double battles
+    - i: 0
+      code: 408
+      p:
+      - happen as intended
+    - i: 0
+      code: 355
+      p:
+      - events = [4,5,8,9]
+    - i: 0
+      code: 655
+      p:
+      - events.each do |event|
+    - i: 0
+      code: 655
+      p:
+      - '  pbSetSelfSwitch(event, "A", false)'
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 515
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,603 @@
+---
+id: 131
+name: Saffron House
+parent: 130
+width: 32
+height: 25
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 1
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy daughter is so self-centered. She has but a few "
+    - i: 0
+      code: 401
+      p:
+      - friends.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy daughter likes to mimic people. Its rather vexing."
+    - i: 0
+      code: 101
+      p:
+      - "\\bHer nickname has earned her the nickname "
+    - i: 0
+      code: 401
+      p:
+      - Copycat around here.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Stairs up
+  x: 9
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - Followers.prevent_y_movement
+          code: 45
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 8
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - Followers.prevent_y_movement
+        code: 45
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 8
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 131
+      - 26
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Stairs down
+  x: 25
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 131
+      - 8
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 23
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: Pokemon 03
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Huh? It's only a doll!
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Pokemon
+  x: 22
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: Pokemon 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Huh? It's only a doll!
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Pokemon
+  x: 28
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: Pokemon 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Huh? It's only a doll!
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: HiddenItem
+  x: 19
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:NUGGET)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 130
+      - 31
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Move Tutor
+  x: 26
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHello!  I'm Copycat!"
+    - i: 0
+      code: 101
+      p:
+      - "\\rI can teach Role Play to one of your Pokémon."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhich Pokémon would you like me to teach?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:ROLEPLAY)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 3
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCopycat is cute.\\nI'm getting her a Poké Doll."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Exit
+  x: 24
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 130
+      - 52
+      - 50
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Item
+  x: 25
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've been waiting for you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM29)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTM29 is Psychic.\\nIt's an attack that may lower the "
+    - i: 0
+      code: 401
+      p:
+      - target's special defense.
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Exit
+  x: 5
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 130
+      - 36
+      - 33
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

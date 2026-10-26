@@ -1,0 +1,1543 @@
+---
+id: 193
+name: Cinnabar Gym
+parent: 185
+width: 50
+height: 75
+tileset: 6
+bgm: gym
+events:
+- id: 1
+  name: Smoke
+  x: 27
+  "y": 36
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Ladder up
+  x: 14
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 193
+      - 27
+      - 64
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Smoke
+  x: 25
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Smoke
+  x: 22
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Smoke
+  x: 15
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Blaine
+  x: 23
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar065
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Blaine)
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaine: So you beat the Mansion? Good for you."
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat place is actually part of the abandoned Gym "
+    - i: 0
+      code: 401
+      p:
+      - 'we used to use, but I thought the volcano was a '
+    - i: 0
+      code: 401
+      p:
+      - better place for a Gym.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWell anyways, let's get to the battle."
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Blaine,"Blaine",nil,false,0,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bBlaine: Did you hear that? It sounded like the "
+    - i: 1
+      code: 401
+      p:
+      - volcano is acting up again.
+    - i: 1
+      code: 101
+      p:
+      - "\\bHead up higher and hit the switch. It runs the "
+    - i: 1
+      code: 401
+      p:
+      - excess lava out of the volcano.
+    - i: 1
+      code: 101
+      p:
+      - "\\bWe can continue our battle afterwards."
+    - i: 1
+      code: 121
+      p:
+      - 60
+      - 60
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar065
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaine: The switch is up higher. Hurry!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 61
+    graphic: trchar065
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Blaine)
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaine: Good job kid! Let's get back to our battle, "
+    - i: 0
+      code: 401
+      p:
+      - shall we?
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Blaine,"Blaine",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 1
+      code: 101
+      p:
+      - "\\bBlaine: That was great! Here, take the Volcano "
+    - i: 1
+      code: 401
+      p:
+      - Badge.
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:VOLCANOBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[6]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM35)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM35 contains Flamethrower. A scorching "
+    - i: 1
+      code: 401
+      p:
+      - attack that can burn the opponent.
+    - i: 1
+      code: 101
+      p:
+      - "\\bThat's your 7th badge huh?\\nWhy not try out the "
+    - i: 1
+      code: 401
+      p:
+      - 'Viridian Gym next? I hear they have a very powerful '
+    - i: 1
+      code: 401
+      p:
+      - Gym Leader there.
+    - i: 1
+      code: 121
+      p:
+      - 10
+      - 10
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar065
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaine: Come back and visit the island anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: SmashRock
+  x: 15
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: Object boulder
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 60
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: SmashRock
+  x: 15
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: Object boulder
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 60
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Ladder down
+  x: 26
+  "y": 64
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 193
+      - 15
+      - 28
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Sign
+  x: 26
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - Cinnabar Island Pokémon Gym Leader:\nBlaine
+    - i: 1
+      code: 101
+      p:
+      - The Hotheaded Quiz Master!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: SmashRock
+  x: 15
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: Object boulder
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 60
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Smoke
+  x: 38
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Smoke
+  x: 39
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Smoke
+  x: 36
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(1)
+  x: 17
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is a great place to train body and mind."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SUPERNERD,"Erik",_I("I need to practice more."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow did you get so strong?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 10
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow did you get so strong?"
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Trainer(3)
+  x: 19
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bStop! I'm gonna beat you!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SUPERNERD,"Avery",_I("Ugh."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe used to have a Gym on the island. I"
+    - i: 0
+      code: 401
+      p:
+      - miss it.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 10
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe used to have a Gym on the island. I"
+    - i: 0
+      code: 401
+      p:
+      - miss it.
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Trainer(3)
+  x: 8
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BURGLAR)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaine likes to enhance his Fire types by"
+    - i: 0
+      code: 401
+      p:
+      - being in a volcano.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BURGLAR,"Quinn",_I("Smoked me."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's too hot in here."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 10
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's too hot in here."
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Smoke
+  x: 14
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Trainer(4)
+  x: 39
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm always afraid of the volcano exploding."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SUPERNERD,"Derek",_I("I was distracted."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat if the volcano went BOOM? Where"
+    - i: 0
+      code: 401
+      p:
+      - would our Gym go?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 10
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat if the volcano went BOOM? Where"
+    - i: 0
+      code: 401
+      p:
+      - would our Gym go?
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Trainer(3)
+  x: 27
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BURGLAR)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaine is amazing. You agree right?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BURGLAR,"Ramon",_I("Blaine is much stronger."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI used to steal for a living. Then I met"
+    - i: 0
+      code: 401
+      p:
+      - Blaine.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 10
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI used to steal for a living. Then I met"
+    - i: 0
+      code: 401
+      p:
+      - Blaine.
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: back door
+  x: 23
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 184
+      - 18
+      - 9
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Smoke
+  x: 8
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Trainer(1)
+  x: 19
+  "y": 58
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BURGLAR)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy are you up here?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BURGLAR,"Dusty",_I("Strong."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHurry up and leave."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 10
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHurry up and leave."
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Smoke
+  x: 22
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Smoke
+  x: 24
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Smoke
+  x: 24
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Trainer(3)
+  x: 38
+  "y": 58
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat are you looking for?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SUPERNERD,"Zac",_I("Oh."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI actually forgot where the switch is."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 10
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI actually forgot where the switch is."
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Switch
+  x: 12
+  "y": 65
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - The switch has been activated.
+    - i: 0
+      code: 101
+      p:
+      - The lava is moving out of the volcano!
+    - i: 0
+      code: 121
+      p:
+      - 61
+      - 61
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Smoke
+  x: 36
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 40
+  name: Smoke
+  x: 28
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 41
+  name: Gym Guy
+  x: 25
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaine uses Fire type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Water, Ground, and Rock types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Bug, Grass, Ice, and Steel. "
+    - i: 0
+      code: 401
+      p:
+      - 'Bug, Grass, Fire, Ice, Steel, and Fairy moves also '
+    - i: 0
+      code: 401
+      p:
+      - don't do much damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 58
+  name: Smoke
+  x: 24
+  "y": 54
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 60
+  name: Smoke
+  x: 31
+  "y": 55
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 61
+  name: Smoke
+  x: 35
+  "y": 57
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 68
+  name: Smoke
+  x: 9
+  "y": 58
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 70
+  name: Smoke
+  x: 28
+  "y": 61
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 71
+  name: Smoke
+  x: 37
+  "y": 67
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 79
+  name: Smoke
+  x: 14
+  "y": 54
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 81
+  name: Smoke
+  x: 18
+  "y": 58
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 82
+  name: Smoke
+  x: 17
+  "y": 65
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 83
+  name: Smoke
+  x: 23
+  "y": 66
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []
+- id: 85
+  name: Smoke
+  x: 37
+  "y": 52
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - sootsmoke
+    - i: 0
+      code: 0
+      p: []

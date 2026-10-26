@@ -1,0 +1,666 @@
+---
+id: 122
+name: S.S. Anne
+parent: 123
+width: 40
+height: 22
+tileset: 9
+bgm: cinnabar
+events:
+- id: 1
+  name: back door
+  x: 28
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 119
+      - 4
+      - 20
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(4)
+  x: 26
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: NPC 09
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow may I serve you?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 37
+    graphic: trchar056
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'Battle: \bLet me have them.'
+    - i: 0
+      code: 108
+      p:
+      - 'Type: TEAMROCKET_M'
+    - i: 0
+      code: 108
+      p:
+      - 'Name: Connor'
+    - i: 0
+      code: 108
+      p:
+      - 'EndSpeech: Howe come?'
+    - i: 0
+      code: 108
+      p:
+      - 'EndBattle: \bJust stay away from the captain''s room.'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet me have them."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET_M,"Connor")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJust stay away from the captain's room."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 22
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: NPC 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis trip is exactly what I needed."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 37
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 21
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 101
+      p:
+      - "\\bzzz..."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trade
+  x: 16
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GENTLEMAN)
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat do you say? Lets have a friendly "
+    - i: 0
+      code: 401
+      p:
+      - battle.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GENTLEMAN,"Gentleman")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm looking for a Butterfree."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to trade it for my Raticate?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :BUTTERFREE"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou don't want to trade? Pity."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOK, let's get started."
+    - i: 2
+      code: 355
+      p:
+      - p=Pokemon.new(:RATICATE,
+    - i: 2
+      code: 655
+      p:
+      - "   pbGetPokemon(1).level,$Trainer)"
+    - i: 2
+      code: 655
+      p:
+      - 'p.makeMale               # Male'
+    - i: 2
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 2
+      code: 655
+      p:
+      - ''
+    - i: 2
+      code: 655
+      p:
+      - pbStartTrade(pbGet(1),p,"Raticate","Gentleman",1)
+    - i: 2
+      code: 355
+      p:
+      - p=pbGetPokemon(1)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:JUMPKICK)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:SUPERFANG)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:HYPERFANG)
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Butterfree for Raticate!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThank you very much."
+    - i: 2
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou don't want to trade? Pity."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou want to trade back, do you?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bI may have changed its moves some. Do you still "
+    - i: 0
+      code: 401
+      p:
+      - want to trade?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :RATICATE"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bOh, my mistake."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOK, let's get started."
+    - i: 2
+      code: 355
+      p:
+      - p=Pokemon.new(:BUTTERFREE,
+    - i: 2
+      code: 655
+      p:
+      - "  pbGetPokemon(1).level,$Trainer)"
+    - i: 2
+      code: 655
+      p:
+      - 'p.makeMale               # Male'
+    - i: 2
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 2
+      code: 655
+      p:
+      - ''
+    - i: 2
+      code: 655
+      p:
+      - pbStartTrade(pbGet(1),p,"Butterfree","Ash",1)
+    - i: 2
+      code: 355
+      p:
+      - p=pbGetPokemon(1)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:TACKLE)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:WHIRLWIND)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:STUNSPORE)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:SLEEPPOWDER)
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Raticate for Butterfree!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bI hope you enjoy."
+    - i: 2
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh, my mistake."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: C
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm done trading for today."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(4)
+  x: 24
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: NPC 09
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bUgh...Seasick..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 37
+    graphic: trchar056
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'Battle: \bI may be seasick, but I can still battle.'
+    - i: 0
+      code: 108
+      p:
+      - 'Type: TEAMROCKET_M'
+    - i: 0
+      code: 108
+      p:
+      - 'Name: Kutz'
+    - i: 0
+      code: 108
+      p:
+      - 'EndSpeech: Ugh.'
+    - i: 0
+      code: 108
+      p:
+      - 'EndBattle: \bYou were just lucky is all.'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI may be seasick, but I can still battle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET_M,"Kutz")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bShut up. I'm not that weak."
+    - i: 0
+      code: 0
+      p: []

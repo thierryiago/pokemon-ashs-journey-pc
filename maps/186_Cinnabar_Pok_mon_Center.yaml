@@ -1,0 +1,1035 @@
+---
+id: 186
+name: Cinnabar Pokémon Center
+parent: 185
+width: 20
+height: 15
+tileset: 4
+bgm: PokeCenter
+events:
+- id: 1
+  name: Healing balls left
+  x: 5
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 1
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 2
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 3
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 4
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 5
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 6
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Healing balls right
+  x: 6
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 1
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 2
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 3
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 4
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 5
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 6
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Nurse
+  x: 7
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbSetPokemonCenter
+    - i: 0
+      code: 101
+      p:
+      - "\\rHello, and welcome to the Pokémon Center."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe restore your tired Pokémon to full health."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWould you like to rest your Pokémon?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\rOK, I'll take your Pokémon for a few seconds."
+    - i: 1
+      code: 314
+      p:
+      - 0
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - playHealingME
+    - i: 1
+      code: 355
+      p:
+      - pbSet(6,$Trainer.party.length)
+    - i: 1
+      code: 106
+      p:
+      - 40
+    - i: 1
+      code: 122
+      p:
+      - 6
+      - 6
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbPokerus?
+    - i: 2
+      code: 101
+      p:
+      - "\\rYour Pokémon may be infected by PokeRus."
+    - i: 2
+      code: 101
+      p:
+      - "\\rLittle is known about the PokeRus except that they "
+    - i: 2
+      code: 401
+      p:
+      - are microscopic life-forms that attach to Pokémon.
+    - i: 2
+      code: 101
+      p:
+      - "\\rWhile infected, Pokémon are said to grow "
+    - i: 2
+      code: 401
+      p:
+      - exceptionally well.
+    - i: 2
+      code: 121
+      p:
+      - 2
+      - 2
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rThank you for waiting."
+    - i: 2
+      code: 101
+      p:
+      - "\\rWe've restored your Pokémon to full health."
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - NPC 16
+          - 0
+          - 2
+          - 1
+          code: 41
+        - _class: RPG::MoveCommand
+          parameters:
+          - 10
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters:
+          - NPC 16
+          - 0
+          - 2
+          - 0
+          code: 41
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - NPC 16
+        - 0
+        - 2
+        - 1
+        code: 41
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 10
+        code: 15
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - NPC 16
+        - 0
+        - 2
+        - 0
+        code: 41
+    - i: 2
+      code: 101
+      p:
+      - "\\rWe hope to see you again!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rWe hope to see you again!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 1
+    graphic: NPC 16
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFirst, you should restore your Pokémon to full "
+    - i: 0
+      code: 401
+      p:
+      - health.
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - playHealingME
+    - i: 0
+      code: 355
+      p:
+      - pbSet(6,$Trainer.party.length)
+    - i: 0
+      code: 106
+      p:
+      - 40
+    - i: 0
+      code: 122
+      p:
+      - 6
+      - 6
+      - 0
+      - 0
+      - 0
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 101
+      p:
+      - "\\rYour Pokémon have been healed to perfect health."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe hope you excel!"
+    - i: 0
+      code: 121
+      p:
+      - 1
+      - 1
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: PC
+  x: 11
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 7
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 184
+      - 17
+      - 21
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 3
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 07
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wanted to challenge the Gym, but I had no way to "
+    - i: 0
+      code: 401
+      p:
+      - get there...
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 14
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe captain of the ship will only take you to the "
+    - i: 0
+      code: 401
+      p:
+      - Gym if you clear the mansion.
+    - i: 0
+      code: 101
+      p:
+      - "\\bSays it's a right of passage or something."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Chansey
+  x: 8
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: CHANSEY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 113Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rChansey"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Teleport
+  x: 12
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy Arcanine can Teleport you.\\ch[1,-1,Viridian, "
+    - i: 0
+      code: 401
+      p:
+      - 'Pewter,Cerulean,Vermilion,Saffron,Lavender, '
+    - i: 0
+      code: 401
+      p:
+      - Celadon,Fuchsia,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 78
+      - 7
+      - 6
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 84
+      - 7
+      - 6
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 93
+      - 7
+      - 6
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 110
+      - 7
+      - 6
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 132
+      - 7
+      - 6
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 140
+      - 7
+      - 6
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 154
+      - 7
+      - 6
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 7
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 176
+      - 7
+      - 6
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Pokemon
+  x: 13
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ARCANINE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: '059Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rArcen!"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Wonder Trade
+  x: 3
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trainer_AROMALADY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 117
+      p:
+      - 45
+    - i: 0
+      code: 0
+      p: []

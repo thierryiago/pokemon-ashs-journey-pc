@@ -1,0 +1,961 @@
+---
+id: 95
+name: Cerulean Gym
+parent: 91
+width: 20
+height: 22
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Exit
+  x: 8
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 89
+      - 36
+      - 31
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Gym Guy
+  x: 7
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMisty uses Water type Pokémon. They are weak "
+    - i: 0
+      code: 401
+      p:
+      - against Grass and Electric types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Fire, Ground, and Rock. "
+    - i: 0
+      code: 401
+      p:
+      - 'Fire, Ice, Steel, and Water moves also don''t do much '
+    - i: 0
+      code: 401
+      p:
+      - damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(2)
+  x: 10
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar045
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's battle!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Luis")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMisty is a Trainer who's going to keep"
+    - i: 0
+      code: 401
+      p:
+      - improving. She won't lose to someone like you!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 5
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMisty is a Trainer who's going to keep"
+    - i: 0
+      code: 401
+      p:
+      - improving. She won't lose to someone like you!
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Misty
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Misty)
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: Hi, you're a new face! Only those Trainers "
+    - i: 0
+      code: 401
+      p:
+      - who have a policy about Pokémon can turn pro.
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy policy is an all out offensive with Water-"
+    - i: 0
+      code: 401
+      p:
+      - type Pokémon!
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Misty,"Misty")
+    - i: 1
+      code: 101
+      p:
+      - "\\rMisty: You've earned the Cascade Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:CASCADEBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[1]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM55)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM55 contains Scald. It does damage and "
+    - i: 1
+      code: 401
+      p:
+      - has a chance to burn the opponent.
+    - i: 1
+      code: 121
+      p:
+      - 5
+      - 5
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: I have three older sisters who also help out "
+    - i: 0
+      code: 401
+      p:
+      - with the Gym.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 6
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Daisy: We run the Gym here.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 138
+    graphic: trchar060_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Misty)
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: \\Pn! What are you doing here?"
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, interesting. I'm taking over as Gym Leader for "
+    - i: 0
+      code: 401
+      p:
+      - my sisters.
+    - i: 0
+      code: 101
+      p:
+      - "\\rWant to test out my stregth as a Leader?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Misty1,"Misty",nil,false,1)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar060_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: I've taken over as Gym Leader. I'm going to "
+    - i: 0
+      code: 401
+      p:
+      - be around here from now on.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 554
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Misty)
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: So you finally came to visit me. Let me show "
+    - i: 0
+      code: 401
+      p:
+      - you my new strength.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Misty,"Misty",nil,false,6,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: It's good to see you every now and then. Be "
+    - i: 0
+      code: 401
+      p:
+      - sure to visit me.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 4
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PICNICKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rAre you good enough to face Misty?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PICNICKER,"Diana")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou have to face other Trainers to see"
+    - i: 0
+      code: 401
+      p:
+      - how good you really are.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 5
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou have to face other Trainers to see"
+    - i: 0
+      code: 401
+      p:
+      - how good you really are.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Psyduck
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 6
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Lily: We run the Gym here.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: PSYDUCK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 054Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bPsyduck"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Azurill
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 6
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Violet: We run the Gym here.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 138
+    graphic: AZURILL
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 298Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bAzurill"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Horsea
+  x: 12
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 11
+    graphic: HORSEA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 116Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bHorsea"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Starmie
+  x: 10
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 11
+    graphic: STARMIE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 121Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Starmie
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Staryu
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: STARYU
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 120Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Staryu
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 115
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: STARYU
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 120Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Staryu
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Politoed
+  x: 5
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: POLITOED
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 186Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPolitoed"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 115
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: POLITOED
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 186Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPolitoed"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Goldeen
+  x: 8
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: GOLDEEN
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 118Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rGoldeen"
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Corsola
+  x: 14
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: CORSOLA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 222Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCorsola"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 115
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: CORSOLA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 222Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCorsola"
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Gyarados
+  x: 12
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: GYARADOS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 130Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bGyarados!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 115
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: GYARADOS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 130Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bGyarados!"
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Luvdisc
+  x: 6
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 116
+    graphic: LUVDISC
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 370Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bLuvdisc"
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Clauncher
+  x: 13
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: CLAUNCHER
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: CLAUNCHER
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bClauncher!"
+    - i: 0
+      code: 0
+      p: []

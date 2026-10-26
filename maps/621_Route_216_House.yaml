@@ -1,0 +1,86 @@
+---
+id: 621
+name: Route 216 House
+parent: 620
+width: 20
+height: 20
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 620
+      - 20
+      - 15
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 1
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Be careful out there. The cold can get to you quickly.
+    - i: 0
+      code: 0
+      p: []

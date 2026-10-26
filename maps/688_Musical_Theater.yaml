@@ -1,0 +1,332 @@
+---
+id: 688
+name: Musical Theater
+parent: 687
+width: 30
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 13
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 686
+      - 54
+      - 7
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Pokemon
+  x: 9
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: VENIPEDE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 9
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 12
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 12
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: OSHAWOTT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 15
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 11
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wish I was young enough to still have that bold "
+    - i: 0
+      code: 401
+      p:
+      - confidence.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Pokemon
+  x: 18
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: SWOOBAT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Person
+  x: 18
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: NPC 12
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Pokemon
+  x: 15
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: SCRAGGY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 16
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Scraggy is my favorite."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 9
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI wanna see a backflip."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Person
+  x: 17
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDo you enjoy the musical? I spend a lot of time "
+    - i: 0
+      code: 401
+      p:
+      - setting it up.
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou do! That's wonderful. Take this as my thanks."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM61)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bWell, to each their own."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAh, to see so many Trainers and Pokémon dancing "
+    - i: 0
+      code: 401
+      p:
+      - together.
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Person
+  x: 8
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI think the Swoobat isn't interested."
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Person
+  x: 18
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThere's no battling. This is lame."
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Person
+  x: 10
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is so cool to watch!"
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,6597 @@
+---
+id: 42
+name: Pallet House
+parent: 33
+width: 75
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Beginning
+  x: 37
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 38
+      - 38
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 3
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 33
+      - 23
+      - 28
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 32
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 33
+      - 44
+      - 19
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 33
+      - 13
+      - 28
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: North door left
+  x: 31
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 764
+      - 44
+      - 22
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Stairs up
+  x: 12
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - Followers.prevent_y_movement
+          code: 45
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 8
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - Followers.prevent_y_movement
+        code: 45
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 8
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 42
+      - 37
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Stairs up
+  x: 37
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - Followers.prevent_y_movement
+          code: 45
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 8
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - Followers.prevent_y_movement
+        code: 45
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 8
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 48
+      - 14
+      - 3
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Stairs down
+  x: 36
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 42
+      - 11
+      - 2
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Mom
+  x: 7
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 38
+    graphic: NPC 79
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbSetPokemonCenter
+    - i: 0
+      code: 101
+      p:
+      - "\\rMom: \\PN, you're late! Hurry over to Professor Oak "
+    - i: 0
+      code: 401
+      p:
+      - 'to get your first Pokémon. '
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Pokemon
+  x: 9
+  "y": 6
+  pages:
+  - condition:
+      switch1: 11
+    graphic: MRMIME
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 122Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMr. Mime"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 69
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 110
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 135
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 197
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 281
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: Pokemon 106
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 122Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMr. Mime"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 430
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 552
+    graphic: Pokemon 106
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 122Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMr. Mime"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 28
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bProfessor Oak is the leading expert in Pokémon."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAh, Professor Oak told you to speak with me. We "
+    - i: 0
+      code: 401
+      p:
+      - recently acquired this, and would like you to have it.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SHINYCHARM)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat's a Shiny Charm. It will increase your chances "
+    - i: 0
+      code: 401
+      p:
+      - of finding a Shiny Pokémon.
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Tracey
+  x: 34
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: trchar075
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTracey: Hi \\PN. Can you believe I get to work for "
+    - i: 0
+      code: 401
+      p:
+      - Professor Oak?!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 138
+    graphic: trchar075
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTracey: Ready for a rematch?"
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:WATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:WATCHER,"Tracey",nil,false,2,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar075
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTracey: Hi \\PN. Can you believe I get to work for "
+    - i: 0
+      code: 401
+      p:
+      - Professor Oak?!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 154
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Sign
+  x: 31
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 70
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Indigo League Placement for \PN:\nTop 16
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Sign
+  x: 32
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Orange League Placement for \PN:\nWinner
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Sign
+  x: 33
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Silver Conference Placement for \PN:\nTop 8
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Sign
+  x: 40
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Lumiose Conference Placement for \PN:\nRunner up
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Sign
+  x: 34
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 138
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Ever Grande Placement for \PN:\nTop 8
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Sign
+  x: 37
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 145
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Battle Frontier Status for \PN:\nFrontier Brain '
+    - i: 0
+      code: 401
+      p:
+      - candidate
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Sign
+  x: 38
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 198
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Lily of the Valley Placement for \PN:\nTop 4
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Sign
+  x: 39
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 242
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Vetress Conference Placement for \PN:\nTop 8
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Item
+  x: 32
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 71
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:TM102)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Healing, size(2,1)
+  x: 31
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Your Pokémon were fully healed.
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Sign
+  x: 42
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 550
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'World Coronation Series Placement for \PN:'
+    - i: 0
+      code: 401
+      p:
+      - "\\nMonarch"
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: EV024
+  x: 5
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHello, \\PN. Gary already left for the lab 2 hours ago. Hurry up!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 29
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're going on an adventure as well? Take this, then."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TOWNMAP)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rEnjoying your adventure? Cherish your time with Pikachu."
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Mom
+  x: 7
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 1
+    graphic: NPC 79
+    trigger: 3
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 25
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh...  Are you all right?  Well, you'll have better luck "
+    - i: 0
+      code: 401
+      p:
+      - this time.
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 39
+      - 39
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 1
+      - 1
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 39
+    graphic: NPC 79
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbSetPokemonCenter
+    - i: 0
+      code: 101
+      p:
+      - "\\rMom: \\PN, you look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 4
+    graphic: NPC 79
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbSetPokemonCenter
+    - i: 0
+      code: 101
+      p:
+      - "\\rMom: \\PN, you look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 69
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 110
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 135
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 197
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 281
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: NPC 79
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMom: \\PN, it's about time you showed up. Mimey "
+    - i: 0
+      code: 401
+      p:
+      - 'won us a vacation to Alola! Let''s head to Viridian City '
+    - i: 0
+      code: 401
+      p:
+      - right now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: NPC 79
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbSetPokemonCenter
+    - i: 0
+      code: 101
+      p:
+      - "\\rMom: \\PN, you look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 121
+      p:
+      - 429
+      - 429
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 430
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 449
+    graphic: NPC 79
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbSetPokemonCenter
+    - i: 0
+      code: 101
+      p:
+      - "\\rMom: \\PN, you look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: PC
+  x: 27
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerPC
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Venomoth
+  x: 36
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: VENONAT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: '048Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bVeno"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 564
+    graphic: VENOMOTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: '049Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bVeno"
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Scyther
+  x: 35
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: SCYTHER
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 123Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bScyther..."
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Marill
+  x: 37
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: MARILL
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 183Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rMarill"
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Teleport
+  x: 1
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 72
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Where would you like to go?\ch[1,-1,Orange,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 283
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 112
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 153
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 199
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 257
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Kalos,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 796
+      - 2
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Kalos,Alola,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 7
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 796
+      - 2
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 892
+      - 20
+      - 18
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 570
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 538
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Kalos,Alola,Galar,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 8
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 796
+      - 2
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 892
+      - 20
+      - 18
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 7
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 988
+      - 2
+      - 9
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Team Rocket
+  x: 32
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 329
+    graphic: Pokemon 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 333
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Team Rocket
+  x: 31
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 329
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 247
+      p: []
+    - i: 0
+      code: 241
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Team Rocket OW Alola
+        pitch: 100
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Haha! I bet you never expected to find us "
+    - i: 0
+      code: 401
+      p:
+      - here.
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Now that you're off guard your Pokémon "
+    - i: 0
+      code: 401
+      p:
+      - will be easy to take.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: Hand them over twerp."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWobbuffet!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET,"Jessie and James",nil,false,30,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 333
+      - 333
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 248
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 333
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Team Rocket
+  x: 33
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 329
+    graphic: trchar072
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 333
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 34
+  name: Team Rocket
+  x: 32
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 329
+    graphic: Pokemon 32
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 333
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 35
+  name: Ash-Kanto/Johto
+  x: 61
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar000_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 36
+  name: Sign
+  x: 41
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'It''s a list of your accomplishments. It''s empty right '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 414
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Manalo Conference Placement for \PN:\nWinner
+    - i: 0
+      code: 0
+      p: []
+- id: 37
+  name: Rotom Form
+  x: 27
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 199
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHey \\PN. Here's an item you can use to change "
+    - i: 0
+      code: 401
+      p:
+      - Rotom's form.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:ROTOMCATALOG)
+    - i: 1
+      code: 101
+      p:
+      - "\\bUse it well!"
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bUse it well!"
+    - i: 0
+      code: 0
+      p: []
+- id: 38
+  name: Clothes
+  x: 36
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'It''s a place to change clothes. Too bad you don''t have '
+    - i: 1
+      code: 401
+      p:
+      - any extras right now.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'Which outfit would you like?\ch[1,1,Kanto/Johto, '
+    - i: 1
+      code: 401
+      p:
+      - Hoenn, Cancel]
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=1"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=2"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 152
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'Which outfit would you like?\ch[1,1,Kanto/Johto, '
+    - i: 1
+      code: 401
+      p:
+      - Hoenn, Sinnoh, Cancel]
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=1"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=2"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=3"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 198
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'Which outfit would you like?\ch[1,1,Kanto/Johto, '
+    - i: 1
+      code: 401
+      p:
+      - Hoenn, Sinnoh, Unova, Cancel]
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=1"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=2"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=3"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=4"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'Which outfit would you like?\ch[1,1,Kanto/Johto, '
+    - i: 1
+      code: 401
+      p:
+      - Hoenn, Sinnoh, Unova, Kalos, Cancel]
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=1"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=2"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=3"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=4"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=5"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'Which outfit would you like?\ch[1,1,Kanto/Johto, '
+    - i: 1
+      code: 401
+      p:
+      - Hoenn, Sinnoh, Unova, Kalos, Alola, Cancel]
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=1"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=2"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=3"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=4"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=5"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=6"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 430
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'Which outfit would you like?\ch[1,1,Kanto/Johto, '
+    - i: 1
+      code: 401
+      p:
+      - Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, Cancel]
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=1"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=2"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=3"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=4"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=5"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=6"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=7"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 39
+  name: Teleport
+  x: 55
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 42
+      - 33
+      - 7
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 40
+  name: Ash-Kanto
+  x: 55
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar000_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 41
+  name: Teleport
+  x: 28
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 42
+      - 60
+      - 7
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 42
+  name: Ash-Kanto2
+  x: 58
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar000_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 43
+  name: Ash-Unova
+  x: 64
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar000_4
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,6,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_4
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 44
+  name: Ash-Kalos
+  x: 67
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar000_5
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,8,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_5
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 45
+  name: Ash-Hoenn
+  x: 55
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar000_2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,4,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 46
+  name: Ash-Alola
+  x: 63
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar000_6
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,9,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_6
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 47
+  name: Ash-Sinnoh
+  x: 61
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar000_3
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,5,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_3
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 48
+  name: Ash-Unova2
+  x: 68
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar000_4
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,7,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_4
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 49
+  name: Ash-Johto
+  x: 58
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar000_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,3,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 50
+  name: Clothes
+  x: 37
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'It''s a place to change into your special clothes. Too bad you don''t have '
+    - i: 1
+      code: 401
+      p:
+      - any extras right now.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - Which outfit would you like?\ch[1,1,Rookie, Cancel]
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.outfit=8"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 51
+  name: Ash-Galar
+  x: 69
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar000_7
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Ash,"...",nil,false,10,false,0)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:GORGEOUS)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar000_7
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 52
+  name: Center
+  x: 3
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - Kernel.pbSetPokemonCenter
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 53
+  name: play lab bgm
+  x: 26
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 4
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 0
+      - 21
+      - 1
+    - i: 1
+      code: 122
+      p:
+      - 10
+      - 10
+      - 0
+      - 6
+      - -1
+      - 0
+    - i: 1
+      code: 122
+      p:
+      - 11
+      - 11
+      - 0
+      - 6
+      - -1
+      - 1
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 10
+      - 0
+      - 26
+      - 1
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 10
+      - 0
+      - 38
+      - 2
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 11
+      - 0
+      - 15
+      - 1
+    - i: 4
+      code: 111
+      p:
+      - 1
+      - 11
+      - 0
+      - 27
+      - 2
+    - i: 5
+      code: 355
+      p:
+      - playOakLabBGM
+    - i: 5
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 54
+  name: Clothes
+  x: 41
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'It''s a place to change caps for Pikachu. Too bad you '
+    - i: 1
+      code: 401
+      p:
+      - don't have any extras right now.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 4
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(:PIKACHU)
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich cap would you like to pick for Pikachu?"
+    - i: 2
+      code: 102
+      p:
+      - - Capless
+        - Original Cap
+        - Cancel
+      - 3
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Capless
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=0"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has taken off its cap."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Original Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=9"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Original Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 2
+      - Cancel
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - It's a place to change caps for Pikachu.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 102
+      p:
+      - - Capless
+        - Original Cap
+        - Hoenn Cap
+        - Cancel
+      - 4
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - Capless
+    - i: 2
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 2
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 2
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 2
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 2
+      code: 655
+      p:
+      - "    poke.form=0"
+    - i: 2
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 2
+      code: 655
+      p:
+      - "    break"
+    - i: 2
+      code: 655
+      p:
+      - "  end"
+    - i: 2
+      code: 655
+      p:
+      - end
+    - i: 2
+      code: 101
+      p:
+      - "\\v[1] has taken off its cap."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - Original Cap
+    - i: 2
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 2
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 2
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 2
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 2
+      code: 655
+      p:
+      - "    poke.form=9"
+    - i: 2
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 2
+      code: 655
+      p:
+      - "    break"
+    - i: 2
+      code: 655
+      p:
+      - "  end"
+    - i: 2
+      code: 655
+      p:
+      - end
+    - i: 2
+      code: 101
+      p:
+      - "\\v[1] has changed to Original Cap Pikachu!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 2
+      - Hoenn Cap
+    - i: 2
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 2
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 2
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 2
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 2
+      code: 655
+      p:
+      - "    poke.form=10"
+    - i: 2
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 2
+      code: 655
+      p:
+      - "    break"
+    - i: 2
+      code: 655
+      p:
+      - "  end"
+    - i: 2
+      code: 655
+      p:
+      - end
+    - i: 2
+      code: 101
+      p:
+      - "\\v[1] has changed to Hoenn Cap Pikachu!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 3
+      - Cancel
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 152
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(:PIKACHU)
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich cap would you like to pick for Pikachu?"
+    - i: 2
+      code: 102
+      p:
+      - - Capless
+        - Original Cap
+        - Hoenn Cap
+        - Sinnoh Cap
+      - 5
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Capless
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=0"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has taken off its cap."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Original Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=9"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Original Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 2
+      - Hoenn Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=10"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Hoenn Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 3
+      - Sinnoh Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=11"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Sinnoh Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 403
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - It's a place to change caps for Pikachu.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 55
+  name: Clothes
+  x: 42
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - 'It''s a place to change caps for Pikachu. Too bad you '
+    - i: 1
+      code: 401
+      p:
+      - don't have any extras right now.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 198
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(:PIKACHU)
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich cap would you like to pick for Pikachu?"
+    - i: 2
+      code: 102
+      p:
+      - - Unova Cap
+        - Cancel
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Unova Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=12"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Unova Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Cancel
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - It's a place to change caps for Pikachu.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(:PIKACHU)
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich cap would you like to pick for Pikachu?"
+    - i: 2
+      code: 102
+      p:
+      - - Unova Cap
+        - Kalos Cap
+        - Cancel
+      - 3
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Unova Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=12"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Unova Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Kalos Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=13"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Kalos Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 2
+      - Cancel
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - It's a place to change caps for Pikachu.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(:PIKACHU)
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich cap would you like to pick for Pikachu?"
+    - i: 2
+      code: 102
+      p:
+      - - Unova Cap
+        - Kalos Cap
+        - Alola Cap
+        - Cancel
+      - 4
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Unova Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=12"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Unova Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Kalos Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=13"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Kalos Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 2
+      - Alola Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=14"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Alola Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 3
+      - Cancel
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - It's a place to change caps for Pikachu.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 430
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(:PIKACHU)
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich cap would you like to pick for Pikachu?"
+    - i: 2
+      code: 102
+      p:
+      - - Unova Cap
+        - Kalos Cap
+        - Alola Cap
+        - World Cap
+      - 5
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Unova Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=12"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Unova Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Kalos Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=13"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Kalos Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 2
+      - Alola Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=14"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to Alola Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 3
+      - World Cap
+    - i: 3
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 3
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 3
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 3
+      code: 655
+      p:
+      - "  if poke.species==:PIKACHU"
+    - i: 3
+      code: 655
+      p:
+      - "    poke.form=16"
+    - i: 3
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 3
+      code: 655
+      p:
+      - "    break"
+    - i: 3
+      code: 655
+      p:
+      - "  end"
+    - i: 3
+      code: 655
+      p:
+      - end
+    - i: 3
+      code: 101
+      p:
+      - "\\v[1] has changed to World Cap Pikachu!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 403
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - It's a place to change caps for Pikachu.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []

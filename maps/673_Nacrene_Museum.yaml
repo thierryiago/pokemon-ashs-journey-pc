@@ -1,0 +1,888 @@
+---
+id: 673
+name: Nacrene Museum
+parent: 671
+width: 30
+height: 40
+tileset: 18
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 19
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou want a fossil revived? Kid, this is a museum. "
+    - i: 0
+      code: 401
+      p:
+      - Go bother someone else.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Door
+  x: 15
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 215
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 674
+      - 8
+      - 17
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Sign, size(2,1)
+  x: 8
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - It's an Aerodactyl Fossil.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Sign, size(2,1)
+  x: 17
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - It's a Plume Fossil.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Switch
+  x: 16
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 215
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 13
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 669
+      - 29
+      - 15
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Hawes
+  x: 8
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHawes: Welcome to the museum. I'm Lenora's "
+    - i: 0
+      code: 401
+      p:
+      - husband and help run the gym.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 216
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHawes: My wife wanted you to see me. She must "
+    - i: 0
+      code: 401
+      p:
+      - want me to give you these.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:COVERFOSSIL)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:PLUMEFOSSIL)
+    - i: 1
+      code: 121
+      p:
+      - 217
+      - 217
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHawes: Welcome to the museum. I'm Lenora's "
+    - i: 0
+      code: 401
+      p:
+      - husband and help run the gym.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Gym Guy
+  x: 14
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLenora uses Normal type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against only the Fighting type.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against nothing. They are immune "
+    - i: 0
+      code: 401
+      p:
+      - 'to Ghost type moves as well. '
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Switch, size(2,1)
+  x: 10
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - "... No switch here."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 17
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat? I'm not a Trainer. I'm just looking for a "
+    - i: 0
+      code: 401
+      p:
+      - book.
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(3)
+  x: 14
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 201'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SCIENTIST)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm reading here."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SCIENTIST,"Carter")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLenora will be a tough opponent."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 201
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLenora will be a tough opponent."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(3)
+  x: 12
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 201'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SCIENTIST)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe bookcase could be a secret entrance."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SCIENTIST,"Satomi")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bA switch will be around somewhere."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 201
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bA switch will be around somewhere."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Switch, size(2,1)
+  x: 10
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - "... No switch here."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Switch
+  x: 16
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - "... No switch here."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 215
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Switch
+  x: 16
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 215
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Switch, size(2,1)
+  x: 10
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - "... No switch here."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Switch, size(2,1)
+  x: 15
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - "... No switch here."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Switch, size(2,1)
+  x: 15
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - "... No switch here."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Switch
+  x: 16
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 215
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Switch
+  x: 15
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 215
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Switch
+  x: 15
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - "... A switch!"
+    - i: 1
+      code: 121
+      p:
+      - 215
+      - 215
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 215
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Switch
+  x: 15
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 215
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Trainer(3)
+  x: 9
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 201'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rTaking a guess, are you?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Lydia")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOne of the bookcases moves. Which one is it?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 201
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOne of the bookcases moves. Which one is it?"
+    - i: 0
+      code: 0
+      p: []

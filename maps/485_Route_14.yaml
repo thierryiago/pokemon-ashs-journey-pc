@@ -1,0 +1,672 @@
+---
+id: 485
+name: Route 14
+parent: 205
+width: 36
+height: 50
+tileset: 1
+bgm: Kanto Route
+events:
+- id: 1
+  name: HiddenItem
+  x: 7
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:PINAPBERRY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: HiddenItem
+  x: 9
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:ZINC)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(3)
+  x: 24
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIRDKEEPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHmmm..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIRDKEEPER,"Josh")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAll this Frontier stuff is blowing up Kanto right now."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(4)
+  x: 21
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMANIAC)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou there. Show me what you got."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMANIAC,"Trevor")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wish I had a Dex like you."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(4)
+  x: 3
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMANIAC)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's put it all out there."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMANIAC,"Carter")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAren't my babies amazing?"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Double trainer F
+  x: 12
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou'll need at least two Pokémon if you want to "
+    - i: 1
+      code: 401
+      p:
+      - battle us.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TWINS)
+    - i: 0
+      code: 101
+      p:
+      - "\\rAh, a Trainer! Lets go Kiri!"
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TWINS,"Kiri & Jan",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 108
+      p:
+      - Set the partner event's Self Switch "A" on.
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(7,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm raising Pokémon with Kiri."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Double trainer F
+  x: 13
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou'll need at least two Pokémon if you want to "
+    - i: 1
+      code: 401
+      p:
+      - battle us.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TWINS)
+    - i: 0
+      code: 101
+      p:
+      - "\\rAh, a Trainer! Lets go Jan!"
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TWINS,"Kiri & Jan",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 108
+      p:
+      - Set the partner event's Self Switch "A" on.
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(6,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI caught my Pokémon with Jan."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(3)
+  x: 10
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar008
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWoah there."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIKER,"Lucas")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar008
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBe careful."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(3)
+  x: 11
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar008
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm gonna run you over."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIKER,"Malik")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar008
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOut of my way."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(3)
+  x: 12
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar008
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bErrr..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIKER,"Gerald")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar008
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJust go away."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Encouter Pokemon
+  x: 24
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: CELEBI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 251Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: secretlegendjohto2
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:CELEBI,50)
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Item
+  x: 12
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:WISEGLASSES)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

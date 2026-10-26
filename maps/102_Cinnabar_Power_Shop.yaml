@@ -1,0 +1,135 @@
+---
+id: 102
+name: Cinnabar Power Shop
+parent: 185
+width: 20
+height: 15
+tileset: 5
+bgm: PokeMart
+events:
+- id: 1
+  name: Exit
+  x: 7
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 184
+      - 11
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Vendor
+  x: 5
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 13
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":POWERBRACER,"
+    - i: 0
+      code: 655
+      p:
+      - ":POWERANKLET,"
+    - i: 0
+      code: 655
+      p:
+      - ":POWERWEIGHT,"
+    - i: 0
+      code: 655
+      p:
+      - ":POWERBAND,"
+    - i: 0
+      code: 655
+      p:
+      - ":POWERBELT,"
+    - i: 0
+      code: 655
+      p:
+      - ":POWERLENS,"
+    - i: 0
+      code: 655
+      p:
+      - ":MACHOBRACE,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 10
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI come here for all the training items. I can't get "
+    - i: 0
+      code: 401
+      p:
+      - enough of them.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 4
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar043
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWait, they sell stuff here?"
+    - i: 0
+      code: 0
+      p: []

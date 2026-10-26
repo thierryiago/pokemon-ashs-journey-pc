@@ -1,0 +1,299 @@
+---
+id: 934
+name: Tapu House
+parent: 932
+width: 30
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 932
+      - 16
+      - 12
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Nanu
+  x: 8
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ISLANDKAHUNA_Nanu)
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu:... How did you even find me? First those "
+    - i: 0
+      code: 401
+      p:
+      - 'three come here and now you. I need to find a new '
+    - i: 0
+      code: 401
+      p:
+      - spot.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWell I guess it's too late to turn you away. Let's get "
+    - i: 0
+      code: 401
+      p:
+      - this island trial going.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ISLANDKAHUNA_Nanu,"Nanu")
+    - i: 1
+      code: 101
+      p:
+      - "\\bGood enough for a trial run but not enough for a "
+    - i: 1
+      code: 401
+      p:
+      - 'real trial. '
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back some other time."
+    - i: 1
+      code: 121
+      p:
+      - 367
+      - 367
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu: Come back some other time."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 368
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu: You again? I'm guessing a rematch... How "
+    - i: 0
+      code: 401
+      p:
+      - 'about this? There were some people looking for you. '
+    - i: 0
+      code: 401
+      p:
+      - I guess they can be a trial for you.
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't come back until you beat them. They should "
+    - i: 0
+      code: 401
+      p:
+      - be at the abandoned Thrifty Megamart by now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 307
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ISLANDKAHUNA_Nanu)
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu:... So you finished it? I can't think of anything "
+    - i: 0
+      code: 401
+      p:
+      - 'else to get you to leave me alone. The best way '
+    - i: 0
+      code: 401
+      p:
+      - would probably be a battle, wouldn't it?
+    - i: 0
+      code: 101
+      p:
+      - "\\bBe warned, this is going to be a challenge. Beating "
+    - i: 0
+      code: 401
+      p:
+      - 'a trial should be worth something, so you''re only '
+    - i: 0
+      code: 401
+      p:
+      - going to be allowed one Pokémon against my three.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ISLANDKAHUNA_Nanu,"Nanu",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou did good. Take this as a reward."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:LYCANIUMZ)
+    - i: 1
+      code: 101
+      p:
+      - "\\bA Lycanium Z. With that you can power up your "
+    - i: 1
+      code: 401
+      p:
+      - Stone Edge if Lycanroc knows it.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI was thinking of giving you a Darkinium Z, but that "
+    - i: 1
+      code: 401
+      p:
+      - doesn't seem to fit your personality.
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:SINNOHCOOLMASTER)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 121
+      p:
+      - 312
+      - 312
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go back and inform the professor of '
+    - i: 1
+      code: 401
+      p:
+      - your win.
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu: You've won. Leave me in peace now."
+    - i: 0
+      code: 0
+      p: []

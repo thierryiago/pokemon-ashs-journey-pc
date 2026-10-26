@@ -1,0 +1,71 @@
+---
+id: 336
+name: Mahogany House
+parent: 335
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 6
+  name: Person
+  x: 4
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPryce recently found his lost Piloswine. I've never "
+    - i: 0
+      code: 401
+      p:
+      - seen him happier.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 335
+      - 30
+      - 15
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

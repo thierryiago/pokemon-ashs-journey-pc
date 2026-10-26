@@ -1,0 +1,328 @@
+---
+id: 244
+name: Kumquat Gym
+parent: 242
+width: 20
+height: 20
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Trainer(4)
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:AROMALADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is the toughest Gym in the Orange"
+    - i: 0
+      code: 401
+      p:
+      - Islands.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:AROMALADY,"Alex",_I("You may stand a chance."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI wish you luck."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 76
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI wish you luck."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 8
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 240
+      - 28
+      - 36
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(4)
+  x: 10
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:AROMALADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou think you stand a chance?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:AROMALADY,"Harper",_I("Wow."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI wish you luck."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 76
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI wish you luck."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Double trainer F
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar079
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\rLuana: You'll need at least two Pokémon if you "
+    - i: 1
+      code: 401
+      p:
+      - want to battle me.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Luana)
+    - i: 0
+      code: 101
+      p:
+      - "\\rLuana: Welcome to the strongest Gym Leader of "
+    - i: 0
+      code: 401
+      p:
+      - the Orange Islands.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI hope you are used to Double battles. My teamwork "
+    - i: 0
+      code: 401
+      p:
+      - is extraordinary.
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Luana,"Luana",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar079
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLuana: You've earned the Jade Star Badge."
+    - i: 0
+      code: 355
+      p:
+      - pbReceiveItem(:JADESTARBADGE)
+    - i: 0
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 0
+      code: 355
+      p:
+      - pbReceiveItem(:TM33)
+    - i: 0
+      code: 101
+      p:
+      - "\\rTM33 contains Smart Strike. It can never miss."
+    - i: 0
+      code: 121
+      p:
+      - 76
+      - 76
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar079
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLuana: You may just beat Drake. Good luck!"
+    - i: 0
+      code: 0
+      p: []

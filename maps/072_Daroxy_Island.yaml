@@ -1,0 +1,630 @@
+---
+id: 72
+name: Daroxy Island
+parent: 1
+width: 29
+height: 31
+tileset: 1
+bgm: 022-Field05
+events:
+- id: 1
+  name: Exit left
+  x: 13
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 71
+      - 8
+      - 5
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit middle
+  x: 14
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 71
+      - 8
+      - 5
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit right
+  x: 15
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 71
+      - 8
+      - 5
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Normal meteor
+  x: 11
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(PBSpecies::DEOXYS)
+    - i: 1
+      code: 101
+      p:
+      - Deoxys is reacting to the meteor...
+    - i: 1
+      code: 101
+      p:
+      - 'Would you like to bring the Deoxys in your party '
+    - i: 1
+      code: 401
+      p:
+      - closer to the meteor?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 2
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 2
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 2
+      code: 655
+      p:
+      - "  if poke.species==PBSpecies::DEOXYS"
+    - i: 2
+      code: 655
+      p:
+      - "    poke.form=0"
+    - i: 2
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 2
+      code: 655
+      p:
+      - "    break"
+    - i: 2
+      code: 655
+      p:
+      - "  end"
+    - i: 2
+      code: 655
+      p:
+      - end
+    - i: 2
+      code: 101
+      p:
+      - "\\v[1] has changed to have balanced stats!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - Left the meteor alone.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - It's a regular-looking rock.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Attack meteor
+  x: 17
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(PBSpecies::DEOXYS)
+    - i: 1
+      code: 101
+      p:
+      - Deoxys is reacting to the meteor...
+    - i: 1
+      code: 101
+      p:
+      - 'Would you like to bring the Deoxys in your party '
+    - i: 1
+      code: 401
+      p:
+      - closer to the meteor?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 2
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 2
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 2
+      code: 655
+      p:
+      - "  if poke.species==PBSpecies::DEOXYS"
+    - i: 2
+      code: 655
+      p:
+      - "    poke.form=1"
+    - i: 2
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 2
+      code: 655
+      p:
+      - "    break"
+    - i: 2
+      code: 655
+      p:
+      - "  end"
+    - i: 2
+      code: 655
+      p:
+      - end
+    - i: 2
+      code: 101
+      p:
+      - "\\v[1] has changed to have superior stats for "
+    - i: 2
+      code: 401
+      p:
+      - attacking!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - Left the meteor alone.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - It's a vicious-looking rock.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Defense meteor
+  x: 11
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(PBSpecies::DEOXYS)
+    - i: 1
+      code: 101
+      p:
+      - Deoxys is reacting to the meteor...
+    - i: 1
+      code: 101
+      p:
+      - 'Would you like to bring the Deoxys in your party '
+    - i: 1
+      code: 401
+      p:
+      - closer to the meteor?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 2
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 2
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 2
+      code: 655
+      p:
+      - "  if poke.species==PBSpecies::DEOXYS"
+    - i: 2
+      code: 655
+      p:
+      - "    poke.form=2"
+    - i: 2
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 2
+      code: 655
+      p:
+      - "    break"
+    - i: 2
+      code: 655
+      p:
+      - "  end"
+    - i: 2
+      code: 655
+      p:
+      - end
+    - i: 2
+      code: 101
+      p:
+      - "\\v[1] has changed to have superior stats when "
+    - i: 2
+      code: 401
+      p:
+      - defending!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - Left the meteor alone.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - It's a sturdy-looking rock.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Speed meteor
+  x: 17
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbHasSpecies?(PBSpecies::DEOXYS)
+    - i: 1
+      code: 101
+      p:
+      - Deoxys is reacting to the meteor...
+    - i: 1
+      code: 101
+      p:
+      - 'Would you like to bring the Deoxys in your party '
+    - i: 1
+      code: 401
+      p:
+      - closer to the meteor?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - for i in 0...$Trainer.party.length
+    - i: 2
+      code: 655
+      p:
+      - "  poke=$Trainer.party[i]"
+    - i: 2
+      code: 655
+      p:
+      - "  next if poke.egg?"
+    - i: 2
+      code: 655
+      p:
+      - "  if poke.species==PBSpecies::DEOXYS"
+    - i: 2
+      code: 655
+      p:
+      - "    poke.form=3"
+    - i: 2
+      code: 655
+      p:
+      - "    pbSet(1,poke.name)"
+    - i: 2
+      code: 655
+      p:
+      - "    break"
+    - i: 2
+      code: 655
+      p:
+      - "  end"
+    - i: 2
+      code: 655
+      p:
+      - end
+    - i: 2
+      code: 101
+      p:
+      - "\\v[1] has changed to have increased speed!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - Left the meteor alone.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - It's a smooth-looking rock.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Deoxys
+  x: 14
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: Pokemon 12
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 386Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 121
+      p:
+      - 32
+      - 32
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(PBSpecies::DEOXYS,30)
+    - i: 0
+      code: 121
+      p:
+      - 32
+      - 32
+      - 1
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

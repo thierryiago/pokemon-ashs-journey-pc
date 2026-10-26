@@ -1,0 +1,494 @@
+---
+id: 564
+name: Solaceon House
+parent: 563
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 563
+      - 38
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 3
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe Day Care is wonderful. They even "
+    - i: 0
+      code: 401
+      p:
+      - 'communicate between each other so you can pick '
+    - i: 0
+      code: 401
+      p:
+      - Pokémon up from almost anywhere.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trader - Basic
+  x: 26
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm looking for a Magmar."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to trade it for my Electivire?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :MAGMAR"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOK, let's do this."
+    - i: 2
+      code: 355
+      p:
+      - pbStartTrade(pbGet(1),
+    - i: 2
+      code: 655
+      p:
+      - ' :ELECTIVIRE,_I("Electivire"),_I("Mike")'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Magmar for Electivire!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks again."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 23
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI don't understand those two. What's wrong with a "
+    - i: 0
+      code: 401
+      p:
+      - Jynx?
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trader - Basic
+  x: 23
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm looking for an Electabuzz."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to trade it for my Magmortar?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :ELECTABUZZ"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOK, let's do this."
+    - i: 2
+      code: 355
+      p:
+      - pbStartTrade(pbGet(1),
+    - i: 2
+      code: 655
+      p:
+      - ' :MAGMORTAR,_I("Magmortar"),_I("Ike")'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Electabuzz for Magmortar!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks again."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 563
+      - 40
+      - 23
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Pokemon
+  x: 26
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: JYNX
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 124Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rJynx"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 1
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is where we write the news for all of Sinnoh."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Person
+  x: 5
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDo you read the news?"
+    - i: 0
+      code: 401
+      p:
+      - "..."
+    - i: 0
+      code: 401
+      p:
+      - "\\bYou don't? Kids these days."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 3
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 563
+      - 30
+      - 21
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

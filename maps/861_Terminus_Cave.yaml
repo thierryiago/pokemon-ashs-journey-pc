@@ -1,0 +1,407 @@
+---
+id: 861
+name: Terminus Cave
+parent: 859
+width: 45
+height: 50
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Exit south
+  x: 20
+  "y": 43
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 859
+      - 62
+      - 27
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Gate entrance
+  x: 36
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 862
+      - 20
+      - 42
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(1)
+  x: 24
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: trchar169
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMFLARE)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bGet away from here."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMFLARE,"Riley")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar169
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bScram brat."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 269
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(1)
+  x: 29
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar169
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMFLARE)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI need to get back."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMFLARE,"Jack")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar169
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 269
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(1)
+  x: 28
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: trchar169
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMFLARE)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWill you please just leave? How am I supposed to "
+    - i: 0
+      code: 401
+      p:
+      - advance if I lose to you?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMFLARE,"Jared")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar169
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI really need this job. Don't blow this for me."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 269
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(3)
+  x: 31
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar215
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMFLARE_Bryony)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rBryony: What are you doing here?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMFLARE_Bryony,"Bryony")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar215
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBryony: Only a minor setback."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 269
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(3)
+  x: 31
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar216
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMFLARE_Bryony)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rCelosia: Another problem to dispose of."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMFLARE_Celosia,"Celosia")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar216
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCelosia: This won't end here."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 269
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

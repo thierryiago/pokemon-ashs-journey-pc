@@ -1,0 +1,733 @@
+---
+id: 771
+name: White Ruins
+parent: 767
+width: 50
+height: 30
+tileset: 1
+bgm: Unova Route
+events:
+- id: 1
+  name: Trainer(3)
+  x: 28
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar213
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMPLASMA)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe are justice."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMPLASMA,"Aldith")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar213
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe should be unstoppable."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Encouter Pokemon
+  x: 22
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: RESHIRAM
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 643Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Unova
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:RESHIRAM,55)
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Colress
+  x: 22
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar136
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bColress: Oh, someone actually came to stop me."
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy name is Colress. I'm here on Team Plasma's "
+    - i: 0
+      code: 401
+      p:
+      - 'behalf to capture this Pokémon. I suppose you also '
+    - i: 0
+      code: 401
+      p:
+      - have the same idea.
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow about I battle you for it? With my mind "
+    - i: 0
+      code: 401
+      p:
+      - 'controlling device I''m able to bring out a Pokémon''s '
+    - i: 0
+      code: 401
+      p:
+      - true strength. I'll never lose to you.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMPLASMA_Colress,"Colress")
+    - i: 1
+      code: 101
+      p:
+      - "\\bColress: I can't believe I lost. I'll let you have this for "
+    - i: 1
+      code: 401
+      p:
+      - now, but don't think this is the last of me.
+    - i: 1
+      code: 101
+      p:
+      - "\\bNot so fast."
+    - i: 1
+      code: 121
+      p:
+      - 245
+      - 245
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: trchar136
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooker: It is I, Looker of the International Police. "
+    - i: 0
+      code: 401
+      p:
+      - You're all under arrest.
+    - i: 0
+      code: 101
+      p:
+      - "\\b\\PN, thank you for your assistance once again. "
+    - i: 0
+      code: 401
+      p:
+      - 'Another group of criminals have been brought to '
+    - i: 0
+      code: 401
+      p:
+      - justice.
+    - i: 0
+      code: 121
+      p:
+      - 496
+      - 496
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Entrance
+  x: 36
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 767
+      - 20
+      - 19
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 208
+      p:
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 106
+      p:
+      - 6
+    - i: 1
+      code: 208
+      p:
+      - 1
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 23
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar213
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMPLASMA)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou think you stand a chance?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMPLASMA,"Schwarz")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar213
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBy just a kid."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(1)
+  x: 22
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar213
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMPLASMA)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot today."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMPLASMA,"Weiss")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar213
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Plasma will win."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(1)
+  x: 24
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar213
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMPLASMA)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe are too strong for you to stop us."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMPLASMA,"Bill")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar213
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow strong are you?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(2)
+  x: 23
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar213
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMPLASMA)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bColress himself is going to change the world."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMPLASMA,"Barret")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar213
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is not part of the plan."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(3)
+  x: 31
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar213
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMPLASMA)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMPLASMA,"Kenta")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar213
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou got lucky."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Looker
+  x: 21
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar213
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't bother yourself with me."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: NPC 48
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooker: Thank you for your help. I'll deal with "
+    - i: 0
+      code: 401
+      p:
+      - rounding up the rest of Team Plasma.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 249
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: N
+  x: 26
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: NPC 49
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bN: \\PN, thank you for stopping Team Plasma. You've "
+    - i: 0
+      code: 401
+      p:
+      - 'shown me that Pokémon and people can be partners '
+    - i: 0
+      code: 401
+      p:
+      - rather than master and servant.
+    - i: 0
+      code: 0
+      p: []

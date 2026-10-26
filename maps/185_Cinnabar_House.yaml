@@ -1,0 +1,71 @@
+---
+id: 185
+name: Cinnabar House
+parent: 184
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 184
+      - 25
+      - 13
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 3
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI would never let my grandkids stay here. The "
+    - i: 0
+      code: 401
+      p:
+      - volcano is too dangerous.
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,501 @@
+---
+id: 629
+name: Snowpoint Gym
+parent: 626
+width: 20
+height: 25
+tileset: 6
+bgm: gym
+events:
+- id: 1
+  name: Exit, size(2,1)
+  x: 6
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 625
+      - 20
+      - 31
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Candice
+  x: 7
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: trchar113
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCandice: Welcome to my gym. I see you've "
+    - i: 0
+      code: 401
+      p:
+      - overcome the cold to get here.
+    - i: 0
+      code: 101
+      p:
+      - "\\rPushing yourself to your limit helps you grow past "
+    - i: 0
+      code: 401
+      p:
+      - it. Prepare for another one of those challenges.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,4)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Candice,"Candice")
+    - i: 1
+      code: 101
+      p:
+      - "\\rCandice: You've earned the Icicle Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:ICICLEBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[30]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM14)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM14 contains Blizzard. Freeze your opponents "
+    - i: 1
+      code: 401
+      p:
+      - cold with it.
+    - i: 1
+      code: 121
+      p:
+      - 160
+      - 160
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar113
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCandice: Push yourself. If you try hard things you "
+    - i: 0
+      code: 401
+      p:
+      - will grow.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(1)
+  x: 10
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 160'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bGetting confused?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Anton")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle. Good luck with the rest."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 160
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle. Good luck with the rest."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Gym Guy
+  x: 8
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCandice uses Ice type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - 'weak against the Fire, Fighting, Rock, and Steel '
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Dragon, Flying, Grass, and "
+    - i: 0
+      code: 401
+      p:
+      - Ground. They are resistant to only Ice.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(1)
+  x: 11
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 160'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rAre you sure about that?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Savannah")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCandice may be an Ice type expert, but not all of her "
+    - i: 0
+      code: 401
+      p:
+      - team are Ice types. Be careful.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 160
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCandice may be an Ice type expert, but not all of her "
+    - i: 0
+      code: 401
+      p:
+      - team are Ice types. Be careful.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(1)
+  x: 11
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 160'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bDidn't expect me, did you?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Isaiah")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you ever get stuck, try moving the opposite "
+    - i: 0
+      code: 401
+      p:
+      - direction.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 160
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you ever get stuck, try moving the opposite "
+    - i: 0
+      code: 401
+      p:
+      - direction.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(1)
+  x: 2
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 160'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm gonna freeze you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Alicia")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFor ice freezing things we sure move a lot in this "
+    - i: 0
+      code: 401
+      p:
+      - place.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 160
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFor ice freezing things we sure move a lot in this "
+    - i: 0
+      code: 401
+      p:
+      - place.
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,599 @@
+---
+id: 142
+name: Route 38
+parent: 249
+width: 75
+height: 65
+tileset: 1
+bgm: Johto Route
+events:
+- id: 1
+  name: Gate entrance
+  x: 67
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 299
+      - 8
+      - 27
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Apricorn tree
+  x: 27
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: Object tree 2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Gives 1 random Apricorn each time.
+    - i: 0
+      code: 108
+      p:
+      - 'For demonstration purposes only - Apricorn trees '
+    - i: 0
+      code: 408
+      p:
+      - 'should provide a fixed Apricorn, have a 24 hour delay '
+    - i: 0
+      code: 408
+      p:
+      - "(like Kurt does), and should look different to "
+    - i: 0
+      code: 408
+      p:
+      - Headbutt trees.
+    - i: 0
+      code: 355
+      p:
+      - apricorns = [
+    - i: 0
+      code: 655
+      p:
+      - "  :REDAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :YELLOWAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :BLUEAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :GREENAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :PINKAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :WHITEAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :BLACKAPRICORN"
+    - i: 0
+      code: 655
+      p:
+      - "]"
+    - i: 0
+      code: 355
+      p:
+      - random_item = apricorns.sample
+    - i: 0
+      code: 655
+      p:
+      - pbItemBall(random_item)
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: Object tree 2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - There are no apricorns.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: HiddenItem
+  x: 54
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:HPUP)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 26
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SHINYSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Item
+  x: 23
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:LAXINCENSE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(3)
+  x: 37
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bDo you like hot springs?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Rory")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI should be going soon."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(4)
+  x: 37
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rThere's an Apricorn tree around here. Do you think "
+    - i: 0
+      code: 401
+      p:
+      - we could use it as fuel one day?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Dana")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rElectric types are the best."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(2)
+  x: 57
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GENTLEMAN)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bPainting. What a wonderful thing."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GENTLEMAN,"Pollockson")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDo you know of the move Sketch? It can copy "
+    - i: 0
+      code: 401
+      p:
+      - almost any move.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(4)
+  x: 10
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - EndBattle:\bYou must know Professor Oak.
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLook at my Pokémon."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Bucky")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI think I fit in."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(4)
+  x: 22
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHave you seen my brother?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Ramona")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI need to return his Arcanine."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(4)
+  x: 50
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI met the cutest boy today."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Temacu")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI hope to meet him again."
+    - i: 0
+      code: 0
+      p: []

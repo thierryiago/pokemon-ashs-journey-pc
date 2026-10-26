@@ -1,0 +1,177 @@
+---
+id: 395
+name: Mauville House
+parent: 394
+width: 40
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 394
+      - 35
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 5
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou stayed off my flowers, didn't you?"
+    - i: 0
+      code: 101
+      p:
+      - "\\rGood! Take this as a thank you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM68)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rPlease stay off my flowers."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 21
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYay! Dad is home."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 26
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI am currently on vacation from Slateport."
+    - i: 0
+      code: 101
+      p:
+      - "\\bI know it's not very far, but it is nice to get away."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 394
+      - 60
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

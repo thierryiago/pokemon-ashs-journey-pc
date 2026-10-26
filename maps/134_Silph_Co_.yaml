@@ -1,0 +1,159 @@
+---
+id: 134
+name: Silph Co.
+parent: 131
+width: 32
+height: 24
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 7
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome."
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe President is currently away. Please accept this "
+    - i: 0
+      code: 401
+      p:
+      - for visiting though.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM90)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome."
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe President is currently away."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Cop
+  x: 23
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou do not have permission to access the building."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 12
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 130
+      - 42
+      - 42
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 19
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:MASTERBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

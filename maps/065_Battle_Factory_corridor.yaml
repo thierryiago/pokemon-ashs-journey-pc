@@ -1,0 +1,563 @@
+---
+id: 65
+name: Battle Factory corridor
+parent: 62
+width: 20
+height: 15
+tileset: 3
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Guide
+  x: 4
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks for competing.\\nLet me heal your party."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 118
+      p:
+      - Choice Menu
+    - i: 0
+      code: 355
+      p:
+      - pbSet(1,
+    - i: 0
+      code: 655
+      p:
+      - pbBattleChallenge.battleNumber)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonTemp.lastbattle!=nil"
+    - i: 1
+      code: 101
+      p:
+      - "\\bBattle number \\v[1] is next.  Are you ready?\\ch[2,0,"
+    - i: 1
+      code: 401
+      p:
+      - Go on,Rest,Retire,Record]
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bBattle number \\v[1] is next.  Are you ready?\\ch[2,0,"
+    - i: 1
+      code: 401
+      p:
+      - Go on,Rest,Retire]
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Record.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 2
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bWould you like to record your last battle?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - pbRecordLastBattle
+    - i: 2
+      code: 101
+      p:
+      - "\\se[expfull]The battle was recorded."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 119
+      p:
+      - Choice Menu
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Retire.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 2
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bAre you sure you want to quit your challenge?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - pbBattleChallenge.setDecision(2)
+    - i: 2
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 106
+      p:
+      - 8
+    - i: 2
+      code: 355
+      p:
+      - pbBattleChallenge.pbGoToStart
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 119
+      p:
+      - Choice Menu
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Rest.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 2
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bWould you like to save the game and continue "
+    - i: 1
+      code: 401
+      p:
+      - later?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - pbBattleChallenge.pbRest
+    - i: 2
+      code: 101
+      p:
+      - Your game has been saved.
+    - i: 2
+      code: 354
+      p: []
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 119
+      p:
+      - Choice Menu
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 119
+      p:
+      - Choice Menu
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Go on.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 2
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.pbGoOn
+    - i: 1
+      code: 355
+      p:
+      - pbBattleChallenge.extra.pbPrepareSwaps
+    - i: 1
+      code: 101
+      p:
+      - "\\bWould you like to swap a Pokémon first?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbBattleChallenge.extra.pbChooseSwaps
+    - i: 3
+      code: 101
+      p:
+      - "\\bOK, the Pokémon swap is complete."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome with me."
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 64
+      - 2
+      - 10
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []

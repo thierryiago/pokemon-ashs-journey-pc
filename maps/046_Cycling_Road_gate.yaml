@@ -1,0 +1,180 @@
+---
+id: 46
+name: Cycling Road gate
+parent: 39
+width: 20
+height: 15
+tileset: 3
+bgm: route
+events:
+- id: 1
+  name: Counter(6)
+  x: 6
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 2
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbQuantity(PBItems::BICYCLE)<=0"
+    - i: 1
+      code: 355
+      p:
+      - Kernel.pbExclaim(get_character(0))
+    - i: 1
+      code: 101
+      p:
+      - "\\bSorry, you can't enter Cycle Road without a "
+    - i: 1
+      code: 401
+      p:
+      - Bicycle.
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCycling Road is a great ride."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit north left
+  x: 0
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 40
+      - 24
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit north right
+  x: 12
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 39
+      - 31
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

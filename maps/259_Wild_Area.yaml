@@ -1,0 +1,485 @@
+---
+id: 259
+name: Wild Area
+parent: 243
+width: 58
+height: 58
+tileset: 1
+bgm: Galar Route
+events:
+- id: 1
+  name: Item
+  x: 17
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:LUREBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 37
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:LEFTOVERS)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: HiddenItem
+  x: 37
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:FULLRESTORE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 4
+  "y": 36
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:FOCUSSASH)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Item
+  x: 14
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI fished this up. I don't need it."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:CHOICESCARF)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'll let you know if I find any more junk."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 21
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThere's something odd about these trees."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 40
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe hunt is on."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Encouter Pokemon
+  x: 11
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 546
+    graphic: GLASTRIER
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: GLASTRIER
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Steeds
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:GLASTRIER,50)
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Item
+  x: 19
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:MAXSOUP)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: water bg, size(1,3)
+  x: 11
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - changeMapBg("water")
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: water bg, size(1,3)
+  x: 23
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - changeMapBg("water")
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: water bg, size(1,3)
+  x: 28
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - changeMapBg("water")
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: field bg, size(1,3)
+  x: 10
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 204
+      p:
+      - 2
+      - ''
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: field bg, size(1,3)
+  x: 22
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 204
+      p:
+      - 2
+      - ''
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: field bg, size(1,3)
+  x: 29
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 204
+      p:
+      - 2
+      - ''
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: water bg, size(1,3)
+  x: 18
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - changeMapBg("water")
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: field bg, size(1,3)
+  x: 19
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 204
+      p:
+      - 2
+      - ''
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: water bg, size(3,1)
+  x: 14
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - changeMapBg("water")
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: field bg, size(3,1)
+  x: 14
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 204
+      p:
+      - 2
+      - ''
+    - i: 0
+      code: 0
+      p: []

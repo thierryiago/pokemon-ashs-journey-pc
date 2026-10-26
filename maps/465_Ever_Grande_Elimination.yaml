@@ -1,0 +1,492 @@
+---
+id: 465
+name: Ever Grande Elimination
+parent: 464
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(1)
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can't afford to lose."
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Gilbert")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 130
+      - 130
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 131
+      - 131
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 6
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it past the preliminaries."
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be a Double battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 100
+      - 0
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can't afford to lose again, especially now that you're the"
+    - i: 0
+      code: 401
+      p:
+      - Monarch!
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Gilbert",nil,false,1,true)
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bYes! I'm gonna win and do my family proud."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 6
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 100
+      - 1
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLet's go, Persian! Let's show the Monarch what we're made of!"
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Vivica",nil,false,0,true)
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rWell, you're not Tyson after all."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 6
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 100
+      - 2
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou've got nothing on us, Monarch!"
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"Jump",nil,false,0,true)
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bLet's go! Next up is our revenge against Morrison!"
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 6
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 29
+      - 2
+    graphic: trchar031
+    trigger: 3
+    commands:
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 6
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it past the preliminaries."
+    - i: 0
+      code: 401
+      p:
+      - "\\nYour next battle will be a Double battle."
+    - i: 0
+      code: 0
+      p: []

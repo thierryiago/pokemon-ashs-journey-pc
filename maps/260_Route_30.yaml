@@ -1,0 +1,563 @@
+---
+id: 260
+name: Route 30
+parent: 249
+width: 40
+height: 70
+tileset: 1
+bgm: Johto Route
+events:
+- id: 1
+  name: Person
+  x: 15
+  "y": 50
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSee that tree beside my house?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat there is an Apricorn Tree."
+    - i: 0
+      code: 101
+      p:
+      - "\\bApricorns can be used to make special kinds of "
+    - i: 0
+      code: 401
+      p:
+      - balls.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Apricorn tree
+  x: 13
+  "y": 49
+  pages:
+  - condition: {}
+    graphic: Object tree 2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Gives 1 random Apricorn each time.
+    - i: 0
+      code: 108
+      p:
+      - 'For demonstration purposes only - Apricorn trees '
+    - i: 0
+      code: 408
+      p:
+      - 'should provide a fixed Apricorn, have a 24 hour delay '
+    - i: 0
+      code: 408
+      p:
+      - "(like Kurt does), and should look different to "
+    - i: 0
+      code: 408
+      p:
+      - Headbutt trees.
+    - i: 0
+      code: 355
+      p:
+      - apricorns = [
+    - i: 0
+      code: 655
+      p:
+      - "  :REDAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :YELLOWAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :BLUEAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :GREENAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :PINKAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :WHITEAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :BLACKAPRICORN"
+    - i: 0
+      code: 655
+      p:
+      - "]"
+    - i: 0
+      code: 355
+      p:
+      - random_item = apricorns.sample
+    - i: 0
+      code: 655
+      p:
+      - pbItemBall(random_item)
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: Object tree 2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - There are no apricorns.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 23
+  "y": 63
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:POTION)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 17
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:ANTIDOTE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(1)
+  x: 14
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bCheck out my awesome Pokémon!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Joe",_I("You're strong."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI bet I'll win next time."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(3)
+  x: 10
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm gonna crush you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Mikey",_I("I wasn't ready!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI just started okay. I'm not at my peak"
+    - i: 0
+      code: 401
+      p:
+      - yet.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(2)
+  x: 26
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHi."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Arielle")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThank you."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(2)
+  x: 29
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rLet's dance."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_F,"Bailey")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI learned some new tricks."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Item
+  x: 30
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:POKEBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Gate entrance
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 262
+      - 59
+      - 51
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(1)
+  x: 19
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHow dare you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Muchmoney")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, isn't Snubbull the best?"
+    - i: 0
+      code: 0
+      p: []

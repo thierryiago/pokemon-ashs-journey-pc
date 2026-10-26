@@ -1,0 +1,1256 @@
+---
+id: 540
+name: Eterna Forest
+parent: 538
+width: 120
+height: 80
+tileset: 1
+bgm: PkmRS-CaveForest
+events:
+- id: 6
+  name: Entrance, size(6,1)
+  x: 27
+  "y": 69
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 538
+      - 17
+      - 12
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Team Rocket
+  x: 28
+  "y": 65
+  pages:
+  - condition: {}
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 247
+      p: []
+    - i: 0
+      code: 241
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Team Rocket OW Sinnoh
+        pitch: 100
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Listen, is that a voice I hear?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: It's speaking to me loud and clear."
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: On the wind!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Past the stars!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: In your ear!"
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Bringing chaos at a breakneck pace."
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Dashing hope, putting fear in its place."
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie:  A rose by any other name is just as sweet."
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: When everything's worse, our work is "
+    - i: 0
+      code: 401
+      p:
+      - complete.
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Jessie!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: And it's James!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: And Meowth, now that's a name!"
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Putting the do-gooders in their place..."
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: ...we're Team Rocket..."
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: ...in your face!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWobbuffet: Wobuffet!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET,"Jessie and James",nil,false,15,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 248
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Team Rocket
+  x: 30
+  "y": 65
+  pages:
+  - condition: {}
+    graphic: trchar072
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Team Rocket
+  x: 29
+  "y": 65
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Team Rocket
+  x: 29
+  "y": 64
+  pages:
+  - condition: {}
+    graphic: Pokemon 32
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(3)
+  x: 22
+  "y": 52
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of my territory."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Jack")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJust... don't get in my way."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Item
+  x: 11
+  "y": 49
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:NETBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Item
+  x: 41
+  "y": 64
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:INSECTPLATE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Item
+  x: 79
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:DUBIOUSDISC)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: HiddenItem
+  x: 73
+  "y": 45
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:GREENSHARD)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: HiddenItem
+  x: 39
+  "y": 45
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:ETHER)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: HiddenItem
+  x: 98
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:HONEY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Trainer(3)
+  x: 61
+  "y": 57
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHaha, I'm so normal."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Briana")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNot a single thing about me that is unique."
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Person
+  x: 9
+  "y": 63
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bShhh. I'm looking for a Wormadam."
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Trainer(3)
+  x: 39
+  "y": 62
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm gonna win this time."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Kutz")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhatever. I don't need to win."
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Trainer(3)
+  x: 90
+  "y": 59
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rBehold my power."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_F,"Rachael")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI should have won."
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Trainer(2)
+  x: 108
+  "y": 43
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rCome at me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_F,"Lindsey")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI was sure I was going to win."
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Trainer(3)
+  x: 76
+  "y": 47
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWell well. What do we have here?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Kody")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe careful traveling through here."
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Trainer(2)
+  x: 110
+  "y": 43
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm here to overcome my weakness."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Elijah")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWow you were strong."
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Trainer(3)
+  x: 108
+  "y": 65
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI love it here."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Phillip")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat a paradise."
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Trainer(3)
+  x: 92
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm just not feeling it."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Donald",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bEh. This place is okay."
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Person
+  x: 97
+  "y": 45
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBring an Eevee here sometime."
+    - i: 0
+      code: 101
+      p:
+      - "\\bSomething amazing will happen if you do."
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Trainer(3)
+  x: 95
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar108
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Gardenia)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rGardenia: Hi there. Do you have any Grass types? "
+    - i: 0
+      code: 401
+      p:
+      - 'A Gloom just escaped from me and I would love to '
+    - i: 0
+      code: 401
+      p:
+      - see one.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Gardenia,"Gardenia")
+    - i: 1
+      code: 101
+      p:
+      - "\\rGardenia: That was a good battle. You should try "
+    - i: 1
+      code: 401
+      p:
+      - 'the Eterna Gym out. I''m sure it will be worth it to you. '
+    - i: 1
+      code: 401
+      p:
+      - See you soon I hope.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Entrance, size(1,3)
+  x: 100
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 538
+      - 61
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Moss Rock
+  x: 13
+  "y": 50
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - It's soft to the touch.
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Trainer(3)
+  x: 71
+  "y": 68
+  pages:
+  - condition: {}
+    graphic: NPC 71
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:AROMALADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHave you seen any Honey around?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:AROMALADY,"Cheryl")
+    - i: 1
+      code: 101
+      p:
+      - "\\rWhat a strong Trainer. You deserve this."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:POWERWEIGHT)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 71
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't worry about me. Mothim will point me in the "
+    - i: 0
+      code: 401
+      p:
+      - right direction.
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,162 @@
+---
+id: 270
+name: Route 33
+parent: 249
+width: 48
+height: 26
+tileset: 1
+bgm: Johto Route
+events:
+- id: 1
+  name: Gift Pokemon
+  x: 35
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: CYNDAQUIL
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 155Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCynda"
+    - i: 0
+      code: 101
+      p:
+      - Would you like to take it with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:CYNDAQUIL,15)
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:FLAMETHROWER)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:TACKLE)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:AGILITY)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:SMOKESCREEN)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(4)
+  x: 37
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TAMER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBack off! That Pokémon is mine."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TAMER,"Koji",_I("Err... Darn you!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGet lost!"
+    - i: 0
+      code: 0
+      p: []

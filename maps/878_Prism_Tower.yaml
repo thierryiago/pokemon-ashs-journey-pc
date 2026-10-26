@@ -1,0 +1,408 @@
+---
+id: 878
+name: Prism Tower
+parent: 833
+width: 32
+height: 20
+tileset: 10
+bgm: elite
+events:
+- id: 1
+  name: Exit
+  x: 23
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 25
+      - 24
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Lysandre
+  x: 14
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar168
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlain: How could you Lysandre? Trying to destroy "
+    - i: 0
+      code: 401
+      p:
+      - the world - I won't stand for it!
+    - i: 0
+      code: 101
+      p:
+      - "\\bLysandre: What a shame that you're leaving us. "
+    - i: 0
+      code: 401
+      p:
+      - 'Especially since we started our plan to remove all '
+    - i: 0
+      code: 401
+      p:
+      - trash from this world.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWith this Zygarde nothing will be able to stop us."
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bLysandre: Haha. You dare oppose me? Let me "
+    - i: 0
+      code: 401
+      p:
+      - show you the might of Team Flare!
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:FLAREBOSS,"Lysandre",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar168
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLysandre: No... I refuse to admit defeat. I'll come "
+    - i: 0
+      code: 401
+      p:
+      - back. I'll be stronger. You haven't seen the last of me.
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:RECORD)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlain: Thank you \\PN. I couldn't have done that on "
+    - i: 0
+      code: 401
+      p:
+      - 'my own. I''m ashamed to say I ever worked for him. '
+    - i: 0
+      code: 401
+      p:
+      - Let's head back now.
+    - i: 0
+      code: 121
+      p:
+      - 279
+      - 279
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 496
+      - 496
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 280
+      - 280
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 793
+      - 38
+      - 62
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Alain
+  x: 14
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar167
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Pokemon
+  x: 12
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: CHARIZARD
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 006Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCharizard"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 12
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ZYGARDE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 718Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Zygarde
+    - i: 0
+      code: 0
+      p: []

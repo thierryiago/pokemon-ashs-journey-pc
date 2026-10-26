@@ -1,0 +1,302 @@
+---
+id: 113
+name: Vermilion Pokémon Fan Club
+parent: 109
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Pokemon
+  x: 4
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: SEEL
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: '086Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bSeel"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 4
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI just adore my Seel!\\nIt's so lovable!"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're a Trainer aren't you?\\nCome see me when "
+    - i: 0
+      code: 401
+      p:
+      - you beat the Gym Leader of this town.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 6
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGood job on defeating him! Take this for your "
+    - i: 0
+      code: 401
+      p:
+      - efforts.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:LIGHTBALL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rA Light Ball raises the Attack and Special Attack of "
+    - i: 0
+      code: 401
+      p:
+      - the Pikachu family.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 7
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHmmph."
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy Pikachu is twice as cute as that one."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: Pokemon 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 025Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bPika Pikachu!"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 5
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello there.\\nWould you like to hear about my "
+    - i: 0
+      code: 401
+      p:
+      - Fearow?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bWell let's see... he is cute, smart, and all around just "
+    - i: 1
+      code: 401
+      p:
+      - perfect.
+    - i: 1
+      code: 101
+      p:
+      - "\\bThank you for listening to that. You can have this, "
+    - i: 1
+      code: 401
+      p:
+      - its no trouble. I am a bit too old to be using it.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:BICYCLE)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bVery well then."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello \\PN!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bDid you come to hear about my Pokémon again?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bNo?\\nOh well."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 5
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 108
+      - 20
+      - 25
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

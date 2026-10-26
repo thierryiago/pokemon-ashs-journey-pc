@@ -1,0 +1,353 @@
+---
+id: 575
+name: Veilstone House
+parent: 574
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 574
+      - 40
+      - 24
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 3
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI don't like that we have a place to gamble. What will "
+    - i: 0
+      code: 401
+      p:
+      - the children think?
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Daisy
+  x: 23
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 26
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWould you like me to groom one of your "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\rWhich Pokémon do you want me to groom?"
+    - i: 1
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1,2)
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 2
+      code: 101
+      p:
+      - "\\rOh, okay then."
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - poke=pbGetPokemon(1)
+    - i: 1
+      code: 655
+      p:
+      - poke.changeHappiness("groom")
+    - i: 1
+      code: 655
+      p:
+      - poke.beauty+=40
+    - i: 1
+      code: 101
+      p:
+      - "\\rThere!  \\v[2] looks a lot happier and prettier "
+    - i: 1
+      code: 401
+      p:
+      - now!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rOh, okay then."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 22
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 574
+      - 46
+      - 24
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Reggie
+  x: 8
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 07
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bReggie: Hello there. My name is Reggie. And you "
+    - i: 0
+      code: 401
+      p:
+      - are?
+    - i: 0
+      code: 101
+      p:
+      - "\\b...So you're \\PN. My brother Paul has mentioned you "
+    - i: 0
+      code: 401
+      p:
+      - 'a few times. I take care of his Pokémon while he is '
+    - i: 0
+      code: 401
+      p:
+      - traveling.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm sure he has caused you some trouble so I "
+    - i: 0
+      code: 401
+      p:
+      - 'would like to make it up to you. '
+    - i: 0
+      code: 101
+      p:
+      - "\\bFeel free to ask anytime."
+    - i: 0
+      code: 121
+      p:
+      - 178
+      - 178
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 07
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bReggie: The move I'm going to teach you is called "
+    - i: 0
+      code: 401
+      p:
+      - 'Brave Bird. It''s a powerful Flying move that should '
+    - i: 0
+      code: 401
+      p:
+      - help you beat Maylene.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhich Pokémon would you like me to teach?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:BRAVEBIRD)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bGlad I could help. Come back anytime."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 4
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 574
+      - 20
+      - 47
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

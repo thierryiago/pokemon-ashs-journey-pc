@@ -1,0 +1,537 @@
+---
+id: 100
+name: Hidden Village
+parent: 97
+width: 60
+height: 52
+tileset: 1
+bgm: PkmRS-CaveForest
+events:
+- id: 1
+  name: Encounter Pokémon
+  x: 42
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: BULBASAUR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBulbasaur here takes care of this village alongside "
+    - i: 0
+      code: 401
+      p:
+      - me.
+    - i: 0
+      code: 101
+      p:
+      - "\\rHowever, I want Bulbasaur to experience the "
+    - i: 0
+      code: 401
+      p:
+      - outside world.\nWould you take Bulbasaur with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:BULBASAUR,12)
+    - i: 1
+      code: 655
+      p:
+      - 'p.makeMale #Male'
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:TACKLE)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:VINEWHIP)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:RAZORLEAF)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:LEECHSEED)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rOh, that's a shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 41
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI care a lot about this forest and the Pokémon living "
+    - i: 0
+      code: 401
+      p:
+      - inside it.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Sign
+  x: 46
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - Head east here to reach Route 24!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit north left, size(1,4)
+  x: 39
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - To Route 5 - Map Y coord
+    - i: 0
+      code: 122
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 97
+    - i: 0
+      code: 122
+      p:
+      - 2
+      - 2
+      - 0
+      - 0
+      - 11
+    - i: 0
+      code: 122
+      p:
+      - 3
+      - 3
+      - 0
+      - 6
+      - -1
+      - 1
+    - i: 0
+      code: 122
+      p:
+      - 3
+      - 3
+      - 1
+      - 0
+      - 15
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 1
+      - 1
+      - 2
+      - 3
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 33
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:BIGROOT)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: HiddenItem
+  x: 22
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SITRUSBERRY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: HiddenItem
+  x: 28
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:LEPPABERRY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: HiddenItem
+  x: 21
+  "y": 35
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:LUMBERRY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: HiddenItem
+  x: 42
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:CHESTOBERRY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Exit north left, size(1,4)
+  x: 49
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - To Route 24 - Map Y coord
+    - i: 0
+      code: 122
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 101
+    - i: 0
+      code: 122
+      p:
+      - 2
+      - 2
+      - 0
+      - 0
+      - 10
+    - i: 0
+      code: 122
+      p:
+      - 3
+      - 3
+      - 0
+      - 6
+      - -1
+      - 1
+    - i: 0
+      code: 122
+      p:
+      - 3
+      - 3
+      - 2
+      - 0
+      - 22
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 1
+      - 1
+      - 2
+      - 3
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Item
+  x: 44
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:EVERSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

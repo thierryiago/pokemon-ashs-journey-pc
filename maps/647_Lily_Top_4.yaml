@@ -1,0 +1,470 @@
+---
+id: 647
+name: Lily Top 4
+parent: 643
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(1)
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar041
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome. I look forward to our battle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Tobias")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar041
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 196
+      - 196
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 197
+      - 197
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:SINNOH)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 643
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou placed in the Top 4 this year. Come back next "
+    - i: 0
+      code: 401
+      p:
+      - year to try again. Thank you for competing.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 30
+      - 6
+    graphic: trchar041
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSo, you want to try again."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Tobias",nil,false,2,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bWell done. Until next time."
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:SINNOH)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 30
+      - 30
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou tried your best."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 643
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 36
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 30
+      - 7
+    graphic: trchar041
+    trigger: 3
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:CHAMPION)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbHallOfFameEntry
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 643
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning the Lily of the Valley Conference!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:DIALGA)"
+    - i: 1
+      code: 121
+      p:
+      - 579
+      - 579
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:PALKIA)"
+    - i: 1
+      code: 121
+      p:
+      - 580
+      - 580
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:GIRATINA)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(4, "A", false, 774)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:UXIE)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 640)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:MESPRIT)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 638)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:AZELF)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 639)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:HEATRAN)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(28, "A", false, 630)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:SHAYMIN)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(29, "A", false, 630)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:CRESSELIA)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(27, "A", false, 613)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:DARKRAI)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(28, "A", false, 613)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:MANAPHY)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(9, "A", false, 512)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:ARCEUS)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(10, "A", false, 590)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 122
+      p:
+      - 30
+      - 30
+      - 0
+      - 0
+      - 0
+    - i: 0
+      code: 0
+      p: []

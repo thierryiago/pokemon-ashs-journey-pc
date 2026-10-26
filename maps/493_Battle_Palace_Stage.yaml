@@ -1,0 +1,153 @@
+---
+id: 493
+name: Battle Palace Stage
+parent: 492
+width: 35
+height: 25
+tileset: 1
+bgm: evolv
+events:
+- id: 1
+  name: Spenser
+  x: 17
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar102
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PALACEMAVEN_Spenser)
+    - i: 0
+      code: 101
+      p:
+      - "\\bSpenser: Welcome child. My name is Spenser, and I "
+    - i: 0
+      code: 401
+      p:
+      - will be your opponent.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm sure you're used to battling inside. Well here we "
+    - i: 0
+      code: 401
+      p:
+      - battle in nature alonside our Pokémon.
+    - i: 0
+      code: 101
+      p:
+      - "\\bYoung one of a Trainer! Do you believe in your "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon?
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PALACEMAVEN_Spenser,"Spenser")
+    - i: 1
+      code: 101
+      p:
+      - "\\bSpenser: You've earned the Spirits Symbol."
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:WORLDABILITY)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:SPIRITSSYMBOL)
+    - i: 1
+      code: 101
+      p:
+      - "\\bI suggest the next place you go to is the Battle "
+    - i: 1
+      code: 401
+      p:
+      - 'Tower. It''s located west of Viridian City, near the '
+    - i: 1
+      code: 401
+      p:
+      - Indigo League.
+    - i: 1
+      code: 121
+      p:
+      - 143
+      - 143
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar102
+    trigger: 3
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 492
+      - 20
+      - 13
+      - 6
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning."
+    - i: 0
+      code: 0
+      p: []

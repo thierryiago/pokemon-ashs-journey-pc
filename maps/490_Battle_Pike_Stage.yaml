@@ -1,0 +1,153 @@
+---
+id: 490
+name: Battle Pike Stage
+parent: 489
+width: 20
+height: 15
+tileset: 3
+bgm: evolv
+events:
+- id: 1
+  name: Lucy
+  x: 9
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar101
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PIKEQUEEN_Lucy)
+    - i: 0
+      code: 101
+      p:
+      - "\\rLucy: Welcome to the Battle Pike. My name is "
+    - i: 0
+      code: 401
+      p:
+      - Lucy.
+    - i: 0
+      code: 101
+      p:
+      - "\\rMost people think that planning or strength are the "
+    - i: 0
+      code: 401
+      p:
+      - 'way to go for battle. While that may be true, you can '
+    - i: 0
+      code: 401
+      p:
+      - never underestimate the power of luck.
+    - i: 0
+      code: 101
+      p:
+      - "\\rLet's find out which of us has more."
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PIKEQUEEN_Lucy,"Lucy")
+    - i: 1
+      code: 101
+      p:
+      - "\\rLucy: You've earned the Luck Symbol."
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:MULTIABILITY)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:LUCKSYMBOL)
+    - i: 1
+      code: 101
+      p:
+      - "\\rI suggest the next place you go to is the Battle "
+    - i: 1
+      code: 401
+      p:
+      - 'Palace. It''s located on an island near Cinnabar so I '
+    - i: 1
+      code: 401
+      p:
+      - would look for a boat there.
+    - i: 1
+      code: 121
+      p:
+      - 142
+      - 142
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar101
+    trigger: 3
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 489
+      - 20
+      - 45
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning."
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,964 @@
+---
+id: 26
+name: Pokémon Fan Club
+parent: 23
+width: 20
+height: 15
+tileset: 3
+bgm: 021-Field04
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 23
+      - 24
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trader - Basic
+  x: 2
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm looking for a Rattata."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to trade it for my Haunter?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemon(1,2,
+    - i: 1
+      code: 655
+      p:
+      - proc {|poke|
+    - i: 1
+      code: 655
+      p:
+      - " !poke.egg? &&"
+    - i: 1
+      code: 655
+      p:
+      - " !(poke.isShadow? rescue false) &&"
+    - i: 1
+      code: 655
+      p:
+      - " poke.species==PBSpecies::RATTATA"
+    - i: 1
+      code: 655
+      p:
+      - "})"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Aww..."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOK, let's get started."
+    - i: 2
+      code: 355
+      p:
+      - pbStartTrade(pbGet(1),
+    - i: 2
+      code: 655
+      p:
+      - PBSpecies::HAUNTER,"HaHa","Andy")
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Rattata for Haunter!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Aww..."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks for trading with me!"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokémon ball - Basic
+  x: 5
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'This is a straightforward example of giving a '
+    - i: 0
+      code: 408
+      p:
+      - Pokémon.  Its OT will be the player.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbAddPokemon(:MEW,20)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Gift Pokémon - Advanced
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI have a rather special Bulbasaur!  Its ability is"
+    - i: 0
+      code: 401
+      p:
+      - something I could only dream of.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI can't look after it, though.  Would you like "
+    - i: 0
+      code: 401
+      p:
+      - Bulbasaur?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'pbAddForeignPokemon can only add a Pokémon to '
+    - i: 1
+      code: 408
+      p:
+      - the player's party, so a space is required.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbAddForeignPokemon(:BULBASAUR,10,_I("Dorima"),_I("Sauri"),1)
+    - i: 2
+      code: 108
+      p:
+      - 'Editing a foreign Pokémon added with this method '
+    - i: 2
+      code: 408
+      p:
+      - 'can only be done afterwards.  Remember to add '
+    - i: 2
+      code: 408
+      p:
+      - '"poke.calcStats" at the end.'
+    - i: 2
+      code: 108
+      p:
+      - The added Pokémon will always be at the
+    - i: 2
+      code: 408
+      p:
+      - 'end of the player''s party, i.e. at index '
+    - i: 2
+      code: 408
+      p:
+      - "$Trainer.party.length-1."
+    - i: 2
+      code: 355
+      p:
+      - poke=$Trainer.party
+    - i: 2
+      code: 655
+      p:
+      - "[$Trainer.party.length-1]"
+    - i: 2
+      code: 655
+      p:
+      - 'poke.setAbility(2)   # Hidden Ability'
+    - i: 2
+      code: 655
+      p:
+      - poke.setNature(PBNatures::MODEST)
+    - i: 2
+      code: 655
+      p:
+      - 'poke.ballused=15     # Cherish Ball'
+    - i: 2
+      code: 655
+      p:
+      - poke.makeShiny
+    - i: 2
+      code: 655
+      p:
+      - poke.calcStats
+    - i: 2
+      code: 101
+      p:
+      - "\\rTake good care of Sauri!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rOh, you don't have any space."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rOh, that's a shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI hope you're taking good care of my Sauri!"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trade - Advanced
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm looking for a female Dragonair."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWant to trade it for my Dodrio?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'The requirements are more specific than usual, as the '
+    - i: 1
+      code: 408
+      p:
+      - 'Pokémon must also be female.  All requirements go in '
+    - i: 1
+      code: 408
+      p:
+      - here.
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemon(1,2,
+    - i: 1
+      code: 655
+      p:
+      - proc {|poke|
+    - i: 1
+      code: 655
+      p:
+      - " !poke.egg? &&"
+    - i: 1
+      code: 655
+      p:
+      - " !(poke.isShadow? rescue false) &&"
+    - i: 1
+      code: 655
+      p:
+      - " poke.gender==1 &&"
+    - i: 1
+      code: 655
+      p:
+      - " poke.species==PBSpecies::DRAGONAIR"
+    - i: 1
+      code: 655
+      p:
+      - "})"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\rYou don't want to trade?  Aww..."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rOK, let's get started."
+    - i: 2
+      code: 108
+      p:
+      - 'The received Pokémon''s sprite is shown during the '
+    - i: 2
+      code: 408
+      p:
+      - 'trade, so any factor which could change it (i.e. '
+    - i: 2
+      code: 408
+      p:
+      - 'gender, shininess, form) MUST be set before the '
+    - i: 2
+      code: 408
+      p:
+      - trade.
+    - i: 2
+      code: 108
+      p:
+      - 'Many other modifications can also be done here, for '
+    - i: 2
+      code: 408
+      p:
+      - 'convenience.  Remember to add "poke.calcStats" at '
+    - i: 2
+      code: 408
+      p:
+      - the end.
+    - i: 2
+      code: 355
+      p:
+      - p=PokeBattle_Pokemon.new(:DODRIO,
+    - i: 2
+      code: 655
+      p:
+      - "   pbGetPokemon(1).level,$Trainer)"
+    - i: 2
+      code: 655
+      p:
+      - p.item=PBItems::SMOKEBALL
+    - i: 2
+      code: 655
+      p:
+      - 'p.setGender(1)                 # Female'
+    - i: 2
+      code: 655
+      p:
+      - 'p.setAbility(0)                # Run Away'
+    - i: 2
+      code: 655
+      p:
+      - p.setNature(PBNatures::IMPISH)
+    - i: 2
+      code: 655
+      p:
+      - p.iv=[20,20,20,15,15,15]
+    - i: 2
+      code: 655
+      p:
+      - 'p.ballused=10                  # Luxury Ball'
+    - i: 2
+      code: 655
+      p:
+      - p.calcStats
+    - i: 2
+      code: 655
+      p:
+      - ''
+    - i: 2
+      code: 655
+      p:
+      - pbStartTrade(pbGet(1),p,"Doris","Ayana",1)
+    - i: 2
+      code: 108
+      p:
+      - 'The trade itself sets the received Pokémon''s '
+    - i: 2
+      code: 408
+      p:
+      - 'nickname, moves, obtain method, and OT details.  '
+    - i: 2
+      code: 408
+      p:
+      - These can only be modified after the trade.
+    - i: 2
+      code: 108
+      p:
+      - 'The received Pokémon will be in the same place in the '
+    - i: 2
+      code: 408
+      p:
+      - 'party as the traded Pokémon, so its index in the '
+    - i: 2
+      code: 408
+      p:
+      - party will be pbGet(1) and the Pokémon itself will be
+    - i: 2
+      code: 408
+      p:
+      - pbGetPokemon(1).
+    - i: 2
+      code: 355
+      p:
+      - p=pbGetPokemon(1)
+    - i: 2
+      code: 655
+      p:
+      - pbAutoLearnMove(p,:SURF)
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Dragonair for Dodrio!"
+    - i: 2
+      code: 101
+      p:
+      - "\\rThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou don't want to trade?  Aww..."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAre you taking good care of Doris?"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Gift Pokémon - Basic
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy Shuckie is a great Pokémon, but I can't train"
+    - i: 0
+      code: 401
+      p:
+      - it anymore.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWould you take Shuckie and raise it like it "
+    - i: 0
+      code: 401
+      p:
+      - deserves?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'pbAddForeignPokemon can only add a Pokémon to '
+    - i: 1
+      code: 408
+      p:
+      - the player's party, so a space is required.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbAddForeignPokemon(:SHUCKLE,20,_I("Kirk"),_I("Shuckie"))
+    - i: 2
+      code: 101
+      p:
+      - "\\bTake good care of Shuckie!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOh, you don't have any space for it."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh, that's a shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAre you raising my Shuckie well?"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Gift egg
+  x: 7
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, hi!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWould you like this Pokémon egg?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'pbGenerateEgg can only add an egg to the player''s '
+    - i: 1
+      code: 408
+      p:
+      - party, so a space is required.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbGenerateEgg(:TOGEPI,_I("Fan Club President"))
+    - i: 2
+      code: 101
+      p:
+      - "\\bTake good care of it!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOh, you can't carry it with you."
+    - i: 2
+      code: 101
+      p:
+      - "\\bMake some space in your party and come back."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh.  Will I ever find someone to take this egg?"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wonder what that egg will hatch into?"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Pokémon ball - Advanced
+  x: 6
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'This is an example of giving a Pokémon which has '
+    - i: 0
+      code: 408
+      p:
+      - 'been modified.  Note the differences to the basic '
+    - i: 0
+      code: 408
+      p:
+      - version.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbBoxesFull?"
+    - i: 1
+      code: 355
+      p:
+      - p=PokeBattle_Pokemon.new(:PICHU,30,$Trainer)
+    - i: 1
+      code: 655
+      p:
+      - p.item=PBItems::ZAPPLATE
+    - i: 1
+      code: 655
+      p:
+      - 'p.form=1         # Spiky-eared'
+    - i: 1
+      code: 655
+      p:
+      - 'p.setGender(1)   # Female'
+    - i: 1
+      code: 655
+      p:
+      - p.makeNotShiny
+    - i: 1
+      code: 655
+      p:
+      - p.calcStats
+    - i: 1
+      code: 655
+      p:
+      - pbAutoLearnMove(p,:VOLTTACKLE)
+    - i: 1
+      code: 655
+      p:
+      - pbAutoLearnMove(p,:HELPINGHAND)
+    - i: 1
+      code: 655
+      p:
+      - pbAutoLearnMove(p,:SWAGGER)
+    - i: 1
+      code: 655
+      p:
+      - pbAutoLearnMove(p,:PAINSPLIT)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - Kernel.pbAddPokemon(p)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - There's no more room for Pokémon!
+    - i: 1
+      code: 101
+      p:
+      - The Pokémon Boxes are full and can't accept any more!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,1025 @@
+---
+id: 277
+name: Ilex Forest
+parent: 271
+width: 100
+height: 80
+tileset: 1
+bgm: PkmRS-CaveForest
+events:
+- id: 1
+  name: Gate entrance
+  x: 90
+  "y": 70
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 271
+      - 11
+      - 21
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Gate entrance
+  x: 19
+  "y": 64
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 278
+      - 44
+      - 43
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Gate entrance
+  x: 11
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 278
+      - 44
+      - 13
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: HiddenItem
+  x: 54
+  "y": 50
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:FULLHEAL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Item
+  x: 72
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:REVIVE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 50
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:BIGMUSHROOM)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(3)
+  x: 66
+  "y": 62
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis place is paradise."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Wayne",_I("I lost."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe bugs here are so wonderful."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(3)
+  x: 84
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, please listen to me this time."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Sylvester")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHave you found any charcoal?"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(3)
+  x: 38
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bShiny Pokémon are Pokémon of a different"
+    - i: 0
+      code: 401
+      p:
+      - color.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Henery",_I("Nothing special."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've always wanted to find a Shiny"
+    - i: 0
+      code: 401
+      p:
+      - Pokémon.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(4)
+  x: 31
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: trchar060
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: Don't even think about it! I saw that Totodile "
+    - i: 0
+      code: 401
+      p:
+      - first!
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONTRAINER_Misty)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Misty,"Misty",nil,false,2,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: I don't even want it anymore."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 85
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Item
+  x: 36
+  "y": 43
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SOOTHEBELL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Exit north left, size(2,1)
+  x: 75
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 280
+      - 26
+      - 56
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 208
+      p:
+      - 0
+    - i: 1
+      code: 106
+      p:
+      - 6
+    - i: 1
+      code: 208
+      p:
+      - 1
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Move Tutor
+  x: 69
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI use this every day for my job."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to learn Headbutt?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:HEADBUTT)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Trainer(3)
+  x: 46
+  "y": 43
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI've been training in the mountains."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Miki")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBack to training for me."
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Trainer(3)
+  x: 51
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PAINTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rMeet the great and powerful."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PAINTER,"Trixie")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rStop by and see my show later."
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Noctowl
+  x: 22
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NOCTOWL Shiny
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'This is an example of giving a Pokémon which has '
+    - i: 0
+      code: 408
+      p:
+      - 'been modified.  Note the differences to the basic '
+    - i: 0
+      code: 408
+      p:
+      - version.
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 164Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bNoctowl"
+    - i: 0
+      code: 101
+      p:
+      - Would you like to take it with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbBoxesFull?"
+    - i: 2
+      code: 355
+      p:
+      - p=Pokemon.new(:NOCTOWL,17)
+    - i: 2
+      code: 655
+      p:
+      - p.shiny = true
+    - i: 2
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:PECK)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:HYPNOSIS)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:WHIRLWIND)
+    - i: 2
+      code: 655
+      p:
+      - p.learn_move(:FORESIGHT)
+    - i: 2
+      code: 655
+      p:
+      - ''
+    - i: 2
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - There's no more room for Pokémon!
+    - i: 2
+      code: 101
+      p:
+      - The Pokémon Boxes are full and can't accept any more!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Totodile
+  x: 35
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: TOTODILE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 158Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bTotodile"
+    - i: 0
+      code: 101
+      p:
+      - Would you like to take it with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:TOTODILE,17)
+    - i: 1
+      code: 655
+      p:
+      - p.poke_ball = :LUREBALL
+    - i: 1
+      code: 655
+      p:
+      - 'p.makeMale #Male'
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:SCRATCH)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:BITE)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:WATERGUN)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:SCARYFACE)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 121
+      p:
+      - 94
+      - 94
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

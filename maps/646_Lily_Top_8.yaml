@@ -1,0 +1,272 @@
+---
+id: 646
+name: Lily Top 8
+parent: 643
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(1)
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar115
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPaul: It's finally time. Let's see which of us hold the "
+    - i: 0
+      code: 401
+      p:
+      - stronger ideals.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:RIVAL3,"Paul",nil,false,5,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar115
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 195
+      - 195
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 196
+      - 196
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:SINNOH)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 643
+      - 16
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it past the Top 8."
+    - i: 0
+      code: 401
+      p:
+      - Your next battle will be in the Semi-Finals.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 30
+      - 5
+    graphic: trchar115
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPaul: We're back here again, huh? Let's see how much"
+    - i: 0
+      code: 401
+      p:
+      - you've improved from last time.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:RIVAL3,"Paul",nil,false,10,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bPaul: I'd expect nothing less from you. Until next time."
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:SINNOH)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 122
+      p:
+      - 30
+      - 30
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bPaul: Hmph. That wasn't on purpose, was it?"
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 643
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 117
+      p:
+      - 36
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 30
+      - 6
+    graphic: trchar115
+    trigger: 3
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 643
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on making it past the Top 8."
+    - i: 0
+      code: 401
+      p:
+      - Your next battle will be in the Semi-Finals.
+    - i: 0
+      code: 0
+      p: []

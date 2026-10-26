@@ -1,0 +1,387 @@
+---
+id: 552
+name: Hearthome House
+parent: 551
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 8
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: NPC 26
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou use the PC?"
+    - i: 0
+      code: 101
+      p:
+      - "\\rWonderful. Take this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM104)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 26
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm the one in charge of maintaining the PC in "
+    - i: 0
+      code: 401
+      p:
+      - Sinnoh.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 5
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 551
+      - 28
+      - 34
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 26
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 551
+      - 49
+      - 34
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 26
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 551
+      - 42
+      - 22
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 551
+      - 26
+      - 22
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 9
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome. This is something special. No, no. No "
+    - i: 0
+      code: 401
+      p:
+      - need to thank me.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:BIGMUSHROOM)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe look on your face says it all."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 25
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPoffins are tasty treats to give to Pokémon. They "
+    - i: 0
+      code: 401
+      p:
+      - help them out in Contests.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 27
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar041
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSo you want a Poffin? Well you don't even "
+    - i: 0
+      code: 401
+      p:
+      - have one Ribbon. Get out of here.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: PC
+  x: 9
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 27
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI hear some organization has been running around "
+    - i: 0
+      code: 401
+      p:
+      - causing trouble.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat were they called? Team Galvantic?"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: EV011
+  x: 10
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,299 @@
+---
+id: 216
+name: Mikan House
+parent: 215
+width: 20
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 215
+      - 22
+      - 24
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 3
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 215
+      - 43
+      - 30
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 3
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're challenging the Orange Crew? Good luck."
+    - i: 0
+      code: 101
+      p:
+      - "\\bThough I doubt you'll make it."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 73
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMaybe you do have potential."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:WATERSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGood luck in the other Gyms."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy sister runs the Gym here. Don't expect to be "
+    - i: 0
+      code: 401
+      p:
+      - able to beat her.
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Senta")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI guess you're really strong. You may stand a "
+    - i: 0
+      code: 401
+      p:
+      - chance. Use this to help you.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM42)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGood luck against my sister!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 73
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou beat my sister? Impressive, take this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM42)
+    - i: 1
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 73
+      self_switch: B
+    graphic: trchar037
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: C
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou beat my sister. Congrats."
+    - i: 0
+      code: 0
+      p: []

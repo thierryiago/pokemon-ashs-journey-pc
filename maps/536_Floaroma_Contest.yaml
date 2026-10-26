@@ -1,0 +1,497 @@
+---
+id: 536
+name: Floaroma Contest
+parent: 533
+width: 20
+height: 15
+tileset: 3
+bgm: Contest Hall
+events:
+- id: 1
+  name: Person
+  x: 5
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm very sorry, but you missed the deadline to "
+    - i: 0
+      code: 401
+      p:
+      - compete.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can't believe I let Dawn win. Not next time."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Controlling event
+  x: 16
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNurse Joy: Congratulations on winning. I wish you "
+    - i: 0
+      code: 401
+      p:
+      - luck.
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Thank you so much!"
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 209
+      p:
+      - 6
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Hi \\PN. I just won my first Ribbon. Can "
+    - i: 0
+      code: 401
+      p:
+      - 'you believe it? '
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou already got a badge too. Guess you won't let "
+    - i: 0
+      code: 401
+      p:
+      - me stay ahead. After all, I barely won.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI need some more battle experience if I want to keep "
+    - i: 0
+      code: 401
+      p:
+      - winning. Care to help?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONCOORDINATOR_Dawn,"Dawn",nil,false,1,false,0)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: That was a big help. Thanks for the battle."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWell I'm off for the next contest. I'm sure I'll see you "
+    - i: 0
+      code: 401
+      p:
+      - around.
+    - i: 0
+      code: 209
+      p:
+      - 6
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 121
+      p:
+      - 165
+      - 165
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 6
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 532
+      - 14
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Move Tutor
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAfter spending years in this town I decided to help "
+    - i: 0
+      code: 401
+      p:
+      - out and teach the move, Recycle.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can teach it to you if you want?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhich Pokémon would you like me to teach?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:RECYCLE)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Dawn
+  x: 5
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 165
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 11
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI lost to Dawn, but it's okay. I just need more "
+    - i: 0
+      code: 401
+      p:
+      - practice.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Kenny")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks. Dee Dee won't get the best of me next "
+    - i: 0
+      code: 401
+      p:
+      - time.
+    - i: 0
+      code: 0
+      p: []

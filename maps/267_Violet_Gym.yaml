@@ -1,0 +1,353 @@
+---
+id: 267
+name: Violet Gym
+parent: 263
+width: 20
+height: 25
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Gym Guy
+  x: 9
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFalkner uses Flying type Pokémon. They are weak "
+    - i: 0
+      code: 401
+      p:
+      - against Electric, Ice, and Rock types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Bug, Grass, and Fighting. "
+    - i: 0
+      code: 401
+      p:
+      - 'Those types also don''t do much damage. They are '
+    - i: 0
+      code: 401
+      p:
+      - immune to Ground types as well.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 8
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 262
+      - 33
+      - 42
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(3)
+  x: 6
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIRDKEEPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy Flying types will ground you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIRDKEEPER,"Abe",_I("I can still fly."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar025
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFalkner will bring you down."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 83
+    graphic: trchar025
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFalkner will bring you down."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Falkner
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar081
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFalkner: Ah hello. I am Falkner, the Gym Leader of "
+    - i: 0
+      code: 401
+      p:
+      - this city.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI would love to battle with you, but there seems to "
+    - i: 0
+      code: 401
+      p:
+      - be some trouble at Sprout Tower right now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 91
+    graphic: trchar081
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Falkner)
+    - i: 0
+      code: 101
+      p:
+      - "\\bFalkner: I'm Falkner, the Gym Leader of this city."
+    - i: 0
+      code: 101
+      p:
+      - "\\bMany people believe that Flying types can be "
+    - i: 0
+      code: 401
+      p:
+      - 'brought down by electricity. I believe that is '
+    - i: 0
+      code: 401
+      p:
+      - nonsense.
+    - i: 0
+      code: 101
+      p:
+      - "\\bNothing can bring down the might of my birds."
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Falkner,"Falkner")
+    - i: 1
+      code: 101
+      p:
+      - "\\bFalkner: You've earned the Zephyr Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:ZEPHYRBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[8]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM40)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM40 contains Aerial Ace. It will never "
+    - i: 1
+      code: 401
+      p:
+      - miss.
+    - i: 1
+      code: 121
+      p:
+      - 83
+      - 83
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar081
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFalkner: Remember to always soar high."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 10
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIRDKEEPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm gonna send you flying."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIRDKEEPER,"Rod",_I("What a flight!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar025
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wish I could fly."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 83
+    graphic: trchar025
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wish I could fly."
+    - i: 0
+      code: 0
+      p: []

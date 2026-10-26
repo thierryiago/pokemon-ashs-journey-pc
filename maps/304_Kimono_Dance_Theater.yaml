@@ -1,0 +1,327 @@
+---
+id: 304
+name: Kimono Dance Theater
+parent: 300
+width: 25
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 11
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 299
+      - 37
+      - 32
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Satsuki
+  x: 12
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar085
+    trigger: 3
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:KIMONOGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rSatsuki: You seem ready for a battle. I don't want to "
+    - i: 0
+      code: 401
+      p:
+      - disappoint you.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:KIMONOGIRL,"Satsuki")
+    - i: 1
+      code: 101
+      p:
+      - "\\rSumomo: I guess it's my turn."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:KIMONOGIRL,"Sumomo")
+    - i: 2
+      code: 101
+      p:
+      - "\\rTamao: The power of our Eevee forms will beat "
+    - i: 2
+      code: 401
+      p:
+      - you.
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:KIMONOGIRL,"Tamao")
+    - i: 3
+      code: 101
+      p:
+      - "\\rKoume: You must be getting tired by now."
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:KIMONOGIRL,"Koume")
+    - i: 4
+      code: 101
+      p:
+      - "\\rSakura: I'm not that powerful but I will try my best."
+    - i: 4
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:KIMONOGIRL,"Sakura")
+    - i: 5
+      code: 101
+      p:
+      - "\\rSatsuki: You did excellent. Take this as our praise."
+    - i: 5
+      code: 355
+      p:
+      - pbReceiveItem(:TM30)
+    - i: 5
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 411
+      p: []
+    - i: 5
+      code: 115
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar085
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSatsuki: Feel free to come back anytime."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Sumomo
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar085
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSumomo: I bet you came here to battle Morty."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Koume
+  x: 4
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar085
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rKoume: We practice and battle everyday to keep "
+    - i: 0
+      code: 401
+      p:
+      - our strength up.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Sakura
+  x: 16
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar085
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSakura: My Eevee will evolve one day."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 88
+    graphic: trchar085
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSakura: I've gotten stronger. I'm sure you have too."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:KIMONOGIRL,"Sakura",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar085
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSakura: Come back anytime \\PN."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Tamao
+  x: 20
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar085
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rTamao: The power of our Eevees are unrivaled."
+    - i: 0
+      code: 0
+      p: []

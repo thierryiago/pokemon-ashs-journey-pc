@@ -1,0 +1,329 @@
+---
+id: 802
+name: Santalune Gym
+parent: 800
+width: 40
+height: 40
+tileset: 14
+bgm: gym
+events:
+- id: 2
+  name: Gym Guy
+  x: 18
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bViola uses Bug type Pokémon. They are weak "
+    - i: 0
+      code: 401
+      p:
+      - against Fire, Flying, and Rock types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Psychic, Grass, and Dark. "
+    - i: 0
+      code: 401
+      p:
+      - 'Fighting, Grass, and Ground also don''t do much '
+    - i: 0
+      code: 401
+      p:
+      - damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Viola
+  x: 19
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar156
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Viola)
+    - i: 0
+      code: 101
+      p:
+      - "\\rViola: You look like an interesting Trainer. May I take "
+    - i: 0
+      code: 401
+      p:
+      - your picture?
+    - i: 0
+      code: 101
+      p:
+      - "\\rA picture of your defeat would go great for my "
+    - i: 0
+      code: 401
+      p:
+      - collection. Will you be strong enough to deny me?
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Viola,"Viola")
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou've earned the Bug Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:BUGBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[40]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM113)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM113 contains Megahorn. A powerful bug type attack."
+    - i: 1
+      code: 121
+      p:
+      - 249
+      - 249
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar156
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rViola: I'm always here to take a picture if you want."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(7)
+  x: 16
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 249'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bPrepare for a beating."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Zachary",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou never saw me coming."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 249
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou never saw me coming."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 16
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 799
+      - 34
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(7)
+  x: 13
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 249'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou picked wrong. Prepare to fight."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"David")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI guess I should have expected this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 249
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI guess I should have expected this."
+    - i: 0
+      code: 0
+      p: []

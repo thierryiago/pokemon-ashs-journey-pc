@@ -1,0 +1,567 @@
+---
+id: 321
+name: Cianwood Gym
+parent: 318
+width: 20
+height: 25
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Exit
+  x: 9
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 317
+      - 12
+      - 46
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Gym Guy
+  x: 10
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChuck uses Fighting type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Flying, Psychic, and Fairy types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Normal, Ice, Dark, Rock, "
+    - i: 0
+      code: 401
+      p:
+      - and Steel. They are resistant to Bug, Dark, and Rock.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(5)
+  x: 7
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm raring to go."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Yoshi",_I("What happened?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou got guts kid."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 87
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou got guts kid."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(5)
+  x: 11
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou look like a good punching bag."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Lao",_I("How did you do that?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI underestimated you."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 87
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI underestimated you."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(5)
+  x: 7
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHiya!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Nob",_I("Oh."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 87
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(3)
+  x: 9
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou don't stand a chance."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Lung",_I("Well..."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou impressed even me."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 87
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou impressed even me."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Chuck
+  x: 9
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar087
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Chuck)
+    - i: 0
+      code: 101
+      p:
+      - "\\bChuck: Hahaha! Wonderful! I love a good challenge."
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet me see you give it your all!"
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Chuck,"Chuck")
+    - i: 1
+      code: 101
+      p:
+      - "\\bChuck: You've earned the Storm Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:STORMBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[12]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM31)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM31 contains Brick Break. Use it to break "
+    - i: 1
+      code: 401
+      p:
+      - through any defense.
+    - i: 1
+      code: 121
+      p:
+      - 87
+      - 87
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar087
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChuck: Come back and visit anytime! I'm always "
+    - i: 0
+      code: 401
+      p:
+      - looking for a good battle.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Bea
+  x: 10
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 474
+    graphic: trchar227
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Bea)
+    - i: 0
+      code: 101
+      p:
+      - "\\rBea: Hello, Trainer of Pikachu. I see you've "
+    - i: 0
+      code: 401
+      p:
+      - arrived for our battle.
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou seem excited for some reason. Let's "
+    - i: 0
+      code: 401
+      p:
+      - begin.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Bea,"Bea",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - 'Rotom Phone: Based on performance, your rank has '
+    - i: 1
+      code: 401
+      p:
+      - remained the same.
+    - i: 1
+      code: 101
+      p:
+      - "\\rBea: I promise to battle you once again in the future. "
+    - i: 1
+      code: 401
+      p:
+      - The climb for Leon is nowhere close to over.
+    - i: 1
+      code: 121
+      p:
+      - 475
+      - 475
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar227
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBea: That was quite the battle. I'm going to continue "
+    - i: 0
+      code: 401
+      p:
+      - training with Chuck for now.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 477
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,371 @@
+---
+id: 6
+name: Kurt's house
+parent: 5
+width: 20
+height: 15
+tileset: 3
+bgm: route
+events:
+- id: 1
+  name: Exit
+  x: 6
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 5
+      - 11
+      - 6
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Kurt
+  x: 7
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 2
+      - C
+      - 1
+    - i: 1
+      code: 101
+      p:
+      - "\\bHello! I'm Kurt!"
+    - i: 1
+      code: 101
+      p:
+      - "\\bI specialise in turning Apricorns into Poké Balls."
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf you like, I can convert one of yours into a Poké "
+    - i: 1
+      code: 401
+      p:
+      - Ball.
+    - i: 1
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bHello again. Do you have an Apricorn for me?"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbChooseItemFromList(
+    - i: 0
+      code: 655
+      p:
+      - _I("<c2=6546675A>Which Apricorn would you like me to convert?"),8,
+    - i: 0
+      code: 655
+      p:
+      - ":REDAPRICORN,:YLWAPRICORN,:BLUAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - ":GRNAPRICORN,:PNKAPRICORN,:WHTAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - ":BLKAPRICORN)"
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 8
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 108
+      p:
+      - Player cancelled choosing an Apricorn.
+    - i: 1
+      code: 101
+      p:
+      - "\\bLet me know when you want me to convert an "
+    - i: 1
+      code: 401
+      p:
+      - Apricorn for you.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 8
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 108
+      p:
+      - Player has no Apricorns.
+    - i: 2
+      code: 101
+      p:
+      - "\\bCome back when you have an Apricorn for me."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 108
+      p:
+      - Player chose an Apricorn.
+    - i: 2
+      code: 355
+      p:
+      - "$PokemonBag.pbDeleteItem(pbGet(8))"
+    - i: 2
+      code: 355
+      p:
+      - pbSet(3,PBItems.getName(pbGet(8)))
+    - i: 2
+      code: 101
+      p:
+      - "\\bOkay. I'll turn your \\v[3] into a Poké Ball for you."
+    - i: 2
+      code: 101
+      p:
+      - "\\bI should be finished by tomorrow."
+    - i: 2
+      code: 108
+      p:
+      - Convert Apricorn into Ball now.
+    - i: 2
+      code: 355
+      p:
+      - pbConvertItemToItem(8,[
+    - i: 2
+      code: 655
+      p:
+      - "   :REDAPRICORN,:LEVELBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "   :YLWAPRICORN,:MOONBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "   :BLUAPRICORN,:LUREBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "   :GRNAPRICORN,:FRIENDBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "   :PNKAPRICORN,:LOVEBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "   :WHTAPRICORN,:FASTBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "   :BLKAPRICORN,:HEAVYBALL])"
+    - i: 2
+      code: 355
+      p:
+      - pbSetEventTime
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 8
+      - 0
+      - 0
+      - 3
+    - i: 1
+      code: 101
+      p:
+      - "\\bI've been waiting for you. I've completed the Poké "
+    - i: 1
+      code: 401
+      p:
+      - Ball you asked me to make.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - Kernel.pbReceiveItem(pbGet(8))
+    - i: 2
+      code: 122
+      p:
+      - 8
+      - 8
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 123
+      p:
+      - B
+      - 1
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou have no room left. Make room, then come see "
+    - i: 2
+      code: 401
+      p:
+      - me.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bI tried making a Poké Ball out of what you gave me, "
+    - i: 1
+      code: 401
+      p:
+      - but it didn't work.
+    - i: 1
+      code: 101
+      p:
+      - "\\bSorry."
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm still working on your Apricorn. Come back later."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 23
+    graphic: NPC 18
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []

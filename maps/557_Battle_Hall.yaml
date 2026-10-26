@@ -1,0 +1,864 @@
+---
+id: 557
+name: Battle Hall
+parent: 552
+width: 30
+height: 30
+tileset: 3
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Exit
+  x: 11
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 551
+      - 17
+      - 34
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: League
+  x: 11
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHello. Here you can register for the tournament."
+    - i: 0
+      code: 101
+      p:
+      - "\\rIf you register you will be assigned to a Trainer for "
+    - i: 0
+      code: 401
+      p:
+      - Tag Battles. Would you like to register?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\rGreat! Let's set you up for a battle."
+    - i: 1
+      code: 121
+      p:
+      - 167
+      - 167
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rAlright your first battle will be ready when you find "
+    - i: 1
+      code: 401
+      p:
+      - your partner. His name is Paul.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rNo problem. Have a good day."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou have already registered."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 168
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe Tag Battle event is over."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Cop
+  x: 7
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is the battle field. You are not registered "
+    - i: 0
+      code: 401
+      p:
+      - though.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 167
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is the battle field. Please find your partner."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 170
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRight this way."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 558
+      - 6
+      - 9
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 174
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou need your partner to battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 169
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRight this way."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 559
+      - 6
+      - 9
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 175
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou need your partner to battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 172
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRight this way."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 560
+      - 6
+      - 9
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 171
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRight this way."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 561
+      - 6
+      - 9
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 168
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Tag Battle event is over."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Heal
+  x: 17
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNurse Joy: Please take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Paul
+  x: 4
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar106
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPaul: What do you want?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 167
+    graphic: trchar106
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPaul: So you're my tag partner. You still want "
+    - i: 0
+      code: 401
+      p:
+      - to do this?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'Makes this event follow the player. The first '
+    - i: 1
+      code: 408
+      p:
+      - 'parameter means "this event", the second is a name '
+    - i: 1
+      code: 408
+      p:
+      - 'for that dependency, and the third is the Common '
+    - i: 1
+      code: 408
+      p:
+      - 'Event number run when this following event is '
+    - i: 1
+      code: 408
+      p:
+      - interacted with.
+    - i: 1
+      code: 355
+      p:
+      - pbAddDependency2(
+    - i: 1
+      code: 655
+      p:
+      - '  @event_id, "Paul", 2'
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 108
+      p:
+      - 'Creates a partner trainer to battle alongside the '
+    - i: 1
+      code: 408
+      p:
+      - 'player. The parameters are the trainer type and '
+    - i: 1
+      code: 408
+      p:
+      - 'name of the partner. The partner trainer is defined '
+    - i: 1
+      code: 408
+      p:
+      - in trainers.txt just like any other trainer.
+    - i: 1
+      code: 355
+      p:
+      - pbRegisterPartner(:RIVAL3,"Paul",8)
+    - i: 1
+      code: 108
+      p:
+      - 'Note that the above two features are entirely '
+    - i: 1
+      code: 408
+      p:
+      - 'unrelated. You can have a dependent event which '
+    - i: 1
+      code: 408
+      p:
+      - 'isn''t also a partner trainer (e.g. escort mission), or a '
+    - i: 1
+      code: 408
+      p:
+      - partner trainer who doesn't visibly follow you around.
+    - i: 1
+      code: 101
+      p:
+      - "\\bHmph. Just don't get in my way."
+    - i: 1
+      code: 121
+      p:
+      - 170
+      - 170
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\PN teamed up with Paul!\\me[Item get]\\wtnp[40]"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bOK then."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 170
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 175
+    graphic: trchar106
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPaul: Are you ready to keep going?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'Makes this event follow the player.  The first '
+    - i: 1
+      code: 408
+      p:
+      - 'parameter means "this event", the second is a name '
+    - i: 1
+      code: 408
+      p:
+      - 'for that dependency, and the third is the Common '
+    - i: 1
+      code: 408
+      p:
+      - 'Event number run when this following event is '
+    - i: 1
+      code: 408
+      p:
+      - interacted with.
+    - i: 1
+      code: 355
+      p:
+      - pbAddDependency2(
+    - i: 1
+      code: 655
+      p:
+      - '   @event_id,"Paul_1",2)'
+    - i: 1
+      code: 108
+      p:
+      - 'Creates a partner trainer to battle alongside the '
+    - i: 1
+      code: 408
+      p:
+      - 'player.  The parameters are the trainer type and '
+    - i: 1
+      code: 408
+      p:
+      - 'name of the partner.  The partner trainer is defined '
+    - i: 1
+      code: 408
+      p:
+      - in trainers.txt just like any other trainer.
+    - i: 1
+      code: 355
+      p:
+      - pbRegisterPartner(:RIVAL3,"Paul",9)
+    - i: 1
+      code: 108
+      p:
+      - 'Note that the above two features are entirely '
+    - i: 1
+      code: 408
+      p:
+      - 'unrelated.  You can have a dependent event which '
+    - i: 1
+      code: 408
+      p:
+      - 'isn''t also a partner trainer (e.g. escort mission), or a '
+    - i: 1
+      code: 408
+      p:
+      - partner trainer who doesn't visibly follow you around.
+    - i: 1
+      code: 101
+      p:
+      - "\\bHmph. Let's just hurry this up."
+    - i: 1
+      code: 121
+      p:
+      - 172
+      - 172
+      - 0
+    - i: 1
+      code: 121
+      p:
+      - 175
+      - 175
+      - 1
+    - i: 1
+      code: 101
+      p:
+      - "\\PN teamed up with Paul!\\se[itemlevel]\\wtnp[20]"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bHurry up."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 168
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 9
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm pumped. I can't wait to win."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 168
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 14
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI need to plan ahead. It's hard without knowing "
+    - i: 0
+      code: 401
+      p:
+      - much about my partner though.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 168
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Dawn
+  x: 19
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: \\PN, you made it. Good luck."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 168
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Brock
+  x: 13
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar059_2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: I hope I get matched with a cute girl."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 168
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 19
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy partner better take this seriously. I aim to win."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 168
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 4
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt will be hard to calculate the battles with an "
+    - i: 0
+      code: 401
+      p:
+      - unworthy partner.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 168
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: PC
+  x: 16
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

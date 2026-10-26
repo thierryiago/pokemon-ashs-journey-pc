@@ -1,0 +1,1305 @@
+---
+id: 448
+name: Hammerlocke House
+parent: 440
+width: 70
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Item
+  x: 30
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rPlease hide this for me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:DIREHIT)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThank you."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rRaihan is almost as strong as Leon. They battle all "
+    - i: 0
+      code: 401
+      p:
+      - the time, though Raihan never wins.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 26
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 440
+      - 86
+      - 7
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 3
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 440
+      - 89
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Move Relearner
+  x: 4
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - isTempSwitchOff?("A")
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'm the Pokémon Move Maniac."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI know every single move that Pokémon learn "
+    - i: 1
+      code: 401
+      p:
+      - growing up.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'm also a collector of Heart Scales."
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf you bring me one, I'll teach a move to one of your "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon.
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbHasItem?(:HEARTSCALE)"
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh! That's it! That's an honest to goodness Heart "
+    - i: 1
+      code: 401
+      p:
+      - Scale!
+    - i: 1
+      code: 101
+      p:
+      - "\\bLet me guess, you want me to teach one of your "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon a move?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 118
+      p:
+      - ChoosePokemon
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich Pokémon needs tutoring?"
+    - i: 2
+      code: 355
+      p:
+      - pbChoosePokemon(1, 3, proc{ |pkmn|
+    - i: 2
+      code: 655
+      p:
+      - "  pkmn.can_relearn_move?"
+    - i: 2
+      code: 655
+      p:
+      - "  }, true"
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 108
+      p:
+      - 'If Game Variable 1 is less than 0, it means the player '
+    - i: 2
+      code: 408
+      p:
+      - has canceled choosing a Pokémon.
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 3
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).egg?
+    - i: 4
+      code: 101
+      p:
+      - "\\bHunh? There isn't a single move that I can teach an "
+    - i: 4
+      code: 401
+      p:
+      - Egg.
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).shadowPokemon?
+    - i: 4
+      code: 101
+      p:
+      - "\\bNo way, I don't want to go near a Shadow "
+    - i: 4
+      code: 401
+      p:
+      - Pokémon..
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "!pbGetPokemon(1).can_relearn_move?"
+    - i: 4
+      code: 101
+      p:
+      - "\\bSorry..."
+    - i: 4
+      code: 101
+      p:
+      - "\\bIt doesn't appear as if I have any move I can teach "
+    - i: 4
+      code: 401
+      p:
+      - to your \v[3].
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\bWhich move should I teach to your \\v[3]?"
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbRelearnMoveScreen(pbGetPokemon(1))
+    - i: 4
+      code: 355
+      p:
+      - "$PokemonBag.pbDeleteItem(:HEARTSCALE)"
+    - i: 4
+      code: 101
+      p:
+      - "\\PN handed over one Heart Scale in exchange."
+    - i: 4
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 4
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 4
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 2
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 1
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Move Deleter
+  x: 5
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trainer_ENGINEER
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bUh...\\nOh, yes, I'm the Move Deleter."
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can make Pokémon forget their moves."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWould you like me to do that?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 118
+      p:
+      - ChoosePokemon
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhich Pokémon should forget a move?"
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemon(1, 3)
+    - i: 1
+      code: 108
+      p:
+      - 'If Game Variable 1 is less than 0, it means the player '
+    - i: 1
+      code: 408
+      p:
+      - has canceled choosing a Pokémon.
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 2
+      code: 101
+      p:
+      - "\\bCome again if there are moves that need to be "
+    - i: 2
+      code: 401
+      p:
+      - forgotten.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).egg?
+    - i: 3
+      code: 101
+      p:
+      - "\\bWhat? No Egg should know any moves."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).shadowPokemon?
+    - i: 3
+      code: 101
+      p:
+      - "\\bWhat? I can't make a Shadow Pokémon forget a "
+    - i: 3
+      code: 401
+      p:
+      - move.
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).numMoves == 1
+    - i: 3
+      code: 101
+      p:
+      - "\\b\\v[3] seems to know only one move..."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich move should be forgotten?"
+    - i: 2
+      code: 355
+      p:
+      - pbChooseMove(pbGetPokemon(1), 2, 4)
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 2
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\bHm! \\v[3]'s \\v[4]? That move should be forgotten?"
+    - i: 3
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 3
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 4
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: 013-Gag02
+        pitch: 100
+    - i: 4
+      code: 106
+      p:
+      - 80
+    - i: 4
+      code: 355
+      p:
+      - pbGetPokemon(1).forget_move_at_index(
+    - i: 4
+      code: 655
+      p:
+      - "   pbGet(2))"
+    - i: 4
+      code: 101
+      p:
+      - "\\bIt worked to perfection!"
+    - i: 4
+      code: 101
+      p:
+      - "\\b\\v[3] has forgotten \\v[4] completely."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 4
+      code: 101
+      p:
+      - "\\bCome again if there are moves that need to be "
+    - i: 4
+      code: 401
+      p:
+      - forgotten.
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 404
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome again if there are moves that need to be "
+    - i: 1
+      code: 401
+      p:
+      - forgotten.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 31
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe history of Galar bores me. It's not like the "
+    - i: 0
+      code: 401
+      p:
+      - Darkest Day will ever happen again.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 34
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rTwo heroes stopped the Darkest Day. I wish those "
+    - i: 0
+      code: 401
+      p:
+      - heroes were better remembered.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 440
+      - 60
+      - 23
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 26
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar041
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy does Dynamax only happen in this region? "
+    - i: 0
+      code: 401
+      p:
+      - The answer must be in here.
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 32
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rRaihan comes here often. Sonia, a researcher, also "
+    - i: 0
+      code: 401
+      p:
+      - spends a lot of time here.
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 25
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome to the vault."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 29
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 440
+      - 13
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Exit
+  x: 54
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 440
+      - 36
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(1)
+  x: 57
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI work at the gym. Want to see my strength?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Neil")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou might stand a chance against Raihan."
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Trainer(3)
+  x: 47
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHi and hello."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Barb")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCome back again soon."
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Trainer1)
+  x: 64
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHere for a bite?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Zalta")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'll finish my drink and leave."
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Trainer(1)
+  x: 47
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Aimee")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rStick around as long as you want."
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Person
+  x: 57
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIsn't the food here great?"
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Person
+  x: 61
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so glad we could come here."
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Trainer(1)
+  x: 52
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm trying to relax here."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Phillip")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBeat it."
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Item
+  x: 45
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:STRAWBERRYSWEET)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Sign, size(11,1)
+  x: 24
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - It's a painting of a person and Pokémon.
+    - i: 0
+      code: 0
+      p: []

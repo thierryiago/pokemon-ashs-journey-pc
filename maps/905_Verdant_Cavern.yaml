@@ -1,0 +1,160 @@
+---
+id: 905
+name: Verdant Cavern
+parent: 900
+width: 30
+height: 35
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Exit south
+  x: 13
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 900
+      - 55
+      - 30
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Gumshoos
+  x: 13
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: GUMSHOOS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 735Cry
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TOTEMPOKEMON,"Gumshoos",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:SINNOHTOUGH)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: GUMSHOOS
+    trigger: 3
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 735Cry
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbReceiveItem(:NORMALIUMZ)
+    - i: 0
+      code: 121
+      p:
+      - 304
+      - 304
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Good job. Let''s head back to Hala!'
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: GUMSHOOS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 735Cry
+        pitch: 100
+    - i: 0
+      code: 0
+      p: []

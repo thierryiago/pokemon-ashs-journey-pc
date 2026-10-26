@@ -1,0 +1,545 @@
+---
+id: 671
+name: Nacrene House
+parent: 669
+width: 40
+height: 50
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 26
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 669
+      - 13
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rEven though Lenora is our gym leader, Burgh grew "
+    - i: 0
+      code: 401
+      p:
+      - up here.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 9
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe keep extra books here for the museum to use."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trader - Basic
+  x: 31
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm looking for a Cottonee."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to trade it for my Petilil?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :COTTONEE"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOK, let's do this."
+    - i: 2
+      code: 355
+      p:
+      - pbStartTrade(pbGet(1),
+    - i: 2
+      code: 655
+      p:
+      - ' :PETILIL,_I("Petilil"),_I("Dye")'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Cottonee for Petilil!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks!"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 33
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBattle items help me out. I don't need to learn moves "
+    - i: 0
+      code: 401
+      p:
+      - to boost stats.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 0
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBe respectful. Just because I'm letting you look at "
+    - i: 0
+      code: 401
+      p:
+      - the books doesn't mean this isn't my home.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Vendor
+  x: 6
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":ENERGYPOWDER,"
+    - i: 0
+      code: 655
+      p:
+      - ":HEALPOWDER,"
+    - i: 0
+      code: 655
+      p:
+      - ":ENERGYROOT,"
+    - i: 0
+      code: 655
+      p:
+      - ":REVIVALHERB,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 9
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so glad this store is here. It's a pain to travel "
+    - i: 0
+      code: 401
+      p:
+      - through the forest.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 669
+      - 11
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 3
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 669
+      - 30
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Exit
+  x: 6
+  "y": 44
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 669
+      - 51
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Vendor
+  x: 30
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":XATTACK,"
+    - i: 0
+      code: 655
+      p:
+      - ":XDEFENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":XSPATK,"
+    - i: 0
+      code: 655
+      p:
+      - ":XSPDEF,"
+    - i: 0
+      code: 655
+      p:
+      - ":XSPEED,"
+    - i: 0
+      code: 655
+      p:
+      - ":XACCURACY,"
+    - i: 0
+      code: 655
+      p:
+      - ":GUARDSPEC,"
+    - i: 0
+      code: 655
+      p:
+      - ":DIREHIT,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 30
+  "y": 44
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 669
+      - 46
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Town Map, size(2,1)
+  x: 11
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbShowMap
+    - i: 0
+      code: 0
+      p: []

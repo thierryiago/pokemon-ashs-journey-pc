@@ -1,0 +1,795 @@
+---
+id: 306
+name: Route 39
+parent: 249
+width: 42
+height: 70
+tileset: 1
+bgm: Johto Route
+events:
+- id: 1
+  name: Apricorn tree
+  x: 25
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: Object tree 2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Gives 1 random Apricorn each time.
+    - i: 0
+      code: 108
+      p:
+      - 'For demonstration purposes only - Apricorn trees '
+    - i: 0
+      code: 408
+      p:
+      - 'should provide a fixed Apricorn, have a 24 hour delay '
+    - i: 0
+      code: 408
+      p:
+      - "(like Kurt does), and should look different to "
+    - i: 0
+      code: 408
+      p:
+      - Headbutt trees.
+    - i: 0
+      code: 355
+      p:
+      - apricorns = [
+    - i: 0
+      code: 655
+      p:
+      - "  :REDAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :YELLOWAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :BLUEAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :GREENAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :PINKAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :WHITEAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :BLACKAPRICORN"
+    - i: 0
+      code: 655
+      p:
+      - "]"
+    - i: 0
+      code: 355
+      p:
+      - random_item = apricorns.sample
+    - i: 0
+      code: 655
+      p:
+      - pbItemBall(random_item)
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: Object tree 2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - There are no apricorns.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 19
+  "y": 48
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:NUGGET)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: HiddenItem
+  x: 18
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:PPUP)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: HiddenItem
+  x: 21
+  "y": 35
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:XATTACK)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Cop
+  x: 19
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Pokémon Sumo Competition. Would "
+    - i: 0
+      code: 401
+      p:
+      - you like to enter? This years prize is a King's Rock.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt is suggested you enter a Pokémon with a high "
+    - i: 0
+      code: 401
+      p:
+      - weight.
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bThe rules are simple. All you have to do is get to the "
+    - i: 1
+      code: 401
+      p:
+      - 'other side of the room while beating the Trainers. '
+    - i: 1
+      code: 401
+      p:
+      - Grab the King's Rock to win.
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 121
+      p:
+      - 97
+      - 97
+      - 0
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 307
+      - 19
+      - 5
+      - 4
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bVery well. Enjoy your day."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 97
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Pokémon Sumo Competition is over. Come again "
+    - i: 0
+      code: 401
+      p:
+      - next year.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(4)
+  x: 33
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar041
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHi..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"McKenzie")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar041
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSorry..."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(3)
+  x: 31
+  "y": 48
+  pages:
+  - condition: {}
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIRDKEEPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy Fearow is ready."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIRDKEEPER,"Skyler")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar025
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOlivine City is so amazing. There are so"
+    - i: 0
+      code: 401
+      p:
+      - many places to sail.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(3)
+  x: 31
+  "y": 50
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMANIAC)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI just love looking at new Pokémon."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMANIAC,"Brad Van Darn")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI feel inspired."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(3)
+  x: 33
+  "y": 52
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMANIAC)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat do you want?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMANIAC,"Dez",_I("Get out of here."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can't stand losing."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 18
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis seems like a nice place. Perhaps I'll start a "
+    - i: 0
+      code: 401
+      p:
+      - Moomoo farm here.
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(6)
+  x: 27
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GENTLEMAN)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello, dear child."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GENTLEMAN,"Gan Gogh")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bVery impressive."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(3)
+  x: 21
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou look strong."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Pietra")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy Rhydon is the best."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(3)
+  x: 28
+  "y": 64
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rCan you handle us?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Madison")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe used to live in Hoenn."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(3)
+  x: 31
+  "y": 64
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rJohto is so strange."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Alexa")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe can adapt to this."
+    - i: 0
+      code: 0
+      p: []

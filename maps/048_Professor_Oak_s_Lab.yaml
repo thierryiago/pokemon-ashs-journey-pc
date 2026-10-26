@@ -1,0 +1,3610 @@
+---
+id: 48
+name: Professor Oak's Lab
+parent: 42
+width: 20
+height: 25
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: PC
+  x: 10
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Starter ball
+  x: 8
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: Object ball special
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'This ball contains a Pokémon caught by the '
+    - i: 0
+      code: 401
+      p:
+      - Professor.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: Object ball special
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: So, you want Pikachu, the Electric mouse "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:PIKACHU,5)
+    - i: 1
+      code: 655
+      p:
+      - 'p.makeMale #Male'
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:THUNDERSHOCK)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:THUNDERBOLT)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:AGILITY)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:QUICKATTACK)
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - p.ability_index = 0
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 121
+      p:
+      - 3
+      - 3
+      - 1
+    - i: 1
+      code: 122
+      p:
+      - 7
+      - 7
+      - 0
+      - 0
+      - 1
+    - i: 1
+      code: 121
+      p:
+      - 36
+      - 36
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bOak: Unfortunately, it is the only one left, so I "
+    - i: 1
+      code: 401
+      p:
+      - suggest you take it.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 36
+    graphic: Pikachu
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPikachu"
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 025Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Pikachu started to follow you.\se[itemlevel]\wtnp[20]
+    - i: 0
+      code: 121
+      p:
+      - 36
+      - 36
+      - 1
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.outfit=1"
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokédex
+  x: 2
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: itemlevel
+        pitch: 100
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.has_pokedex"
+    - i: 1
+      code: 101
+      p:
+      - "\\PN received a Pokédex!"
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.has_pokedex=true"
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokedex.unlock(-1)"
+    - i: 1
+      code: 655
+      p:
+      - "$Trainer.pokedex.lock(0)"
+    - i: 1
+      code: 121
+      p:
+      - 246
+      - 246
+      - 1
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 121
+      p:
+      - 29
+      - 29
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokedex.unlock(0)"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - You already have a Pokédex.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Controlling event
+  x: 14
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 38
+      - 38
+      - 1
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: \\PN, you're late. All of the starter Pokémon "
+    - i: 0
+      code: 401
+      p:
+      - have been taken. ...Well there is one left, but it is a bit
+    - i: 0
+      code: 401
+      p:
+      - reckless.
+    - i: 0
+      code: 121
+      p:
+      - 3
+      - 3
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 246
+      - 246
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 7
+      - 1
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: It seems Pikachu doesn't like to stay in its Poké "
+    - i: 0
+      code: 401
+      p:
+      - Ball.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 7
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 7
+      - 0
+      - 2
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bOak: Charmander, an excellent choice!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOak: Squirtle, an excellent choice!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't forget to take your Pokédex before you "
+    - i: 0
+      code: 401
+      p:
+      - leave.
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Turn back
+  x: 14
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 246
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Come here and get your Pokédex, \\PN."
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 22
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 22
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Wait, don't forget your starter Pokémon!"
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 22
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 22
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 36
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Wait, don't forget Pikachu!"
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 22
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 22
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Stairs down
+  x: 13
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbSetSelfSwitch(53, "A", true, 42)
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 42
+      - 36
+      - 19
+      - 0
+      - 1
+    - i: 0
+      code: 355
+      p:
+      - playOakLabBGM
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Oak
+  x: 7
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Ah \\PN, how is it going? Is your Pikachu doing "
+    - i: 0
+      code: 401
+      p:
+      - well?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: If you want it, take it."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 69
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Ah \\PN, you got the GS ball didn't you?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bGood good. Let me have a look at it."
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - 0
+      - 4
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bHmm. I can't seem to figure out what to do with it."
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 25
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 25
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\b\\PN, can I ask you to hold on to it a little longer and "
+    - i: 0
+      code: 401
+      p:
+      - take it to Kurt?
+    - i: 0
+      code: 101
+      p:
+      - "\\bHe lives in Azalea Town in the Johto region. The "
+    - i: 0
+      code: 401
+      p:
+      - 'fastest way there should be on Route 22. It''s near '
+    - i: 0
+      code: 401
+      p:
+      - the Kanto League.
+    - i: 0
+      code: 121
+      p:
+      - 82
+      - 82
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: The fastest way to the Johto region is through "
+    - i: 0
+      code: 401
+      p:
+      - Route 22. It's near the Kanto League.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 110
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Ah, hello \\PN. I heard you did well in the Silver "
+    - i: 0
+      code: 401
+      p:
+      - Conference.
+    - i: 0
+      code: 101
+      p:
+      - "\\bGary decided to head off to Hoenn to do some "
+    - i: 0
+      code: 401
+      p:
+      - 'research. It seems like a lovely place for you to go if '
+    - i: 0
+      code: 401
+      p:
+      - you want a new challenge.
+    - i: 0
+      code: 101
+      p:
+      - "\\bHead to Vermilion City. I'll tell the captain you are "
+    - i: 0
+      code: 401
+      p:
+      - coming. There is a ship that will take you there.
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlso, speak to my aide downstairs. He has a gift "
+    - i: 0
+      code: 401
+      p:
+      - for you.
+    - i: 0
+      code: 101
+      p:
+      - "\\bAnd last but not least, your mother has some new "
+    - i: 0
+      code: 401
+      p:
+      - clothes for you. Here you go.
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.outfit=2"
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey look spendid. If you'd prefer your old ones "
+    - i: 0
+      code: 401
+      p:
+      - 'though you can change with the dresser in your '
+    - i: 0
+      code: 401
+      p:
+      - room.
+    - i: 0
+      code: 121
+      p:
+      - 110
+      - 110
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 111
+      - 111
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Head to Vermilion City. I'll tell the captain you "
+    - i: 0
+      code: 401
+      p:
+      - 'are coming. There is a ship that will take you to '
+    - i: 0
+      code: 401
+      p:
+      - Hoenn.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 135
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Ah, hello \\PN. I heard you did well in the Ever "
+    - i: 0
+      code: 401
+      p:
+      - Grande Conference.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's good timing too since the Battle Frontier just "
+    - i: 0
+      code: 401
+      p:
+      - 'opened up right here in Kanto! The first one I would '
+    - i: 0
+      code: 401
+      p:
+      - recommend is the Battle Factory near Cerulean City.
+    - i: 0
+      code: 121
+      p:
+      - 135
+      - 135
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 138
+      - 138
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: C
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Head to Cerulean City to battle the Battle "
+    - i: 0
+      code: 401
+      p:
+      - Frontier.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 145
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Ah, hello \\PN. So you beat the Battle Frontier "
+    - i: 0
+      code: 401
+      p:
+      - then?
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're thinking about the Sinnoh region? I'll set "
+    - i: 0
+      code: 401
+      p:
+      - 'up a ride for you. Like always, head over to Vermilion '
+    - i: 0
+      code: 401
+      p:
+      - City.
+    - i: 0
+      code: 101
+      p:
+      - "\\bAnd once again, here are some new clothes."
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.outfit=3"
+    - i: 0
+      code: 121
+      p:
+      - 152
+      - 152
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 152
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Head to Vermilion City to get a ride to Sinnoh."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 197
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Ah, hello \\PN. So you finished the Sinnoh "
+    - i: 0
+      code: 401
+      p:
+      - League.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI saw you did quite well. I'm sure you're ready for "
+    - i: 0
+      code: 401
+      p:
+      - 'your next challenge. Why not head to Unova with '
+    - i: 0
+      code: 401
+      p:
+      - me?
+    - i: 0
+      code: 101
+      p:
+      - "\\bHead over to Viridian City. A blimp will be there to "
+    - i: 0
+      code: 401
+      p:
+      - take us over.
+    - i: 0
+      code: 101
+      p:
+      - "\\bAnd as I'm sure you guessed by now your mother "
+    - i: 0
+      code: 401
+      p:
+      - has a new outfit for you.
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.outfit=4"
+    - i: 0
+      code: 121
+      p:
+      - 197
+      - 197
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 198
+      - 198
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 198
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Head over to Viridian City. A blimp will be there "
+    - i: 0
+      code: 401
+      p:
+      - to take us over.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 199
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 200
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: The Unova League sounds like a good "
+    - i: 0
+      code: 401
+      p:
+      - 'challenge for you. I look forward to hearing your '
+    - i: 0
+      code: 401
+      p:
+      - results.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Places
+  x: 4
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Gary: Pallet Town\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Paul: Veilstone City\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Barry: Twinleaf Town'
+    - i: 0
+      code: 101
+      p:
+      - 'Trip: Nuvema Town\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Alain: Professor Sycamore''s Lab\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Sawyer: Lumiose City'
+    - i: 0
+      code: 101
+      p:
+      - 'Gladion: Hau''oli City\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Hau: Tapu Village'
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Rotom
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: Pokemon 76
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: 479Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Rotom!!
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Oak
+  x: 9
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: I'm not sure what else there is for you to do, "
+    - i: 0
+      code: 401
+      p:
+      - "\\PN. I would say you've made huge strides to "
+    - i: 0
+      code: 401
+      p:
+      - becoming a Pokémon Master.
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou could seek out the friends you've met along the "
+    - i: 0
+      code: 401
+      p:
+      - 'way. They may want to see you again. I have a list of '
+    - i: 0
+      code: 401
+      p:
+      - the places where they are somewhere around here.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThere is also a battle hall in Driftveil City that might "
+    - i: 0
+      code: 401
+      p:
+      - interest you.
+    - i: 0
+      code: 111
+      p:
+      - 2
+      - A
+      - 1
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokedex.owned_count >= 905"
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhat's that? You want me to see your Pokédex?"
+    - i: 2
+      code: 101
+      p:
+      - "\\bHmm... I see..."
+    - i: 2
+      code: 106
+      p:
+      - 20
+    - i: 2
+      code: 101
+      p:
+      - "\\bWow! Well done on completing the Pokédex, \\PN!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bHere's a reward."
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:LEGENDPLATE)
+    - i: 3
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bRemeber \\PN, your adventure doesn't end here. "
+    - i: 2
+      code: 401
+      p:
+      - 'There''s still so much for you to explore in this vast '
+    - i: 2
+      code: 401
+      p:
+      - world!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Zephyr Badge Fix
+  x: 0
+  "y": 0
+  pages:
+  - condition:
+      switch1: 83
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.badges[48]=false"
+    - i: 0
+      code: 655
+      p:
+      - "$Trainer.badges[8]=true"
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 8
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: NPC 55
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHey, surprise surprise! \\PN! I'm Hitsukid, you must "
+    - i: 0
+      code: 401
+      p:
+      - have finished your Journey to be a Pokemon Master.
+    - i: 0
+      code: 101
+      p:
+      - "\\bBut do you really think you are the very best?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe have two Quantum Transporters here, bringing "
+    - i: 0
+      code: 401
+      p:
+      - 'you to other dimensions in order to satisfy your '
+    - i: 0
+      code: 401
+      p:
+      - hunger for more challenges.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWatch out though, I am sensing tenacious vibes "
+    - i: 0
+      code: 401
+      p:
+      - through those devices.
+    - i: 0
+      code: 101
+      p:
+      - "\\bSeems like great challenges for you to overcome... "
+    - i: 0
+      code: 401
+      p:
+      - but you have been warned. ALL THE BEST!
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Door, size(2,3)
+  x: 10
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Door, size(2,3)
+  x: 4
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Door
+  x: 5
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "[SYSTEM ACTIVATING........]"
+    - i: 0
+      code: 101
+      p:
+      - "[DANGER!         DANGER!]"
+    - i: 0
+      code: 101
+      p:
+      - Teleport?\ch[1,1,Red,Blue,Green,Yellow,Gold,Silver,
+    - i: 0
+      code: 401
+      p:
+      - Crystal,Ruby,Sapphire,Emerald,Diamond,Pearl,Platinum,
+    - i: 0
+      code: 401
+      p:
+      - Black,White,Blake,Whitley,X,Y,Sun,Moon,Henry,Casey,No]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 772
+      - 41
+      - 31
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Pallet Town.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 773
+      - 9
+      - 13
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be the Viridian Gym.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 775
+      - 14
+      - 19
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be the Indigo Plateau.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 776
+      - 28
+      - 14
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Viridian Forest.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 777
+      - 14
+      - 14
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be New Bark Town.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 778
+      - 37
+      - 28
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Viridian City.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 779
+      - 35
+      - 18
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Ecruteak City.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 7
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 780
+      - 36
+      - 14
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Slateport City.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 781
+      - 21
+      - 23
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Littleroot Town.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 9
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 782
+      - 17
+      - 9
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be the Battle Tower.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 10
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 783
+      - 19
+      - 28
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Iron Island.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 11
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 784
+      - 30
+      - 14
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Pastoria City.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 785
+      - 13
+      - 16
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Mt. Coronet.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 13
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 786
+      - 16
+      - 16
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - 'This place...appears to be the Unova Pokémon '
+    - i: 1
+      code: 401
+      p:
+      - League.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 14
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 787
+      - 34
+      - 8
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Nimbasa City.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 15
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 792
+      - 22
+      - 21
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Virbank City.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 16
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 791
+      - 15
+      - 38
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Aspertia City.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 17
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 879
+      - 27
+      - 29
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Geosenge Town.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 18
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 880
+      - 39
+      - 14
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Shalour City.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 19
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 925
+      - 27
+      - 26
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Iki Town.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 20
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 926
+      - 20
+      - 24
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Aether Paradise.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 21
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 973
+      - 14
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Tower Summit.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 22
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 974
+      - 29
+      - 54
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 101
+      p:
+      - This place...appears to be Slumbering Weald.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 23
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Door
+  x: 11
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "[SYSTEM ACTIVATING.......]"
+    - i: 0
+      code: 101
+      p:
+      - "[WARNING!      WARNING!]"
+    - i: 0
+      code: 101
+      p:
+      - Teleport?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 355
+      p:
+      - pbSet(55,$Trainer.outfit)
+    - i: 1
+      code: 655
+      p:
+      - "$Trainer.outfit=10"
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 141
+      - 28
+      - 62
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Door
+  x: 12
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Door, size(1,2)
+  x: 12
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Places
+  x: 2
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Misty: Cerulean City\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Brock: Pewter City\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Tracey: Oak''s Corral'
+    - i: 0
+      code: 101
+      p:
+      - 'May: Goldenrod City\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Dawn: Eterna City'
+    - i: 0
+      code: 101
+      p:
+      - 'Iris: Opelucid City\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Cilan: Striaton City'
+    - i: 0
+      code: 101
+      p:
+      - 'Clemont: Lumiose City\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Serena: Lilycove City'
+    - i: 0
+      code: 101
+      p:
+      - 'Lana: Hau''oli City\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Kiawe: Ruins of Life'
+    - i: 0
+      code: 101
+      p:
+      - 'Mallow: Hau''oli City\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Sophocles: Pokémon School\n'
+    - i: 0
+      code: 401
+      p:
+      - 'Lillie: Hau''oli City'
+    - i: 0
+      code: 101
+      p:
+      - 'Goh: Cerise Park'
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Person
+  x: 10
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello \\PN. I've managed to make a machine that "
+    - i: 0
+      code: 401
+      p:
+      - 'captures the essence of powerful Trainers from a '
+    - i: 0
+      code: 401
+      p:
+      - different dimension.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are called 'Pokédex holders'. Feel free to try "
+    - i: 0
+      code: 401
+      p:
+      - the machine out.
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Oak
+  x: 8
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 245
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: I hear you've beaten the Unova region as well. "
+    - i: 0
+      code: 401
+      p:
+      - Wonderful work, \PN.
+    - i: 0
+      code: 101
+      p:
+      - "\\bHave you met Rotom yet? I caught it in the Decolore "
+    - i: 0
+      code: 401
+      p:
+      - Islands.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhere's that at? Oh, it's a horrible place. I wouldn't "
+    - i: 0
+      code: 401
+      p:
+      - 'want to make you suffer the trip. I only went to find a '
+    - i: 0
+      code: 401
+      p:
+      - Rotom.
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou plan on going to the Kalos region next? "
+    - i: 0
+      code: 401
+      p:
+      - 'Excellent idea. I heard of a mysterious power coming '
+    - i: 0
+      code: 401
+      p:
+      - from the region.
+    - i: 0
+      code: 101
+      p:
+      - "\\bHead over to Viridian City. A blimp will be there "
+    - i: 0
+      code: 401
+      p:
+      - to take you over.
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, and let's not forget your new clothes."
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.outfit=5"
+    - i: 0
+      code: 121
+      p:
+      - 439
+      - 439
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Head over to Viridian City. A blimp will be there "
+    - i: 0
+      code: 401
+      p:
+      - to take you over.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 281
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: I hear you've beaten the Kalos region as well. "
+    - i: 0
+      code: 401
+      p:
+      - Wonderful work.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's also wonderful timing. Your mother just won a "
+    - i: 0
+      code: 401
+      p:
+      - trip to the Alola region.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI also have this egg that I need to deliver to my "
+    - i: 0
+      code: 401
+      p:
+      - cousin Samson. Give it to him when you arrive.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWait. Don't forget your clothes."
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.outfit=6"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:EGG)
+    - i: 1
+      code: 121
+      p:
+      - 281
+      - 281
+      - 1
+    - i: 1
+      code: 121
+      p:
+      - 285
+      - 285
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Go speak with your mother."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 328
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 332
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Shouldn't you be in school right now?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 428
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Excellent work on becoming the Champion of "
+    - i: 0
+      code: 401
+      p:
+      - Alola, \PN. It was quite the exciting match.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm sorry to cut this meeting short, but a new "
+    - i: 0
+      code: 401
+      p:
+      - 'Professor is opening a lab in Vermilion City and I '
+    - i: 0
+      code: 401
+      p:
+      - agreed to attend.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI know! Why don't you join me? Well then, it's "
+    - i: 0
+      code: 401
+      p:
+      - settled. Your mother and I will meet you in Vermilion.
+    - i: 0
+      code: 101
+      p:
+      - "\\bNaturally, your mother left you some clothes here. "
+    - i: 0
+      code: 401
+      p:
+      - 'She was worried you''d be in such a rush to see '
+    - i: 0
+      code: 401
+      p:
+      - your Pokémon that you'd forget to stop home.
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.outfit=7"
+    - i: 0
+      code: 121
+      p:
+      - 430
+      - 430
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 429
+      - 429
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 430
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Your mother and I will meet you in Vermilion."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 449
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Hello \\PN. How is it working with Professor "
+    - i: 0
+      code: 401
+      p:
+      - Cerise?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 510
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 511
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Hello \\PN. How is it working with Professor "
+    - i: 0
+      code: 401
+      p:
+      - Cerise? Is Project Mew going well for Goh?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Hello \\PN. The surprise I have for you is out "
+    - i: 0
+      code: 401
+      p:
+      - back.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 536
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Hello \\PN. How did your meeting go with Paul? "
+    - i: 0
+      code: 401
+      p:
+      - 'Did he mention he recieved an offer to become a '
+    - i: 0
+      code: 401
+      p:
+      - Gym Leader?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 550
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Excellent job on becoming the Monarch, \\PN."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 564
+    graphic: trchar024
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Come back after another journey, have you? "
+    - i: 0
+      code: 401
+      p:
+      - It's always a pleasant surprise.
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou've accomplished so much since you first "
+    - i: 0
+      code: 401
+      p:
+      - 'met Pikachu. The bonds you''ve made, the regions '
+    - i: 0
+      code: 401
+      p:
+      - you've explored, and the friends and Pokémon too.
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou've never stopped growing as a Trainer, and I "
+    - i: 0
+      code: 401
+      p:
+      - 'doubt you have any intention on quitting now. The '
+    - i: 0
+      code: 401
+      p:
+      - road to becoming a Pokémon Master is a long one.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm truly proud of you, \\PN. I wish you luck in your "
+    - i: 0
+      code: 401
+      p:
+      - 'next journey. And know that you''re always '
+    - i: 0
+      code: 401
+      p:
+      - welcomed back home.
+    - i: 0
+      code: 355
+      p:
+      - "$scene = Scene_Credits.new"
+    - i: 0
+      code: 121
+      p:
+      - 429
+      - 429
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokedex.set_galar"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Item
+  x: 2
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:POKEBALL,5)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Door
+  x: 6
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Door, size(1,2)
+  x: 6
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Muk
+  x: 7
+  "y": 5
+  pages:
+  - condition:
+      switch1: 8
+    graphic: MUK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: '089Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMuk! Muk!"
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Galar Dex Fix
+  x: 0
+  "y": 2
+  pages:
+  - condition:
+      switch1: 538
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokedex.set_galar"
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

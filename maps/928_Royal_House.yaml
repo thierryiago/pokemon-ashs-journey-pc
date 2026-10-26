@@ -1,0 +1,975 @@
+---
+id: 928
+name: Royal House
+parent: 927
+width: 20
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 927
+      - 29
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 8
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's not easy out there. Take this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:POWERBELT)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNever leave home without one."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Cop
+  x: 5
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Battle Royal Dome. Would "
+    - i: 0
+      code: 401
+      p:
+      - you like to enter?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bWho do you want as your partner."
+    - i: 1
+      code: 102
+      p:
+      - - Kiawe
+        - Sophocles
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - Kiawe
+    - i: 2
+      code: 108
+      p:
+      - 'Creates a partner trainer to battle alongside the '
+    - i: 2
+      code: 408
+      p:
+      - 'player.  The parameters are the trainer type and '
+    - i: 2
+      code: 408
+      p:
+      - 'name of the partner.  The partner trainer is defined '
+    - i: 2
+      code: 408
+      p:
+      - in trainers.txt just like any other trainer.
+    - i: 2
+      code: 355
+      p:
+      - pbRegisterPartner(
+    - i: 2
+      code: 655
+      p:
+      - "   :POKEMONTRAINER_Kiawe,"
+    - i: 2
+      code: 655
+      p:
+      - '  "Kiawe",3'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 108
+      p:
+      - 'Note that the above two features are entirely '
+    - i: 2
+      code: 408
+      p:
+      - 'unrelated.  You can have a dependent event which '
+    - i: 2
+      code: 408
+      p:
+      - 'isn''t also a partner trainer (e.g. escort mission), or a '
+    - i: 2
+      code: 408
+      p:
+      - partner trainer who doesn't visibly follow you around.
+    - i: 2
+      code: 101
+      p:
+      - "\\PN teamed up with Kiawe!\\me[Item get]\\wtnp[40]"
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 106
+      p:
+      - 8
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - trchar177
+          - 0
+          - 2
+          - 0
+          code: 41
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - trchar177
+        - 0
+        - 2
+        - 0
+        code: 41
+    - i: 2
+      code: 108
+      p:
+      - 'Makes this event follow the player.  The first '
+    - i: 2
+      code: 408
+      p:
+      - 'parameter means "this event", the second is a name '
+    - i: 2
+      code: 408
+      p:
+      - 'for that dependency, and the third is the Common '
+    - i: 2
+      code: 408
+      p:
+      - 'Event number run when this following event is '
+    - i: 2
+      code: 408
+      p:
+      - interacted with.
+    - i: 2
+      code: 355
+      p:
+      - pbAddDependency2(
+    - i: 2
+      code: 655
+      p:
+      - '   @event_id,"Kiawe",2'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 201
+      p:
+      - 0
+      - 930
+      - 7
+      - 8
+      - 6
+      - 0
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 121
+      p:
+      - 496
+      - 496
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - Sophocles
+    - i: 2
+      code: 108
+      p:
+      - 'Creates a partner trainer to battle alongside the '
+    - i: 2
+      code: 408
+      p:
+      - 'player.  The parameters are the trainer type and '
+    - i: 2
+      code: 408
+      p:
+      - 'name of the partner.  The partner trainer is defined '
+    - i: 2
+      code: 408
+      p:
+      - in trainers.txt just like any other trainer.
+    - i: 2
+      code: 355
+      p:
+      - pbRegisterPartner(
+    - i: 2
+      code: 655
+      p:
+      - " :POKEMONTRAINER_Sophocles,"
+    - i: 2
+      code: 655
+      p:
+      - '  "Sophocles",3'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 108
+      p:
+      - 'Note that the above two features are entirely '
+    - i: 2
+      code: 408
+      p:
+      - 'unrelated.  You can have a dependent event which '
+    - i: 2
+      code: 408
+      p:
+      - 'isn''t also a partner trainer (e.g. escort mission), or a '
+    - i: 2
+      code: 408
+      p:
+      - partner trainer who doesn't visibly follow you around.
+    - i: 2
+      code: 101
+      p:
+      - "\\PN teamed up with Sophocles!\\me[Item get]\\wtnp[40]"
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 106
+      p:
+      - 8
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - trchar179
+          - 0
+          - 2
+          - 0
+          code: 41
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - trchar179
+        - 0
+        - 2
+        - 0
+        code: 41
+    - i: 2
+      code: 108
+      p:
+      - 'Makes this event follow the player.  The first '
+    - i: 2
+      code: 408
+      p:
+      - 'parameter means "this event", the second is a name '
+    - i: 2
+      code: 408
+      p:
+      - 'for that dependency, and the third is the Common '
+    - i: 2
+      code: 408
+      p:
+      - 'Event number run when this following event is '
+    - i: 2
+      code: 408
+      p:
+      - interacted with.
+    - i: 2
+      code: 355
+      p:
+      - pbAddDependency2(
+    - i: 2
+      code: 655
+      p:
+      - '   @event_id,"Sophocles",2'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 201
+      p:
+      - 0
+      - 931
+      - 8
+      - 8
+      - 6
+      - 0
+    - i: 2
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 2
+      code: 121
+      p:
+      - 496
+      - 496
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bVery well. Enjoy your day."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 355
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Battle Royal is over for now."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 375
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Battle Royal Dome. You must be "
+    - i: 0
+      code: 401
+      p:
+      - "\\PN. Are you ready?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'Creates a partner trainer to battle alongside the '
+    - i: 1
+      code: 408
+      p:
+      - 'player.  The parameters are the trainer type and '
+    - i: 1
+      code: 408
+      p:
+      - 'name of the partner.  The partner trainer is defined '
+    - i: 1
+      code: 408
+      p:
+      - in trainers.txt just like any other trainer.
+    - i: 1
+      code: 355
+      p:
+      - pbRegisterPartner(
+    - i: 1
+      code: 655
+      p:
+      - "  :MASKEDROYAL,"
+    - i: 1
+      code: 655
+      p:
+      - '  "Royal"'
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 108
+      p:
+      - 'Note that the above two features are entirely '
+    - i: 1
+      code: 408
+      p:
+      - 'unrelated.  You can have a dependent event which '
+    - i: 1
+      code: 408
+      p:
+      - 'isn''t also a partner trainer (e.g. escort mission), or a '
+    - i: 1
+      code: 408
+      p:
+      - partner trainer who doesn't visibly follow you around.
+    - i: 1
+      code: 101
+      p:
+      - "\\PN teamed up with Royal!\\me[Item get]\\wtnp[40]"
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 941
+      - 7
+      - 8
+      - 6
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 121
+      p:
+      - 496
+      - 496
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bVery well. Enjoy your day."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 377
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Battle Royal is over for now."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Battle Royal Dome. Would "
+    - i: 0
+      code: 401
+      p:
+      - you like to enter?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'Creates a partner trainer to battle alongside the '
+    - i: 1
+      code: 408
+      p:
+      - 'player.  The parameters are the trainer type and '
+    - i: 1
+      code: 408
+      p:
+      - 'name of the partner.  The partner trainer is defined '
+    - i: 1
+      code: 408
+      p:
+      - in trainers.txt just like any other trainer.
+    - i: 1
+      code: 355
+      p:
+      - pbRegisterPartner(
+    - i: 1
+      code: 655
+      p:
+      - "  :POKEMONTRAINER_Gladion,"
+    - i: 1
+      code: 655
+      p:
+      - '  "Gladion",4'
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 108
+      p:
+      - 'Note that the above two features are entirely '
+    - i: 1
+      code: 408
+      p:
+      - 'unrelated.  You can have a dependent event which '
+    - i: 1
+      code: 408
+      p:
+      - 'isn''t also a partner trainer (e.g. escort mission), or a '
+    - i: 1
+      code: 408
+      p:
+      - partner trainer who doesn't visibly follow you around.
+    - i: 1
+      code: 101
+      p:
+      - "\\PN teamed up with Gladion!\\me[Item get]\\wtnp[40]"
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - trchar181
+          - 0
+          - 2
+          - 0
+          code: 41
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - trchar181
+        - 0
+        - 2
+        - 0
+        code: 41
+    - i: 1
+      code: 108
+      p:
+      - 'Makes this event follow the player.  The first '
+    - i: 1
+      code: 408
+      p:
+      - 'parameter means "this event", the second is a name '
+    - i: 1
+      code: 408
+      p:
+      - 'for that dependency, and the third is the Common '
+    - i: 1
+      code: 408
+      p:
+      - 'Event number run when this following event is '
+    - i: 1
+      code: 408
+      p:
+      - interacted with.
+    - i: 1
+      code: 355
+      p:
+      - pbAddDependency2(
+    - i: 1
+      code: 655
+      p:
+      - '   @event_id,"Gladion",2)'
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 930
+      - 22
+      - 8
+      - 6
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 121
+      p:
+      - 496
+      - 496
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bVery well. Enjoy your day."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Battle Royal is over for now."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: PC
+  x: 1
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 5
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 927
+      - 21
+      - 8
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Cop
+  x: 5
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 355
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 10
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 09
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Masked Royal is amazing! He's so hard to beat."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 3
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNobody knows who the Masked Royal is. It's an "
+    - i: 0
+      code: 401
+      p:
+      - unsolved mystery.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: EV009
+  x: 7
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Fantastic battle, \\PN. All of Alola was "
+    - i: 0
+      code: 401
+      p:
+      - cheering for you.
+    - i: 0
+      code: 101
+      p:
+      - "\\bAs our champion, we're expecting great things "
+    - i: 0
+      code: 401
+      p:
+      - from you. Do you best in the Masters Tournament.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 536
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

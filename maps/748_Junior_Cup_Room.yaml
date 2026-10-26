@@ -1,0 +1,307 @@
+---
+id: 748
+name: Junior Cup Room
+parent: 747
+width: 20
+height: 15
+tileset: 14
+bgm: ''
+events:
+- id: 1
+  name: Trainer(3)
+  x: 14
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rUm... good luck."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Marris")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGood job."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(3)
+  x: 11
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI suppose you think you will win."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Geraldo")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't lose now."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Counter(3)
+  x: 5
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 40
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bTrip: You're the one that made it this far? Let's see "
+    - i: 0
+      code: 401
+      p:
+      - if you can even keep up.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Trip",nil,false,3,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 40
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTrip: It's over. No need to keep talking to each other."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Counter(2)
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar121
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: So you've made it this far \\PN. Don't think I'm "
+    - i: 0
+      code: 401
+      p:
+      - losing to a little kid like you.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Iris,"Iris",nil,false,4,false,0)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar121
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: You got lucky, that's all."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Alder
+  x: 0
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar135
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlder: Oh, it's over? I'm not quite in the mood, but "
+    - i: 0
+      code: 401
+      p:
+      - why don't you take this instead?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM87)
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 747
+      - 5
+      - 4
+      - 2
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 121
+      p:
+      - 233
+      - 233
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar135
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

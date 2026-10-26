@@ -1,0 +1,223 @@
+---
+id: 239
+name: Ascorbia House
+parent: 237
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 236
+      - 79
+      - 29
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Team Rocket
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 247
+      p: []
+    - i: 0
+      code: 241
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Team Rocket OW Kanto
+        pitch: 100
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Of all the times for you to come and try to "
+    - i: 0
+      code: 401
+      p:
+      - ruin our plans.
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: This Wartortle is ours now. We're going to "
+    - i: 0
+      code: 401
+      p:
+      - give it to the boss.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET,"Jessie and James",nil,false,6,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 248
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 79
+      - 79
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: Crap! The building caught on fire!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Let's get out of here while we can."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 236
+      - 77
+      - 29
+      - 6
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - "\\bCaptain Aidan: Wartortle! Water Gun!"
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Team Rocket
+  x: 4
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Pokemon
+  x: 4
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: WARTORTLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Team Rocket
+  x: 5
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar072
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

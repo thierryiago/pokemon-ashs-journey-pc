@@ -1,0 +1,975 @@
+---
+id: 982
+name: Freezington House
+parent: 981
+width: 60
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 981
+      - 11
+      - 17
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 8
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rA visitor? We don't ever see people like that around "
+    - i: 0
+      code: 401
+      p:
+      - here.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 27
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAre you a strong Trainer? Do you seek out rare an "
+    - i: 0
+      code: 401
+      p:
+      - exciting adventures?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\rThat's good to hear. I've been holding onto this for "
+    - i: 1
+      code: 401
+      p:
+      - 'years, but I''m not a good fit for it. Please, take it and '
+    - i: 1
+      code: 401
+      p:
+      - use it.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:MASTERBALL)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rNeither am I. Neither am I..."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI hope you use it. Don't become someone with "
+    - i: 0
+      code: 401
+      p:
+      - regrets like me.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Move Relearner
+  x: 1
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - isTempSwitchOff?("A")
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'm the Pokémon Move Maniac."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI know every single move that Pokémon learn "
+    - i: 1
+      code: 401
+      p:
+      - growing up.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'm also a collector of Heart Scales."
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf you bring me one, I'll teach a move to one of your "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon.
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbHasItem?(:HEARTSCALE)"
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh! That's it! That's an honest to goodness Heart "
+    - i: 1
+      code: 401
+      p:
+      - Scale!
+    - i: 1
+      code: 101
+      p:
+      - "\\bLet me guess, you want me to teach one of your "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon a move?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 118
+      p:
+      - ChoosePokemon
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich Pokémon needs tutoring?"
+    - i: 2
+      code: 355
+      p:
+      - pbChoosePokemon(1, 3, proc{ |pkmn|
+    - i: 2
+      code: 655
+      p:
+      - "  pkmn.can_relearn_move?"
+    - i: 2
+      code: 655
+      p:
+      - "  }, true"
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 108
+      p:
+      - 'If Game Variable 1 is less than 0, it means the player '
+    - i: 2
+      code: 408
+      p:
+      - has canceled choosing a Pokémon.
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 3
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).egg?
+    - i: 4
+      code: 101
+      p:
+      - "\\bHunh? There isn't a single move that I can teach an "
+    - i: 4
+      code: 401
+      p:
+      - Egg.
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).shadowPokemon?
+    - i: 4
+      code: 101
+      p:
+      - "\\bNo way, I don't want to go near a Shadow "
+    - i: 4
+      code: 401
+      p:
+      - Pokémon..
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "!pbGetPokemon(1).can_relearn_move?"
+    - i: 4
+      code: 101
+      p:
+      - "\\bSorry..."
+    - i: 4
+      code: 101
+      p:
+      - "\\bIt doesn't appear as if I have any move I can teach "
+    - i: 4
+      code: 401
+      p:
+      - to your \v[3].
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\bWhich move should I teach to your \\v[3]?"
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbRelearnMoveScreen(pbGetPokemon(1))
+    - i: 4
+      code: 355
+      p:
+      - "$PokemonBag.pbDeleteItem(:HEARTSCALE)"
+    - i: 4
+      code: 101
+      p:
+      - "\\PN handed over one Heart Scale in exchange."
+    - i: 4
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 4
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 4
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 2
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 1
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 7
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 981
+      - 23
+      - 23
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Healing
+  x: 28
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 26
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to Freezington. I'm the mayor of this small "
+    - i: 0
+      code: 401
+      p:
+      - 'town. '
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're looking for a strange Pokémon. Ah, I think I "
+    - i: 0
+      code: 401
+      p:
+      - 'know what you''re talking about. I saw it in the Crown '
+    - i: 0
+      code: 401
+      p:
+      - Tundra. It was white and yellow.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wish I could tell you more, but there was a "
+    - i: 0
+      code: 401
+      p:
+      - blizzard at the time.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt was a Nihilego? I'm not familiar with that Pokémon."
+    - i: 0
+      code: 101
+      p:
+      - "\\bEither way, thank you for letting me know it's not a "
+    - i: 0
+      code: 401
+      p:
+      - 'threat. The villagers will be relieved to know it is safe '
+    - i: 0
+      code: 401
+      p:
+      - again. Take this as my thanks.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbAddPokemon(:CALYREX,50)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThank you again for finding that Pokémon. Feel free "
+    - i: 0
+      code: 401
+      p:
+      - to stay as long as you like.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Pokemon
+  x: 4
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: LEDIAN
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: LEDIAN
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rLedian"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 29
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 981
+      - 25
+      - 7
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 30
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 981
+      - 39
+      - 17
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Exit
+  x: 46
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 983
+      - 60
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Gladion
+  x: 49
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar181
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGladion: Our father was here. This entire time he "
+    - i: 0
+      code: 401
+      p:
+      - was here.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Lusamine
+  x: 50
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar187
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLusamine: We found him. At long last, our family is "
+    - i: 0
+      code: 401
+      p:
+      - together again.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Mohn
+  x: 49
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMohn: I suffered from memory loss for years. This "
+    - i: 0
+      code: 401
+      p:
+      - 'Pokémon brought me back from Ultra Space and took '
+    - i: 0
+      code: 401
+      p:
+      - care of me.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's finally time I returned home. Please, come with "
+    - i: 0
+      code: 401
+      p:
+      - us in our celebration.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 533
+      - 533
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 889
+      - 23
+      - 31
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Lillie
+  x: 48
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Father. I'm so happy to see you again."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Pokemon
+  x: 46
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NIHILEGO shiny
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: NIHILEGO
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Nihile...
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

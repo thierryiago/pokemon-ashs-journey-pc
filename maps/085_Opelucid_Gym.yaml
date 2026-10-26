@@ -1,0 +1,401 @@
+---
+id: 85
+name: Opelucid Gym
+parent: 755
+width: 20
+height: 20
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Trainer(6)
+  x: 3
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Opelucid Gym."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Jose")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to the Opelucid Gym."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(6)
+  x: 13
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't expect an easy victory around here."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Dara")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDrayden is far stronger than your average Trainer."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Gym Guy
+  x: 6
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDrayden uses Dragon type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Dragon, Ice, and Fairy types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Dragon. They are "
+    - i: 0
+      code: 401
+      p:
+      - resistant to Electric, Fire, Grass, and Water.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 8
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 754
+      - 21
+      - 21
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Drayden
+  x: 12
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar170
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDrayden: I'd like to thank you for your help in "
+    - i: 0
+      code: 401
+      p:
+      - 'developing Iris''s abilities. She''s become an excellent '
+    - i: 0
+      code: 401
+      p:
+      - Trainer.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Iris
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 509
+    graphic: trchar220
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHAMPION_Iris)
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: \\PN! It's great to see you again. Can you believe "
+    - i: 0
+      code: 401
+      p:
+      - we're both competing in the same competition?
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't think I'm going to be easy though. Since we "
+    - i: 0
+      code: 401
+      p:
+      - 'last saw each other I''ve met and battled many '
+    - i: 0
+      code: 401
+      p:
+      - Dragon-type Trainers and Pokémon.
+    - i: 0
+      code: 101
+      p:
+      - "\\rPlus, I'm now the Champion of Unova. That's not "
+    - i: 0
+      code: 401
+      p:
+      - 'enough to be a Dragon Master yet. Winning this battle '
+    - i: 0
+      code: 401
+      p:
+      - against you will get me one step closer to that.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Iris,"Iris",nil,false,0,false,0)
+    - i: 1
+      code: 101
+      p:
+      - 'Rotom Phone: Based on performance, your rank is '
+    - i: 1
+      code: 401
+      p:
+      - now 99. You have entered the Ultra Class.
+    - i: 1
+      code: 101
+      p:
+      - "\\rIris: Ugh, I can't believe I lost. Don't worry, I'll keep "
+    - i: 1
+      code: 401
+      p:
+      - 'getting stronger. Let''s battle again once I reach the '
+    - i: 1
+      code: 401
+      p:
+      - Ultra Class!
+    - i: 1
+      code: 121
+      p:
+      - 510
+      - 510
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar220
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: You're so good, but don't be surprised if I win "
+    - i: 0
+      code: 401
+      p:
+      - next time.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar220
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: Wha! ...Hi \\PN! Back to battle a Champion? Good, "
+    - i: 0
+      code: 401
+      p:
+      - 'because I need all the experience I can get if I''m '
+    - i: 0
+      code: 401
+      p:
+      - going to become a Dragon Master.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Iris,"Iris",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar220
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: You're so good, but don't be surprised if I win "
+    - i: 0
+      code: 401
+      p:
+      - next time.
+    - i: 0
+      code: 0
+      p: []

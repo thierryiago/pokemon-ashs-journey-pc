@@ -1,0 +1,469 @@
+---
+id: 276
+name: Azalea Gym
+parent: 272
+width: 20
+height: 20
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Gym Guy
+  x: 8
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy uses Bug type Pokémon. They are weak "
+    - i: 0
+      code: 401
+      p:
+      - against Fire, Flying, and Rock types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Psychic, Grass, and Dark. "
+    - i: 0
+      code: 401
+      p:
+      - 'Fighting, Grass, and Ground also don''t do much '
+    - i: 0
+      code: 401
+      p:
+      - damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 7
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 271
+      - 21
+      - 27
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(3)
+  x: 7
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bFear the bugs!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Al",_I("You didn't fear enough."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy is amazing in battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 84
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy is amazing in battle."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Bugsy
+  x: 8
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar082
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Bugsy)
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy: Hi there. I'm Bugsy."
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy research is going to make me a leader on Bug-"
+    - i: 0
+      code: 401
+      p:
+      - 'type Pokémon! Let me demonstrate what I''ve learned '
+    - i: 0
+      code: 401
+      p:
+      - from my studies in a battle.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Bugsy,"Bugsy")
+    - i: 1
+      code: 101
+      p:
+      - "\\bBugsy: You've earned the Hive Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:HIVEBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[9]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM81)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM81 contains X-Scissor. It's a powerful "
+    - i: 1
+      code: 401
+      p:
+      - Bug attack.
+    - i: 1
+      code: 121
+      p:
+      - 84
+      - 84
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar082
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy: Bug types may be considered weak, but "
+    - i: 0
+      code: 401
+      p:
+      - they are one of the most reliable.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 3
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy will never lose to you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Benny",_I("I'm sorry!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy is ten times tougher then me."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 84
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy is ten times tougher then me."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(3)
+  x: 11
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm just as good. I can be the Gym Leader"
+    - i: 0
+      code: 401
+      p:
+      - for you.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Josh",_I("I lied."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wish I was stronger."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 84
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wish I was stronger."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(1)
+  x: 7
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI won't lose. Okay?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Chaz",_I("How did that happen?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't bring Fire types in here."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 84
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't bring Fire types in here."
+    - i: 0
+      code: 0
+      p: []

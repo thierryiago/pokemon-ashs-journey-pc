@@ -1,0 +1,484 @@
+---
+id: 696
+name: Driftveil House
+parent: 694
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 694
+      - 13
+      - 32
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 0
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou seem like a smart person. Don't let my dad trick "
+    - i: 0
+      code: 401
+      p:
+      - you.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 29
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI wanna play with them..."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 29
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe're playing. Don't bother us."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 30
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe're playing. Don't bother us."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Move Tutor
+  x: 21
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you want to learn the best, this is the way to go."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to learn Fire Pledge?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:FIREPLEDGE)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 694
+      - 31
+      - 40
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Exit
+  x: 23
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 694
+      - 31
+      - 47
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Item
+  x: 4
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 101
+      p:
+      - "\\bI don't need this junk anymore. What to do with it? "
+    - i: 0
+      code: 401
+      p:
+      - Hmmm....
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 25
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 25
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, hello there. Didn't see you there. How would "
+    - i: 0
+      code: 401
+      p:
+      - you like an amazing item? No I insist.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SHELLBELL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHaha. Sucker."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Move Tutor
+  x: 25
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you want to learn the best, this is the way to go."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to learn Water Pledge?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:WATERPLEDGE)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Move Tutor
+  x: 30
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you want to learn the best, this is the way to go."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to learn Grass Pledge?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:GRASSPLEDGE)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 4
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 12
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDid you expect something special about this place? "
+    - i: 0
+      code: 401
+      p:
+      - I just like having a nice looking house.
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 8
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 694
+      - 31
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

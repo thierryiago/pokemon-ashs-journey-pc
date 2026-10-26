@@ -1,0 +1,465 @@
+---
+id: 292
+name: Goldenrod Gym
+parent: 283
+width: 25
+height: 25
+tileset: 3
+bgm: gym
+events:
+- id: 1
+  name: Exit
+  x: 4
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 282
+      - 41
+      - 15
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Whitney
+  x: 10
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar083
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Whitney)
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhitney: Hiya! My name is Whitney."
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm gonna wipe the floor with you. Think you're "
+    - i: 0
+      code: 401
+      p:
+      - ready?
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Whitney,"Whitney")
+    - i: 1
+      code: 101
+      p:
+      - "\\rWhitney: I'm not ready for this to be over. I feel like "
+    - i: 1
+      code: 401
+      p:
+      - 'you didn''t show me your full strength. I know, we '
+    - i: 1
+      code: 401
+      p:
+      - can do it again.
+    - i: 1
+      code: 101
+      p:
+      - "\\rMeet me on Route 35 when you're ready."
+    - i: 1
+      code: 121
+      p:
+      - 416
+      - 416
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar083
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhitney: Meet me on Route 35 when you're ready."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 85
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 86
+    graphic: trchar083
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhitney: Don't think I'm done. I'll keep training my "
+    - i: 0
+      code: 401
+      p:
+      - Miltank till it's unstoppable.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(5)
+  x: 2
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis Gym is only for pretty Pokémon."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Victoria",_I("So ugly."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou ruined my Pokémon's fur."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 85
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou ruined my Pokémon's fur."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(5)
+  x: 21
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rMe beauties will destroy you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Samantha",_I("How could you?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou have no class."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 85
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou have no class."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 11
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI finally get to battle!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Carrie",_I("I lost already?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou have no class."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 85
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou have no class."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(3)
+  x: 11
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHave to get past me first."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Cathy",_I("You didn't?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhitney is no pushover."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 85
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhitney is no pushover."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Gym Guy
+  x: 7
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhitney uses Normal type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against only the Fighting type.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against nothing. They are immune "
+    - i: 0
+      code: 401
+      p:
+      - 'to Ghost type moves as well. '
+    - i: 0
+      code: 0
+      p: []

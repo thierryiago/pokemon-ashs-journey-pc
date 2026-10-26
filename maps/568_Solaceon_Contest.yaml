@@ -1,0 +1,136 @@
+---
+id: 568
+name: Solaceon Contest
+parent: 564
+width: 20
+height: 15
+tileset: 3
+bgm: Contest Hall
+events:
+- id: 1
+  name: Person
+  x: 5
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm very sorry, but you missed the deadline to "
+    - i: 0
+      code: 401
+      p:
+      - compete.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 8
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHi there. Are you interested in Contests?"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Move Tutor
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAfter spending years in this town I decided to help "
+    - i: 0
+      code: 401
+      p:
+      - out and teach the move, Heal Bell.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can teach it to you if you want?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhich Pokémon would you like me to teach?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:HEALBELL)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 6
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 563
+      - 25
+      - 12
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,207 @@
+---
+id: 809
+name: Parfum Palace
+parent: 808
+width: 70
+height: 50
+tileset: 3
+bgm: Radio - Oak
+events:
+- id: 1
+  name: Exit
+  x: 36
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 808
+      - 42
+      - 19
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 37
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome to the Parfum Palace."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 53
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is where Princess Allie stays."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Healing
+  x: 25
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Allie
+  x: 51
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhat is a mere peasant doing in here?"
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou want the Poké Flute? I earned that by myself "
+    - i: 0
+      code: 401
+      p:
+      - and you think you deserve it?
+    - i: 0
+      code: 101
+      p:
+      - "\\rFine... But you will have to win a battle against me "
+    - i: 0
+      code: 401
+      p:
+      - 'first. If you lose you''ll give me all your money and '
+    - i: 0
+      code: 401
+      p:
+      - disappear.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Allie")
+    - i: 1
+      code: 121
+      p:
+      - 262
+      - 262
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rTake it and get lost."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:POKEFLUTE)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLeave already!"
+    - i: 0
+      code: 0
+      p: []

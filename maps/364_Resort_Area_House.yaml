@@ -1,0 +1,368 @@
+---
+id: 364
+name: Resort Area House
+parent: 345
+width: 70
+height: 50
+tileset: 3
+bgm: Radio - Oak
+events:
+- id: 1
+  name: Exit north left
+  x: 36
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 345
+      - 43
+      - 8
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 37
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome to the Resort Mansion."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit north left
+  x: 12
+  "y": 44
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 345
+      - 15
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Counter(2)
+  x: 44
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis area is off limits."
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - 0
+      - 2
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Healing
+  x: 7
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 16
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAre you enjoying the resort? Stay as long as you "
+    - i: 0
+      code: 401
+      p:
+      - can afford to.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 24
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSometimes people need a little help. Try this if you "
+    - i: 0
+      code: 401
+      p:
+      - are struggling.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:EVIOLITE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bEverybody needs a little help sometimes."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit north left
+  x: 33
+  "y": 44
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 345
+      - 31
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 30
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: NPC 27
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPlaying a game. Don't bother me. I never wanted to "
+    - i: 0
+      code: 401
+      p:
+      - come here anyway.
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 10
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've been looking for the strongest Magikarp. I hear "
+    - i: 0
+      code: 401
+      p:
+      - it's in the resort.
+    - i: 0
+      code: 0
+      p: []

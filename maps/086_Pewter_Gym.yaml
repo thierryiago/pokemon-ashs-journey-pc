@@ -1,0 +1,865 @@
+---
+id: 86
+name: Pewter Gym
+parent: 83
+width: 20
+height: 18
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Gym Guy
+  x: 7
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock uses Rock type Pokémon. They are weak "
+    - i: 0
+      code: 401
+      p:
+      - 'against Water, Grass, Fighting, Ground, and Steel '
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bDespite all the weaknesses, they are strong "
+    - i: 0
+      code: 401
+      p:
+      - 'against Fire, Bug, Flying, and Ice. Normal and Poison '
+    - i: 0
+      code: 401
+      p:
+      - moves also don't do much damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(3)
+  x: 3
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CAMPER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBattle me now!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CAMPER,"Liam")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're pretty hot. But not as hot as"
+    - i: 0
+      code: 401
+      p:
+      - Brock!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 4
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're pretty hot. But not as hot as"
+    - i: 0
+      code: 401
+      p:
+      - Brock!
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 6
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 82
+      - 20
+      - 21
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Steelix
+  x: 7
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ONIX
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: '095Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bOnix"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 5
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: ONIX
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: '095Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bOnix"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 146
+    graphic: STEELIX
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 208Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bSteelix"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Geodude
+  x: 10
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: GEODUDE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 074Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bGeodude"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 5
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: GEODUDE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 074Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bGeodude"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Crobat
+  x: 2
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 111
+    graphic: CROBAT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 169Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCrobat"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Ludicolo
+  x: 10
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 138
+    graphic: LUDICOLO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 272Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bLudicolo"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 146
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 152
+    graphic: LUDICOLO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 272Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bLudicolo"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Marshtomp
+  x: 11
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 152
+    graphic: MARSHTOMP
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 259Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMarshtomp"
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Forretress
+  x: 1
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 152
+    graphic: FORRETRESS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 205Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rForretress"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Sudowoodo
+  x: 6
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 198
+    graphic: SUDOWOODO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 185Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bSudowoodo"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Croagunk
+  x: 1
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 249
+    graphic: CROAGUNK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 453Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCroagunk"
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Blissey
+  x: 11
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 198
+    graphic: CHANSEY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 113Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rChansey"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 520
+    graphic: BLISSEY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: BLISSEY
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rBlissey"
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Comfey
+  x: 2
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 387
+    graphic: COMFEY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 764Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rComfey"
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Brock
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Brock)
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: So, you're here. I'm Brock. I'm Pewter City's "
+    - i: 0
+      code: 401
+      p:
+      - Gym Leader.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy rock-hard willpower is shown even in my "
+    - i: 0
+      code: 401
+      p:
+      - 'Pokémon. My Pokémon are all rock hard, and have '
+    - i: 0
+      code: 401
+      p:
+      - true-grit determination.
+    - i: 0
+      code: 101
+      p:
+      - "\\bShow me your best!"
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Brock,"Brock")
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrock: You've earned the Boulder Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:BOULDERBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[0]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM80)
+    - i: 1
+      code: 101
+      p:
+      - "\\bA TM, Technical Machine, contains a "
+    - i: 1
+      code: 401
+      p:
+      - technique for Pokémon.
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM80 contains Rock Slide. It inflicts damage "
+    - i: 1
+      code: 401
+      p:
+      - and has a chance to make the opponent flinch.
+    - i: 1
+      code: 121
+      p:
+      - 4
+      - 4
+      - 0
+    - i: 1
+      code: 121
+      p:
+      - 39
+      - 39
+      - 1
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: I actually wanted to be a Pokémon Breeder, "
+    - i: 0
+      code: 401
+      p:
+      - not a Gym Leader, but I do it for my family.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 5
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: \\PN? What are you doing here?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bCame to see me did you? I'm still training to be a "
+    - i: 0
+      code: 401
+      p:
+      - doctor. How are your goals coming?
+    - i: 0
+      code: 101
+      p:
+      - "\\bNevermind. It might be easier to just show me."
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BREEDER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BREEDER,"Brock",nil,false,19,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: Good to see you \\PN! If you want I can "
+    - i: 0
+      code: 401
+      p:
+      - groom one of your Pokémon. It may help it in battle.
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrock: Which Pokémon do you want me to groom?"
+    - i: 1
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1,2)
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 2
+      code: 101
+      p:
+      - "\\bBrock: Oh, okay then."
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - poke=pbGetPokemon(1)
+    - i: 1
+      code: 655
+      p:
+      - poke.changeHappiness("groom")
+    - i: 1
+      code: 655
+      p:
+      - poke.beauty+=40
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrock: There!  \\v[2] looks a lot better"
+    - i: 1
+      code: 401
+      p:
+      - now!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrock: Oh, okay then."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []

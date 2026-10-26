@@ -1,0 +1,396 @@
+---
+id: 469
+name: Grande Top 8
+parent: 464
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Trainer(1)
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's both do our best, alright."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Tyson")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 134
+      - 134
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 135
+      - 135
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou placed in the Top 8 this year. Come back next "
+    - i: 0
+      code: 401
+      p:
+      - year to try again. Thank you for competing.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 29
+      - 7
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTyson: Hey \\PN. Let's both do our best, alright."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Tyson",nil,false,2,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTyson: Haha, that was an amazing battle! You're"
+    - i: 1
+      code: 401
+      p:
+      - definitely the Monarch now!
+    - i: 1
+      code: 122
+      p:
+      - 29
+      - 29
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bTyson: Tough one, \\PN! You almost had me."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 464
+      - 21
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 117
+      p:
+      - 35
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:HOENN)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 29
+      - 8
+    graphic: trchar035
+    trigger: 3
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:CHAMPION)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbHallOfFameEntry
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 464
+      - 26
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning the Ever Grande Conference!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:GROUDON)"
+    - i: 1
+      code: 121
+      p:
+      - 577
+      - 577
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:KYOGRE)"
+    - i: 1
+      code: 121
+      p:
+      - 578
+      - 578
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:LATIAS)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(20, "A", false, 425)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:LATIOS)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(21, "A", false, 425)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:RAYQUAZA)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(30, "A", false, 630)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:JIRACHI)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(15, "A", false, 403)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:DEOXYS)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(17, "A", false, 494)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 122
+      p:
+      - 29
+      - 29
+      - 0
+      - 0
+      - 0
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

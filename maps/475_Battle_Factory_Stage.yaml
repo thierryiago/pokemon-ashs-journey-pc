@@ -1,0 +1,165 @@
+---
+id: 475
+name: Battle Factory Stage
+parent: 474
+width: 20
+height: 15
+tileset: 14
+bgm: evolv
+events:
+- id: 1
+  name: Noland
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar098
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:FACTORYHEAD_Noland)
+    - i: 0
+      code: 101
+      p:
+      - "\\bNoland: Welcome to the Battle Factory. My name is "
+    - i: 0
+      code: 401
+      p:
+      - Noland and I will be your challenger.
+    - i: 0
+      code: 101
+      p:
+      - "\\bNormally, I would require you to use a Rental "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon to battle against me.
+    - i: 0
+      code: 101
+      p:
+      - "\\bHowever, I see that you have gathered not only all "
+    - i: 0
+      code: 401
+      p:
+      - 'the badges from Kanto but Hoenn as well. I want to '
+    - i: 0
+      code: 401
+      p:
+      - see the power you possess.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:FACTORYHEAD_Noland,"Noland")
+    - i: 1
+      code: 101
+      p:
+      - "\\bNoland: You've earned the Knowledge Symbol."
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:ABILITY)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:KNOWLEDGESYMBOL)
+    - i: 1
+      code: 101
+      p:
+      - "\\bI suggest the next place you go to is the Battle "
+    - i: 1
+      code: 401
+      p:
+      - Arena. It's located near Saffron City.
+    - i: 1
+      code: 121
+      p:
+      - 139
+      - 139
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar098
+    trigger: 3
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 474
+      - 16
+      - 8
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

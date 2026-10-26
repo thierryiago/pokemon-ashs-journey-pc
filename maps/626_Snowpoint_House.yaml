@@ -1,0 +1,648 @@
+---
+id: 626
+name: Snowpoint House
+parent: 625
+width: 25
+height: 25
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 625
+      - 9
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trade
+  x: 3
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm looking for a Electabuzz."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWant to trade it for my Magmortar?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :ELECTABUZZ"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\rYou don't want to trade?  Shame."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rOK, let's do this."
+    - i: 2
+      code: 355
+      p:
+      - pbStartTrade(pbGet(1),
+    - i: 2
+      code: 655
+      p:
+      - ' :MAGMORTAR,_I("Magmortar"),_I("Carol")'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Electabuzz for Magmortar!"
+    - i: 2
+      code: 101
+      p:
+      - "\\rThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou don't want to trade?  Shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThanks for the trade."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trade
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm looking for a Magmar."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWant to trade it for my Electivire?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :MAGMAR"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\rYou don't want to trade?  Shame."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rOK, let's do this."
+    - i: 2
+      code: 355
+      p:
+      - pbStartTrade(pbGet(1),
+    - i: 2
+      code: 655
+      p:
+      - ' :ELECTIVIRE,_I("Electivire"),_I("Ann")'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Magmar for Electivire!"
+    - i: 2
+      code: 101
+      p:
+      - "\\rThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou don't want to trade?  Shame."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThanks for the trade."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Move Relearner
+  x: 16
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - isTempSwitchOff?("A")
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'm the Pokémon Move Maniac."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI know every single move that Pokémon learn "
+    - i: 1
+      code: 401
+      p:
+      - growing up.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'm also a collector of Heart Scales."
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf you bring me one, I'll teach a move to one of your "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon.
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbHasItem?(:HEARTSCALE)"
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh! That's it! That's an honest to goodness Heart "
+    - i: 1
+      code: 401
+      p:
+      - Scale!
+    - i: 1
+      code: 101
+      p:
+      - "\\bLet me guess, you want me to teach one of your "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon a move?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 118
+      p:
+      - ChoosePokemon
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich Pokémon needs tutoring?"
+    - i: 2
+      code: 355
+      p:
+      - pbChoosePokemon(1, 3, proc{ |pkmn|
+    - i: 2
+      code: 655
+      p:
+      - "  pkmn.can_relearn_move?"
+    - i: 2
+      code: 655
+      p:
+      - "  }, true"
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 108
+      p:
+      - 'If Game Variable 1 is less than 0, it means the player '
+    - i: 2
+      code: 408
+      p:
+      - has canceled choosing a Pokémon.
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 3
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).egg?
+    - i: 4
+      code: 101
+      p:
+      - "\\bHunh? There isn't a single move that I can teach an "
+    - i: 4
+      code: 401
+      p:
+      - Egg.
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).shadowPokemon?
+    - i: 4
+      code: 101
+      p:
+      - "\\bNo way, I don't want to go near a Shadow "
+    - i: 4
+      code: 401
+      p:
+      - Pokémon..
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "!pbGetPokemon(1).can_relearn_move?"
+    - i: 4
+      code: 101
+      p:
+      - "\\bSorry..."
+    - i: 4
+      code: 101
+      p:
+      - "\\bIt doesn't appear as if I have any move I can teach "
+    - i: 4
+      code: 401
+      p:
+      - to your \v[3].
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\bWhich move should I teach to your \\v[3]?"
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbRelearnMoveScreen(pbGetPokemon(1))
+    - i: 4
+      code: 355
+      p:
+      - "$PokemonBag.pbDeleteItem(:HEARTSCALE)"
+    - i: 4
+      code: 101
+      p:
+      - "\\PN handed over one Heart Scale in exchange."
+    - i: 4
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 4
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 4
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 2
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 1
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 21
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 625
+      - 29
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

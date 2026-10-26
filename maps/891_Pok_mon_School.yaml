@@ -1,0 +1,6905 @@
+---
+id: 891
+name: Pokémon School
+parent: 890
+width: 60
+height: 60
+tileset: 3
+bgm: Radio - March
+events:
+- id: 1
+  name: Exit
+  x: 28
+  "y": 56
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 889
+      - 23
+      - 25
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Lillie
+  x: 49
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Hello there. Please keep that Pikachu away "
+    - i: 0
+      code: 401
+      p:
+      - from me.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Samson
+  x: 26
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: Alola! You must be the person my cousin "
+    - i: 0
+      code: 401
+      p:
+      - sent. Could you hand me the egg?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbDeleteItem(:EGG)"
+    - i: 2
+      code: 121
+      p:
+      - 288
+      - 288
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bI can't wait to see what it hatches into."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bNot quite ready to say goodbye. That's fine. Come "
+    - i: 1
+      code: 401
+      p:
+      - back when you're ready.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 288
+    graphic: NPC 43
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're impressed by my school, aren't you? I can "
+    - i: 0
+      code: 401
+      p:
+      - see it in your face. I welcome you to join us.
+    - i: 0
+      code: 101
+      p:
+      - "\\b...Though you should ask your mom first."
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou should ask your mom first."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 289
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: She said yes? Excellent! Welcome to the "
+    - i: 0
+      code: 401
+      p:
+      - school.
+    - i: 0
+      code: 101
+      p:
+      - "\\bProfessor Kukui has offered to take you in while "
+    - i: 0
+      code: 401
+      p:
+      - you stay here. He should be home right now.
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui should be home right now."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: She said yes then? Excellent! Welcome to "
+    - i: 0
+      code: 401
+      p:
+      - the school.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 301
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: Hello \\PN. How's school going for you?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 314
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: My egg hatched into a Kantoian Vulpix. "
+    - i: 0
+      code: 401
+      p:
+      - What a surprise.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 381
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: zzz..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 382
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: I feel so much more alert. Ready to run "
+    - i: 0
+      code: 401
+      p:
+      - this school with a new vigor.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 404
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: The Pokémon League has begun. Perhaps "
+    - i: 0
+      code: 401
+      p:
+      - I'll see you there.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 415
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: The league sure was full of surprises."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 427
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: Enjoy your holiday, \\PN. I hope you'll come "
+    - i: 0
+      code: 401
+      p:
+      - back one day to see us all.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Egg
+  x: 25
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: Object egg
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Egg
+  x: 27
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 288
+    graphic: Object egg
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 301
+    graphic: Object egg
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 314
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Lana
+  x: 20
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: My name is Lana. Nice to meet you \\PN."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 293
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I guess you want to battle me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Lana,"Lana")
+    - i: 1
+      code: 121
+      p:
+      - 294
+      - 294
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 294
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I can't wait to go home and relax."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I wonder what's in the egg."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 322
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: Akala Island sounds exciting."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 328
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I've never been to Kanto before."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 338
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: Another trip?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 348
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: It's going to be too cold."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: Popplio and I have this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: All the adults in town have lost their energy."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I invited Misty and Brock to visit Alola."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 388
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I plan on meeting up with an old friend."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 400
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: This trip sounds fun."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 404
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: A Pokémon League..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 427
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: Good morning, \\PN."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 428
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: Where will you go first?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 471
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: Alola. I like your new friend."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 472
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: You picked me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Lana,"Lana",nil,false,6,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 473
+      - 473
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - 'Announcment. New opponent found for the World '
+    - i: 1
+      code: 401
+      p:
+      - 'Coronation Series. Carmo, located in Pewter City, '
+    - i: 1
+      code: 401
+      p:
+      - is ready for battle.
+    - i: 1
+      code: 101
+      p:
+      - "\\bKukui: Looks like you have another battle lined up. "
+    - i: 1
+      code: 401
+      p:
+      - Good luck, \PN. We'll be rooting for you from home.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 473
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: Come back again soon."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: It's great to see Lillie again."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Primarina
+  x: 18
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: POPPLIO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 728Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPopplio"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 393
+    graphic: BRIONNE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 729Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rBrionne"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 403
+    graphic: PRIMARINA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 730Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPrimarina"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: PRIMARINA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 730Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPrimarina"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Sophocles
+  x: 20
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: You're the new classmate? I can't wait "
+    - i: 0
+      code: 401
+      p:
+      - to learn more about you.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 293
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: Me? Okay..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Sophocles,"Sophocles")
+    - i: 1
+      code: 121
+      p:
+      - 294
+      - 294
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 294
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I need a break."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: Today was pretty fun."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 322
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I hope it doesn't take long to get there."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 328
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: This trip sounds like a good one."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 338
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: This sounds like my kind of place."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 348
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I'm going to freeze..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I guess I can help out."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 381
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: My parents are so tired. I wonder what "
+    - i: 0
+      code: 401
+      p:
+      - happened.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: How come no one told me they were "
+    - i: 0
+      code: 401
+      p:
+      - coming?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 388
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I'm so excited. I already know what my "
+    - i: 0
+      code: 401
+      p:
+      - project will be.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 400
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: Do you think they have good food?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 404
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I've been training hard for this. Don't "
+    - i: 0
+      code: 401
+      p:
+      - think I'm going to hold back.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 427
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I'm looking forward to learning."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 428
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: Mossdeep sounds amazing."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 471
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: Mossdeep was fun. I'm planning on "
+    - i: 0
+      code: 401
+      p:
+      - going back again.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 472
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I'll do my best."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Sophocles,"Sophocles",nil,false,7,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 473
+      - 473
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - 'Announcment. New opponent found for the World '
+    - i: 1
+      code: 401
+      p:
+      - 'Coronation Series. Carmo, located in Pewter City, '
+    - i: 1
+      code: 401
+      p:
+      - is ready for battle.
+    - i: 1
+      code: 101
+      p:
+      - "\\bKukui: Looks like you have another battle lined up. "
+    - i: 1
+      code: 401
+      p:
+      - Good luck, \PN. We'll be rooting for you from home.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 473
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I'm going to keep growing too."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I'm happy they found him. Who would "
+    - i: 0
+      code: 401
+      p:
+      - have guessed it would be somewhere so cold.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I'm going to keep growing too."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Togedemaru
+  x: 19
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: TOGEDEMARU
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 777Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTogedemaru"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: TOGEDEMARU
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 85
+        name: 777Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTogedemaru"
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Mallow
+  x: 34
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: I hear you're from Kanto! I bet you have a "
+    - i: 0
+      code: 401
+      p:
+      - bunch of cool stories.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 293
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: So it's me then. Don't be sorry when you "
+    - i: 0
+      code: 401
+      p:
+      - lose.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Mallow,"Mallow")
+    - i: 1
+      code: 121
+      p:
+      - 294
+      - 294
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 294
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Maybe you can come over some time and "
+    - i: 0
+      code: 401
+      p:
+      - experience my cooking.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Looking at the eggs just makes me want to "
+    - i: 0
+      code: 401
+      p:
+      - go home and cook some food.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 322
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: I wonder if there is good food to be found?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 328
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: I hope to see some Grass types!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 338
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: I wonder what we will see there."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 348
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Poor Steenee isn't going to like this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: I'm prepared to hunt some Ultra Beasts."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: We have to do something to fix this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Lana's sneaky. She organized the whole "
+    - i: 0
+      code: 401
+      p:
+      - thing without anyone knowing.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 388
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Maybe I should cook something."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 400
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: I think I'll leave Tsareena here. It should be "
+    - i: 0
+      code: 401
+      p:
+      - fine if I travel without any Pokémon, right?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 404
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: A league, huh? I guess I'll try it."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 427
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Morning."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 428
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Come see the restaurant when you have "
+    - i: 0
+      code: 401
+      p:
+      - time.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 471
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Alola, \\PN. I worked hours on making a good "
+    - i: 0
+      code: 401
+      p:
+      - meal for you.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 472
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Don't think I'll lose without a fight."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Mallow,"Mallow",nil,false,6,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 473
+      - 473
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - 'Announcment. New opponent found for the World '
+    - i: 1
+      code: 401
+      p:
+      - 'Coronation Series. Carmo, located in Pewter City, '
+    - i: 1
+      code: 401
+      p:
+      - is ready for battle.
+    - i: 1
+      code: 101
+      p:
+      - "\\bKukui: Looks like you have another battle lined up. "
+    - i: 1
+      code: 401
+      p:
+      - Good luck, \PN. We'll be rooting for you from home.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 473
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: We'll see you soon, right?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: I'm so happy Lillie and her family are "
+    - i: 0
+      code: 401
+      p:
+      - together again.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: We'll see you soon, right?"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Tsareena
+  x: 20
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: BOUNSWEET
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 761Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rSweet!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 319
+    graphic: STEENEE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 762Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rSteenee"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 379
+    graphic: TSAREENA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 763Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTsareena"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: TSAREENA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 763Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rTsareena"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Kiawe
+  x: 34
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I'm Kiawe. It's nice to meet a fellow battler "
+    - i: 0
+      code: 401
+      p:
+      - like myself.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 293
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I knew you would pick the strongest out of "
+    - i: 0
+      code: 401
+      p:
+      - us.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Kiawe,"Kiawe")
+    - i: 1
+      code: 121
+      p:
+      - 294
+      - 294
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 294
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: What a day. I'm beat."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I wish I could have the egg."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 322
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: There should be all kinds of new Pokémon "
+    - i: 0
+      code: 401
+      p:
+      - for you to find.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 328
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I can't imagine what we will see there."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 338
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Visiting a science place isn't the most "
+    - i: 0
+      code: 401
+      p:
+      - exciting.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 348
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I won't get cold. I'm made of firey passion "
+    - i: 0
+      code: 401
+      p:
+      - after all.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: My team and I will be able to handle this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: My farm is in shambles. My parents are too "
+    - i: 0
+      code: 401
+      p:
+      - tired to do anything!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: It's good to see them again."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 388
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I'm going to battle Tapu Fini."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 400
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I can't wait to try out the gym."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 404
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Just you wait, \\PN. I'm going to become the "
+    - i: 0
+      code: 401
+      p:
+      - Champion.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 427
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I'm fired up. This class will be exciting."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 428
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: That was a great battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 471
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I'm concerned about Goh. He doesn't like to "
+    - i: 0
+      code: 401
+      p:
+      - battle. Who do you battle now?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 472
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I'll get you into shape. Let's go!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Kiawe,"Kiawe",nil,false,8,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 473
+      - 473
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - 'Announcment. New opponent found for the World '
+    - i: 1
+      code: 401
+      p:
+      - 'Coronation Series. Carmo, located in Pewter City, '
+    - i: 1
+      code: 401
+      p:
+      - is ready for battle.
+    - i: 1
+      code: 101
+      p:
+      - "\\bKukui: Looks like you have another battle lined up. "
+    - i: 1
+      code: 401
+      p:
+      - Good luck, \PN. We'll be rooting for you from home.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 473
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Good luck in your next battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Good luck in your next battle."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Lillie
+  x: 27
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Nice to meet you, \\PN."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 293
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: I'm not actually a Trainer. You'll have to pick "
+    - i: 0
+      code: 401
+      p:
+      - someone else.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: I'll take good care of the egg."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 322
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: This trip will be very educational."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 328
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: This sounds exciting."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 338
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: This is going to be hard..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 348
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Snowy's egg was found on the mountain!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Being an Ultra Guardian will be exciting!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 381
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: My mom just called the school. She said we "
+    - i: 0
+      code: 401
+      p:
+      - need to head to the Altar of the Sunne.
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s take the boat.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: I wonder what they think of Alola? I hope they "
+    - i: 0
+      code: 401
+      p:
+      - don't find it boring.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 388
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: I don't know about this trip."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 400
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: I'm curious what a gym looks like."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 404
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Snowy and I are looking forward to this. Don't "
+    - i: 0
+      code: 401
+      p:
+      - go easy on us.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 427
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: I still can't believe you're a Champion."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 428
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Perhaps I'll see you during my travels."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 471
+    graphic: trchar223
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGoh: H-Hey \\PN. Your friends are nice."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 474
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: I'm so happy we found my father. Nihilego "
+    - i: 0
+      code: 401
+      p:
+      - is a great addition to the family as well.
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: PC
+  x: 33
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Healing, size(2,1)
+  x: 6
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - Your Pokémon were fully healed.
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Turtonator
+  x: 24
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: TURTONATOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: TURTONATOR
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bTurtonator"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: TURTONATOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: TURTONATOR
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bTurtonator"
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Kukui
+  x: 27
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Take your seat, cousin, and we will start the "
+    - i: 0
+      code: 401
+      p:
+      - lesson.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 292
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Come look at the board if you're ever lost."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 294
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will continue, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 445
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: I'll meet you at home."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 322
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 328
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 338
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 348
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 352
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: It should be found in Melemele Meadow."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 381
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Wasn't it nice of Lana to organize this?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 388
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 389
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Head for the boat."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 400
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 401
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Head for the boat."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 404
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 405
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Head for the boat."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 427
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Sit down and we will start, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 428
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: I wish you luck. Come visit sometime."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 471
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Alola, cousin! How'd our champion doing?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy don't you take a seat for old times sake?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 472
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: I'm not here to battle you. I already know you "
+    - i: 0
+      code: 401
+      p:
+      - can beat me.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 473
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: It was great to see you again, \\PN. We'll be "
+    - i: 0
+      code: 401
+      p:
+      - rooting for you.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Take a seat, cousin."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: NPC 41
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: If was great to see you again, \\PN. We'll be "
+    - i: 0
+      code: 401
+      p:
+      - rooting for you.
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Seat
+  x: 27
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Alola! For our first lesson with our new "
+    - i: 0
+      code: 401
+      p:
+      - 'student we are going to explore the forest near the '
+    - i: 0
+      code: 401
+      p:
+      - school.
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlola has a bunch of  new Pokémon for \\PN to see. "
+    - i: 0
+      code: 401
+      p:
+      - 'Come find me in the forest and we will head back '
+    - i: 0
+      code: 401
+      p:
+      - whenever you're done.
+    - i: 0
+      code: 121
+      p:
+      - 292
+      - 292
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 292
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 293
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Let's have a battle now that everyone is "
+    - i: 0
+      code: 401
+      p:
+      - here. Pick whoever you want.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 294
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: That was a great battle. Before we go, I see "
+    - i: 0
+      code: 401
+      p:
+      - "\\PN has a Z-Ring on. Where did you get that?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat!? Tapu Koko! It's rare for the guardian deity to "
+    - i: 0
+      code: 401
+      p:
+      - take an interest in someone.
+    - i: 0
+      code: 101
+      p:
+      - "\\bAnyways, that Z-Ring will allow you to use Z-"
+    - i: 0
+      code: 401
+      p:
+      - 'Moves. With a Z-Crystal, you can unleash powerful '
+    - i: 0
+      code: 401
+      p:
+      - attacks during battle.
+    - i: 0
+      code: 101
+      p:
+      - "\\bClearing a trial is a good way to earn one. That's it "
+    - i: 0
+      code: 401
+      p:
+      - for today. Everyone can head home.
+    - i: 0
+      code: 121
+      p:
+      - 445
+      - 445
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Now that \\PN is here we can get started. We "
+    - i: 0
+      code: 401
+      p:
+      - 'have two eggs in front of us. Who wants to raise '
+    - i: 0
+      code: 401
+      p:
+      - one?
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: I do! I would love to get over my fear of "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon and maybe starting small will fix it.
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: Well if there are no objections then the "
+    - i: 0
+      code: 401
+      p:
+      - 'egg is yours. I''ll take the other one. I''m excited to see '
+    - i: 0
+      code: 401
+      p:
+      - what it becomes.
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Glad we got that figured out. I also "
+    - i: 0
+      code: 401
+      p:
+      - 'wanted to quickly explain to \PN what Alola forms '
+    - i: 0
+      code: 401
+      p:
+      - are.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIn Alola, some Pokémon look and behave different "
+    - i: 0
+      code: 401
+      p:
+      - 'than they do elsewhere in the world. You may have '
+    - i: 0
+      code: 401
+      p:
+      - seen some by now.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIn fact, even Pikachu evolves into something "
+    - i: 0
+      code: 401
+      p:
+      - 'different: an Electric and Psychic type. Isn''t it '
+    - i: 0
+      code: 401
+      p:
+      - amazing!?
+    - i: 0
+      code: 101
+      p:
+      - "\\bWell that's it for now. \\PN, head over to Lillie's place "
+    - i: 0
+      code: 401
+      p:
+      - and make sure the egg gets there safely.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 300
+      - 300
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 895
+      - 34
+      - 57
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 300
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 322
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Now that \\PN is here we can get started. We "
+    - i: 0
+      code: 401
+      p:
+      - 'have a special trip planned today. But first, let me '
+    - i: 0
+      code: 401
+      p:
+      - introduce our guest.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is Olivia. Say Alola everyone."
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlivia: Nice to meet you all. I'm the Kahuna of Akala "
+    - i: 0
+      code: 401
+      p:
+      - Island.
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Speaking of Akala, we are all going to be "
+    - i: 0
+      code: 401
+      p:
+      - 'going there as a field trip. I want you to explore the '
+    - i: 0
+      code: 401
+      p:
+      - island.
+    - i: 0
+      code: 101
+      p:
+      - "\\b\\PN, I've already told everyone else what they "
+    - i: 0
+      code: 401
+      p:
+      - could do. There's a trial there for you to look into.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWell that's it for now. Let's go to Akala Island!"
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: There is a boat in Hau''oli City that will '
+    - i: 0
+      code: 401
+      p:
+      - take us.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 323
+      - 323
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 894
+      - 41
+      - 50
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 323
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 328
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Now that \\PN is here we can get started. "
+    - i: 0
+      code: 401
+      p:
+      - 'Today we are going to learn about Mega Evolution '
+    - i: 0
+      code: 401
+      p:
+      - and see some Kantonian forms.
+    - i: 0
+      code: 101
+      p:
+      - "\\bAnd what better place to do that than Kanto? I hope "
+    - i: 0
+      code: 401
+      p:
+      - 'everyone is ready because we are heading to Pallet '
+    - i: 0
+      code: 401
+      p:
+      - Town!
+    - i: 0
+      code: 101
+      p:
+      - "\\bProbably not the most exciting for you \\PN, but "
+    - i: 0
+      code: 401
+      p:
+      - 'everyone else has never been there. Let''s meet at '
+    - i: 0
+      code: 401
+      p:
+      - the blimp.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 890
+      - 26
+      - 6
+      - 8
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 329
+      - 329
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 296
+      - 296
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 570
+      - 570
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 329
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 338
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: For today we are going to visit the Aether "
+    - i: 0
+      code: 401
+      p:
+      - 'Paradise. It''s full of many wild Pokémon and Miss '
+    - i: 0
+      code: 401
+      p:
+      - Lusamine is in charge of the place.
+    - i: 0
+      code: 101
+      p:
+      - "\\rLusamine: I'm always willing to do something nice "
+    - i: 0
+      code: 401
+      p:
+      - for my little girl. This trip will be a blast.
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's head over to the ship in Hau'oli City."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 339
+      - 339
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 894
+      - 41
+      - 50
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 339
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 348
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Today we are heading to Mount Lanakila. "
+    - i: 0
+      code: 401
+      p:
+      - The snowy mountain on Ula'ula Island!
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's head over to the ship in Hau'oli City."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 349
+      - 349
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 894
+      - 41
+      - 50
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Lusamine and I had a chat and she has a "
+    - i: 0
+      code: 401
+      p:
+      - special offer for all of you.
+    - i: 0
+      code: 101
+      p:
+      - "\\rLusamine: Due to your brave actions in rescuing "
+    - i: 0
+      code: 401
+      p:
+      - 'me, I want to give you all the chance to become Ultra '
+    - i: 0
+      code: 401
+      p:
+      - Guardians.
+    - i: 0
+      code: 101
+      p:
+      - "\\rBy doing this you will hunt down Ultra Beasts that "
+    - i: 0
+      code: 401
+      p:
+      - 'pop up around Alola and help them find their way '
+    - i: 0
+      code: 401
+      p:
+      - back home. I know you can all do it.
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: With that said, the first one has already been "
+    - i: 0
+      code: 401
+      p:
+      - spotted. It should be found in Melemele Meadow.
+    - i: 0
+      code: 101
+      p:
+      - "\\bBeast Balls might help getting them easier. "
+    - i: 0
+      code: 401
+      p:
+      - Lusamine sent someone over who will sell you some.
+    - i: 0
+      code: 121
+      p:
+      - 352
+      - 352
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 352
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 381
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Everyone else noticed that the adults are "
+    - i: 0
+      code: 401
+      p:
+      - super tired, right?
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I was hoping it was just my parents that "
+    - i: 0
+      code: 401
+      p:
+      - were like that.
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: We need to do something to fix it."
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: Sure, but what?"
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: My mother called earlier today and told me "
+    - i: 0
+      code: 401
+      p:
+      - 'what needs done. We need to go on an Ultra '
+    - i: 0
+      code: 401
+      p:
+      - Guardians mission to the Altar of the Sunne.
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s all head to the boat!'
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 894
+      - 41
+      - 50
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 388
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: It's finally time that we head to Poni Island. All "
+    - i: 0
+      code: 401
+      p:
+      - 'of you have your individual research projects, and I''ll '
+    - i: 0
+      code: 401
+      p:
+      - be leaving it up to you to complete them.
+    - i: 0
+      code: 101
+      p:
+      - "\\bLana, you're to meet up with your friend. Kiawe, "
+    - i: 0
+      code: 401
+      p:
+      - 'you''re to train. Mallow, you''re to learn how to make a '
+    - i: 0
+      code: 401
+      p:
+      - new dish.
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles, you're to evolve your Charjabug. Lillie, "
+    - i: 0
+      code: 401
+      p:
+      - 'you''re to study the Pokémon living on the island. And '
+    - i: 0
+      code: 401
+      p:
+      - finally \PN, you're to have your final Grand Trial.
+    - i: 0
+      code: 101
+      p:
+      - "\\bNow that everyone is ready, head over to the boat. "
+    - i: 0
+      code: 401
+      p:
+      - And good luck.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 389
+      - 389
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 894
+      - 41
+      - 50
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 400
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Alola everyone. Today we're heading to "
+    - i: 0
+      code: 401
+      p:
+      - 'Malie City, a city that takes heavy inspiration from the '
+    - i: 0
+      code: 401
+      p:
+      - Johto region.
+    - i: 0
+      code: 101
+      p:
+      - "\\bFeel free to explore the unique culture. \\PN, there "
+    - i: 0
+      code: 401
+      p:
+      - is even a gym for you to participate in if you wish.
+    - i: 0
+      code: 101
+      p:
+      - "\\bEveryone, let's take the boat to Tapu Village and "
+    - i: 0
+      code: 401
+      p:
+      - head east from there.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 401
+      - 401
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 894
+      - 41
+      - 50
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 404
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Alola everyone. I'm very excited to announce "
+    - i: 0
+      code: 401
+      p:
+      - that the first ever Alola League has been completed.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI know all of you have been looking forward to it, "
+    - i: 0
+      code: 401
+      p:
+      - 'so let''s not waste any time. Head for the boat in '
+    - i: 0
+      code: 401
+      p:
+      - Hau'oli City and let's head over.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 405
+      - 405
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 894
+      - 41
+      - 50
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 427
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Alola everyone. As you're all aware, your "
+    - i: 0
+      code: 401
+      p:
+      - vacation is starting and school will be on break.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat does everyone plan to do?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I'm going to the Mossdeep Space "
+    - i: 0
+      code: 401
+      p:
+      - Center.
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: My dad and I are going to look for a Manaphy."
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: I'm going to make my father's kitchen the "
+    - i: 0
+      code: 401
+      p:
+      - best it can ever be.
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: My family and I are going to look for my "
+    - i: 0
+      code: 401
+      p:
+      - missing father.
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I'm continuing my island challenge. One day "
+    - i: 0
+      code: 401
+      p:
+      - I'll be an Island Kahuna.
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: What about you, \\PN? Going to travel the "
+    - i: 0
+      code: 401
+      p:
+      - world some more? Sounds like a great plan to me.
+    - i: 0
+      code: 209
+      p:
+      - 12
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Not so fast. We never got to battle in the "
+    - i: 0
+      code: 401
+      p:
+      - Manalo Conference. \PN, do me the honor.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Kiawe,"Kiawe",nil,false,6,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 428
+      - 428
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 428
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 209
+      p:
+      - 12
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: That's it everyone. Enjoy-"
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Wait. I also want to talk about what I''m '
+    - i: 0
+      code: 401
+      p:
+      - 'doing. If \PN is returning home, then I''m going to work '
+    - i: 0
+      code: 401
+      p:
+      - with the Aether Foundation.
+    - i: 0
+      code: 101
+      p:
+      - "\\PN, it's been wonderful being your Pokédex. Until "
+    - i: 0
+      code: 401
+      p:
+      - next time.
+    - i: 0
+      code: 121
+      p:
+      - 291
+      - 291
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: On that note, it's time you all went your own "
+    - i: 0
+      code: 401
+      p:
+      - ways. Alola everyone.
+    - i: 0
+      code: 121
+      p:
+      - 496
+      - 496
+      - 1
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 471
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Everyone, let's give \\PN and Goh a strong "
+    - i: 0
+      code: 401
+      p:
+      - Alolan welcome! It's great to see our champion back.
+    - i: 0
+      code: 101
+      p:
+      - "\\bOf course, becoming a champion wasn't enough "
+    - i: 0
+      code: 401
+      p:
+      - 'for him and he''s now in the World Coronation Series. '
+    - i: 0
+      code: 401
+      p:
+      - No doubt he'll be the one to win it.
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Professor! I want to battle \\PN. I want to "
+    - i: 0
+      code: 401
+      p:
+      - help him get even stronger so he can win.
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: How about it, \\PN? Or would you rather "
+    - i: 0
+      code: 401
+      p:
+      - battle someone else? Your choice.
+    - i: 0
+      code: 121
+      p:
+      - 472
+      - 472
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 472
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Everyone, let's give a strong Alola welcome "
+    - i: 0
+      code: 401
+      p:
+      - to Lillie and Gladion's father, Mohn!
+    - i: 0
+      code: 101
+      p:
+      - "\\bMohn: Thank you, everyone, for the hospitality. I "
+    - i: 0
+      code: 401
+      p:
+      - 'know I''ve missed so much, but I promise I''m not going '
+    - i: 0
+      code: 401
+      p:
+      - anywhere from now on.
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Professor. Where's Kiawe?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: He left to do some last minute training upon "
+    - i: 0
+      code: 401
+      p:
+      - 'learning \PN was coming back. There''s a Battle Royal '
+    - i: 0
+      code: 401
+      p:
+      - taking place soon. \PN, I assume you're interested.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMohn: I haven't seen one of those in years. Let's "
+    - i: 0
+      code: 401
+      p:
+      - head over and watch.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 472
+      - 472
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 928
+      - 5
+      - 22
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Board, size(2,1)
+  x: 27
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 292
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s head to the forest.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 293
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Pick a classmate to battle.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 294
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s head home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 295
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s meet with Lana in Hau''oli City.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 297
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s head home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 298
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s meet with Sophocles in Hau''oli '
+    - i: 0
+      code: 401
+      p:
+      - City's shopping mall.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Take your seat.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 300
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Lillie''s place.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 302
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Hala''s place. It should be north '
+    - i: 0
+      code: 401
+      p:
+      - of here.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 303
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the trial on Route 2.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 304
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go talk to Hala.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 310
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go talk to the professor.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 314
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go talk to Lillie. After that let''s go to '
+    - i: 0
+      code: 401
+      p:
+      - Kiawe outside.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 316
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 317
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Mallow on Route 3.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 319
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 320
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go visit Lillie.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 321
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 322
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: We should sit down.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 323
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: There should be a boat in Hau''oli City.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 326
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s visit Sophocles.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 327
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s head home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 328
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: We should sit down.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 329
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the blimp.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 332
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 334
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s explore the forest near the school.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 335
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s take this Pokémon to Lillie.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 337
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s take this Pokémon to the professor.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 338
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Take your seat.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 339
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: There should be a boat in Hau''oli City.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 340
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 342
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 343
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the Aether Paradise.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 344
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s talk to the professor.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 345
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the ship in Hau''oli City.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 347
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 348
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Take your seat.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 349
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the ship in Hau''oli City.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 350
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Take your seat.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 352
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Melemele Meadow.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 353
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 354
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the Royal Avenue.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 355
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s deal with Team Skull.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 441
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 358
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s find the Ultra Beast.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 359
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 361
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: There''s an Ultra Beast on Route 3.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 362
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go see Kiawe at his ranch.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 363
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Lana should be on the beach near '
+    - i: 0
+      code: 401
+      p:
+      - Kukui's house.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 364
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Mallow is at her father''s shop in Hau''oli '
+    - i: 0
+      code: 401
+      p:
+      - City.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 365
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s head home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 366
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Hau''oli and take the ship to '
+    - i: 0
+      code: 401
+      p:
+      - Ula'Ula Island.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 367
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Hania Desert.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 368
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the trial at the Thrifty '
+    - i: 0
+      code: 401
+      p:
+      - Megamart.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 307
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s battle Nanu again.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 312
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s deal with Team Skull in Hau''oli City.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 442
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 381
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the Altar of the Sunne.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 382
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 383
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the forest next to the school.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 384
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s battle Tapu Koko.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s battle Misty.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 386
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to the Pokémon Center.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 387
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 388
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s sit down.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 389
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s head to the boat.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 390
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Seafolk Village.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 391
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Ancient Poni Path.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 392
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Poni Wilds.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 393
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Poni Breaker Coast.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 313
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 394
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: A Pokémon is running around in here.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 397
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Route 3.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 398
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s find Professor Kukui.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 399
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 400
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Take your seat.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 401
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Tapu Village and head east.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 403
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go to Hau''olu City.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 404
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Take your seat.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 405
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s take the boat in Hau''oli City to the '
+    - i: 0
+      code: 401
+      p:
+      - Manalo Conference.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 415
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go home.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 427
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Take your seat.'
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 428
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - The board is empty.
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Egg
+  x: 30
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: Object egg
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 301
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Egg
+  x: 31
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: Object egg
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 301
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Samson
+  x: 32
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: Take your seat and we will begin."
+    - i: 0
+      code: 121
+      p:
+      - 299
+      - 299
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 296
+      - 296
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 301
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Vulpix
+  x: 29
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 314
+    graphic: VULPIX
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 037Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bVulpix!"
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Vikavolt
+  x: 23
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 319
+    graphic: CHARJABUG
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 737Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCharja"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 392
+    graphic: VIKAVOLT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 738Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bVika"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: VIKAVOLT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 738Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bVika"
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Olivia
+  x: 26
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 322
+    graphic: trchar183
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlivia: Nice to meet you."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 325
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Snowy
+  x: 21
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 315
+    graphic: VULPIX_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 037Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rVulpix"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 449
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: VULPIX_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 037Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rVulpix"
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Lusamine
+  x: 25
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 338
+    graphic: trchar187
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLusamine: Good to see you again \\PN."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 340
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: trchar187
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLusamine: Good to see you again \\PN."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 353
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Switch
+  x: 15
+  "y": 52
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 358
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex:... It''s hiding in the plants on the right side '
+    - i: 0
+      code: 401
+      p:
+      - of the school.
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Poipole
+  x: 45
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 358
+    graphic: POIPOLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 803Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - It looks lost. Would you like to take it with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:POIPOLE,35)
+    - i: 1
+      code: 655
+      p:
+      - p.poke_ball = :BEASTBALL
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:TOXIC)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:FURYATTACK)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 121
+      p:
+      - 359
+      - 359
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 121
+      p:
+      - 359
+      - 359
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 359
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: Another Ultra Beast found! Let''s head '
+    - i: 0
+      code: 401
+      p:
+      - home.
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Cashier bottom
+  x: 35
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 351
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":BEASTBALL,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Marowak
+  x: 22
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 325
+    graphic: MAROWAK_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 105Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMarowak"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: MAROWAK_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 105Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMarowak"
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Misty
+  x: 29
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 385
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: Surprise! Bet you weren't expecting to see "
+    - i: 0
+      code: 401
+      p:
+      - me here. You can thank Lana for that.
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis may be a vacation for me, but don't think I can't "
+    - i: 0
+      code: 401
+      p:
+      - beat you in a battle.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Misty,"Misty",nil,false,5,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 386
+      - 386
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: Ugh, I still can't win. Maybe Brock will have a "
+    - i: 0
+      code: 401
+      p:
+      - 'better chance. Last I heard he said he was going to '
+    - i: 0
+      code: 401
+      p:
+      - visit Nurse Joy at the Pokémon Center.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 388
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 34
+  name: Sandy
+  x: 17
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 383
+    graphic: EEVEE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 133Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bEevee"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 296
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: EEVEE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 133Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bEevee"
+    - i: 0
+      code: 0
+      p: []
+- id: 35
+  name: Gift Pokemon
+  x: 24
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 394
+    graphic: MELTAN
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 832Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Meltan
+    - i: 0
+      code: 101
+      p:
+      - It's a Meltan.
+    - i: 0
+      code: 101
+      p:
+      - Would you like to take it with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:MELTAN,40)
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:FLASHCANNON)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:THUNDERBOLT)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:HEADBUTT)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:HARDEN)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 121
+      p:
+      - 395
+      - 395
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 121
+      p:
+      - 395
+      - 395
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 36
+  name: Team Rocket
+  x: 24
+  "y": 52
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 396
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: They ate my bottlecap collection! We have "
+    - i: 0
+      code: 401
+      p:
+      - to punish them somehow.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: Are you sure you saw one of them come "
+    - i: 0
+      code: 401
+      p:
+      - in here?
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Yes. It's hard to forget that strange Pokémon "
+    - i: 0
+      code: 401
+      p:
+      - with a hex nut for a head.
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Can't you see we're busy?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWobbuffet!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET,"Jessie and James",nil,false,32,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 397
+      - 397
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 37
+  name: Team Rocket
+  x: 25
+  "y": 52
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 396
+    graphic: trchar072
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 38
+  name: Person
+  x: 38
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 318
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI go to this school too."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Hiroki")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bEveryone acts like I don't exist. It's not fair!"
+    - i: 0
+      code: 0
+      p: []
+- id: 39
+  name: Sophocles
+  x: 8
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: The Mossdeep Space Center was "
+    - i: 0
+      code: 401
+      p:
+      - incredible. I'm glad Molayne was able to take me.
+    - i: 0
+      code: 101
+      p:
+      - "\\bBut you probably want a battle. I suppose we can."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Sophocles,"Sophocles",nil,false,6,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: I'm going to stay here. I'll see you later."
+    - i: 0
+      code: 0
+      p: []
+- id: 40
+  name: Gladion
+  x: 30
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: trchar181
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGladion: I'm ready to get back to training."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 41
+  name: Lusamine
+  x: 31
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: trchar187
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLusamine: I've dreamed of this day for years."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 42
+  name: Team Rocket
+  x: 24
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 396
+    graphic: MEOWTH
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 43
+  name: Mohn
+  x: 32
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 533
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMohn: Being here really brings me back. So much "
+    - i: 0
+      code: 401
+      p:
+      - has changed.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 534
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 48
+  name: Team Rocket
+  x: 25
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 396
+    graphic: WOBBUFFET
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

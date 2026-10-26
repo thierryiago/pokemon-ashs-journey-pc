@@ -1,0 +1,212 @@
+---
+id: 449
+name: Purika Contest
+parent: 444
+width: 20
+height: 15
+tileset: 3
+bgm: Contest Hall
+events:
+- id: 1
+  name: Person
+  x: 5
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm very sorry, but you missed the deadline to "
+    - i: 0
+      code: 401
+      p:
+      - compete.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI lost in the first round..."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 2
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy Charmander got too nervous to compete so I "
+    - i: 0
+      code: 401
+      p:
+      - had to drop out. It's no big deal.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 6
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 443
+      - 63
+      - 25
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Move Tutor
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAfter spending years in this town I decided to help "
+    - i: 0
+      code: 401
+      p:
+      - out and teach the move, Skill Swap.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can teach it to you if you want?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhich Pokémon would you like me to teach?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:SKILLSWAP)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(1)
+  x: 12
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: NPC 59
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI lost to May? How did I lose to someone like her?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWait, you know her? Perfect. You can show me a "
+    - i: 0
+      code: 401
+      p:
+      - new way to win.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Harley")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 59
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis isn't over. I'll be the best Coordinator!"
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,195 @@
+---
+id: 855
+name: Route 18 House
+parent: 854
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Form Changer
+  x: 3
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLong have I waited for the perfect Greninja to "
+    - i: 0
+      code: 401
+      p:
+      - appear.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWould yours be the one?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemon_party[0].species==:GRENINJA"
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemon_party[0].obtain_map==793"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThat one! That's the one! Let me unlock its full potential right now!"
+    - i: 2
+      code: 401
+      p:
+      - Just know that it won't be able to breed anymore.
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 355
+      p:
+      - pkmn = $Trainer.party[0]
+    - i: 3
+      code: 655
+      p:
+      - pkmn.form = 1
+    - i: 3
+      code: 101
+      p:
+      - Greninja's ability changed to Battle Bond!\se[increase]
+    - i: 3
+      code: 106
+      p:
+      - 20
+    - i: 3
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 101
+      p:
+      - "\\bCome back when you want me to unlock Greninja's"
+    - i: 3
+      code: 401
+      p:
+      - full potential.
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bIf you ever think you have the one come show me."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome show me if you ever think you have the one."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou and Greninja should have a new power "
+    - i: 0
+      code: 401
+      p:
+      - together. Use it for good.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 5
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 854
+      - 45
+      - 24
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

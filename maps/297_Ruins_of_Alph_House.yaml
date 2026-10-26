@@ -1,0 +1,176 @@
+---
+id: 297
+name: Ruins of Alph House
+parent: 295
+width: 20
+height: 15
+tileset: 3
+bgm: ''
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 295
+      - 29
+      - 21
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 4
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI have been studying the Pokémon in these caves "
+    - i: 0
+      code: 401
+      p:
+      - 'for many years. But no matter how hard I try I can''t '
+    - i: 0
+      code: 401
+      p:
+      - seem to catch one.
+    - i: 0
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1, 3, :UNOWN)
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 1
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh you have one! Will you give it to me to study?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.remove_pokemon_at_index(pbGet(1))"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThank you very much! Take this as thanks."
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:PSYCHICGEM)
+    - i: 3
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bSigh. Very well."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf you bring me one I'll give you something as a "
+    - i: 1
+      code: 401
+      p:
+      - thanks.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy studies are coming along great."
+    - i: 0
+      code: 0
+      p: []

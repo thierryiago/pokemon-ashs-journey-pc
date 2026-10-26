@@ -1,0 +1,856 @@
+---
+id: 663
+name: Striaton Gym
+parent: 661
+width: 40
+height: 30
+tileset: 3
+bgm: gym
+events:
+- id: 1
+  name: Cilan
+  x: 17
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar120
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: Welcome to the Striaton Gym. Your aroma is "
+    - i: 0
+      code: 401
+      p:
+      - marvelous.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 213
+    graphic: trchar120
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Cilan)
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: It seems my turn has finally come. It's time for "
+    - i: 0
+      code: 401
+      p:
+      - the battle to be served.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Cilan,"Cilan")
+    - i: 1
+      code: 101
+      p:
+      - "\\bCilan: Well brothers, it seems \\PN has beaten us all."
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou've earned the Trio Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TRIOBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[32]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bCress: Here, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM109)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM109 contains Dive. A two-turn water type attack."
+    - i: 1
+      code: 101
+      p:
+      - "\\bChili: Here's one from me too!"
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM38)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM38 contains Fire Blast. A powerful force of fire "
+    - i: 1
+      code: 401
+      p:
+      - that may burn your opponent.
+    - i: 1
+      code: 101
+      p:
+      - "\\bCilan: Last but not least, here's one from me."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM108)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM108 contains Solar Blade. A two-turn grass type"
+    - i: 1
+      code: 401
+      p:
+      - attack.
+    - i: 1
+      code: 121
+      p:
+      - 200
+      - 200
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar120
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: Your way of battle has inspired me. I'm going "
+    - i: 0
+      code: 401
+      p:
+      - 'to travel the land and savor as many of the savory '
+    - i: 0
+      code: 401
+      p:
+      - delights as I can.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 202
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 17
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 660
+      - 54
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 23
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, you're here for the gym. It's at the back."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 19
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't tell me to slow down."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 14
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe food is great! Sometimes we get to watch a "
+    - i: 0
+      code: 401
+      p:
+      - gym battle too.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 21
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar006
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome to the Striaton Restaurant!"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Gym switch
+  x: 17
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: Welcome to the Striaton Gym. Your aroma is "
+    - i: 0
+      code: 401
+      p:
+      - marvelous.
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili: You seem like a strong challenger."
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress: Why not battle us all? I'm sure you'll enjoy it."
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: An excellent idea! How about you start with "
+    - i: 0
+      code: 401
+      p:
+      - 'Chili for the appetizer, Cress for the main course, and '
+    - i: 0
+      code: 401
+      p:
+      - me for desert.
+    - i: 0
+      code: 121
+      p:
+      - 211
+      - 211
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 211
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Gym switch
+  x: 16
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: Welcome to the Striaton Gym. Your aroma is "
+    - i: 0
+      code: 401
+      p:
+      - marvelous.
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili: You seem like a strong challenger."
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress: Why not battle us all? I'm sure you'll enjoy it."
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: An excellent idea! How about you start with "
+    - i: 0
+      code: 401
+      p:
+      - 'Chili for the appetizer, Cress for the main course, and '
+    - i: 0
+      code: 401
+      p:
+      - me for desert.
+    - i: 0
+      code: 121
+      p:
+      - 211
+      - 211
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 211
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Gym switch
+  x: 18
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: Welcome to the Striaton Gym. Your aroma is "
+    - i: 0
+      code: 401
+      p:
+      - marvelous.
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili: You seem like a strong challenger."
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress: Why not battle us all? I'm sure you'll enjoy it."
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: An excellent idea! How about you start with "
+    - i: 0
+      code: 401
+      p:
+      - 'Chili for the appetizer, Cress for the main course, and '
+    - i: 0
+      code: 401
+      p:
+      - me for desert.
+    - i: 0
+      code: 121
+      p:
+      - 211
+      - 211
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 211
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Cilan
+  x: 14
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar122
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Chili)
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili: I'm your first opponent. Let's get this heated "
+    - i: 0
+      code: 401
+      p:
+      - up.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Chili,"Chili")
+    - i: 1
+      code: 121
+      p:
+      - 212
+      - 212
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar122
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili: Next up is Cress. You'll drown in his skill."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 213
+    graphic: trchar122
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili: Your final challenge is Cilan. It will be a "
+    - i: 0
+      code: 401
+      p:
+      - bittersweet battle.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 200
+    graphic: trchar122
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili: I can't believe you beat us all. It really burns "
+    - i: 0
+      code: 401
+      p:
+      - me up.
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Cilan
+  x: 20
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar123
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress: Try Chili first. His passion will burn right "
+    - i: 0
+      code: 401
+      p:
+      - through you.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 212
+    graphic: trchar123
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Chili)
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress: My turn now. Don't be sorry that you jumped "
+    - i: 0
+      code: 401
+      p:
+      - into the deep end.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Cress,"Cress")
+    - i: 1
+      code: 121
+      p:
+      - 213
+      - 213
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar123
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress: The final challenge is Cilan. He may snare "
+    - i: 0
+      code: 401
+      p:
+      - you in his tactics.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 200
+    graphic: trchar123
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress: You are a ripple in the pond. May you "
+    - i: 0
+      code: 401
+      p:
+      - continue to touch those around you.
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Gym Guy
+  x: 14
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan uses Grass type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - 'weak against the Bug, Fire, Poison, Flying, and Ice '
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Water, Ground, and Rock. "
+    - i: 0
+      code: 401
+      p:
+      - 'Electric, Grass, Ground, and Water moves also don''t '
+    - i: 0
+      code: 401
+      p:
+      - do much damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Gym Guy
+  x: 15
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress uses Water type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against Grass and Electric types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Fire, Ground, and Rock. "
+    - i: 0
+      code: 401
+      p:
+      - 'Fire, Ice, Steel, and Water moves also don''t do much '
+    - i: 0
+      code: 401
+      p:
+      - damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Gym Guy
+  x: 15
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili uses Fire type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Water, Ground, and Rock types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Bug, Grass, Ice, and Steel. "
+    - i: 0
+      code: 401
+      p:
+      - 'Bug, Grass, Fire, Ice, Steel, and Fairy moves also '
+    - i: 0
+      code: 401
+      p:
+      - don't do much damage.
+    - i: 0
+      code: 0
+      p: []

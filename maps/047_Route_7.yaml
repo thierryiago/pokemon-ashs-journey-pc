@@ -1,0 +1,1552 @@
+---
+id: 47
+name: Route 7
+parent: 1
+width: 70
+height: 42
+tileset: 1
+bgm: route
+events:
+- id: 1
+  name: Cave entrance
+  x: 46
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 49
+      - 12
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Cave entrance
+  x: 55
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 49
+      - 19
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: SmashRock
+  x: 43
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: Object rock
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbRockSmash
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - pbEraseThisEvent
+    - i: 1
+      code: 355
+      p:
+      - Kernel.pbRockSmashRandomEncounter
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Duel NPC
+  x: 34
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHaiiiii-yaaaaaah!"
+    - i: 0
+      code: 247
+      p: []
+    - i: 0
+      code: 242
+      p:
+      - 1
+    - i: 0
+      code: 106
+      p:
+      - 20
+    - i: 0
+      code: 241
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: 002-Battle02
+        pitch: 100
+    - i: 0
+      code: 108
+      p:
+      - 'Duel Minigame, based on the version written by Alael, '
+    - i: 0
+      code: 408
+      p:
+      - modified for Pokémon Essentials.
+    - i: 0
+      code: 108
+      p:
+      - 'The duel takes place in a row of 4 tiles, with the '
+    - i: 0
+      code: 408
+      p:
+      - 'player and opponent using the centre two.  Make '
+    - i: 0
+      code: 408
+      p:
+      - sure you have enough space.
+    - i: 0
+      code: 108
+      p:
+      - '3 texts for defense, 3 for precise attacks, 3 for fierce '
+    - i: 0
+      code: 408
+      p:
+      - attacks.
+    - i: 0
+      code: 355
+      p:
+      - "$speeches=[]"
+    - i: 0
+      code: 655
+      p:
+      - "$speeches.push("
+    - i: 0
+      code: 655
+      p:
+      - '"I shall block all your attacks!",'
+    - i: 0
+      code: 655
+      p:
+      - '"Nothing can pierce my armor!",'
+    - i: 0
+      code: 655
+      p:
+      - '"Behold my dodging skills!",'
+    - i: 0
+      code: 655
+      p:
+      - '"I''ll show you my fighting skills!",'
+    - i: 0
+      code: 655
+      p:
+      - '"Awe at the perfection of my skills!",'
+    - i: 0
+      code: 655
+      p:
+      - '"I''ll deliver a perfect blow!",'
+    - i: 0
+      code: 655
+      p:
+      - '"Feel my power!",'
+    - i: 0
+      code: 655
+      p:
+      - '"AAAAHHHH!",'
+    - i: 0
+      code: 655
+      p:
+      - '"I''ll attack with all my strength!")'
+    - i: 0
+      code: 108
+      p:
+      - 3 texts for special attacks
+    - i: 0
+      code: 355
+      p:
+      - "$speeches.push("
+    - i: 0
+      code: 655
+      p:
+      - '"Face my secret technique!",'
+    - i: 0
+      code: 655
+      p:
+      - '"This is my secret technique!",'
+    - i: 0
+      code: 655
+      p:
+      - '"Evil Blade Strike!"'
+    - i: 0
+      code: 655
+      p:
+      - ")"
+    - i: 0
+      code: 108
+      p:
+      - 'Only the trainer type needs to be defined.  The '
+    - i: 0
+      code: 408
+      p:
+      - 'trainer itself doesn''t need to appear in trainers.txt.  '
+    - i: 0
+      code: 408
+      p:
+      - 'This information is only used to display a name and '
+    - i: 0
+      code: 408
+      p:
+      - graphic for the opponent.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDuel(PBTrainers::BLACKBELT,"Dan",get_character(0),$speeches)
+    - i: 1
+      code: 242
+      p:
+      - 1
+    - i: 1
+      code: 106
+      p:
+      - 20
+    - i: 1
+      code: 248
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou won, good job."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 242
+      p:
+      - 1
+    - i: 1
+      code: 106
+      p:
+      - 20
+    - i: 1
+      code: 248
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - You lost, too bad.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Shadow trainer - basic
+  x: 14
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_M)
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm a basic trainer with a Shadow Pokémon."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(PBTrainers::TEAMROCKET_M,"Grunt",_I("You're too good for me!"),false,1)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDid you manage to snag my Shadow Pokémon?  "
+    - i: 0
+      code: 401
+      p:
+      - 'Because you can''t battle me again for another '
+    - i: 0
+      code: 401
+      p:
+      - chance.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Shadow trainer - repeat
+  x: 14
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar057
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_F)
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou can battle me repeatedly, and have unlimited "
+    - i: 0
+      code: 401
+      p:
+      - attempts to snag my Shadow Pokémon.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(PBTrainers::TEAMROCKET_F,"Grunt",_I("You're too good for me!"),false,1)
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$Trainer.shadowcaught[PBSpecies::ELECTABUZZ]"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar057
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou've managed to snag my Shadow Electabuzz.  "
+    - i: 0
+      code: 401
+      p:
+      - I'm not going to do anything now.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Purify expert
+  x: 18
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can tell you some things about Shadow Pokémon"
+    - i: 0
+      code: 401
+      p:
+      - 'in Essentials.  However, the wiki has far more '
+    - i: 0
+      code: 401
+      p:
+      - information about them.
+    - i: 0
+      code: 118
+      p:
+      - Choices
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat do you want to know?"
+    - i: 0
+      code: 102
+      p:
+      - - Information
+        - Shadow Pokémon battles
+        - Purifying Pokémon
+        - Exit
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Information
+    - i: 1
+      code: 101
+      p:
+      - "\\bShadow Pokémon are a special kind of Pokémon "
+    - i: 1
+      code: 401
+      p:
+      - 'which appeared in Pokémon Colosseum and '
+    - i: 1
+      code: 401
+      p:
+      - Pokémon XD.
+    - i: 1
+      code: 101
+      p:
+      - "\\bThey can be included in Essentials as well.  See "
+    - i: 1
+      code: 401
+      p:
+      - the wiki for information on how to do this.
+    - i: 1
+      code: 119
+      p:
+      - Choices
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Shadow Pokémon battles
+    - i: 1
+      code: 101
+      p:
+      - "\\bTrainers with Shadow Pokémon are set up in "
+    - i: 1
+      code: 401
+      p:
+      - exactly the same way as any other trainer.
+    - i: 1
+      code: 101
+      p:
+      - "\\bAny Poké Ball can be defined as a Snag Ball in "
+    - i: 1
+      code: 401
+      p:
+      - 'items.txt.  If $PokemonGlobal.snagMachine is TRUE, '
+    - i: 1
+      code: 401
+      p:
+      - all Poké Balls will be Snag Balls automatically.
+    - i: 1
+      code: 355
+      p:
+      - "$PokemonGlobal.snagMachine=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\b$Trainer.shadowcaught is an array (like the "
+    - i: 1
+      code: 401
+      p:
+      - 'Pokédex seen/owned arrays) which keeps track of '
+    - i: 1
+      code: 401
+      p:
+      - which Shadow Pokémon species have been caught.
+    - i: 1
+      code: 119
+      p:
+      - Choices
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Purifying Pokémon
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou can purify Shadow Pokémon in two ways."
+    - i: 1
+      code: 101
+      p:
+      - "\\bThe first is by bringing them to the Relic Stone here."
+    - i: 1
+      code: 101
+      p:
+      - "\\bThe second is by placing them in the Purify "
+    - i: 1
+      code: 401
+      p:
+      - 'Chamber, which you can access from the PC in Poké '
+    - i: 1
+      code: 401
+      p:
+      - Centers.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!$PokemonGlobal.seenPurifyChamber"
+    - i: 2
+      code: 101
+      p:
+      - "\\bI've now given you access to the Purify Chamber."
+    - i: 2
+      code: 355
+      p:
+      - "$PokemonGlobal.seenPurifyChamber=true"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bThe effects of Heart Gauge-lowering items are "
+    - i: 1
+      code: 401
+      p:
+      - 'already in Essentials.  You just need to add the items '
+    - i: 1
+      code: 401
+      p:
+      - themselves to items.txt.
+    - i: 1
+      code: 119
+      p:
+      - Choices
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Exit
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Relic Stone
+  x: 15
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbRelicStone
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(2)
+  x: 9
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - Kernel.pbExclaim(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI stopped you as you walked past."
+    - i: 0
+      code: 101
+      p:
+      - '\bHaving "Trainer(2)" as my event''s name, and the '
+    - i: 0
+      code: 401
+      p:
+      - '"Event Touch" trigger, tells me to activate whenever '
+    - i: 0
+      code: 401
+      p:
+      - you enter either of the two tiles in front of me.
+    - i: 0
+      code: 101
+      p:
+      - "\\bKernel.pbExclaim makes me exclaim.  "
+    - i: 0
+      code: 401
+      p:
+      - 'Kernel.pbNoticePlayer does the same thing, as well '
+    - i: 0
+      code: 401
+      p:
+      - as make me approach you.
+    - i: 0
+      code: 101
+      p:
+      - "\\bTrainers use these features by default, but other "
+    - i: 0
+      code: 401
+      p:
+      - 'NPCs like me can use them too.  Roadblock events in '
+    - i: 0
+      code: 401
+      p:
+      - particular love to use them.
+    - i: 0
+      code: 101
+      p:
+      - "\\bShall I turn you back like a real roadblock, or should "
+    - i: 0
+      code: 401
+      p:
+      - I deactivate myself?
+    - i: 0
+      code: 102
+      p:
+      - - Roadblock
+        - Deactivate
+      - 0
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Roadblock
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 22
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 22
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Deactivate
+    - i: 1
+      code: 101
+      p:
+      - "\\bOkay.  I'll fulfil my roadblock condition myself, by "
+    - i: 1
+      code: 401
+      p:
+      - turning the Global Switch I depend on (5) to ON.
+    - i: 1
+      code: 121
+      p:
+      - 5
+      - 5
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 5
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRoadblock events don't normally set the conditions "
+    - i: 0
+      code: 401
+      p:
+      - they wait for (Global Switch 5 in my case), but I did.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Time-dependent NPC
+  x: 18
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello.  This is what I say if you talk to me during the "
+    - i: 0
+      code: 401
+      p:
+      - day.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 15
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHalt!  Who goes there?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is what I say if you talk to me at night."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: SmashRock
+  x: 44
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: Object rock
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbRockSmash
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - pbEraseThisEvent
+    - i: 1
+      code: 355
+      p:
+      - Kernel.pbRockSmashRandomEncounter
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: SmashRock
+  x: 58
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: Object rock
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbRockSmash
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - pbEraseThisEvent
+    - i: 1
+      code: 355
+      p:
+      - Kernel.pbRockSmashRandomEncounter
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Weather controller
+  x: 49
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can control the weather.  Which weather would "
+    - i: 0
+      code: 401
+      p:
+      - you like to see?\ch[1,-1,None,Rain,Storm,
+    - i: 0
+      code: 401
+      p:
+      - Snow,Sandstorm,Sunny,HeavyRain,Blizzard]
+    - i: 0
+      code: 108
+      p:
+      - None.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 236
+      p:
+      - 0
+      - 5
+      - 20
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Rain.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 236
+      p:
+      - 1
+      - 5
+      - 20
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Storm (with lightning flashes).
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 236
+      p:
+      - 2
+      - 9
+      - 20
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Snow.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 236
+      p:
+      - 3
+      - 9
+      - 20
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Sandstorm.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - "$game_screen.weather(4,9.0,20)"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Sunny.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - "$game_screen.weather(5,9.0,20)"
+    - i: 1
+      code: 101
+      p:
+      - "\\bThis weather can occur even at night, and doesn't "
+    - i: 1
+      code: 401
+      p:
+      - fade in/out.  It's better if you don't use it.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - HeavyRain (like storm but no lightning flashes).
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - "$game_screen.weather(6,9.0,20)"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Blizzard.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 7
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - "$game_screen.weather(7,9.0,20)"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bNote that the weather metadata for this map is set, "
+    - i: 0
+      code: 401
+      p:
+      - 'even though its probability is 0.  This prevents the '
+    - i: 0
+      code: 401
+      p:
+      - weather from lingering when you leave this map.
+    - i: 0
+      code: 0
+      p: []

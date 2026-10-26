@@ -1,0 +1,1398 @@
+---
+id: 796
+name: Professor Sycamore's Lab
+parent: 794
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Professor
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 38
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSycamore: Sorry, but I need to find Froakie. We can "
+    - i: 0
+      code: 401
+      p:
+      - talk soon.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 258
+    graphic: NPC 38
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSycamore: I see you found Froakie. Thanks for the "
+    - i: 0
+      code: 401
+      p:
+      - help. Please take a starter if you want to.
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou have a lot of promise. I'm entrusting you with "
+    - i: 0
+      code: 401
+      p:
+      - 'this Mega Ring. I hope you find the answer to what it '
+    - i: 0
+      code: 401
+      p:
+      - does.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:MEGARING)
+    - i: 1
+      code: 121
+      p:
+      - 259
+      - 259
+      - 0
+    - i: 1
+      code: 121
+      p:
+      - 34
+      - 34
+      - 1
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 38
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSycamore: I study Mega Evolution. I'm hoping "
+    - i: 0
+      code: 401
+      p:
+      - Garchomp and I can achieve it soon.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 253
+    graphic: NPC 38
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSycamore: Garchomp and I have figured out Mega "
+    - i: 0
+      code: 401
+      p:
+      - Evolution. Take this and see it for yourself.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:GARCHOMPITE)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: NPC 38
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSycamore: I study Mega Evolution. Garchomp and I "
+    - i: 0
+      code: 401
+      p:
+      - are able to do it together.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Alain
+  x: 3
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar167
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlain: Good to see you again, \\PN. I'm on a break "
+    - i: 0
+      code: 401
+      p:
+      - 'from searching for Mega Stones, but a battle would '
+    - i: 0
+      code: 401
+      p:
+      - be a good way to keep me sharp.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Alain,"Alain",nil,false,3,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar167
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlain: Come back anytime. It's always a rush to "
+    - i: 0
+      code: 401
+      p:
+      - battle you.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Healing, size(2,1)
+  x: 1
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - Your Pokémon were fully healed.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Pokemon
+  x: 5
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: GARCHOMP_female
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 445Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rGarchomp!"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 10
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: NPC 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhat was I looking for?"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Ball
+  x: 9
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 258
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - The ball holds a Fennekin. Would you like to take it?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbAddPokemon(:FENNEKIN,5)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 6
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 793
+      - 21
+      - 61
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Controlling event
+  x: 17
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bSycamore: Welcome to my lab. You're \\PN, I believe."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to Kalos, though I'm sorry to say I'm a bit "
+    - i: 0
+      code: 401
+      p:
+      - 'distracted. A Froakie we take care of left its new '
+    - i: 0
+      code: 401
+      p:
+      - Trainer again and we still can't find it.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you help us find it I'll let you take a Kalos starter "
+    - i: 0
+      code: 401
+      p:
+      - of your own.
+    - i: 0
+      code: 121
+      p:
+      - 257
+      - 257
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokedex.unlock(5)"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: PC
+  x: 12
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 1
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rProfessor Sycamore used to have an aide with a "
+    - i: 0
+      code: 401
+      p:
+      - Charmander. I wonder where he went.
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Ball
+  x: 8
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 249
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - The ball holds a Chespin. Would you like to take it?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbAddPokemon(:CHESPIN,10)
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Teleport
+  x: 2
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Kanto,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 290
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Kanto,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Alola,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 7
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 892
+      - 20
+      - 18
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 570
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 538
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Where would you like to go?\ch[1,-1,Kanto,Orange, '
+    - i: 0
+      code: 401
+      p:
+      - Johto,Hoenn,Sinnoh,Unova,Alola,Galar,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 8
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 42
+      - 1
+      - 4
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 207
+      - 32
+      - 7
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 253
+      - 2
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 359
+      - 10
+      - 11
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 509
+      - 1
+      - 5
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 653
+      - 3
+      - 10
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 892
+      - 20
+      - 18
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 7
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 988
+      - 2
+      - 9
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

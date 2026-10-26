@@ -1,0 +1,765 @@
+---
+id: 294
+name: Route 36
+parent: 249
+width: 70
+height: 45
+tileset: 1
+bgm: Johto Route
+events:
+- id: 1
+  name: Apricorn tree
+  x: 12
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: Object tree 2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Gives 1 random Apricorn each time.
+    - i: 0
+      code: 108
+      p:
+      - 'For demonstration purposes only - Apricorn trees '
+    - i: 0
+      code: 408
+      p:
+      - 'should provide a fixed Apricorn, have a 24 hour delay '
+    - i: 0
+      code: 408
+      p:
+      - "(like Kurt does), and should look different to "
+    - i: 0
+      code: 408
+      p:
+      - Headbutt trees.
+    - i: 0
+      code: 355
+      p:
+      - apricorns = [
+    - i: 0
+      code: 655
+      p:
+      - "  :REDAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :YELLOWAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :BLUEAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :GREENAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :PINKAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :WHITEAPRICORN,"
+    - i: 0
+      code: 655
+      p:
+      - "  :BLACKAPRICORN"
+    - i: 0
+      code: 655
+      p:
+      - "]"
+    - i: 0
+      code: 355
+      p:
+      - random_item = apricorns.sample
+    - i: 0
+      code: 655
+      p:
+      - pbItemBall(random_item)
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: Object tree 2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - There are no apricorns.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 36
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar006
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis weird tree is blocking the way."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 95
+    graphic: trchar006
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou got rid of it? Good job."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:PECHABERRY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar006
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI guess it was a Pokémon."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Encouter Pokemon
+  x: 33
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: SUDOWOODO
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 185Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - It's an odd looking tree.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 83
+      switch2: 85
+    graphic: Pokemon 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 185Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:SUDOWOODO,20)
+    - i: 0
+      code: 121
+      p:
+      - 95
+      - 95
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Gate entrance
+  x: 57
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 262
+      - 10
+      - 31
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Gate entrance, size(2,1)
+  x: 50
+  "y": 36
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 295
+      - 12
+      - 9
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Gate entrance
+  x: 7
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 30
+      - 10
+      - 5
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 38
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI lost my Poké Ball. I'm not moving till I find it."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 85
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 38
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 85
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI found my ball."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Item
+  x: 23
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:UPGRADE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 48
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHave you checked out the Ruins?"
+    - i: 0
+      code: 101
+      p:
+      - "\\rThey say rare Pokémon live there."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(4)
+  x: 12
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar041
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bEver hear of Sabrina?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Mark",_I("What?!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar041
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'll get stronger and fight her one day."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(4)
+  x: 23
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy team is great. Care to try?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Benji")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI need to practice."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(3)
+  x: 30
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI have some very rare Pokémon. Care to see?"
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SUPERNERD,"Foster")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat was a great battle. Take this. It will be a great "
+    - i: 0
+      code: 401
+      p:
+      - help to you.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:OLDAMBER)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat fossil will revive into an Aerodactyl."
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(2)
+  x: 43
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rCare for some fun?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Wilhomena")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're cute."
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Trainer(3)
+  x: 19
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LADY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm rounding up the spares for my festival."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Lulu")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI hope nobody crashes the festival."
+    - i: 0
+      code: 0
+      p: []

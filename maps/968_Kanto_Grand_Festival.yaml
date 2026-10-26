@@ -1,0 +1,423 @@
+---
+id: 968
+name: Kanto Grand Festival
+parent: 196
+width: 20
+height: 30
+tileset: 3
+bgm: Contest Hall
+events:
+- id: 1
+  name: Person
+  x: 6
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm very sorry, but you don't have enough ribbons to "
+    - i: 0
+      code: 401
+      p:
+      - enter.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 13
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSome of the Trainers here are the real deal."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 2
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so glad I got to come."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit, size(4,1)
+  x: 6
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 196
+      - 46
+      - 8
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 0
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI only got four ribbons. It's not fair!"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: PC
+  x: 15
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 11
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bShould I try for elegance or raw power?"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 5
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy mom made it in. I'm so proud of her."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: May
+  x: 8
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar003
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMay: \\PN, did you come to cheer me on? Thank you."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWait, aren't you busy with your Frontier challenge? "
+    - i: 0
+      code: 401
+      p:
+      - You should go finish that.
+    - i: 0
+      code: 101
+      p:
+      - "\\rIf you need an extra Pokémon I saw an Aipom "
+    - i: 0
+      code: 401
+      p:
+      - nearby. It should be in the gate.
+    - i: 0
+      code: 121
+      p:
+      - 425
+      - 425
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 425
+    graphic: trchar003
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMay: If you need an extra Pokémon I saw an Aipom "
+    - i: 0
+      code: 401
+      p:
+      - nearby. It should be in the gate.
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(6)
+  x: 10
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: NPC 68
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're not here to compete, are you?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Solidad")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 68
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI aim to win this but I'm sure we'll all remain friends "
+    - i: 0
+      code: 401
+      p:
+      - afterwards.
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(6)
+  x: 5
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: NPC 59
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bIs someone interrupting me now? No, I can't allow "
+    - i: 0
+      code: 401
+      p:
+      - that.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Harley",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 59
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhatever. A battle means nothing compared to the "
+    - i: 0
+      code: 401
+      p:
+      - Contest.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(6)
+  x: 10
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 57
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI need some last minute practice if I'm going to beat "
+    - i: 0
+      code: 401
+      p:
+      - May.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Drew",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 57
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'll get better. The victory will be mine."
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,4684 @@
+---
+id: 959
+name: Manalo Royal
+parent: 958
+width: 40
+height: 40
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Hau
+  x: 21
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar199
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHau: Haha, you're here. Time for that rematch, isn't "
+    - i: 0
+      code: 401
+      p:
+      - it?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar199
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHau: Haha, you're here. Time for that rematch, isn't it?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bBut let's not do that right now, where no one's going"
+    - i: 0
+      code: 401
+      p:
+      - to see our amazing battle!
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Entrance
+  x: 19
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Mallow
+  x: 25
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Are you ready, /PN?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar178
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMallow: Hey \\PN! Guess you stopped by for a battle?"
+    - i: 0
+      code: 401
+      p:
+      - Perfect, here's something spicy for you.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Mallow,"Mallow",nil,false,7,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(2)
+  x: 11
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ENGINEER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've got this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ENGINEER,"Kevin")
+    - i: 1
+      code: 121
+      p:
+      - 408
+      - 408
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 408
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI thought I had it."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar014
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ENGINEER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've got this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ENGINEER,"Kevin",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI thought I had it."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Mina
+  x: 14
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: NPC 45
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMina: Ah... sorry, got distracted. What do you need?"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: James
+  x: 29
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar073_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: What should our plan be?"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Jessie
+  x: 30
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar072_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: We'll figure something out."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Ilima
+  x: 31
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: NPC 46
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b:Ilima: This isn't the Kalos League, but it looks "
+    - i: 0
+      code: 401
+      p:
+      - promising.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: NPC 46
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b:Ilima: This isn't the Kalos League, but it's still amazing."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Kiawe
+  x: 7
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: I need to get in some extra training."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Haha, of course you'd come to battle me."
+    - i: 0
+      code: 401
+      p:
+      - I'll show you how much I've improved!
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Kiawe,"Kiawe",nil,false,10,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Guzma
+  x: 7
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar202
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGuzma: What do you want punk?"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Lana
+  x: 8
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I bet the first round will be tough."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar176
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: Hey \\PN! Let's use this chance to have a battle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Lana,"Lana",nil,false,6,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Acerola
+  x: 31
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: NPC 44
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAcerola: Ah, you're here too. Should have guessed."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Gladion
+  x: 7
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar181
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGladion: So, you made it, /PN? Good. I was afraid "
+    - i: 0
+      code: 401
+      p:
+      - this was going to be too easy.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar181
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGladion: Now's not the time for us to battle again, \\PN."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Sophocles
+  x: 7
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: There's so much to consider. What "
+    - i: 0
+      code: 401
+      p:
+      - should I do?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: You want to battle me, \\PN?"
+    - i: 0
+      code: 401
+      p:
+      - I guess we can.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Sophocles,"Sophocles",nil,false,9,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Lillie
+  x: 31
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: I hope I make it through the first round. I hope "
+    - i: 0
+      code: 401
+      p:
+      - you do too!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar180
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLillie: Hi \\PN! Wait, you want to battle me? Ok then..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Lillie,"Lillie",nil,false,7,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Samson
+  x: 29
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 43
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSamson: Surprised to see me? Your principal isn't "
+    - i: 0
+      code: 401
+      p:
+      - going to sit back and miss this.
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Faba
+  x: 31
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar246
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFaba: Hmm, a Battle Royal. I'll need a good strategy "
+    - i: 0
+      code: 401
+      p:
+      - to move on.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 407
+    graphic: trchar246
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFaba: No hard feelings, but I'm going to have to "
+    - i: 0
+      code: 401
+      p:
+      - crush you. The prize is too good to pass up.
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Instruct
+  x: 19
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Welcome, everyone, to the very first Alola "
+    - i: 0
+      code: 401
+      p:
+      - 'League. The winner of this will become Alola''s very '
+    - i: 0
+      code: 401
+      p:
+      - own champion.
+    - i: 0
+      code: 101
+      p:
+      - "\\bBut to do that you have to get through the first "
+    - i: 0
+      code: 401
+      p:
+      - 'round. Defeat everyone you see and be one of the '
+    - i: 0
+      code: 401
+      p:
+      - last 16 remaining to move on to the next round.
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: That's it! We have our Top 16. Everyone, "
+    - i: 0
+      code: 401
+      p:
+      - please exit the stage.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 958
+      - 6
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on advancing to the Top 16.\\nYour "
+    - i: 0
+      code: 401
+      p:
+      - next battle will be on to the right.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 1
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: Welcome, everyone, to the Alola"
+    - i: 0
+      code: 401
+      p:
+      - League's first round - the Battle Royal!
+    - i: 0
+      code: 101
+      p:
+      - "\\bTo move onto the next round, defeat everyone"
+    - i: 0
+      code: 401
+      p:
+      - you see and be one of the last 32 remaining to move
+    - i: 0
+      code: 401
+      p:
+      - on to the next round.
+    - i: 0
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 2
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 6
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKukui: That's it! We have our Top 32. Everyone, "
+    - i: 0
+      code: 401
+      p:
+      - please exit the stage.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 958
+      - 6
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on advancing to the Top 32.\\nYour "
+    - i: 0
+      code: 401
+      p:
+      - next battle will be on to the right.
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Trainer(2)
+  x: 14
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bIs it hot in here?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Q")
+    - i: 1
+      code: 121
+      p:
+      - 407
+      - 407
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 407
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI need to cool down."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 2
+    graphic: trchar018
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bIs it hot in here?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Q",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI need to cool down."
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Trainer(2)
+  x: 9
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm gonna crush you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BURGLAR,"Mad Magmar",nil,false,1,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm gonna crush you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BURGLAR,"Mad Magmar",nil,false,2,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Trainer(2)
+  x: 9
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou think you stand a chance?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BURGLAR,"Mr Electric",nil,false,1,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou were lucky."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar025
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou think you stand a chance?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BURGLAR,"Mr Electric",nil,false,2,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou were lucky."
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Trainer(2)
+  x: 15
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar044
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rFair fight, okay?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_F,"Ashley")
+    - i: 1
+      code: 121
+      p:
+      - 407
+      - 407
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 407
+    graphic: trchar044
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIt's not over yet."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 2
+    graphic: trchar044
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rFair fight, okay?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_F,"Ashley",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar044
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIt's not over yet."
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Trainer(2)
+  x: 12
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're my last obstacle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Isana")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis won't happen again."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're my last obstacle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Isana",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis won't happen again."
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Trainer(3)
+  x: 13
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONBREEDER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rNot holding back."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONBREEDER,"Caty")
+    - i: 1
+      code: 121
+      p:
+      - 408
+      - 408
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 408
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGood luck."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar023
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONBREEDER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rNot holding back."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONBREEDER,"Caty",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGood luck."
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Trainer(3)
+  x: 10
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou know, you could have avoided me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_F,"Rebecca")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI guess I'll just watch."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou know, you could have avoided me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_F,"Rebecca",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI guess I'll just watch."
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Trainer(2)
+  x: 18
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar247
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GOLFER_Kahili)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rSorry, but I have to stop you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GOLFER_Kahili,"Kahili")
+    - i: 1
+      code: 121
+      p:
+      - 407
+      - 407
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 407
+    graphic: trchar247
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI should have prepared more."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 2
+    graphic: trchar247
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GOLFER_Kahili)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rSorry, but I have to stop you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GOLFER_Kahili,"Kahili",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar247
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI should have prepared more."
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Trainer(2)
+  x: 22
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of my way."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Ackrin")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot going to happen again."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of my way."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Ackrin",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot going to happen again."
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Trainer(2)
+  x: 17
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI knew this would happen."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Arin")
+    - i: 1
+      code: 121
+      p:
+      - 407
+      - 407
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 407
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI guess I wanted to see you win."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 2
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PSYCHIC_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI knew this would happen."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PSYCHIC_M,"Arin",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI guess I wanted to see you win."
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Trainer(2)
+  x: 20
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'll destroy you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Courtney")
+    - i: 1
+      code: 121
+      p:
+      - 408
+      - 408
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 408
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't bother me. Please."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'll destroy you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Courtney",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't bother me. Please."
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Trainer(3)
+  x: 22
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TAMER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt ends now."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TAMER,"Ron")
+    - i: 1
+      code: 121
+      p:
+      - 407
+      - 407
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 407
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI did not see this coming."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 2
+    graphic: trchar030
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TAMER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt ends now."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TAMER,"Ron",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI did not see this coming."
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Trainer(2)
+  x: 27
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rPikachu attack!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Pikala",nil,false,1,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rPikachu lost."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rPikachu attack!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Pikala",nil,false,2,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rPikachu lost."
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Trainer(2)
+  x: 27
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bCheck my skills out."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_M,"Josh")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOops."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar033
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:POKEMONRANGER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bCheck my skills out."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONRANGER_M,"Josh",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOops."
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Trainer(2)
+  x: 29
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar219_1
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rGet out of my way."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Plumeria")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar219_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHow dare you end me."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar219_1
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rGet out of my way."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Plumeria",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar219_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHow dare you end me."
+    - i: 0
+      code: 0
+      p: []
+- id: 34
+  name: Trainer(2)
+  x: 24
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYAH!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Amy")
+    - i: 1
+      code: 121
+      p:
+      - 408
+      - 408
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 408
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're strong."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYAH!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Amy",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou're strong."
+    - i: 0
+      code: 0
+      p: []
+- id: 35
+  name: Trainer(2)
+  x: 28
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar043
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy family honor is on the line."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Ren")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar043
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bUgh."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar043
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy family honor is on the line."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Ren",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar043
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bUgh."
+    - i: 0
+      code: 0
+      p: []
+- id: 36
+  name: Trainer(2)
+  x: 29
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar008
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm here to win."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIKER,"Jonny")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar008
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar008
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm here to win."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BIKER,"Jonny",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar008
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle."
+    - i: 0
+      code: 0
+      p: []
+- id: 37
+  name: Trainer(3)
+  x: 29
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm... ready."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Matthew")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow am I supposed to win?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm... ready."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Matthew",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow am I supposed to win?"
+    - i: 0
+      code: 0
+      p: []
+- id: 38
+  name: Trainer(3)
+  x: 22
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PAINTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm going to move on."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PAINTER,"Carol")
+    - i: 1
+      code: 121
+      p:
+      - 407
+      - 407
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 407
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThink you can keep winning?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 2
+    graphic: trchar021
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PAINTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm going to move on."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PAINTER,"Carol",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThink you can keep winning?"
+    - i: 0
+      code: 0
+      p: []
+- id: 39
+  name: Trainer(2)
+  x: 15
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Sammy")
+    - i: 1
+      code: 121
+      p:
+      - 407
+      - 407
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 407
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 2
+    graphic: trchar010
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BUGCATCHER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BUGCATCHER,"Sammy",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 0
+      p: []
+- id: 40
+  name: Trainer(2)
+  x: 22
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bNothing's going to stop me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Hiroki",nil,false,1,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 407
+      - 407
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 407
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFirst to go out..."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 2
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bNothing's going to stop me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Hiroki",nil,false,2,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFirst to go out..."
+    - i: 0
+      code: 0
+      p: []
+- id: 41
+  name: Trainer(1)
+  x: 13
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ROCKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bGood luck, eh?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"DJ Leo",nil,false,1,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot bad at all."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar009
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ROCKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bGood luck, eh?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"DJ Leo",nil,false,2,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar009
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot bad at all."
+    - i: 0
+      code: 0
+      p: []
+- id: 42
+  name: Trainer(6)
+  x: 20
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SAILOR)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bDive in."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SAILOR,"Way")
+    - i: 1
+      code: 121
+      p:
+      - 408
+      - 408
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 408
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI didn't swim to victory."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar027
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SAILOR)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bDive in."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SAILOR,"Way",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI didn't swim to victory."
+    - i: 0
+      code: 0
+      p: []
+- id: 43
+  name: Trainer(4)
+  x: 19
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've got this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Roy")
+    - i: 1
+      code: 121
+      p:
+      - 408
+      - 408
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 408
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPerhaps next time."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've got this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Roy",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPerhaps next time."
+    - i: 0
+      code: 0
+      p: []
+- id: 44
+  name: Trainer(3)
+  x: 26
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GENTLEMAN)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBatter up."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GENTLEMAN,"Oluolu",nil,false,1,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 408
+      - 408
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 408
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm not up to the pitch."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar017
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GENTLEMAN)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBatter up."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GENTLEMAN,"Oluolu",nil,false,2,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm not up to the pitch."
+    - i: 0
+      code: 0
+      p: []
+- id: 45
+  name: Trainer(2)
+  x: 18
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHANELLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHaha."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHANELLER,"April")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe battle continues."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar012
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHANELLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHaha."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHANELLER,"April",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe battle continues."
+    - i: 0
+      code: 0
+      p: []
+- id: 46
+  name: Trainer(4)
+  x: 10
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're not getting past me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SUPERNERD,"Keith")
+    - i: 1
+      code: 121
+      p:
+      - 408
+      - 408
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 408
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow did you do that?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 3
+    graphic: trchar028
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SUPERNERD)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're not getting past me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SUPERNERD,"Keith",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 4
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow did you do that?"
+    - i: 0
+      code: 0
+      p: []
+- id: 47
+  name: Trainer(3)
+  x: 8
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar047
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TUBER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMine."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TUBER_M,"Alex")
+    - i: 1
+      code: 121
+      p:
+      - 409
+      - 409
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 409
+    graphic: trchar047
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bUgh."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 33
+      - 4
+    graphic: trchar047
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TUBER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMine."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TUBER_M,"Alex",nil,false,1,true)
+    - i: 1
+      code: 122
+      p:
+      - 33
+      - 33
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 39
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 33
+      - 5
+    graphic: trchar047
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bUgh."
+    - i: 0
+      code: 0
+      p: []
+- id: 48
+  name: Hala
+  x: 17
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar182
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHala: I'm one of the referees. Good luck to you."
+    - i: 0
+      code: 0
+      p: []
+- id: 49
+  name: Olivia
+  x: 21
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar183
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlivia: I'm a referree. I hope to see you advance."
+    - i: 0
+      code: 0
+      p: []
+- id: 50
+  name: Nanu
+  x: 17
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu: I got dragged into this. Still, maybe it will be "
+    - i: 0
+      code: 401
+      p:
+      - worth a watch.
+    - i: 0
+      code: 0
+      p: []
+- id: 51
+  name: Hapu
+  x: 21
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar185
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHapu: It's a good thing I'm not competing. You'd be in "
+    - i: 0
+      code: 401
+      p:
+      - trouble.
+    - i: 0
+      code: 0
+      p: []

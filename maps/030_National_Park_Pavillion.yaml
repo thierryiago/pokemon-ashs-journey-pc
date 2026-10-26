@@ -1,0 +1,1495 @@
+---
+id: 30
+name: National Park Pavillion
+parent: 28
+width: 20
+height: 15
+tileset: 3
+bgm: ''
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 28
+      - 26
+      - 6
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Woman contest
+  x: 5
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbIsWeekday(1, 2, 4, 6)
+    - i: 1
+      code: 108
+      p:
+      - 'Today is Tuesday (2), Thursday (4) or Saturday (6), '
+    - i: 1
+      code: 408
+      p:
+      - 'and the Bug Contest is running today. The weekday''s '
+    - i: 1
+      code: 408
+      p:
+      - name is put in Game Variable 1.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbBugContestState.pbContestHeld?
+    - i: 2
+      code: 101
+      p:
+      - "\\rWe hope you'll take part in a Bug-Catching Contest "
+    - i: 2
+      code: 401
+      p:
+      - in the future!
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rToday's \\v[1]."
+    - i: 1
+      code: 101
+      p:
+      - "\\rThat means the Bug-Catching Contest is on today."
+    - i: 1
+      code: 101
+      p:
+      - "\\rThe rules are simple."
+    - i: 1
+      code: 101
+      p:
+      - "\\rUsing one of your Pokémon, catch a Bug-type "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon to be judged.
+    - i: 1
+      code: 101
+      p:
+      - "\\rWould you like to give it a try?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbBoxesFull?
+    - i: 3
+      code: 101
+      p:
+      - "\\rSorry, your PC boxes are full."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rYou are only allowed to take 1 Pokémon into the "
+    - i: 2
+      code: 401
+      p:
+      - Contest.
+    - i: 2
+      code: 101
+      p:
+      - "\\rPlease choose which Pokémon you want to enter "
+    - i: 2
+      code: 401
+      p:
+      - with.
+    - i: 2
+      code: 108
+      p:
+      - 'Opens a screen for choosing an able Pokémon (i.e. a '
+    - i: 2
+      code: 408
+      p:
+      - non-egg, non-fainted Pokémon).
+    - i: 2
+      code: 408
+      p:
+      - 'The party index of the chosen Pokémon is put in '
+    - i: 2
+      code: 408
+      p:
+      - 'Game Variable 1, and the chosen Pokémon''s name is '
+    - i: 2
+      code: 408
+      p:
+      - put in Game Variable 2.
+    - i: 2
+      code: 355
+      p:
+      - pbChooseAblePokemon(1, 2)
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 108
+      p:
+      - Cancelled choosing a Pokémon.
+    - i: 3
+      code: 101
+      p:
+      - "\\rOK. We hope you'll take part in the future."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\rYou will be entering with \\v[2], then."
+    - i: 3
+      code: 101
+      p:
+      - "\\rWe'll hold your other Pokémon while you compete."
+    - i: 3
+      code: 101
+      p:
+      - "\\PN's Pokémon were left with the Contest "
+    - i: 3
+      code: 401
+      p:
+      - Helper.\se[Pkmn exp full]\wtnp[20]
+    - i: 3
+      code: 101
+      p:
+      - "\\rHere are the Sport Balls for the Contest."
+    - i: 3
+      code: 101
+      p:
+      - "\\PN received 20 Sport Balls.\\me[Item get]\\wtnp[40]"
+    - i: 3
+      code: 101
+      p:
+      - "\\rThe person who gets the strongest bug Pokémon is "
+    - i: 3
+      code: 401
+      p:
+      - the winner.
+    - i: 3
+      code: 101
+      p:
+      - "\\rYou have 20 minutes."
+    - i: 3
+      code: 101
+      p:
+      - "\\rIf you run out of Sport Balls, you're done."
+    - i: 3
+      code: 101
+      p:
+      - "\\rYou can keep the last Pokémon you catch as your "
+    - i: 3
+      code: 401
+      p:
+      - own.
+    - i: 3
+      code: 101
+      p:
+      - "\\rGo out and catch the strongest Bug-type Pokémon "
+    - i: 3
+      code: 401
+      p:
+      - you can find!
+    - i: 3
+      code: 108
+      p:
+      - "- Set the map ID and X/Y coordinates of the spot the "
+    - i: 3
+      code: 408
+      p:
+      - player is teleported to at the end for judging.
+    - i: 3
+      code: 408
+      p:
+      - "- Set the map IDs of reception maps which, if you "
+    - i: 3
+      code: 408
+      p:
+      - 'enter them, will not immediately end the contest '
+    - i: 3
+      code: 408
+      p:
+      - "(those maps should prompt the player to go back into "
+    - i: 3
+      code: 408
+      p:
+      - the contest's map or to end the contest).
+    - i: 3
+      code: 108
+      p:
+      - "- Set the map ID of the map where the contest takes "
+    - i: 3
+      code: 408
+      p:
+      - 'place (there can only be one). NPC participants have '
+    - i: 3
+      code: 408
+      p:
+      - random wild Pokémon found on this map.
+    - i: 3
+      code: 408
+      p:
+      - "- Set the party index of the Pokémon chosen by the "
+    - i: 3
+      code: 408
+      p:
+      - player to use in the contest.
+    - i: 3
+      code: 408
+      p:
+      - "- Start the contest with 20 Sport Balls."
+    - i: 3
+      code: 355
+      p:
+      - contest = pbBugContestState
+    - i: 3
+      code: 655
+      p:
+      - contest.pbSetJudgingPoint(30, 5, 6)
+    - i: 3
+      code: 655
+      p:
+      - contest.pbSetReception(29, 30)
+    - i: 3
+      code: 655
+      p:
+      - contest.pbSetContestMap(28)
+    - i: 3
+      code: 655
+      p:
+      - contest.pbSetPokemon(pbGet(1))
+    - i: 3
+      code: 655
+      p:
+      - contest.pbStart(20)
+    - i: 3
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 4
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 4
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 111
+      p:
+      - 6
+      - -1
+      - 4
+    - i: 5
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 411
+      p: []
+    - i: 5
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 5
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 210
+      p: []
+    - i: 3
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Door exit
+        pitch: 100
+    - i: 3
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 3
+      code: 106
+      p:
+      - 8
+    - i: 3
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 255
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 255
+        code: 42
+    - i: 3
+      code: 201
+      p:
+      - 0
+      - 28
+      - 26
+      - 6
+      - 0
+      - 1
+    - i: 3
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\rOK. We hope you'll take part in the future."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 108
+      p:
+      - Today is not a Contest day.
+    - i: 1
+      code: 101
+      p:
+      - "\\rWe hold contests regularly in the Park. You should "
+    - i: 1
+      code: 401
+      p:
+      - give it a shot.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 20
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 26
+    graphic: NPC 01
+    trigger: 3
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'Event page called when the contest is still in '
+    - i: 0
+      code: 408
+      p:
+      - progress.
+    - i: 0
+      code: 106
+      p:
+      - 20
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou still have some time left. Do you want to finish "
+    - i: 0
+      code: 401
+      p:
+      - now?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\rPlease wait here for the announcement of the "
+    - i: 1
+      code: 401
+      p:
+      - winners.
+    - i: 1
+      code: 355
+      p:
+      - pbBugContestState.pbStartJudging
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rOK. Please go back outside and finish up."
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters:
+          - 4
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 4
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Door exit
+        pitch: 100
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 255
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 255
+        code: 42
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 28
+      - 26
+      - 6
+      - 0
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 27
+    graphic: NPC 01
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe will now judge the Pokémon you've caught."
+    - i: 0
+      code: 101
+      p:
+      - "......\\wt[10]\\n......"
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe have chosen the winners!\\nAre you ready for "
+    - i: 0
+      code: 401
+      p:
+      - this?
+    - i: 0
+      code: 355
+      p:
+      - pbBugContestState.pbGetPlaceInfo(2)
+    - i: 0
+      code: 101
+      p:
+      - "\\rPlacing third is \\v[1], who caught a writhing \\v[2]!"
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe score was \\v[3] points!"
+    - i: 0
+      code: 355
+      p:
+      - pbBugContestState.pbGetPlaceInfo(1)
+    - i: 0
+      code: 101
+      p:
+      - "\\rPlacing second is \\v[1], who caught a wriggling "
+    - i: 0
+      code: 401
+      p:
+      - "\\v[2]!"
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe score was \\v[3] points!"
+    - i: 0
+      code: 355
+      p:
+      - pbBugContestState.pbGetPlaceInfo(0)
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis Bug-Catching Contest winner is..."
+    - i: 0
+      code: 101
+      p:
+      - "\\r\\v[1], who caught a whopping \\v[2]!"
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe score was \\v[3] points!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBugContestState.place == 0
+    - i: 1
+      code: 111
+      p:
+      - 0
+      - 29
+      - 0
+    - i: 2
+      code: 355
+      p:
+      - evo_stones = [
+    - i: 2
+      code: 655
+      p:
+      - "  :FIRESTONE, :THUNDERSTONE,"
+    - i: 2
+      code: 655
+      p:
+      - "  :WATERSTONE, :LEAFSTONE,"
+    - i: 2
+      code: 655
+      p:
+      - "  :MOONSTONE, :SUNSTONE,"
+    - i: 2
+      code: 655
+      p:
+      - "  :DUSKSTONE, :DAWNSTONE,"
+    - i: 2
+      code: 655
+      p:
+      - "  :SHINYSTONE, :OVALSTONE"
+    - i: 2
+      code: 655
+      p:
+      - "]"
+    - i: 2
+      code: 655
+      p:
+      - item = evo_stones.sample
+    - i: 2
+      code: 655
+      p:
+      - pbSet(1, item)
+    - i: 2
+      code: 655
+      p:
+      - data = GameData::Item.get(item)
+    - i: 2
+      code: 655
+      p:
+      - pbSet(3, data.name)
+    - i: 2
+      code: 101
+      p:
+      - "\\me[Bug contest 1st]\\r\\PN, the First Place finisher, "
+    - i: 2
+      code: 401
+      p:
+      - wins the \v[3]!
+    - i: 2
+      code: 355
+      p:
+      - pbReceiveItem(pbGet(1))
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\me[Bug contest 1st]\\r\\PN, the First Place finisher, "
+    - i: 2
+      code: 401
+      p:
+      - wins the Sun Stone!
+    - i: 2
+      code: 355
+      p:
+      - pbReceiveItem(:SUNSTONE)
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBugContestState.place == 1
+    - i: 1
+      code: 101
+      p:
+      - "\\me[Bug contest 2nd]\\r\\PN, the Second Place finisher, "
+    - i: 1
+      code: 401
+      p:
+      - wins the Everstone!
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:EVERSTONE)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBugContestState.place == 2
+    - i: 1
+      code: 101
+      p:
+      - "\\me[Bug contest 3rd]\\r\\PN, the Third Place finisher, "
+    - i: 1
+      code: 401
+      p:
+      - wins the Sitrus Berry!
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:SITRUSBERRY)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbBugContestState.place == 3
+    - i: 1
+      code: 101
+      p:
+      - "\\rEveryone else gets a Shed Shell as a consolation "
+    - i: 1
+      code: 401
+      p:
+      - prize!
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:SHEDSHELL)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe'll return the Pokémon we kept for you. Here "
+    - i: 0
+      code: 401
+      p:
+      - you go!\se[Pkmn exp full]
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe hope you'll take part in a Bug-Catching Contest "
+    - i: 0
+      code: 401
+      p:
+      - in the future!
+    - i: 0
+      code: 355
+      p:
+      - pbBugContestState.pbEnd
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe hope you'll take part in a Bug-Catching Contest "
+    - i: 0
+      code: 401
+      p:
+      - in the future!
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Woman regular
+  x: 5
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Today is not a Contest day.
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe hold contests regularly in the Park. You should "
+    - i: 0
+      code: 401
+      p:
+      - give it a shot.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 19
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Contestant 1
+  x: 2
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 27
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI study a lot, but that's not good enough to win."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Contestant 2
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 27
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI study a lot, but that's not good enough to win."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Contestant 3
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 27
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI study a lot, but that's not good enough to win."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Contestant 4
+  x: 8
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 27
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI study a lot, but that's not good enough to win."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Casey
+  x: 0
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 64
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou again. I hope you're ready. I'm a lot stronger "
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BASEBALLFAN,"Casey",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\rI really want a Beedrill. If you find one please bring it "
+    - i: 1
+      code: 401
+      p:
+      - to me.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 64
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI really want a Beedrill."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemon_party[0].species==:BEEDRILL"
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou have one! Will you give it to me?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - "$Trainer.remove_pokemon_at_index(0)"
+    - i: 2
+      code: 101
+      p:
+      - "\\rThank you! Take this as thanks."
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:QUICKCLAW)
+    - i: 3
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\rAw...okay."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rIf you bring me one I'll give you something."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: NPC 64
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI love my Beedrill."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 11
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 294
+      - 8
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

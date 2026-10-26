@@ -1,0 +1,947 @@
+---
+id: 71
+name: Harbour
+parent: 69
+width: 20
+height: 15
+tileset: 15
+bgm: route
+events:
+- id: 1
+  name: Door
+  x: 8
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 69
+      - 31
+      - 15
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Sailor
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbQuantity(PBItems::AURORATICKET)>0"
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbQuantity(PBItems::OLDSEAMAP)>0"
+    - i: 2
+      code: 101
+      p:
+      - "\\bAhoy, there!\\nWhere do you want to sail?"
+    - i: 2
+      code: 102
+      p:
+      - - Tiall Region
+        - Daroxy Island
+        - Faraday Island
+        - Exit
+      - 4
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Tiall Region
+    - i: 3
+      code: 119
+      p:
+      - Tiall Region
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Daroxy Island
+    - i: 3
+      code: 119
+      p:
+      - Daroxy Island
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 2
+      - Faraday Island
+    - i: 3
+      code: 119
+      p:
+      - Faraday Island
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 3
+      - Exit
+    - i: 3
+      code: 119
+      p:
+      - End
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bAhoy, there!\\nWhere do you want to sail?"
+    - i: 2
+      code: 102
+      p:
+      - - Tiall Region
+        - Daroxy Island
+        - Exit
+      - 3
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Tiall Region
+    - i: 3
+      code: 119
+      p:
+      - Tiall Region
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Daroxy Island
+    - i: 3
+      code: 119
+      p:
+      - Daroxy Island
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 2
+      - Exit
+    - i: 3
+      code: 119
+      p:
+      - End
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbQuantity(PBItems::OLDSEAMAP)>0"
+    - i: 2
+      code: 101
+      p:
+      - "\\bAhoy, there!\\nWhere do you want to sail?"
+    - i: 2
+      code: 102
+      p:
+      - - Tiall Region
+        - Faraday Island
+        - Exit
+      - 3
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Tiall Region
+    - i: 3
+      code: 119
+      p:
+      - Tiall Region
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Faraday Island
+    - i: 3
+      code: 119
+      p:
+      - Faraday Island
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 2
+      - Exit
+    - i: 3
+      code: 119
+      p:
+      - End
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bAhoy, there!\\nWhere do you want to sail?"
+    - i: 2
+      code: 102
+      p:
+      - - Tiall Region
+        - Exit
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - Tiall Region
+    - i: 3
+      code: 119
+      p:
+      - Tiall Region
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - Exit
+    - i: 3
+      code: 119
+      p:
+      - End
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 115
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - "################################"
+    - i: 0
+      code: 118
+      p:
+      - Tiall Region
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe Tiall Region it is.  All aboard!"
+    - i: 0
+      code: 209
+      p:
+      - 2
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 75
+      - 17
+      - 11
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 115
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - "################################"
+    - i: 0
+      code: 118
+      p:
+      - Daroxy Island
+    - i: 0
+      code: 101
+      p:
+      - "\\bDaroxy Island it is.  All aboard!"
+    - i: 0
+      code: 121
+      p:
+      - 51
+      - 51
+      - 0
+    - i: 0
+      code: 209
+      p:
+      - 2
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 72
+      - 14
+      - 23
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 115
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - "################################"
+    - i: 0
+      code: 118
+      p:
+      - Faraday Island
+    - i: 0
+      code: 101
+      p:
+      - "\\bFaraday Island it is.  All aboard!"
+    - i: 0
+      code: 121
+      p:
+      - 52
+      - 52
+      - 0
+    - i: 0
+      code: 209
+      p:
+      - 2
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters:
+          - 0
+          code: 42
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 0
+        code: 42
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 73
+      - 14
+      - 23
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 115
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - "################################"
+    - i: 0
+      code: 118
+      p:
+      - End
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet me know if you want to set sail."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Aurora Ticket NPC
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbQuantity(PBItems::AURORATICKET)<=0"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this Aurora Ticket."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - Kernel.pbReceiveItem(PBItems::AURORATICKET)
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou can use that to sail to Daroxy Island."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOh, you don't have any space in your Bag for it."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bI've already given you an Aurora Ticket.  Have you "
+    - i: 1
+      code: 401
+      p:
+      - gone to Daroxy Island yet?
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Old Sea Map NPC
+  x: 10
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbQuantity(PBItems::OLDSEAMAP)<=0"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this Old Sea Map."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - Kernel.pbReceiveItem(PBItems::OLDSEAMAP)
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou can use that to sail to Faraday Island."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOh, you don't have any space in your Bag for it."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bI've already given you an Old Sea Map.  Have you "
+    - i: 1
+      code: 401
+      p:
+      - gone to Faraday Island yet?
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,170 @@
+---
+id: 950
+name: Ruins of Hope
+parent: 949
+width: 30
+height: 25
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Exit south
+  x: 13
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 949
+      - 29
+      - 19
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Hapu
+  x: 13
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar185
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHapu: Tapu Fini isn't here at the moment. In fact, you "
+    - i: 0
+      code: 401
+      p:
+      - just missed it.
+    - i: 0
+      code: 101
+      p:
+      - "\\rBut don't worry. As the brand new Island Kahuna, "
+    - i: 0
+      code: 401
+      p:
+      - I'll accept your challenge right now.
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ISLANDKAHUNA_Hapu)
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ISLANDKAHUNA_Hapu,"Hapu")
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou did it somehow. You can have this, a Steelium Z."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:STEELIUMZ)
+    - i: 1
+      code: 101
+      p:
+      - "\\rWith that you can power up your "
+    - i: 1
+      code: 401
+      p:
+      - Steel-type attacks.
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:SINNOHBEAUTYMASTER)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 121
+      p:
+      - 313
+      - 313
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - 'Rotom Dex: You''re the last person to finish their '
+    - i: 1
+      code: 401
+      p:
+      - assignment. Let's go back home now.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar200
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHapu: It's good to finally be the Island Kahuna."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 394
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

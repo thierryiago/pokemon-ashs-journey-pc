@@ -1,0 +1,700 @@
+---
+id: 915
+name: Wela Volcano Park
+parent: 914
+width: 30
+height: 35
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Exit south
+  x: 13
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 914
+      - 42
+      - 18
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(2)
+  x: 10
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThere should be a trial around here."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Jim")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wonder if I'm ready?"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(2)
+  x: 16
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to take a picture?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Colhoun")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't forget to capture the moment."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Charizard
+  x: 13
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: CHARIZARD
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 006Cry
+        pitch: 100
+    - i: 0
+      code: 102
+      p:
+      - - Route 1
+        - Paniola
+        - Exit
+      - 3
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Route 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 889
+      - 34
+      - 25
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Paniola
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 907
+      - 54
+      - 12
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Exit
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 341
+    graphic: CHARIZARD
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 006Cry
+        pitch: 100
+    - i: 0
+      code: 102
+      p:
+      - - Route 1
+        - Paniola
+        - Ten Carat
+        - Exit
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Route 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 889
+      - 34
+      - 25
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Paniola
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 907
+      - 54
+      - 12
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Ten Carat
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 920
+      - 57
+      - 36
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Exit
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Kiawe
+  x: 13
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: What are you doing here? You came for a "
+    - i: 0
+      code: 401
+      p:
+      - trial, didn't you?
+    - i: 0
+      code: 101
+      p:
+      - "\\bThere's no trial here, but you could battle me to get "
+    - i: 0
+      code: 401
+      p:
+      - some practice.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Kiawe,"Kiawe",nil,false,2,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bKiawe: You should try Lush Jungle. A trial should "
+    - i: 1
+      code: 401
+      p:
+      - be there.
+    - i: 1
+      code: 121
+      p:
+      - 325
+      - 325
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: You should try Lush Jungle. A trial should "
+    - i: 0
+      code: 401
+      p:
+      - be there.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 306
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 10
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:TM127)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 16
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:CHARCOAL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Smoke
+  x: 8
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Smoke
+  x: 18
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Smoke
+  x: 18
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Smoke
+  x: 8
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Smoke
+  x: 12
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Smoke
+  x: 14
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Smoke
+  x: 10
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Smoke
+  x: 16
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Particle Engine Type
+    - i: 0
+      code: 108
+      p:
+      - fire
+    - i: 0
+      code: 0
+      p: []

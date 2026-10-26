@@ -1,0 +1,633 @@
+---
+id: 729
+name: Icirrus Gym
+parent: 726
+width: 70
+height: 25
+tileset: 6
+bgm: gym
+events:
+- id: 9
+  name: Gym Guy
+  x: 35
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrycen uses Ice type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - 'weak against the Fire, Fighting, Rock, and Steel '
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Dragon, Flying, Grass, and "
+    - i: 0
+      code: 401
+      p:
+      - Ground. They are resistant to only Ice.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 37
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 725
+      - 15
+      - 17
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(1)
+  x: 43
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 206'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI''m not cold. Y-y-you're cold."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Kendrew")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bStilllll warmm."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 206
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bStilllll warmm."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(1)
+  x: 37
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 206'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rBrycen is a pure Ice user."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Miriam")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBrycen only uses Ice types. No dual types in his "
+    - i: 0
+      code: 401
+      p:
+      - team.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 206
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBrycen only uses Ice types. No dual types in his "
+    - i: 0
+      code: 401
+      p:
+      - team.
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(1)
+  x: 44
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 206'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe careful."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Chandra")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI keep slipping in this place. It's no fun."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 206
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI keep slipping in this place. It's no fun."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(1)
+  x: 38
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 206'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLast chance. Common."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Thomas")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTraining in extreme tempatures. That raises the "
+    - i: 0
+      code: 401
+      p:
+      - spirit.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 206
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTraining in extreme tempatures. That raises the "
+    - i: 0
+      code: 401
+      p:
+      - spirit.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(1)
+  x: 33
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 206'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrrr.."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Grant")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy does every ice gym have to have an ice floor?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 206
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy does every ice gym have to have an ice floor?"
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Trainer(1)
+  x: 29
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 206'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm about to warm you up."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Mikiko")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis place is too cold, you know?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 206
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis place is too cold, you know?"
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Brycen
+  x: 37
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: trchar129
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Brycen)
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrycen: Welcome to my gym. I have spent many "
+    - i: 0
+      code: 401
+      p:
+      - 'years performing and honing my skills. Do you have '
+    - i: 0
+      code: 401
+      p:
+      - what it takes?
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Brycen,"Brycen")
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrycen: You've earned the Freeze Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:FREEZEBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[38]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM79)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM79 contains Frost Breath. It will always score a "
+    - i: 1
+      code: 401
+      p:
+      - critical hit.
+    - i: 1
+      code: 121
+      p:
+      - 206
+      - 206
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar129
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrycen: Come back anytime to train yourself."
+    - i: 0
+      code: 0
+      p: []

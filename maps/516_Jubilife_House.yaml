@@ -1,0 +1,671 @@
+---
+id: 516
+name: Jubilife House
+parent: 515
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 5
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis class is so much fun!"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 7
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar006
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe sure to read what's on the blackboard carefully!"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Text formatting NPC
+  x: 5
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 118
+      p:
+      - Start
+    - i: 0
+      code: 101
+      p:
+      - Choose a status option.
+    - i: 0
+      code: 102
+      p:
+      - - Sleep
+        - Burn
+        - Poison
+        - Cancel
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Sleep
+    - i: 1
+      code: 101
+      p:
+      - A Pokémon can't attack if it is asleep.
+    - i: 1
+      code: 101
+      p:
+      - Pokémon will stay asleep even after battles.
+    - i: 1
+      code: 101
+      p:
+      - Use Awkening to awaken one from sleep.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Burn
+    - i: 1
+      code: 101
+      p:
+      - A burn reduces attack power.
+    - i: 1
+      code: 401
+      p:
+      - It also causes ongoing HP loss.
+    - i: 1
+      code: 101
+      p:
+      - A burn remains after battle.
+    - i: 1
+      code: 401
+      p:
+      - Use Bun Heal to cure a burn.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Poison
+    - i: 1
+      code: 101
+      p:
+      - 'When poisoned, a Pokémon''s health steadily drops. '
+    - i: 1
+      code: 101
+      p:
+      - Poison lingers after battles.
+    - i: 1
+      code: 401
+      p:
+      - Use an Antidote to cure poison!
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Cancel
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Text formatting NPC
+  x: 6
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 118
+      p:
+      - Start
+    - i: 0
+      code: 101
+      p:
+      - Choose a status option.
+    - i: 0
+      code: 102
+      p:
+      - - Paralysis
+        - Freeze
+        - Confusion
+        - Cancel
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Paralysis
+    - i: 1
+      code: 101
+      p:
+      - 'Paralysis reduces speed and may prevent the '
+    - i: 1
+      code: 401
+      p:
+      - Pokémon from moving.
+    - i: 1
+      code: 101
+      p:
+      - 'Paralysis remains after battles. Use Parlyz Heal for '
+    - i: 1
+      code: 401
+      p:
+      - treatment.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Freeze
+    - i: 1
+      code: 101
+      p:
+      - It stays frozen even after the battle ends.
+    - i: 1
+      code: 101
+      p:
+      - A frozen Pokémon becomes helplessly immobile.
+    - i: 1
+      code: 101
+      p:
+      - Use Ice Heal to thaw out the suffering Pokémon.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Confusion
+    - i: 1
+      code: 101
+      p:
+      - 'When confused, a Pokémon''s may attack itself. '
+    - i: 1
+      code: 101
+      p:
+      - Confusion does not last if recalled though.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Cancel
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 515
+      - 29
+      - 44
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 2
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou've been traveling for a while, have you not? "
+    - i: 0
+      code: 401
+      p:
+      - This might speed you up.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:QUICKCLAW)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNever slow down. You're still too young."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 26
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 515
+      - 40
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 3
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've learned so much in here."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 26
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 515
+      - 11
+      - 41
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 33
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you look near the tree in town you should find an "
+    - i: 0
+      code: 401
+      p:
+      - item.
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Exit
+  x: 5
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 515
+      - 27
+      - 36
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 24
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI swear he goes and puts an item there every day. "
+    - i: 0
+      code: 401
+      p:
+      - 'There is no way that people keep dropping stuff '
+    - i: 0
+      code: 401
+      p:
+      - there.
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Person
+  x: 6
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wanna go outside and play."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Person
+  x: 4
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMaybe I should stop messing around."
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(1)
+  x: 10
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI know a lot about Pokémon."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Landis")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy dad made the Pokétch."
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Person
+  x: 27
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHave you ever entered into a contest? "
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's hard to get into them. They only open every "
+    - i: 0
+      code: 401
+      p:
+      - so often.
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Town Map
+  x: 8
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbShowMap
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,107 @@
+---
+id: 605
+name: Route 212 House
+parent: 601
+width: 20
+height: 15
+tileset: 3
+bgm: Radio - Oak
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 601
+      - 44
+      - 133
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Item
+  x: 10
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLiving out in the wild like this isn't easy. I'm sure "
+    - i: 0
+      code: 401
+      p:
+      - you've run into a lot of wild Pokémon.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThese might help you out. Take some."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:MAXREPEL,10)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMax Repel will help drive away wild Pokémon. Don't "
+    - i: 0
+      code: 401
+      p:
+      - worry about taking them. I have many stored up.
+    - i: 0
+      code: 0
+      p: []

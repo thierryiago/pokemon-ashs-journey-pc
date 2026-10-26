@@ -1,0 +1,284 @@
+---
+id: 938
+name: Ruins of Abundance
+parent: 932
+width: 25
+height: 27
+tileset: 1
+bgm: Cave
+events:
+- id: 1
+  name: Gift Pokemon
+  x: 12
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: TAPUBULU
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'You are about to enter a battle with a legendary that '
+    - i: 0
+      code: 401
+      p:
+      - 'will be unobtainable until the post game if it is not '
+    - i: 0
+      code: 401
+      p:
+      - caught here. Save?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbSaveScreen"
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 787Cry
+        pitch: 100
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Tapu
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:TAPUBULU,35)
+    - i: 0
+      code: 121
+      p:
+      - 368
+      - 368
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 368
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 587
+    graphic: TAPUBULU
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 787Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Tapu
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:TAPUBULU,35)
+    - i: 0
+      code: 121
+      p:
+      - 587
+      - 587
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Acerola
+  x: 10
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: NPC 44
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAcerola: This is Tapu Bulu. It's sleeping right now "
+    - i: 0
+      code: 401
+      p:
+      - but its easy enough to wake up.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 368
+    graphic: NPC 44
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAcerola: Nanu should take your challenge now."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 307
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: back door, size(3,1)
+  x: 11
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 937
+      - 38
+      - 8
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []

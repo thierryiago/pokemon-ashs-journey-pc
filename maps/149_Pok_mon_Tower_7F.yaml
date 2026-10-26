@@ -1,0 +1,205 @@
+---
+id: 149
+name: Pokémon Tower 7F
+parent: 143
+width: 25
+height: 25
+tileset: 13
+bgm: PkmRS-MtPyre
+events:
+- id: 2
+  name: Stairs down
+  x: 10
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 148
+      - 11
+      - 19
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(1)
+  x: 11
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHANELLER)
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou are quite brave for a child. But this will have "
+    - i: 0
+      code: 401
+      p:
+      - you running in no time.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHANELLER,"Karina")
+    - i: 1
+      code: 101
+      p:
+      - "\\rI'm no longer possessed. Thank you!"
+    - i: 1
+      code: 101
+      p:
+      - "\\rOh, you came here so you could challenge "
+    - i: 1
+      code: 401
+      p:
+      - Sabrina?
+    - i: 1
+      code: 101
+      p:
+      - "\\rThis might help you then."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM121)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM121 contains Shadow Punch. It never misses."
+    - i: 1
+      code: 121
+      p:
+      - 47
+      - 47
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI wish you luck in your travels."
+    - i: 0
+      code: 0
+      p: []

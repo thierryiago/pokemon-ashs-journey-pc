@@ -1,0 +1,195 @@
+---
+id: 247
+name: Pummelo Stadium
+parent: 245
+width: 22
+height: 25
+tileset: 14
+bgm: elite
+events:
+- id: 1
+  name: Hall of Fame autorun
+  x: 2
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDrake: I haven't lost in a long time, but I'm glad to "
+    - i: 0
+      code: 401
+      p:
+      - have lost to you.
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations! You're now a registered Orange "
+    - i: 0
+      code: 401
+      p:
+      - League Winner.
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:LEGEND)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbHallOfFameEntry
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 246
+      - 8
+      - 8
+      - 2
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Drake
+  x: 10
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar080
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDrake: Are you ready, kid? It's about to get "
+    - i: 0
+      code: 401
+      p:
+      - interesting.
+    - i: 0
+      code: 101
+      p:
+      - "\\bPrepare for the toughest fight of your life."
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Drake)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Drake,"Drake")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar080
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 81
+      - 81
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar080
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

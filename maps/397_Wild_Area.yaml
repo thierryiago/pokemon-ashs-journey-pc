@@ -1,0 +1,332 @@
+---
+id: 397
+name: Wild Area
+parent: 243
+width: 58
+height: 27
+tileset: 1
+bgm: Galar Route
+events:
+- id: 1
+  name: Item
+  x: 21
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:MAXREVIVE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: HiddenItem
+  x: 12
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:STARDUST)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 11
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SHEDSHELL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 37
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:REVIVALHERB)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 13
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bA lot of Ghost Pokémon live in this section of the "
+    - i: 0
+      code: 401
+      p:
+      - Wild Area.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 22
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar039
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI come to study this rock formation from time to time. "
+    - i: 0
+      code: 401
+      p:
+      - It's said you can evolve Yamask here after it's hurt.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 13
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou look tired already. Take one."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:HYPERPOTION)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've never gone past this desert. I always get too "
+    - i: 0
+      code: 401
+      p:
+      - tired.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Item
+  x: 31
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't get in my way. I'm going to get a Braviary so I "
+    - i: 0
+      code: 401
+      p:
+      - never have to walk again!
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Encouter Pokemon
+  x: 25
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 520
+    graphic: MOLTRES_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: MOLTRES
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Birds Galar
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:MOLTRES_1,50)
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: rune, size(2,2)
+  x: 21
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbEvolvePokemonEvent(:YAMASK_1)
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,5520 @@
+---
+id: 881
+name: Driftveil Battle House
+parent: 696
+width: 60
+height: 70
+tileset: 3
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Brock
+  x: 10
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: Time for a battle, \\PN."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Brock,"Brock",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: Good to see you again, \\PN."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Roark
+  x: 11
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar107
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRoark: Let's bring the power."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Roark,"Roark",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar107
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRoark: That battle was intense. Can't wait for next "
+    - i: 0
+      code: 401
+      p:
+      - time.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Roxanne
+  x: 9
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar090
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rRoxanne: See if you can teach me anything."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Roxanne,"Roxanne",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar090
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rRoxanne: Stop by and visit the school anytime you "
+    - i: 0
+      code: 401
+      p:
+      - can.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Grant
+  x: 10
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar157
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGrant: Time to climb to the top."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Grant,"Grant",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar157
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGrant: You've climbed high up in this world."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 26
+  "y": 35
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 694
+      - 29
+      - 55
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Valerie
+  x: 42
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar161
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rValerie: Victory to the elegant."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Valerie,"Valerie",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar161
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rValerie: That battle was very elegant. I congratulate "
+    - i: 0
+      code: 401
+      p:
+      - you.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Misty
+  x: 14
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: I'm not going easy on you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Misty,"Misty",nil,false,7,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMisty: How do I keep losing to you, \\PN?"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Juan
+  x: 13
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar097
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJuan: Prepare, for it is time to face me!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Juan,"Juan",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar097
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJuan: A spectacular battle!"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Crasher Wake
+  x: 15
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar110
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCrasher Wake: Hahaha! Let's go!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_CrasherWake,"Crasher Wake",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar110
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCrasher Wake: Come back and try again whenever "
+    - i: 0
+      code: 401
+      p:
+      - you want.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Cress
+  x: 13
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar123
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress: I'm about to serve up a mouth savoring meal."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Cress,"Cress",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar123
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCress: You served up a real beating."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Lt. Surge
+  x: 18
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar061_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLt. Surge: So the punk is back."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Surge,"Lt. Surge",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar061_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLt. Surge: So you beat me again. It won't happen "
+    - i: 0
+      code: 401
+      p:
+      - again.
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Wattson
+  x: 17
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar092
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWattson: Wahahaha. About time we do this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Wattson,"Wattson",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar092
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWattson: Wahaha. I just can't win."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Volkner
+  x: 19
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar114
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bVolkner: Good to see you again. Let's make this "
+    - i: 0
+      code: 401
+      p:
+      - 'exciting. '
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Volkner,"Volkner",nil,false,3,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar114
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bVolkner: That was a rush. Come back any time."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Elesa
+  x: 17
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar126
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rElesa: Let's make this beautiful."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Elesa,"Elesa",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar126
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rElesa: Come back any time to show me a stunning "
+    - i: 0
+      code: 401
+      p:
+      - battle.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Clemont
+  x: 19
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont: I'm ready, \\PN."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Clemont,"Clemont",nil,false,8,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont: You did great, \\PN. I'll do even better next "
+    - i: 0
+      code: 401
+      p:
+      - time.
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Erika
+  x: 22
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar062_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rErika: Time for another battle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Erika,"Erika",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar062_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rErika: That was pretty good."
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Gardenia
+  x: 21
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar108
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGardenia: I hope you're prepared."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Gardenia,"Gardenia",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar108
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGardenia: What did you think of the Cacnea I use? "
+    - i: 0
+      code: 401
+      p:
+      - I'm training it for someone.
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Cilan
+  x: 23
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar120
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: \\PN, allow me to serve you a variety of "
+    - i: 0
+      code: 401
+      p:
+      - spices for today's course.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Cilan,"Cilan",nil,false,6,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar120
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCilan: You served up a real beating, \\PN."
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Ramos
+  x: 22
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar159
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRamos: Back for more I see."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Ramos,"Ramos",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar159
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRamos: You did good child."
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Marlon
+  x: 15
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar171
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMarlon: Let's ride the waves."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Marlon,"Marlon",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar171
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMarlon: That was a sick battle."
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Roxie
+  x: 26
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar130
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rRoxie: Let's turn it up to eleven."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Roxie,"Roxie",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar130
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rRoxie: That battle spoke to my soul."
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Koga
+  x: 26
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar063
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKoga: Strike swiftly."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Koga,"Koga",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar063
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKoga: Victory goes to the swift."
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Drayden
+  x: 33
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar170
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDrayden: You hold a lot of potential. Let me see if I "
+    - i: 0
+      code: 401
+      p:
+      - can help you grow.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Drayden,"Drayden",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar170
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDrayden: You've gotten better."
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Clair
+  x: 34
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar089
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rClair: Welcome. Think you are still strong enough to "
+    - i: 0
+      code: 401
+      p:
+      - beat me?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Clair,"Clair",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar089
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rClair: It's amazing how you keep getting stronger "
+    - i: 0
+      code: 401
+      p:
+      - and stronger.
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Sabrina
+  x: 30
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar064
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSabrina: I knew you would come."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Sabrina,"Sabrina",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar064
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSabrina: I wonder what I should do now?"
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Tate
+  x: 29
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar096
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTate: Do you think..."
+    - i: 0
+      code: 401
+      p:
+      - "\\rLiza: You can beat us?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_TateandLiza,"Tate & Liza",nil,true,1,true,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 108
+      p:
+      - Set the partner event's Self Switch "A" on.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar096
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTate: I can't believe..."
+    - i: 0
+      code: 401
+      p:
+      - "\\rLiza: You beat us."
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Liza
+  x: 31
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 33
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTate: Do you think..."
+    - i: 0
+      code: 401
+      p:
+      - "\\rLiza: You can beat us?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_TateandLiza,"Tate & Liza",nil,true,1,true,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 108
+      p:
+      - Set the partner event's Self Switch "A" on.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: NPC 33
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTate: I can't believe..."
+    - i: 0
+      code: 401
+      p:
+      - "\\rLiza: You beat us."
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Olympia
+  x: 30
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar162
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlympia: Have anything new to show me?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Olympia,"Olympia",nil,true,1,true,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar162
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlympia: There are still some surprises after all."
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Giovanni
+  x: 38
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar058
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGiovanni: This time victory will be mine."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Giovanni,"Giovanni",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar058
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGiovanni: Leave while you can."
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Clay
+  x: 38
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar127
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClay: You think you stand a chance?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Clay,"Clay",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar127
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClay: It was all luck and you know it."
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Blaine
+  x: 34
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar065
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaine: Back for more are you?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Blaine,"Blaine",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar065
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaine: Not even the best tricks can get me out of "
+    - i: 0
+      code: 401
+      p:
+      - that one.
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Chili
+  x: 35
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar122
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili: I'm gonna serve up a scorching meal."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Chili,"Chili",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar122
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChili: You served up a real beating."
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Flannery
+  x: 33
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar093
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFlannery: I'm ready... I mean I'm going to... Whatever. "
+    - i: 0
+      code: 401
+      p:
+      - Let's just fight.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Flannery,"Flannery",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar093
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFlannery: I just need some more practice."
+    - i: 0
+      code: 0
+      p: []
+- id: 34
+  name: PC
+  x: 13
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 35
+  name: Heal
+  x: 10
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNurse Joy: You should take a break."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+- id: 36
+  name: Falkner
+  x: 42
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar081
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFalkner: Time to soar."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Falkner,"Falkner",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar081
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFalkner: You continue to impress me."
+    - i: 0
+      code: 0
+      p: []
+- id: 37
+  name: Winona
+  x: 41
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar095
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWinona: Are you ready?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Winona,"Winona",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar095
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWinona: Excellent job. You show mastery of the air."
+    - i: 0
+      code: 0
+      p: []
+- id: 38
+  name: Skyla
+  x: 43
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar128
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSkyla: My Air Battle has already told me the "
+    - i: 0
+      code: 401
+      p:
+      - outcome.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Skyla,"Skyla",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar128
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSkyla: I guess I need to battle to figure out the real "
+    - i: 0
+      code: 401
+      p:
+      - outcome.
+    - i: 0
+      code: 0
+      p: []
+- id: 39
+  name: Wulfric
+  x: 30
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar163
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWulfric: Think you can handle it?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Wulfric,"Wulfric",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar163
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWulfric: Your power is always at its peak."
+    - i: 0
+      code: 0
+      p: []
+- id: 40
+  name: Brycen
+  x: 31
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar129
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrycen: Let's set the stage."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Brycen,"Brycen",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar129
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrycen: This is very different from the stage."
+    - i: 0
+      code: 0
+      p: []
+- id: 41
+  name: Candice
+  x: 29
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar113
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCandice: What are we waiting for? Let's get "
+    - i: 0
+      code: 401
+      p:
+      - started!
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Candice,"Candice",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar113
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCandice: I guess I battled a little too seriously."
+    - i: 0
+      code: 0
+      p: []
+- id: 42
+  name: Pryce
+  x: 30
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar088
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPryce: Don't hold back now."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Pryce,"Pryce",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar088
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPryce: It's rare to find a Trainer as good as you."
+    - i: 0
+      code: 0
+      p: []
+- id: 43
+  name: Bugsy
+  x: 10
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar082
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy: I've done some research. I think I've got this "
+    - i: 0
+      code: 401
+      p:
+      - one.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Bugsy,"Bugsy",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar082
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBugsy: It's okay. I'll just study harder."
+    - i: 0
+      code: 0
+      p: []
+- id: 44
+  name: Viola
+  x: 11
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar156
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rViola: I'll take a picture after I win."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Viola,"Viola",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar156
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rViola: Let me take a picture to celebrate your "
+    - i: 0
+      code: 401
+      p:
+      - victory.
+    - i: 0
+      code: 0
+      p: []
+- id: 45
+  name: Burgh
+  x: 9
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar125
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBurgh: Time for a magnificent show."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Burgh,"Burgh",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar125
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBurgh: That battle was amazing. I look forward to "
+    - i: 0
+      code: 401
+      p:
+      - the next one.
+    - i: 0
+      code: 0
+      p: []
+- id: 46
+  name: Korrina
+  x: 21
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar158
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rKorrina: I'm gonna wipe the floor with you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Korrina,"Korrina",nil,false,3,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar158
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rKorrina: Lucario and I will win next time."
+    - i: 0
+      code: 0
+      p: []
+- id: 47
+  name: Chuck
+  x: 22
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar087
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChuck: You think you're tough enough?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Chuck,"Chuck",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar087
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bChuck: To lose to a kid. The next generation is doing "
+    - i: 0
+      code: 401
+      p:
+      - great.
+    - i: 0
+      code: 0
+      p: []
+- id: 48
+  name: Brawly
+  x: 21
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar091
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrawly: Time to ride the waves."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Brawly,"Brawly",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar091
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrawly: Come visit the island sometime. The waves "
+    - i: 0
+      code: 401
+      p:
+      - are great there.
+    - i: 0
+      code: 0
+      p: []
+- id: 49
+  name: Maylene
+  x: 23
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar109
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMaylene: Full power!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Maylene,"Maylene",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar109
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMaylene: I just need to work harder."
+    - i: 0
+      code: 0
+      p: []
+- id: 50
+  name: Whitney
+  x: 14
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar083
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhitney: Don't make me get serious."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Whitney,"Whitney",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar083
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhitney: Don't think that this is over."
+    - i: 0
+      code: 0
+      p: []
+- id: 51
+  name: Norman
+  x: 13
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar094
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNorman: Welcome. I hope you're ready."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Norman,"Norman",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar094
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNorman: You did a great job."
+    - i: 0
+      code: 0
+      p: []
+- id: 52
+  name: Lenora
+  x: 15
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar124
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLenora: I guess I can give it a try."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Lenora,"Lenora",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar124
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLenora: Impressive. Keep training like that and "
+    - i: 0
+      code: 401
+      p:
+      - become a champion one day.
+    - i: 0
+      code: 0
+      p: []
+- id: 53
+  name: Cheren
+  x: 14
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar131
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCheren: Now that I'm ready let me show you my "
+    - i: 0
+      code: 401
+      p:
+      - true power.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Cheren,"Cheren",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar131
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCheren: There's nothing I can teach you."
+    - i: 0
+      code: 0
+      p: []
+- id: 54
+  name: Morty
+  x: 18
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar084
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMorty: Show me the power you possess."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Morty,"Morty",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar084
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMorty: What do I need to do to win?"
+    - i: 0
+      code: 0
+      p: []
+- id: 55
+  name: Fantina
+  x: 17
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar111
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFantina: Bonjour. Let us begin."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Fantina,"Fantina",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar111
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFantina: Amazing! Just amazing!"
+    - i: 0
+      code: 0
+      p: []
+- id: 56
+  name: Byron
+  x: 26
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar112
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bByron: Think you can beat my defense?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Byron,"Byron",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar112
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bByron: You might be good enough to beat my son."
+    - i: 0
+      code: 0
+      p: []
+- id: 57
+  name: Jasmine
+  x: 26
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar086
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJasmine: Let's take it nice and easy."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Jasmine,"Jasmine",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar086
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJasmine: That battle was fun. I'm so glad we did "
+    - i: 0
+      code: 401
+      p:
+      - this.
+    - i: 0
+      code: 0
+      p: []
+- id: 58
+  name: Cissy
+  x: 24
+  "y": 48
+  pages:
+  - condition: {}
+    graphic: trchar076
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCissy: I've trained hard. I think I can do this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Cissy,"Cissy",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar076
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCissy: I'm going to get tougher."
+    - i: 0
+      code: 0
+      p: []
+- id: 59
+  name: Danny
+  x: 26
+  "y": 48
+  pages:
+  - condition: {}
+    graphic: trchar078
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDanny: Good to see you again."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Danny,"Danny",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar078
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDanny: Don't worry about it. I'll get better."
+    - i: 0
+      code: 0
+      p: []
+- id: 60
+  name: Drake
+  x: 28
+  "y": 48
+  pages:
+  - condition: {}
+    graphic: trchar080
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDrake: Let's see what two champions can do."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Drake,"Drake",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar080
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDanny: It's always good to find a good challenger."
+    - i: 0
+      code: 0
+      p: []
+- id: 61
+  name: Rudy
+  x: 30
+  "y": 48
+  pages:
+  - condition: {}
+    graphic: trchar077
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRudy: Don't think I'm holding back."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Rudy,"Rudy",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar077
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRudy: Come back when you're even better."
+    - i: 0
+      code: 0
+      p: []
+- id: 62
+  name: Luana
+  x: 32
+  "y": 48
+  pages:
+  - condition: {}
+    graphic: trchar079
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLuana: Have you improved?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Luana,"Luana",nil,true,1,true,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar079
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLuana: There are still some surprises after all."
+    - i: 0
+      code: 0
+      p: []
+- id: 63
+  name: Noland
+  x: 22
+  "y": 56
+  pages:
+  - condition: {}
+    graphic: trchar098
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNoland: You'll never know what to expect with me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:FACTORYHEAD_Noland,"Noland",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar098
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNoland: It's okay. I'll just study harder."
+    - i: 0
+      code: 0
+      p: []
+- id: 64
+  name: Greta
+  x: 24
+  "y": 56
+  pages:
+  - condition: {}
+    graphic: trchar099
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGreta: Let's give it a fighting chance!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ARENATYCOON_Greta,"Greta",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar099
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGreta: We went out with a bang."
+    - i: 0
+      code: 0
+      p: []
+- id: 65
+  name: Tucker
+  x: 26
+  "y": 56
+  pages:
+  - condition: {}
+    graphic: trchar100
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTucker: We may not have a crowd but we will still "
+    - i: 0
+      code: 401
+      p:
+      - put on a show.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:DOMEACE_Tucker,"Tucker",nil,true,1,true,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar100
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTucker: Until next time."
+    - i: 0
+      code: 0
+      p: []
+- id: 66
+  name: Lucy
+  x: 30
+  "y": 56
+  pages:
+  - condition: {}
+    graphic: trchar101
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLucy: Is luck on your side?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PIKEQUEEN_Lucy,"Lucy",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar101
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLucy: Maybe next time."
+    - i: 0
+      code: 0
+      p: []
+- id: 67
+  name: Brandon
+  x: 28
+  "y": 56
+  pages:
+  - condition: {}
+    graphic: trchar104
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrandon: You don't stand a chance."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PYRAMIDKING_Brandon,"Brandon",nil,false,3,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar104
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrandon: Continue to love and support your team."
+    - i: 0
+      code: 0
+      p: []
+- id: 68
+  name: Anabel
+  x: 34
+  "y": 56
+  pages:
+  - condition: {}
+    graphic: trchar103
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAnabel: Does your connection beat mine?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SALONMAIDEN_Anabel,"Anabel",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar103
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAnabel: Even my psychic powers were no match."
+    - i: 0
+      code: 0
+      p: []
+- id: 69
+  name: Spenser
+  x: 32
+  "y": 56
+  pages:
+  - condition: {}
+    graphic: trchar102
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSpenser: Let us begin."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PALACEMAVEN_Spenser,"Spenser",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar102
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSpenser: Don't get frustrated. Let your partners "
+    - i: 0
+      code: 401
+      p:
+      - guide you.
+    - i: 0
+      code: 0
+      p: []
+- id: 70
+  name: Heal
+  x: 23
+  "y": 65
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNurse Joy: You should take a break."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+- id: 71
+  name: PC
+  x: 26
+  "y": 64
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 72
+  name: Exit
+  x: 28
+  "y": 67
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 694
+      - 35
+      - 55
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 73
+  name: Lorelei
+  x: 22
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: trchar067
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLorelei: I think you deserve a second chance. "
+    - i: 0
+      code: 401
+      p:
+      - Prepare to be frozen in fear.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Lorelei,"Lorelei",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar067
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLorelei: I look forward to your next challenge."
+    - i: 0
+      code: 0
+      p: []
+- id: 74
+  name: Agatha
+  x: 26
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: trchar069
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAgatha: Good to see you again child. I won't go "
+    - i: 0
+      code: 401
+      p:
+      - easy on you.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Agatha,"Agatha",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar069
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAgatha: You did well. Challenge someone else, all "
+    - i: 0
+      code: 401
+      p:
+      - of the Kanto Elite Four is here.
+    - i: 0
+      code: 0
+      p: []
+- id: 75
+  name: Bruno
+  x: 24
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: trchar068
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBruno: I've been waiting for your arrival."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Bruno,"Bruno",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar068
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBruno: Come back after I've trained more."
+    - i: 0
+      code: 0
+      p: []
+- id: 76
+  name: Diantha
+  x: 26
+  "y": 61
+  pages:
+  - condition: {}
+    graphic: trchar165
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDiantha: Why am I not suprised to see you here, "
+    - i: 0
+      code: 401
+      p:
+      - "\\PN? I suppose I'm ready."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Diantha,"Diantha",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar165
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDiantha: If I used a full team against you, I'd be "
+    - i: 0
+      code: 401
+      p:
+      - unstoppable.
+    - i: 0
+      code: 0
+      p: []
+- id: 77
+  name: Lance
+  x: 24
+  "y": 59
+  pages:
+  - condition: {}
+    graphic: trchar070
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLance: We meet again. It's time I tested you in "
+    - i: 0
+      code: 401
+      p:
+      - battle.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Lance,"Lance",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar070
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLance: I'm impressed. You're deserving of the "
+    - i: 0
+      code: 401
+      p:
+      - Champion title.
+    - i: 0
+      code: 0
+      p: []
+- id: 78
+  name: Alder
+  x: 32
+  "y": 59
+  pages:
+  - condition: {}
+    graphic: trchar135
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlder:... Oh, is it time to fight?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Alder,"Alder")
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar135
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlder:..."
+    - i: 0
+      code: 0
+      p: []
+- id: 79
+  name: Drake
+  x: 28
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: trchar172
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDrake: I'm ready whenever you are. I'll represent "
+    - i: 0
+      code: 401
+      p:
+      - the entire Hoenn Elite Four in their absence.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Drake,"Drake",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar172
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDrake: Don't think my age has slowed me down."
+    - i: 0
+      code: 0
+      p: []
+- id: 80
+  name: Bertha
+  x: 32
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: trchar173
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBertha: I figured I'd see you again."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Bertha,"Bertha",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar173
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBertha: You won't catch me off guard next time."
+    - i: 0
+      code: 0
+      p: []
+- id: 81
+  name: Flint
+  x: 34
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: trchar119
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFlint: I'm ready for a good time."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Flint,"Flint",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar119
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFlint: I wish we could battle with more options. You give "
+    - i: 0
+      code: 401
+      p:
+      - me a real challenge.
+    - i: 0
+      code: 0
+      p: []
+- id: 82
+  name: Aaron
+  x: 30
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: trchar190
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAaron: The power of my team will destroy you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Aaron,"Aaron",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar190
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAaron: Rematch anytime."
+    - i: 0
+      code: 0
+      p: []
+- id: 83
+  name: Lucian
+  x: 24
+  "y": 53
+  pages:
+  - condition: {}
+    graphic: trchar191
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLucian: It's very nice to meet you. Shall we get "
+    - i: 0
+      code: 401
+      p:
+      - started?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Lucian,"Lucian",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar191
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLucian: Not every Elite Four member shows up for "
+    - i: 0
+      code: 401
+      p:
+      - 'this. At the very least we have all of the Sinnoh '
+    - i: 0
+      code: 401
+      p:
+      - members here.
+    - i: 0
+      code: 0
+      p: []
+- id: 84
+  name: Caitlin
+  x: 26
+  "y": 53
+  pages:
+  - condition: {}
+    graphic: trchar192
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCaitlin: I don't believe we have met. My name is "
+    - i: 0
+      code: 401
+      p:
+      - 'Caitlin, a member of the Unova Elite Four. Are you '
+    - i: 0
+      code: 401
+      p:
+      - ready?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Caitlin,"Caitlin",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar192
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCaitlin: That looked well rehearsed."
+    - i: 0
+      code: 0
+      p: []
+- id: 85
+  name: Malva
+  x: 28
+  "y": 53
+  pages:
+  - condition: {}
+    graphic: trchar193
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMalva: I heard you were at Lumiose City during "
+    - i: 0
+      code: 401
+      p:
+      - 'Team Flare''s attack. I myself used to be a member, '
+    - i: 0
+      code: 401
+      p:
+      - but not anymore. I'm still strong though.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Malva,"Malva",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar193
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMalva: It's no wonder Lysandre lost."
+    - i: 0
+      code: 0
+      p: []
+- id: 86
+  name: Siebold
+  x: 30
+  "y": 53
+  pages:
+  - condition: {}
+    graphic: trchar194
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSiebold: Let me cook you up something tasteful."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Siebold,"Siebold",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar194
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSiebold: If I wasn't up to your tastes try one of the "
+    - i: 0
+      code: 401
+      p:
+      - other members of the Kalos Elite Four.
+    - i: 0
+      code: 0
+      p: []
+- id: 87
+  name: Wikstrom
+  x: 32
+  "y": 53
+  pages:
+  - condition: {}
+    graphic: trchar195
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWikstrom: It is a pleasure to see you again. Let us fight "
+    - i: 0
+      code: 401
+      p:
+      - with chivalry and honor.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Wikstrom,"Wikstrom",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar195
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWikstrom: I enjoyed our fight. Continue to train "
+    - i: 0
+      code: 401
+      p:
+      - yourself.
+    - i: 0
+      code: 0
+      p: []
+- id: 88
+  name: Steven
+  x: 28
+  "y": 59
+  pages:
+  - condition: {}
+    graphic: trchar196
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSteven: Well \\PN, let's test each other out."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Steven,"Steven",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar196
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSteven: Please return soon."
+    - i: 0
+      code: 0
+      p: []
+- id: 89
+  name: Wallace
+  x: 26
+  "y": 59
+  pages:
+  - condition: {}
+    graphic: trchar197
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWallace: I may love contests, but I can battle just as "
+    - i: 0
+      code: 401
+      p:
+      - well as anyone else.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Wallace,"Wallace",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar197
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWallace: We should do a performance together."
+    - i: 0
+      code: 0
+      p: []
+- id: 90
+  name: Cynthia
+  x: 30
+  "y": 59
+  pages:
+  - condition: {}
+    graphic: trchar198
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCynthia: At long last I get to try you on myself. Are "
+    - i: 0
+      code: 401
+      p:
+      - you ready \PN?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Cynthia,"Cynthia",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar198
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCynthia: Keep traveling and discovering new things. "
+    - i: 0
+      code: 401
+      p:
+      - It will help you out in the long run.
+    - i: 0
+      code: 0
+      p: []
+- id: 91
+  name: Heal
+  x: 48
+  "y": 62
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNurse Joy: You should take a break."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+- id: 92
+  name: PC
+  x: 50
+  "y": 61
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 93
+  name: Exit
+  x: 53
+  "y": 63
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 694
+      - 39
+      - 55
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 94
+  name: Hala
+  x: 49
+  "y": 55
+  pages:
+  - condition: {}
+    graphic: trchar182
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHala: Time for another test."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ISLANDKAHUNA_Hala,"Hala",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar182
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHala: Come back anytime."
+    - i: 0
+      code: 0
+      p: []
+- id: 95
+  name: Olivia
+  x: 54
+  "y": 55
+  pages:
+  - condition: {}
+    graphic: trchar183
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlivia: Back for more I see."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ISLANDKAHUNA_Olivia,"Olivia",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar183
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlivia: I look forward to the next battle."
+    - i: 0
+      code: 0
+      p: []
+- id: 96
+  name: Nanu
+  x: 49
+  "y": 58
+  pages:
+  - condition: {}
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu:... So, you're back?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ISLANDKAHUNA_Nanu,"Nanu",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar184
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bNanu: Give me some time to rest."
+    - i: 0
+      code: 0
+      p: []
+- id: 97
+  name: Hapu
+  x: 54
+  "y": 58
+  pages:
+  - condition: {}
+    graphic: trchar185
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHapu: Maybe this time I can give you a good fight."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ISLANDKAHUNA_Hapu,"Hapu",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar185
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHapu: Come back soon."
+    - i: 0
+      code: 0
+      p: []
+- id: 98
+  name: Ash
+  x: 30
+  "y": 61
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 101
+      p:
+      - It's your spot. Don't you feel proud?
+    - i: 0
+      code: 0
+      p: []
+- id: 99
+  name: Iris
+  x: 24
+  "y": 61
+  pages:
+  - condition: {}
+    graphic: trchar220
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: Hi \\PN! Back to battle a Champion?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Iris,"Iris",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar220
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIris: I think we're both improving. Try to bring more "
+    - i: 0
+      code: 401
+      p:
+      - Dragon types next time.
+    - i: 0
+      code: 0
+      p: []
+- id: 100
+  name: Bea
+  x: 23
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar227
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBea: Trainer of Pikachu. I've trained hard for this "
+    - i: 0
+      code: 401
+      p:
+      - rematch.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Bea,"Bea",nil,false,3,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar227
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBea: I will continue to train."
+    - i: 0
+      code: 0
+      p: []
+- id: 101
+  name: Allister
+  x: 19
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar230
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAllister: R-Ready."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Allister,"Allister",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar230
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAllister: U-Until next time."
+    - i: 0
+      code: 0
+      p: []
+- id: 102
+  name: Raihan
+  x: 35
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar226
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRaihan: I'll crush you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Raihan,"Raihan",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar226
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRaihan: Not good enough for Leon yet."
+    - i: 0
+      code: 0
+      p: []
+- id: 103
+  name: Piers
+  x: 38
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar229
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPiers: A battle? I suppose."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Piers,"Piers",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar229
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPiers: You did well."
+    - i: 0
+      code: 0
+      p: []
+- id: 104
+  name: Opal
+  x: 42
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar228
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOpal: Oh? Ready for another quiz?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Opal,"Opal",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar228
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOpal: I've grown tired. Leave."
+    - i: 0
+      code: 0
+      p: []
+- id: 105
+  name: Drasna
+  x: 34
+  "y": 53
+  pages:
+  - condition: {}
+    graphic: trchar231
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDrasna: Back for more?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ELITEFOUR_Drasna,"Drasna",nil,false,1,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar231
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDrasna: I suppose you won this time."
+    - i: 0
+      code: 0
+      p: []
+- id: 106
+  name: Leon
+  x: 32
+  "y": 61
+  pages:
+  - condition: {}
+    graphic: trchar224
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLeon: Champion time!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHAMPION_Leon,"Leon",nil,false,2,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar224
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLeon: As strong as ever. The rush you give me is "
+    - i: 0
+      code: 401
+      p:
+      - like no other.
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,126 @@
+---
+id: 788
+name: Route 19 House
+parent: 182
+width: 30
+height: 15
+tileset: 14
+bgm: Lab
+events:
+- id: 6
+  name: Person
+  x: 24
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello there. Lovely day isn't it?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bI would give you something for visiting me but I "
+    - i: 0
+      code: 401
+      p:
+      - seem to have misplaced it.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 49
+      switch2: 9
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI found what I was looking for. Here, take this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:VERMILIONTICKET)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 121
+      p:
+      - 50
+      - 50
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat's a ticket that will take let you board a ship in "
+    - i: 0
+      code: 401
+      p:
+      - Vermillion City.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 24
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 181
+      - 12
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

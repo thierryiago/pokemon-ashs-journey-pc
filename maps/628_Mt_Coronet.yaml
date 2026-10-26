@@ -1,0 +1,2617 @@
+---
+id: 628
+name: Mt. Coronet
+parent: 774
+width: 70
+height: 75
+tileset: 1
+bgm: Cave
+events:
+- id: 1
+  name: Teleport
+  x: 24
+  "y": 49
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHello. The cave is dangerous so I'm using my Abra "
+    - i: 0
+      code: 401
+      p:
+      - 'to teleport people past it. Want to be teleported to '
+    - i: 0
+      code: 401
+      p:
+      - Hearthome City?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 551
+      - 21
+      - 23
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rOkay, but I'm still not letting you in."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Pokemon
+  x: 23
+  "y": 49
+  pages:
+  - condition: {}
+    graphic: ABRA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: 063Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bAbra"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 25
+  "y": 55
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:PPUP)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 56
+  "y": 50
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:ETHER)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Item
+  x: 44
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SUNSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: HiddenItem
+  x: 46
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:FULLRESTORE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(4)
+  x: 51
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rSo cold out here."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Vin")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe cold helps me train. The height doesn't."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(4)
+  x: 41
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bA new face?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Revur")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBe careful walking around. A sudden slip and it is "
+    - i: 0
+      code: 401
+      p:
+      - over.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(4)
+  x: 45
+  "y": 50
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrr..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Scham")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can't feel my toes."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(4)
+  x: 26
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat do you think you're doing?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Quillon")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI didn't know you were with Goh. My mistake."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Goh
+  x: 16
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar223
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGoh: There you are. I was able to catch Ninetales. "
+    - i: 0
+      code: 401
+      p:
+      - I'm now an official member of Project Mew.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks for coming with me. Just having you along "
+    - i: 0
+      code: 401
+      p:
+      - 'helped boost my confidence. We should head back to '
+    - i: 0
+      code: 401
+      p:
+      - the lab though. It's freezing up here.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 602
+      - 602
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 512
+      - 512
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 94
+      - 13
+      - 14
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 512
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(4)
+  x: 26
+  "y": 53
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't make any sudden noises."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Gabi")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI guess battling gets loud. I need to stop."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Item
+  x: 55
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:RARECANDY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Gate
+  x: 35
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 507
+      - 21
+      - 11
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Gate
+  x: 36
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 507
+      - 21
+      - 11
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Gate
+  x: 36
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 507
+      - 21
+      - 11
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Gate
+  x: 35
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 507
+      - 21
+      - 11
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Gate
+  x: 35
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 507
+      - 21
+      - 11
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Gate
+  x: 36
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveEntrance
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 507
+      - 21
+      - 11
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Encouter Pokemon
+  x: 28
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: DIALGA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEGENDARYPOKEMON,"Dialga & Palkia")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(21,"B",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: We stopped them. Is...this it?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bGoh: I think so. Let's get back into the portal before "
+    - i: 0
+      code: 401
+      p:
+      - it closes.
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't think this is it. We'll..."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 602
+      - 602
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 519
+      - 519
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 507
+      - 21
+      - 12
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Encouter Pokemon
+  x: 28
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: PALKIA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEGENDARYPOKEMON,"Dialga & Palkia")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(20,"B",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: We stopped them. Is...this it?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bGoh: I think so. Let's get back into the portal before "
+    - i: 0
+      code: 401
+      p:
+      - it closes.
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't think this is it. We'll..."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 602
+      - 602
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 519
+      - 519
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 507
+      - 21
+      - 12
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Goh
+  x: 34
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar223
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGoh: I'll handle these guys. Hurry on ahead."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar223
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGoh: I'll handle these guys. Hurry on ahead."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Dawn
+  x: 34
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Stop them, \\PN!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Stop them, \\PN!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Trainer(4)
+  x: 32
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar056
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe legendaries will be ours."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET_M,"Alternate Geraldo",nil,false,0,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe boss won't like this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar212
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC_Jupiter)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rJupiter: We're going to bring our boss back."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC_Jupiter,"Jupiter",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar212
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJupiter: Cyrus will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Trainer(4)
+  x: 31
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar056
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of our way."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET_M,"Alternate Johnny",nil,false,0,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe boss won't like this."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar211
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC_Mars)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rMars: Heatran will open the way to Cyrus."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC_Mars,"Mars",nil,false,3,false,0)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar211
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMars: Boss Cyrus will unite us once again."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Trainer(4)
+  x: 31
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: trchar056
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot now."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET_M,"Alternate Jamenson",nil,false,0,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe planned for too long for this to fail."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Trainer(4)
+  x: 32
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: trchar056
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe'll take the Pokémon from every universe."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET_M,"Alternate Prince",nil,false,0,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bEven yours. Just you wait."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Trainer(4)
+  x: 30
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: trchar056
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe portals shouldn't be doing this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET_M,"Alternate James",nil,false,0,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe need to regroup."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Trainer(4)
+  x: 30
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar057
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMROCKET_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHow dare you!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET_F,"Alternate Jessie",nil,false,0,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar057
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHow dare you!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar210
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC_Saturn)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bSaturn: I've tried again and again to bring our "
+    - i: 0
+      code: 401
+      p:
+      - 'beloved boss back. You were the reason he left us. I '
+    - i: 0
+      code: 401
+      p:
+      - will not let you stop his return!
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC_Saturn,"Saturn",nil,false,3,false,0)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar210
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSaturn: Cyrus... Where did you go?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Person
+  x: 33
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar057
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rTeam Rocket won't be stopped."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Person
+  x: 33
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: trchar057
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rTeam Rocket won't be stopped."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Person
+  x: 34
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: trchar057
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rTeam Rocket won't be stopped."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Person
+  x: 34
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar056
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Rocket won't be stopped."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 34
+  name: Team Rocket
+  x: 29
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGet out of our world."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 35
+  name: Team Rocket
+  x: 29
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: WOBBUFFET
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWobb"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 36
+  name: Person
+  x: 31
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar000_7
+    trigger: 2
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 37
+  name: Person
+  x: 33
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 2
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 38
+  name: Person
+  x: 32
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar223
+    trigger: 2
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 519
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 42
+  name: Pokemon
+  x: 30
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: MESPRIT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 481Cry
+        pitch: 100
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 43
+  name: Pokemon
+  x: 32
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: AZELF
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 482Cry
+        pitch: 100
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 44
+  name: Pokemon
+  x: 34
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: UXIE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 480Cry
+        pitch: 100
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 45
+  name: Encouter Pokemon
+  x: 29
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: HEATRAN
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEGEND_Heatran,"Heatran")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCynthia: That's it! We've thwarted their plans."
+    - i: 0
+      code: 101
+      p:
+      - "\\bSaturn: No! Noooo! Our boss needs to return."
+    - i: 0
+      code: 101
+      p:
+      - "\\rThank you, everyone, for your help. I'll take care of "
+    - i: 0
+      code: 401
+      p:
+      - turning in these criminals.
+    - i: 0
+      code: 101
+      p:
+      - "\\bGoh: I guess that's it. Let's head back to the lab."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 523
+      - 523
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 94
+      - 13
+      - 12
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Phone: Incoming call from Sophocles:'
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: \\PN. Could you do me a favor and visit "
+    - i: 0
+      code: 401
+      p:
+      - me at the Mossdeep Space Center. I need your help.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 46
+  name: Cynthia
+  x: 35
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar198
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCynthia: I've got these ones."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 47
+  name: Person
+  x: 36
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 48
+  name: Person
+  x: 36
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 49
+  name: Person
+  x: 35
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 50
+  name: Brock
+  x: 35
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: Don't worry about me."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 51
+  name: Person
+  x: 30
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 52
+  name: Person
+  x: 31
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 53
+  name: Person
+  x: 32
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 522
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will return."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 523
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

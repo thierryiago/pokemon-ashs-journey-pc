@@ -1,0 +1,509 @@
+---
+id: 218
+name: Mikan Gym
+parent: 216
+width: 20
+height: 20
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Cissy
+  x: 9
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar076
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Cissy)
+    - i: 0
+      code: 101
+      p:
+      - "\\rCissy: Hi there! Are you ready to be demolished by "
+    - i: 0
+      code: 401
+      p:
+      - a member of the Orange Crew?
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Cissy,"Cissy")
+    - i: 1
+      code: 101
+      p:
+      - "\\rCissy: You've earned the Coral-Eye Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:CORALEYEBADGE)
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM18)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM18 contains Rain Dance. Rain Dance "
+    - i: 1
+      code: 401
+      p:
+      - 'makes it rain for a few turns, boosting the power of '
+    - i: 1
+      code: 401
+      p:
+      - Water moves.
+    - i: 1
+      code: 121
+      p:
+      - 73
+      - 73
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar076
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCissy: You have potential. I wish you luck in the "
+    - i: 0
+      code: 401
+      p:
+      - Orange League.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(1)
+  x: 13
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar045
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's battle!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Dave",_I("I lost?!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCissy has been training on this island for"
+    - i: 0
+      code: 401
+      p:
+      - years.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 73
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCissy has been training on this island for"
+    - i: 0
+      code: 401
+      p:
+      - years.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(1)
+  x: 3
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar045
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bAre you good enough?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Mako",_I("You may be."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's hard to battle when you're"
+    - i: 0
+      code: 401
+      p:
+      - swimming.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 73
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's hard to battle when you're"
+    - i: 0
+      code: 401
+      p:
+      - swimming.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(1)
+  x: 12
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar045
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\b..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Dayton",_I("..."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b...Sorry! Swallowed some water."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 73
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\b...Sorry! Swallowed some water."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(1)
+  x: 5
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar045
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis place is great for swimming."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Jerry",_I("You messed up my flow."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCissy uses Water Pokémon for her Gym."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 73
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCissy uses Water Pokémon for her Gym."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(1)
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar046
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't look at me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_F,"Jessica",_I("I said stop looking."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar046
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy swimsuit is a bit embarrassing."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 73
+    graphic: trchar046
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy swimsuit is a bit embarrassing."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 9
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 215
+      - 23
+      - 9
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

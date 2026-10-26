@@ -1,0 +1,305 @@
+---
+id: 556
+name: Hearthome Contest
+parent: 552
+width: 20
+height: 15
+tileset: 3
+bgm: Contest Hall
+events:
+- id: 1
+  name: Person
+  x: 5
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm very sorry, but you missed the deadline to "
+    - i: 0
+      code: 401
+      p:
+      - compete.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 12
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHmmm... this Contest was something. But what was "
+    - i: 0
+      code: 401
+      p:
+      - missing?
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Dawn
+  x: 1
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Hey \\PN. I lost the Contest here. I'm so "
+    - i: 0
+      code: 401
+      p:
+      - embarrassed. No need to worry though, I'm alright.
+    - i: 0
+      code: 101
+      p:
+      - "\\rHow did your Gym go? The Gym Leader is gone, "
+    - i: 0
+      code: 401
+      p:
+      - huh?
+    - i: 0
+      code: 101
+      p:
+      - "\\rI have an idea! Why don't we enter the Battle Hall "
+    - i: 0
+      code: 401
+      p:
+      - tournament? Let's see which of us can do better.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 167
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 156
+      switch2: 157
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 6
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 551
+      - 35
+      - 15
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Move Tutor
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAfter spending years in this town I decided to help "
+    - i: 0
+      code: 401
+      p:
+      - out and teach the move, Helping Hand.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can teach it to you if you want?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhich Pokémon would you like me to teach?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:HELPINGHAND)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 157
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI won't lose."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Cocoa")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'll do better next time."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 11
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 157
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy training will pay off."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LADY,"Paris")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMinimalism can be used to great use."
+    - i: 0
+      code: 0
+      p: []

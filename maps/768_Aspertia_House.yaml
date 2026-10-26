@@ -1,0 +1,277 @@
+---
+id: 768
+name: Aspertia House
+parent: 767
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 767
+      - 36
+      - 17
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 4
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 28
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThere are all kinds of different experience in Unova."
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe sure to enjoy them all."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 23
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 767
+      - 36
+      - 30
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 3
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 767
+      - 26
+      - 58
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 20
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCheren may be starting up a new gym, but he is "
+    - i: 0
+      code: 401
+      p:
+      - already worthy of respect.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 7
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf only someone had the Paleozoic Pokémon."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemonParty[0].species==:GENESECT"
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh you have one. Please use these."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:BURNDRIVE)
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:CHILLDRIVE)
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:DOUSEDRIVE)
+    - i: 4
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:SHOCKDRIVE)
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf you ever find one come back and show me."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome show me your friend sometime."
+    - i: 0
+      code: 0
+      p: []

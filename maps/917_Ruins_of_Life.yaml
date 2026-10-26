@@ -1,0 +1,360 @@
+---
+id: 917
+name: Ruins of Life
+parent: 907
+width: 40
+height: 25
+tileset: 1
+bgm: Alola Route
+events:
+- id: 1
+  name: Olivia
+  x: 11
+  "y": 11
+  pages:
+  - condition:
+      switch1: 304
+    graphic: trchar183
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ISLANDKAHUNA_Olivia)
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlivia: Welcome to the Ruins of Life. Our island "
+    - i: 0
+      code: 401
+      p:
+      - guardian lives around here and helps protect us.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI see you've beaten one of the trials on this island. I "
+    - i: 0
+      code: 401
+      p:
+      - 'guess you''re here to face me. Don''t think I''ll make this '
+    - i: 0
+      code: 401
+      p:
+      - easy.
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ISLANDKAHUNA_Olivia,"Olivia",nil,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\rWonderful job. Take this as a reward."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:ROCKIUMZ)
+    - i: 1
+      code: 101
+      p:
+      - "\\rA Rockium Z. With that you can power up your "
+    - i: 1
+      code: 401
+      p:
+      - Rock-type attacks.
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:SINNOHCUTEMASTER)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 121
+      p:
+      - 311
+      - 311
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - 'Rotom Dex: Let''s go back to Paniola Town and inform '
+    - i: 1
+      code: 401
+      p:
+      - the professor of your win.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar183
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlivia: I imagine you'll going to beat every challenge. "
+    - i: 0
+      code: 401
+      p:
+      - You're already halfway there.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar183
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOlivia: Kiawe and I are doing fine."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Gift Pokemon
+  x: 23
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: TAPULELE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 786Cry
+        pitch: 100
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Tapu
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:TAPULELE,25)
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Kiawe
+  x: 12
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Training under Olivia has been quite an "
+    - i: 0
+      code: 401
+      p:
+      - 'experience. I might be good enough to take you on '
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Kiawe,"Kiawe",nil,false,7,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar177
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKiawe: Come back some other time if you're up for "
+    - i: 0
+      code: 401
+      p:
+      - an intense battle.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Marowak
+  x: 12
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: MAROWAK_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 105Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMarowak"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Turtonator
+  x: 16
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: TURTONATOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 776Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bTurtonator"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Charizard
+  x: 22
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: CHARIZARD
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 006Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCharizard"
+    - i: 0
+      code: 0
+      p: []

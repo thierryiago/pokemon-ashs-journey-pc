@@ -1,0 +1,671 @@
+---
+id: 263
+name: Violet House
+parent: 262
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 4
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis class is so much fun!"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 7
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar006
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe sure to read what's on the blackboard carefully!"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Text formatting NPC
+  x: 5
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 118
+      p:
+      - Start
+    - i: 0
+      code: 101
+      p:
+      - Choose a status option.
+    - i: 0
+      code: 102
+      p:
+      - - Sleep
+        - Burn
+        - Poison
+        - Cancel
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Sleep
+    - i: 1
+      code: 101
+      p:
+      - A Pokémon can't attack if it is asleep.
+    - i: 1
+      code: 101
+      p:
+      - Pokémon will stay asleep even after battles.
+    - i: 1
+      code: 101
+      p:
+      - Use Awkening to awaken one from sleep.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Burn
+    - i: 1
+      code: 101
+      p:
+      - A burn reduces attack power.
+    - i: 1
+      code: 401
+      p:
+      - It also causes ongoing HP loss.
+    - i: 1
+      code: 101
+      p:
+      - A burn remains after battle.
+    - i: 1
+      code: 401
+      p:
+      - Use Bun Heal to cure a burn.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Poison
+    - i: 1
+      code: 101
+      p:
+      - 'When poisoned, a Pokémon''s health steadily drops. '
+    - i: 1
+      code: 101
+      p:
+      - Poison lingers after battles.
+    - i: 1
+      code: 401
+      p:
+      - Use an Antidote to cure poison!
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Cancel
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Text formatting NPC
+  x: 6
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 118
+      p:
+      - Start
+    - i: 0
+      code: 101
+      p:
+      - Choose a status option.
+    - i: 0
+      code: 102
+      p:
+      - - Paralysis
+        - Freeze
+        - Confusion
+        - Cancel
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Paralysis
+    - i: 1
+      code: 101
+      p:
+      - 'Paralysis reduces speed and may prevent the '
+    - i: 1
+      code: 401
+      p:
+      - Pokémon from moving.
+    - i: 1
+      code: 101
+      p:
+      - 'Paralysis remains after battles. Use Parlyz Heal for '
+    - i: 1
+      code: 401
+      p:
+      - treatment.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Freeze
+    - i: 1
+      code: 101
+      p:
+      - It stays frozen even after the battle ends.
+    - i: 1
+      code: 101
+      p:
+      - A frozen Pokémon becomes helplessly immobile.
+    - i: 1
+      code: 101
+      p:
+      - Use Ice Heal to thaw out the suffering Pokémon.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Confusion
+    - i: 1
+      code: 101
+      p:
+      - 'When confused, a Pokémon''s may attack itself. '
+    - i: 1
+      code: 101
+      p:
+      - Confusion does not last if recalled though.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Cancel
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Town Map
+  x: 8
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbShowMap
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 2
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou've come far from home. Are you feeling well?"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 3
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've learned so much in here."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 262
+      - 33
+      - 57
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 26
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 262
+      - 13
+      - 38
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Exit
+  x: 5
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 262
+      - 46
+      - 42
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trader - Basic
+  x: 24
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm looking for a Bellsprout."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant to trade it for my Onix?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'The chosen Pokémon''s party index goes in Game '
+    - i: 1
+      code: 408
+      p:
+      - 'Variable 1. A value of -1 means no Pokémon was '
+    - i: 1
+      code: 408
+      p:
+      - chosen.
+    - i: 1
+      code: 408
+      p:
+      - The chosen Pokémon's name goes in Game Variable 2.
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemonForTrade(1,2,
+    - i: 1
+      code: 655
+      p:
+      - " :BELLSPROUT"
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Dang..."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOK, let's get started."
+    - i: 2
+      code: 355
+      p:
+      - pbStartTrade(pbGet(1),
+    - i: 2
+      code: 655
+      p:
+      - ' :ONIX,_I("Onix"),_I("Tom")'
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 101
+      p:
+      - "\\PN traded Bellsprout for Onix!"
+    - i: 2
+      code: 101
+      p:
+      - "\\bThanks!"
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou don't want to trade?  Dang..."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks for trading with me!"
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Person
+  x: 5
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wanna go outside and play."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Person
+  x: 6
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMaybe I should stop messing around."
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(1)
+  x: 10
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm bored. Let's battle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Zackie",_I("Thanks for the battle."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI just want to go play."
+    - i: 0
+      code: 0
+      p: []

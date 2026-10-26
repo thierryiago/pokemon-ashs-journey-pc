@@ -1,0 +1,613 @@
+---
+id: 898
+name: Hau'oli Shopping Mall
+parent: 895
+width: 30
+height: 26
+tileset: 10
+bgm: PokeMart
+events:
+- id: 1
+  name: Sophocles
+  x: 6
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 298
+    graphic: trchar179
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSophocles: Finally you show up. I'm giving you the "
+    - i: 0
+      code: 401
+      p:
+      - honor of going into my secret space.
+    - i: 0
+      code: 101
+      p:
+      - "\\bOnly those who can hack the door are allowed in. "
+    - i: 0
+      code: 401
+      p:
+      - 'However, I''m feeling generous and figured I''d show it '
+    - i: 0
+      code: 401
+      p:
+      - to you. Ready to go in?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 899
+      - 5
+      - 19
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bI get it. Prepare yourself."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 299
+    graphic: trchar055
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Rotom Dex: That was fun. Maybe we should head to '
+    - i: 0
+      code: 401
+      p:
+      - the school now.
+    - i: 0
+      code: 121
+      p:
+      - 296
+      - 296
+      - 1
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis area is off-limits."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 10
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 894
+      - 36
+      - 17
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Team Rocket
+  x: 9
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 247
+      p: []
+    - i: 0
+      code: 241
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Team Rocket OW Alola
+        pitch: 100
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Did someone ask something? We're here to "
+    - i: 0
+      code: 401
+      p:
+      - find out!
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Noble answers are what we're all about!"
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: The beauty so radiant, the flowers and "
+    - i: 0
+      code: 401
+      p:
+      - 'moon hide in shame. A single flower of evil in this '
+    - i: 0
+      code: 401
+      p:
+      - 'fleeting world: Jessie!'
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: The nobly heroic man of our times! The "
+    - i: 0
+      code: 401
+      p:
+      - 'master of darkness fighting back against a tragic '
+    - i: 0
+      code: 401
+      p:
+      - world! It's James.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: It's all for one and one for all! A glittering "
+    - i: 0
+      code: 401
+      p:
+      - 'dark star that always shines bright! Dig it, while '
+    - i: 0
+      code: 401
+      p:
+      - Meowth still takes flight!
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Rocket, \\n\\rlet's fight!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: That's right!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWobbuffet!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET,"Jessie and James",nil,false,28,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 248
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Cashier top
+  x: 12
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":HYPERPOTION,:MAXPOTION,"
+    - i: 0
+      code: 655
+      p:
+      - ":FULLRESTORE,:REVIVE,"
+    - i: 0
+      code: 655
+      p:
+      - ":FULLHEAL"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Cashier bottom
+  x: 15
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":POKEBALL,:GREATBALL,"
+    - i: 0
+      code: 655
+      p:
+      - ":ULTRABALL,:FULLHEAL,"
+    - i: 0
+      code: 655
+      p:
+      - ":ESCAPEROPE,:MAXREPEL,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: NPC
+  x: 6
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHello! Welcome to Hau'oli Dept. Store."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Cashier
+  x: 18
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":POKEDOLL,"
+    - i: 0
+      code: 655
+      p:
+      - ":FIRESTONE,"
+    - i: 0
+      code: 655
+      p:
+      - ":THUNDERSTONE,"
+    - i: 0
+      code: 655
+      p:
+      - ":WATERSTONE,"
+    - i: 0
+      code: 655
+      p:
+      - ":LEAFSTONE,"
+    - i: 0
+      code: 655
+      p:
+      - ":SUNSTONE"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Cashier top
+  x: 21
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":HPUP,"
+    - i: 0
+      code: 655
+      p:
+      - ":PROTEIN,"
+    - i: 0
+      code: 655
+      p:
+      - ":IRON,"
+    - i: 0
+      code: 655
+      p:
+      - ":CALCIUM,"
+    - i: 0
+      code: 655
+      p:
+      - ":ZINC,"
+    - i: 0
+      code: 655
+      p:
+      - ":CARBOS"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Cashier bottom
+  x: 24
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":XATTACK,"
+    - i: 0
+      code: 655
+      p:
+      - ":XDEFENSE,"
+    - i: 0
+      code: 655
+      p:
+      - ":XSPEED,"
+    - i: 0
+      code: 655
+      p:
+      - ":XSPATK,"
+    - i: 0
+      code: 655
+      p:
+      - ":XSPDEF,"
+    - i: 0
+      code: 655
+      p:
+      - ":XACCURACY,"
+    - i: 0
+      code: 655
+      p:
+      - ":GUARDSPEC,"
+    - i: 0
+      code: 655
+      p:
+      - ":DIREHIT"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Team Rocket
+  x: 10
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Team Rocket
+  x: 11
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar072
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Team Rocket
+  x: 10
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: WOBBUFFET
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

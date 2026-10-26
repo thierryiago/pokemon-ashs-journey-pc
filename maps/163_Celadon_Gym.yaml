@@ -1,0 +1,749 @@
+---
+id: 163
+name: Celadon Gym
+parent: 153
+width: 20
+height: 27
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Gym Guy
+  x: 8
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bErika uses Grass type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - 'weak against the Bug, Fire, Poison, Flying, and Ice '
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Water, Ground, and Rock. "
+    - i: 0
+      code: 401
+      p:
+      - 'Electric, Grass, Ground, and Water moves also don''t '
+    - i: 0
+      code: 401
+      p:
+      - do much damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 7
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 152
+      - 11
+      - 29
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(4)
+  x: 4
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe only accept girls in our Gym."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Kay",_I("I never seem to win."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI hope Erika wipes you out!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 8
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI hope Erika wipes you out!"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(4)
+  x: 10
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou think you're ready?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Bridget",_I("Maybe."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGrass types are tough against Water"
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 8
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGrass types are tough against Water"
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 9
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou arn't ready for Erika."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Mary",_I("Woah."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI didn't bring my best. Wait until next"
+    - i: 0
+      code: 401
+      p:
+      - time!
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 8
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI didn't bring my best. Wait until next"
+    - i: 0
+      code: 401
+      p:
+      - time!
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(2)
+  x: 8
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rBeat me first."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Lisa",_I("How could you?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rErika might be quiet, but she is famous"
+    - i: 0
+      code: 401
+      p:
+      - around here.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 8
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rErika might be quiet, but she is famous"
+    - i: 0
+      code: 401
+      p:
+      - around here.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(3)
+  x: 11
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PICNICKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou looked at me!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PICNICKER,"Tina",_I("That was fun!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh you were looking at Erika...\\nYou"
+    - i: 0
+      code: 401
+      p:
+      - weren't looking at me...
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 8
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh you were looking at Erika...\\nYou"
+    - i: 0
+      code: 401
+      p:
+      - weren't looking at me...
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(4)
+  x: 3
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy Pokémon are beautiful."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Lori",_I("No!"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe only use Grass-type Pokémon in this"
+    - i: 0
+      code: 401
+      p:
+      - Gym.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 8
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe only use Grass-type Pokémon in this"
+    - i: 0
+      code: 401
+      p:
+      - Gym.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(2)
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYour Pokémon are ugly."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Tamia",_I("I guess not."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI have a date coming up. I have to learn"
+    - i: 0
+      code: 401
+      p:
+      - to be polite, especially if I have to battle.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 8
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI have a date coming up. I have to learn"
+    - i: 0
+      code: 401
+      p:
+      - to be polite, especially if I have to battle.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Erika
+  x: 7
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar062
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Erika)
+    - i: 0
+      code: 101
+      p:
+      - "\\rErika: Yawn... Oh, hello. Welcome to my Gym. I'm "
+    - i: 0
+      code: 401
+      p:
+      - 'not really in the mood to battle, so would you mind '
+    - i: 0
+      code: 401
+      p:
+      - coming back later?
+    - i: 0
+      code: 101
+      p:
+      - "..."
+    - i: 0
+      code: 101
+      p:
+      - "\\rAlright, fine. I guess we can battle now, but "
+    - i: 0
+      code: 401
+      p:
+      - only because it's a rule.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Erika,"Erika")
+    - i: 1
+      code: 101
+      p:
+      - "\\rErika: You've earned the Rainbow Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:RAINBOWBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[4]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM53)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM53 contains Energy Ball. It does damage "
+    - i: 1
+      code: 401
+      p:
+      - 'and has a chance to lower the Special Defense of '
+    - i: 1
+      code: 401
+      p:
+      - the opponent.
+    - i: 1
+      code: 121
+      p:
+      - 8
+      - 8
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar062
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rErika: Aren't the perfume and flowers here just "
+    - i: 0
+      code: 401
+      p:
+      - lovely?
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 447
+    graphic: trchar062_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rErika: Aren't the perfume and flowers here just "
+    - i: 0
+      code: 401
+      p:
+      - lovely?
+    - i: 0
+      code: 0
+      p: []

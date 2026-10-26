@@ -1,0 +1,314 @@
+---
+id: 674
+name: Nacrene Gym
+parent: 673
+width: 20
+height: 25
+tileset: 18
+bgm: gym
+events:
+- id: 1
+  name: Stairs up
+  x: 7
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - Followers.prevent_y_movement
+          code: 45
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 7
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - Followers.prevent_y_movement
+        code: 45
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 7
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 673
+      - 14
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Lenora
+  x: 9
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar124
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Lenora)
+    - i: 0
+      code: 101
+      p:
+      - "\\rLenora: I see you made it past my trick. Show me if "
+    - i: 0
+      code: 401
+      p:
+      - you have more than intelligence.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Lenora,"Lenora")
+    - i: 1
+      code: 101
+      p:
+      - "\\rLenora: You have potential, but I feel like you might "
+    - i: 1
+      code: 401
+      p:
+      - 'be missing something. Go speak with my husband '
+    - i: 1
+      code: 401
+      p:
+      - upstairs. He will give you something.
+    - i: 1
+      code: 121
+      p:
+      - 216
+      - 216
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar124
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLenora: Come back when you speak with my "
+    - i: 0
+      code: 401
+      p:
+      - husband upstairs.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 217
+    graphic: trchar124
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Lenora)
+    - i: 0
+      code: 101
+      p:
+      - "\\rLenora: So you got the gift. Maybe you'll put it to "
+    - i: 0
+      code: 401
+      p:
+      - use.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Lenora,"Lenora",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\rLenora: You've done very well. I admit, you're a "
+    - i: 1
+      code: 401
+      p:
+      - talented Trainer. Here, you earned the Basic Badge.
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:BASICBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[33]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM05)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM05 contains Roar. Use it to force your opponent "
+    - i: 1
+      code: 401
+      p:
+      - off the field.
+    - i: 1
+      code: 121
+      p:
+      - 201
+      - 201
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar124
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLenora: Feel free to revive any fossils you find."
+    - i: 0
+      code: 0
+      p: []

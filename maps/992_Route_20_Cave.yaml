@@ -1,0 +1,280 @@
+---
+id: 992
+name: Route 20 Cave
+parent: 991
+width: 30
+height: 24
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Trainer(2)
+  x: 12
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAnother pesty obstacle. I'm going to get this Latios "
+    - i: 0
+      code: 401
+      p:
+      - 'one way or the other. I''d prefer to do it without '
+    - i: 0
+      code: 401
+      p:
+      - casualties.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"...")
+    - i: 1
+      code: 101
+      p:
+      - "\\bNo! How did a mere child stop me?"
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Encouter Pokemon
+  x: 12
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: LATIOS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: LATIOS
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 101
+      p:
+      - 'Latios is doing better thanks to your help. It and '
+    - i: 0
+      code: 401
+      p:
+      - Latias are going to return to the wild.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbIsRegistered?(:ROTOMPHONE8)"
+    - i: 1
+      code: 122
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 122
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbChangeItem(:ROTOMPHONE8,:ROTOMPHONE9)"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbRegisterItem(:ROTOMPHONE9)"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 121
+      p:
+      - 564
+      - 564
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 564
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Latias
+  x: 12
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: LATIAS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: LATIAS
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rLatias!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 564
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit south
+  x: 12
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 991
+      - 16
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

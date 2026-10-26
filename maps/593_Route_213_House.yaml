@@ -1,0 +1,381 @@
+---
+id: 593
+name: Route 213 House
+parent: 592
+width: 20
+height: 15
+tileset: 3
+bgm: Mom Theme
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 592
+      - 45
+      - 38
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Dr Footstep
+  x: 3
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 07
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDr. Footstep: Hi!  I rate the footprints of Pokémon!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bDr. Footstep: Can I rate your Pokémon for you?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bDr. Footstep: Which Pokémon do you want me to "
+    - i: 1
+      code: 401
+      p:
+      - rate?
+    - i: 1
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1,2)
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 2
+      code: 101
+      p:
+      - "\\bDr. Footstep: Maybe next time, then."
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - poke=pbGetPokemon(1)
+    - i: 1
+      code: 655
+      p:
+      - h=poke.happiness
+    - i: 1
+      code: 655
+      p:
+      - stage=0
+    - i: 1
+      code: 655
+      p:
+      - stage=1 if h>=1
+    - i: 1
+      code: 655
+      p:
+      - stage=2 if h>=50
+    - i: 1
+      code: 655
+      p:
+      - stage=3 if h>=100
+    - i: 1
+      code: 655
+      p:
+      - stage=4 if h>=150
+    - i: 1
+      code: 655
+      p:
+      - stage=5 if h>=200
+    - i: 1
+      code: 655
+      p:
+      - stage=6 if h>=255
+    - i: 1
+      code: 655
+      p:
+      - pbSet(3,stage)
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bDr. Footstep: By any chance, you... Are you a very "
+    - i: 2
+      code: 401
+      p:
+      - 'strict person? I feel that your \v[2] really doesn''t like '
+    - i: 2
+      code: 401
+      p:
+      - you...
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 1
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bDr. Footstep: Hmmm... Your \\v[2] may not like you "
+    - i: 2
+      code: 401
+      p:
+      - very much.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 2
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bDr. Footstep: The relationship is neither good nor "
+    - i: 2
+      code: 401
+      p:
+      - bad... Your \v[2] looks neutral.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 3
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bDr. Footstep: Your \\v[2] is a little friendly to you... "
+    - i: 2
+      code: 401
+      p:
+      - That's what I'm getting.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 4
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bDr. Footstep: Your \\v[2] is friendly to you. It must be "
+    - i: 2
+      code: 401
+      p:
+      - happy with you.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 5
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bDr. Footstep: Your \\v[2] is quite friendly to you! You "
+    - i: 2
+      code: 401
+      p:
+      - must be a kind person!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 6
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bDr. Footstep: Your \\v[2] is super friendly to you! I'm "
+    - i: 2
+      code: 401
+      p:
+      - a bit jealous!
+    - i: 2
+      code: 355
+      p:
+      - p=pbGetPokemon(1)
+    - i: 2
+      code: 655
+      p:
+      - 'n=(p.hasRibbon?(:FOOTPRINT)) ? 1 : 0'
+    - i: 2
+      code: 655
+      p:
+      - pbSet(4,n)
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 0
+      - 0
+    - i: 3
+      code: 101
+      p:
+      - "\\bDr. Footstep: I shall reward your \\v[2] with a ribbon!"
+    - i: 3
+      code: 355
+      p:
+      - poke=pbGetPokemon(1)
+    - i: 3
+      code: 655
+      p:
+      - poke.giveRibbon(:FOOTPRINT)
+    - i: 3
+      code: 101
+      p:
+      - "\\PN received the Footprint Ribbon."
+    - i: 3
+      code: 401
+      p:
+      - "\\se[itemlevel]\\wtnp[20]"
+    - i: 3
+      code: 101
+      p:
+      - "\\PN put the Footprint Ribbon on \\v[2]."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bDr. Footstep: Maybe next time, then."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []

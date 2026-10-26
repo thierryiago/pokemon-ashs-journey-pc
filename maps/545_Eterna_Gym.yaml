@@ -1,0 +1,543 @@
+---
+id: 545
+name: Eterna Gym
+parent: 542
+width: 40
+height: 40
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Gardenia
+  x: 30
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar108
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGardenia: Well who would have thought you would "
+    - i: 0
+      code: 401
+      p:
+      - come to challenge me?
+    - i: 0
+      code: 101
+      p:
+      - "\\rAre you ready? I hope so."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWell, actually, first you have to battle my disciples. "
+    - i: 0
+      code: 401
+      p:
+      - They are in the other room.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 166
+    graphic: trchar108
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Gardenia)
+    - i: 0
+      code: 101
+      p:
+      - "\\rGardenia: I see you beat them all. I knew you "
+    - i: 0
+      code: 401
+      p:
+      - 'would. After all, when I first saw you, I was '
+    - i: 0
+      code: 401
+      p:
+      - convinced you'd find your way to me.
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou have a winning aura about you. Let's have our "
+    - i: 0
+      code: 401
+      p:
+      - battle.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Gardenia,"Gardenia",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\rGardenia: You've earned the Forest Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:FORESTBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[25]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM86)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM86 contains Grass Knot. The heavier the "
+    - i: 1
+      code: 401
+      p:
+      - opponent the more the damage.
+    - i: 1
+      code: 121
+      p:
+      - 155
+      - 155
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar108
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGardenia: If you ever find a rare Grass type come "
+    - i: 0
+      code: 401
+      p:
+      - show me.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 30
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 541
+      - 29
+      - 54
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 25
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 545
+      - 6
+      - 23
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(4)
+  x: 2
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 155'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou don't stand a chance."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Caroline")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI hope Gardenia wipes you out!"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 155
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI hope Gardenia wipes you out!"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(4)
+  x: 10
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 155'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou think you're ready?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Yoko")
+    - i: 1
+      code: 121
+      p:
+      - 166
+      - 166
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGrass types are tough against Water"
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 155
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGrass types are tough against Water"
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(2)
+  x: 6
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 155'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BEAUTY)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWell you are cute."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BEAUTY,"Angela")
+    - i: 1
+      code: 121
+      p:
+      - 166
+      - 166
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGrass types are weak against Fire"
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 155
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGrass types are weak against Fire "
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 6
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 545
+      - 25
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Gym Guy
+  x: 32
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGardenia uses Grass type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - 'weak against the Bug, Fire, Poison, Flying, and Ice '
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Water, Ground, and Rock. "
+    - i: 0
+      code: 401
+      p:
+      - 'Electric, Grass, Ground, and Water moves also don''t '
+    - i: 0
+      code: 401
+      p:
+      - do much damage.
+    - i: 0
+      code: 0
+      p: []

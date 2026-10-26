@@ -1,0 +1,293 @@
+---
+id: 741
+name: Virbank Gym
+parent: 739
+width: 30
+height: 30
+tileset: 3
+bgm: gym
+events:
+- id: 1
+  name: Exit
+  x: 13
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 738
+      - 41
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Roxie
+  x: 13
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar130
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Roxie)
+    - i: 0
+      code: 101
+      p:
+      - "\\rRoxie: You think you'll be a challenge? Well let's "
+    - i: 0
+      code: 401
+      p:
+      - turn it up to eleven then and see how it goes.
+    - i: 0
+      code: 101
+      p:
+      - "\\rIn fact, I dare you to use your whole team against "
+    - i: 0
+      code: 401
+      p:
+      - me. Maybe then it will be a challenge.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Roxie,"Roxie")
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou've earned the Toxic Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TOXICBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[39]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM34)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM34 contains Sludge Wave. It can also poison the "
+    - i: 1
+      code: 401
+      p:
+      - opponent.
+    - i: 1
+      code: 121
+      p:
+      - 207
+      - 207
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar130
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rRoxie: Come back and rock out anytime you want."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Gym Guy
+  x: 10
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRoxie uses Poison type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Ground and Psychic types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Grass and Fairy. Poison, "
+    - i: 0
+      code: 401
+      p:
+      - 'Fighting, Bug, Grass, and Fairy moves also don''t do '
+    - i: 0
+      code: 401
+      p:
+      - much damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(6)
+  x: 11
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're not stopping Roxie's jam."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Nicky")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't stop the groove."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(6)
+  x: 16
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rLet's rock."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Billy Jo")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMake some sweet music with Roxie."
+    - i: 0
+      code: 0
+      p: []

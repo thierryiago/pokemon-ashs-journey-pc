@@ -1,0 +1,497 @@
+---
+id: 816
+name: Cyllage Gym
+parent: 814
+width: 50
+height: 45
+tileset: 1
+bgm: gym
+events:
+- id: 1
+  name: Trainer(3)
+  x: 20
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 250'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rGet lost."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Manon")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so ashamed."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 250
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so ashamed."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(3)
+  x: 30
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 250'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhy'd you go this way?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Didier")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGrant will wipe you out."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 250
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGrant will wipe you out."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Gym Guy
+  x: 27
+  "y": 35
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGrant uses Rock type Pokémon. They are weak "
+    - i: 0
+      code: 401
+      p:
+      - 'against Water, Grass, Fighting, Ground, and Steel '
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bDespite all the weaknesses, they are strong "
+    - i: 0
+      code: 401
+      p:
+      - 'against Fire, Bug, Flying, and Ice. Normal and Poison '
+    - i: 0
+      code: 401
+      p:
+      - moves also don't do much damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(3)
+  x: 24
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar026
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 250'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow did you climb up here already?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Craig")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGrant may seem tough, but he has a soft spot for "
+    - i: 0
+      code: 401
+      p:
+      - those that work non stop.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 250
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGrant may seem tough, but he has a soft spot for "
+    - i: 0
+      code: 401
+      p:
+      - those that work non stop.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 24
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar026
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 250'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:HIKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello there young one."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:HIKER,"Bernard")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat a skilled trainer you are. This gym is as good "
+    - i: 0
+      code: 401
+      p:
+      - as yours.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 250
+    graphic: trchar026
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat a skilled trainer you are. This gym is as good "
+    - i: 0
+      code: 401
+      p:
+      - as yours.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Grant
+  x: 26
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar157
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Grant)
+    - i: 0
+      code: 101
+      p:
+      - "\\bGrant: Good job kid. You've climbed all the way up "
+    - i: 0
+      code: 401
+      p:
+      - 'here without any help. I can''t ignore that kind of will. '
+    - i: 0
+      code: 401
+      p:
+      - Let's go all out!
+    - i: 0
+      code: 101
+      p:
+      - "\\bAnd don't worry. In this gym you can use as many "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon as you want. Don't hold back.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Grant,"Grant")
+    - i: 1
+      code: 101
+      p:
+      - "\\bGrant: You've earned the Cliff Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:CLIFFBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[41]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM118)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM118 contains Rollout. It gets stronger with each "
+    - i: 1
+      code: 401
+      p:
+      - hit.
+    - i: 1
+      code: 121
+      p:
+      - 250
+      - 250
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar157
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGrant: Head north of here. A gym should be there "
+    - i: 0
+      code: 401
+      p:
+      - for you to challenge.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit, size(2,1)
+  x: 25
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 813
+      - 58
+      - 57
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

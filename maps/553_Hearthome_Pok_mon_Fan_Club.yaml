@@ -1,0 +1,299 @@
+---
+id: 553
+name: Hearthome Pokémon Fan Club
+parent: 552
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Pokemon
+  x: 4
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: PIPLUP
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 393Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPiplup"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 4
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIsn't Piplup just the best starter!?"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Stats judge
+  x: 7
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello. I used to be a Stats Judge, but my job "
+    - i: 0
+      code: 401
+      p:
+      - 'became obsolete when Trainers became able to see '
+    - i: 0
+      code: 401
+      p:
+      - a Pokémon's potential on their own. Now I'm retired...
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 101
+      p:
+      - "\\bHold on a minute... your future. It's brilliant! Yes, I can"
+    - i: 0
+      code: 401
+      p:
+      - just tell!
+    - i: 0
+      code: 355
+      p:
+      - "$game_switches[Settings::BRILLIANT_POKEMON_SWITCH] = true"
+    - i: 0
+      code: 121
+      p:
+      - 568
+      - 568
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbSetBrilliantEventTime
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$game_switches[Settings::BRILLIANT_POKEMON_SWITCH]"
+    - i: 1
+      code: 101
+      p:
+      - "\\bTrainer... go out there and find some Pokémon!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bI see you achieved that brilliant future."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 23
+    graphic: NPC 10
+    trigger: 3
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 355
+      p:
+      - pbResetBrilliantEvents()
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: reset brilliant for 3.3 players
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 0
+      - 568
+      - 1
+    - i: 1
+      code: 121
+      p:
+      - 575
+      - 575
+      - 1
+    - i: 1
+      code: 355
+      p:
+      - pbResetBrilliantEvents()
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: AIPOM
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 190Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bAipom"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 5
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is the best Fan Club in the nation."
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy you ask? \\n...Because I believe it."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello \\PN!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bDid you come to hear about my Pokémon again?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bNo?\\nOh well."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 5
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 551
+      - 44
+      - 34
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,557 @@
+---
+id: 339
+name: Mahogany Gym
+parent: 336
+width: 20
+height: 25
+tileset: 6
+bgm: gym
+events:
+- id: 1
+  name: Exit, size(2,1)
+  x: 4
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 335
+      - 9
+      - 24
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(2)
+  x: 9
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 89'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rLet's fight to warm up."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Roxanne")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm cold. Are you?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 89
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm cold. Are you?"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Gym Guy
+  x: 7
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPryce uses Ice type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - 'weak against the Fire, Fighting, Rock, and Steel '
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Dragon, Flying, Grass, and "
+    - i: 0
+      code: 401
+      p:
+      - Ground. They are resistant to only Ice.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pryce
+  x: 5
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar088
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Pryce)
+    - i: 0
+      code: 101
+      p:
+      - "\\bPryce: Hello there young one. My name is Pryce."
+    - i: 0
+      code: 101
+      p:
+      - "\\bJust recently I found my long lost Piloswine. It "
+    - i: 0
+      code: 401
+      p:
+      - 'helped me realize the importance of bonds and trust '
+    - i: 0
+      code: 401
+      p:
+      - with your Pokémon.
+    - i: 0
+      code: 101
+      p:
+      - "\\bLet's see if you have that."
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Pryce,"Pryce")
+    - i: 1
+      code: 101
+      p:
+      - "\\bPryce: You've earned the Glacier Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:GLACIERBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[14]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM07)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM07 contains Hail. It whips up a hailstorm "
+    - i: 1
+      code: 401
+      p:
+      - that damages every type but Ice.
+    - i: 1
+      code: 121
+      p:
+      - 89
+      - 89
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar088
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPryce: The bond you have with your Pokémon is "
+    - i: 0
+      code: 401
+      p:
+      - incredible. Don't ever lose sight of it.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(1)
+  x: 4
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 89'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rIt's fun to slide around."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Jill")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rPryce will Freeze Dry you."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 89
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rPryce will Freeze Dry you."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(1)
+  x: 2
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 89'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GAMBLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhere do you think you're going?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GAMBLER,"Patton")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI haven't had a battle like that in years."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 89
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI haven't had a battle like that in years."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(1)
+  x: 5
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 89'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GAMBLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhere do you think you're going?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GAMBLER,"Brad")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWho would have known I would lose?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 89
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWho would have known I would lose?"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Trainer(2)
+  x: 0
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 89'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GAMBLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm ready. Are you?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GAMBLER,"Ronald")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPryce is going to bring your plans to a freezing halt."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 89
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI haven't had a battle like that in years."
+    - i: 0
+      code: 0
+      p: []

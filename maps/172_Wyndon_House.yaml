@@ -1,0 +1,1858 @@
+---
+id: 172
+name: Wyndon House
+parent: 171
+width: 92
+height: 65
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 21
+  "y": 35
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWelcome to Rose Tower."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Pokemon
+  x: 9
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: MRMIME_1
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: MRMIME
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rMime Mime"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 24
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: NPC 81
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOleana: The upper limits of Rose Tower are off-"
+    - i: 0
+      code: 401
+      p:
+      - limits.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 482
+    graphic: NPC 81
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOleana: Are you ready to meet with Chariman "
+    - i: 0
+      code: 401
+      p:
+      - Rose?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 172
+      - 79
+      - 56
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 483
+    graphic: NPC 81
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOleana: The upper limits of Rose Tower are off-"
+    - i: 0
+      code: 401
+      p:
+      - limits.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 486
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe upper limits of Rose Tower are off-limits."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Item
+  x: 29
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've worked here for over a year. The stuff we're "
+    - i: 0
+      code: 401
+      p:
+      - doing is going to change the world.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 23
+  "y": 52
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 171
+      - 31
+      - 14
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 79
+  "y": 55
+  pages:
+  - condition: {}
+    graphic: NPC 81
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOleana: Are you leaving?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 172
+      - 24
+      - 35
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 70
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 171
+      - 12
+      - 11
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 65
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome to The Rose of the Rondelands hotel."
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm sorry, the hotel is full due to the upcoming battle "
+    - i: 0
+      code: 401
+      p:
+      - in Wyndon Stadium. Please take this as an apology.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:AIRBALLOON)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm sorry, the hotel is full due to the upcoming battle "
+    - i: 0
+      code: 401
+      p:
+      - in Wyndon Stadium.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Rose
+  x: 71
+  "y": 57
+  pages:
+  - condition: {}
+    graphic: trchar233
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bRose: Thank you for meeting with me, \\PN. I can "
+    - i: 0
+      code: 401
+      p:
+      - 'sense you have a lot of potential. It reminds me of '
+    - i: 0
+      code: 401
+      p:
+      - when I discovered Leon.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe've both worked hard to get where we are "
+    - i: 0
+      code: 401
+      p:
+      - 'today. I plan to use that success to preserve the very '
+    - i: 0
+      code: 401
+      p:
+      - best that Galar has to offer.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy point is that you have promise as a Trainer and "
+    - i: 0
+      code: 401
+      p:
+      - 'I''d like to offer my resources to support your battling '
+    - i: 0
+      code: 401
+      p:
+      - ambitions. What do you think?
+    - i: 0
+      code: 106
+      p:
+      - 20
+    - i: 0
+      code: 101
+      p:
+      - "\\b... You don't want it?"
+    - i: 0
+      code: 101
+      p:
+      - "\\rOleana: How dare you. Do you have any idea what "
+    - i: 0
+      code: 401
+      p:
+      - kind of honor this is?
+    - i: 0
+      code: 101
+      p:
+      - "\\bRose: Now, now, \\PN is following his own path. I "
+    - i: 0
+      code: 401
+      p:
+      - can admire that.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThank you for your time. "
+    - i: 0
+      code: 121
+      p:
+      - 483
+      - 483
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 483
+    graphic: trchar233
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThank you for your time. "
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Vendor
+  x: 23
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":ROCKGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":WATERGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":ELECTRICGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":GRASSGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":POISONGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":PSYCHICGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":FIREGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":GROUNDGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":FLYINGGEM,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Hyper Trainer
+  x: 78
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - 'pbHyperTrainer(:BOTTLECAP, '
+    - i: 0
+      code: 655
+      p:
+      - ":GOLDBOTTLECAP)"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 26
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGalar is home to Dynamax. Rumor has it that the "
+    - i: 0
+      code: 401
+      p:
+      - power came from an ancient Pokémon.
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Cop
+  x: 78
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDo you have your key?"
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Person
+  x: 63
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm taking a break before heading back out and "
+    - i: 0
+      code: 401
+      p:
+      - exploring.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Exit
+  x: 24
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 171
+      - 23
+      - 36
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Person
+  x: 75
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI came all the way from Alola for this vacation. I "
+    - i: 0
+      code: 401
+      p:
+      - can't wait to get back home though.
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Person
+  x: 64
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm waiting till it's dark to explore the city."
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Person
+  x: 79
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: NPC 13
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis hotel is the height of luxury."
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Hyper Trainer Fix
+  x: 79
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 2
+      - A
+      - 1
+    - i: 1
+      code: 101
+      p:
+      - "\\bHi! Sorry about any inconvinience caused by stats not going up in a previous version after using the guy next to me."
+    - i: 1
+      code: 401
+      p:
+      - Bring me any Pokémon that have been affected and talk to me again so I can fix 'em up.
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bLet me fix up your team..."
+    - i: 1
+      code: 355
+      p:
+      - for pkmn in $Trainer.party
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.calc_stats"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 106
+      p:
+      - 20
+    - i: 1
+      code: 101
+      p:
+      - "\\b... and done! Enjoy!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Pokemon
+  x: 9
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ORBEETLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: ORBEETLE
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOr..."
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Person
+  x: 9
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar034
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLiving here isn't easy. There's so much going on it "
+    - i: 0
+      code: 401
+      p:
+      - can be hard to keep up with it all.
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Exit
+  x: 44
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 171
+      - 19
+      - 34
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Exit
+  x: 44
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 171
+      - 41
+      - 36
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Exit
+  x: 5
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 171
+      - 20
+      - 44
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 171
+      - 29
+      - 29
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Exit
+  x: 24
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 171
+      - 49
+      - 30
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Vendor
+  x: 25
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":BUGGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":NORMALGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":GHOSTGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":FIGHTINGGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":STEELGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":ICEGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":DRAGONGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":DARKGEM,"
+    - i: 0
+      code: 655
+      p:
+      - ":FAIRYGEM,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Item
+  x: 40
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI collect rare items. I bet I have something you don't "
+    - i: 0
+      code: 401
+      p:
+      - have. That's right. It's a Rising Badge.
+    - i: 0
+      code: 101
+      p:
+      - "\\b...Oh, you went to Johto and got one too? Well, I "
+    - i: 0
+      code: 401
+      p:
+      - 'guess my collection isn''t that impressive. You might '
+    - i: 0
+      code: 401
+      p:
+      - as well get rid of some of it for me.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:EXPCANDYXL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMaybe I should try collecting friends instead."
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Item
+  x: 45
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rA Champion, are you? I guess you might need "
+    - i: 0
+      code: 401
+      p:
+      - something like this.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:EXPCANDYS)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThose candies work based on experience over "
+    - i: 0
+      code: 401
+      p:
+      - 'levels. Try using that one on a weak Pokémon. '
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Item
+  x: 48
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI always believed in the classics. Here, take one."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:RARECANDY)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThose were our only options when I was a Trainer. "
+    - i: 0
+      code: 401
+      p:
+      - That or hard work.
+    - i: 0
+      code: 0
+      p: []
+- id: 34
+  name: Person
+  x: 78
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI want to go battle someone."
+    - i: 0
+      code: 0
+      p: []
+- id: 35
+  name: Cop
+  x: 72
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhere would you like to go?"
+    - i: 0
+      code: 102
+      p:
+      - - Saffron
+        - Goldenrod
+        - Exit
+      - 3
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Saffron
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 135
+      - 9
+      - 3
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Goldenrod
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 135
+      - 34
+      - 3
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Exit
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 532
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhere would you like to go?"
+    - i: 0
+      code: 102
+      p:
+      - - Saffron
+        - Goldenrod
+        - Freezington
+        - Exit
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Saffron
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 135
+      - 9
+      - 3
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Goldenrod
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 135
+      - 34
+      - 3
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Freezington
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 981
+      - 11
+      - 27
+      - 4
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Exit
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 537
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhere would you like to go?\\ch[1,-1,Saffron,"
+    - i: 0
+      code: 401
+      p:
+      - Goldenrod,Freezington,Wedgehurst,Exit]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - -1
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 135
+      - 9
+      - 3
+      - 2
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 135
+      - 34
+      - 3
+      - 2
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 981
+      - 11
+      - 27
+      - 4
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 986
+      - 29
+      - 3
+      - 2
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 36
+  name: Exit
+  x: 72
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 171
+      - 35
+      - 38
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 37
+  name: Person
+  x: 69
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMost people don't take the train these days. The "
+    - i: 0
+      code: 401
+      p:
+      - Flying Taxi is how most people travel.
+    - i: 0
+      code: 0
+      p: []
+- id: 40
+  name: Item
+  x: 20
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:SILKSCARF)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 42
+  name: Vendor
+  x: 40
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":LEMONADE,"
+    - i: 0
+      code: 655
+      p:
+      - ":MOOMOOMILK,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 43
+  name: Person
+  x: 41
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 07
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI like to come here after a long day of battling."
+    - i: 0
+      code: 0
+      p: []
+- id: 44
+  name: Item
+  x: 44
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, are you new? Please enjoy one on the house."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:LEMONADE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rPlease continue to support us."
+    - i: 0
+      code: 0
+      p: []
+- id: 46
+  name: Person
+  x: 48
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've referred multiple matches for the Champion. He "
+    - i: 0
+      code: 401
+      p:
+      - never loses. It's like he's in a league of his own.
+    - i: 0
+      code: 0
+      p: []

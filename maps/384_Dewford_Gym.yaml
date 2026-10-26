@@ -1,0 +1,397 @@
+---
+id: 384
+name: Dewford Gym
+parent: 380
+width: 35
+height: 55
+tileset: 1
+bgm: gym
+events:
+- id: 1
+  name: Gym Guy
+  x: 11
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrawly uses Fighting type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Flying and Psychic types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Normal, Ice, Dark, Rock, "
+    - i: 0
+      code: 401
+      p:
+      - and Steel. They are resistant to Bug, Dark, and Rock.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Brawly
+  x: 22
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar091
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Brawly)
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrawly: I hope you're ready. My Pokémon have "
+    - i: 0
+      code: 401
+      p:
+      - 'trained aganist the waves for years. This won''t be '
+    - i: 0
+      code: 401
+      p:
+      - an easy victory.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Brawly,"Brawly")
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrawly: A fight in here isn't enough for the full thrill. "
+    - i: 1
+      code: 401
+      p:
+      - Meet me at Route 106.
+    - i: 1
+      code: 121
+      p:
+      - 122
+      - 122
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar091
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrawly: A fight in here isn't enough for the full thrill. "
+    - i: 0
+      code: 401
+      p:
+      - Meet me at Route 106.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 114
+    graphic: trchar091
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrawly: Be sure to go with the flow when you get "
+    - i: 0
+      code: 401
+      p:
+      - the chance.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(5)
+  x: 20
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 114'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHyahh!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Hadeki")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHuhhh?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 114
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHuhhh?"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(5)
+  x: 10
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 114'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rBrawly will never lose to you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Shauna")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so ashamed."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 114
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so ashamed."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(5)
+  x: 18
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 114'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rReady to rumble?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Lilith")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI got smashed."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 114
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI got smashed."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 10
+  "y": 51
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 379
+      - 20
+      - 30
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

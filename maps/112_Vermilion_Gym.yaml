@@ -1,0 +1,1331 @@
+---
+id: 112
+name: Vermilion Gym
+parent: 109
+width: 25
+height: 20
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Lazer
+  x: 10
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 43
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Lazer
+  x: 10
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 44
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(3)
+  x: 10
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 456
+    graphic: trchar019
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ROCKER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou might have what it takes."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ROCKER,"Steve")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bVisquez might be a stand in, but she's the real deal."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(3)
+  x: 14
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 456
+    graphic: trchar014
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ENGINEER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bVisquez won't go easy on you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ENGINEER,"Tony")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bVisquez is already ranked in the 2,000s. She'll "
+    - i: 0
+      code: 401
+      p:
+      - reach the Great Class in no time.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 464
+    graphic: trchar014
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ENGINEER)
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're the one that beat Visquez. Don't think I'll be "
+    - i: 0
+      code: 401
+      p:
+      - easier just because I work for her.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ENGINEER,"Tony",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - 'Rotom Phone: Based on performance, your rank is '
+    - i: 1
+      code: 401
+      p:
+      - now 901.
+    - i: 1
+      code: 121
+      p:
+      - 465
+      - 465
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can't catch a break."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Visquez
+  x: 12
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 430
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVisquez: Welcome to the Vermilion Gym."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 456
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 101
+      p:
+      - "\\rVisquez: Welcome to the Vermilion Gym. Or should I "
+    - i: 0
+      code: 401
+      p:
+      - say welcome back?
+    - i: 0
+      code: 101
+      p:
+      - "\\rI recognized your name right away. Lt. Surge told "
+    - i: 0
+      code: 401
+      p:
+      - 'me all about his battle with you. It''s a shame he''s '
+    - i: 0
+      code: 401
+      p:
+      - away training right now.
+    - i: 0
+      code: 101
+      p:
+      - "\\rRegardless, my Raichu and I are honored to be your "
+    - i: 0
+      code: 401
+      p:
+      - first opponent. Let's begin.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Visquez")
+    - i: 1
+      code: 101
+      p:
+      - 'Rotom Phone: Based on performance, your rank is '
+    - i: 1
+      code: 401
+      p:
+      - now 3,763.
+    - i: 1
+      code: 101
+      p:
+      - "\\rVisquez: You've only improved from when you "
+    - i: 1
+      code: 401
+      p:
+      - 'were last here. I can''t wait to tell Lt. Surge of our '
+    - i: 1
+      code: 401
+      p:
+      - battle.
+    - i: 1
+      code: 121
+      p:
+      - 457
+      - 457
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rVisquez: You've only improved from when you "
+    - i: 0
+      code: 401
+      p:
+      - 'were last here. I can''t wait to tell Lt. Surge of our '
+    - i: 0
+      code: 401
+      p:
+      - battle.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Lazer
+  x: 11
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 44
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Lazer
+  x: 12
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 44
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Lazer
+  x: 13
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 44
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Lazer
+  x: 14
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 44
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Lazer
+  x: 11
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 43
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Exit
+  x: 12
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 108
+      - 24
+      - 34
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Lt. Surge
+  x: 12
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar061
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Surge)
+    - i: 0
+      code: 101
+      p:
+      - "\\bLt. Surge: Hmmph. You don't look like much of a "
+    - i: 0
+      code: 401
+      p:
+      - challenge to me, but I guess I'll battle you anyways.
+    - i: 0
+      code: 101
+      p:
+      - "\\bPrepare to be electocuted, shrimp."
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Surge,"Lt. Surge")
+    - i: 1
+      code: 101
+      p:
+      - "\\bLt. Surge: You've earned the Thunder Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:THUNDERBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[2]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM24)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM24 contains Thunderbolt. It does damage and "
+    - i: 1
+      code: 401
+      p:
+      - has a chance to paralyze the opponent.
+    - i: 1
+      code: 121
+      p:
+      - 6
+      - 6
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar061
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLt. Surge: You're better than I thought, kid. I can't "
+    - i: 0
+      code: 401
+      p:
+      - wait to battle with you again someday.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 430
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Trainer(2)
+  x: 7
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SAILOR)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bA man of the sea never turns down an"
+    - i: 0
+      code: 401
+      p:
+      - opponent.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SAILOR,"Dwayne")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLt. Surge installed the traps in the Gym"
+    - i: 0
+      code: 401
+      p:
+      - himself.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 6
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLt. Surge installed the traps in the Gym"
+    - i: 0
+      code: 401
+      p:
+      - himself.
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(4)
+  x: 13
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:ENGINEER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you win I will give you a hint."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:ENGINEER,"Baily")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLt. Surge said he hid door switches"
+    - i: 0
+      code: 401
+      p:
+      - inside something.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 6
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLt. Surge said he hid door switches"
+    - i: 0
+      code: 401
+      p:
+      - inside something.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Switch
+  x: 18
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Switch
+  x: 18
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Switch
+  x: 16
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Switch
+  x: 14
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - The switch activated.
+    - i: 0
+      code: 121
+      p:
+      - 43
+      - 43
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Switch
+  x: 14
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Switch
+  x: 12
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Switch
+  x: 12
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Switch
+  x: 10
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Switch
+  x: 10
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Switch
+  x: 8
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Switch
+  x: 8
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Switch
+  x: 6
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Trainer(4)
+  x: 15
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GENTLEMAN)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm ready to battle you with my all."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GENTLEMAN,"Tucker")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's not easy opening the door.\\nLt."
+    - i: 0
+      code: 401
+      p:
+      - Surge was always famous for his cautious nature in
+    - i: 0
+      code: 401
+      p:
+      - the Army.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 6
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's not easy opening the door.\\nLt."
+    - i: 0
+      code: 401
+      p:
+      - Surge was always famous for his cautious nature in
+    - i: 0
+      code: 401
+      p:
+      - the Army.
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Switch
+  x: 6
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - The switch activated.
+    - i: 0
+      code: 121
+      p:
+      - 44
+      - 44
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Switch
+  x: 16
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Nothing.
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Gym Guy
+  x: 10
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLt. Surge uses Electric type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against only the Ground type.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Flying and Water. Flying, "
+    - i: 0
+      code: 401
+      p:
+      - 'Electric, and Steel moves also don''t do much '
+    - i: 0
+      code: 401
+      p:
+      - damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Lazer
+  x: 12
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 43
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Lazer
+  x: 13
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 43
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Lazer
+  x: 14
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 43
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 7
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

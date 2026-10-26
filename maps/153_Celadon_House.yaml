@@ -1,0 +1,489 @@
+---
+id: 153
+name: Celadon House
+parent: 152
+width: 40
+height: 40
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 7
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 152
+      - 41
+      - 28
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHehehe!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe slots just reel in the dough, big time!"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokemon
+  x: 1
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 052Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeo!"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Pokemon
+  x: 9
+  "y": 35
+  pages:
+  - condition: {}
+    graphic: PSYDUCK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 054Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPsy?"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 5
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI just love these Pokémon!"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 12
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 152
+      - 28
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 31
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 152
+      - 37
+      - 28
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 29
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: NPC 07
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis place is usually very busy."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Item
+  x: 27
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat's it. I'm done. You can have this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:COINCASE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI always thought I was going to win it back..."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 33
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe man at the table lost it all at the slots."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 35
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar006
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy Pokémon are weak, so I often have to go the the "
+    - i: 0
+      code: 401
+      p:
+      - Drugstore.
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 36
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSorry, we are taking a break right now."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 30
+  "y": 36
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 152
+      - 49
+      - 28
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Person
+  x: 26
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYippee! I'm on vacation!\\nMy sis brought me along! "
+    - i: 0
+      code: 401
+      p:
+      - Awesome!
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Person
+  x: 27
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm on vacation with my brother and boyfriend."
+    - i: 0
+      code: 101
+      p:
+      - "\\rCeladon is such a pretty city!"
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Person
+  x: 31
+  "y": 34
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy?\\nWhy did she bring her brother?"
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Person
+  x: 28
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNo, this is a hotel for people.\\nWe're full, "
+    - i: 0
+      code: 401
+      p:
+      - unfortunately.
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Exit
+  x: 7
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 152
+      - 28
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

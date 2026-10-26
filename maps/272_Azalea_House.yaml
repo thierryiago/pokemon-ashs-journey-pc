@@ -1,0 +1,656 @@
+---
+id: 272
+name: Azalea House
+parent: 271
+width: 40
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Kurt
+  x: 35
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bKurt: I heard from Professor Oak that you would be "
+    - i: 0
+      code: 401
+      p:
+      - coming to give me something.
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou have the GS Ball?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbDeleteItem(:GSBALL)"
+    - i: 2
+      code: 121
+      p:
+      - 92
+      - 92
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bI'll get to work on it right away."
+    - i: 2
+      code: 101
+      p:
+      - "\\bHere. Take these as thanks for making such a long "
+    - i: 2
+      code: 401
+      p:
+      - journey.
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:LUREBALL)
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:FASTBALL)
+    - i: 4
+      code: 101
+      p:
+      - "\\bThose are special balls that I make. Bring some "
+    - i: 4
+      code: 401
+      p:
+      - Apricorns by and I'll gladly make you more.
+    - i: 4
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhat? You don't? Well stop wasting my time and go "
+    - i: 1
+      code: 401
+      p:
+      - get it.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: C
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello again."
+    - i: 0
+      code: 101
+      p:
+      - "\\bDo you have an Apricorn for me?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhich Apricorn would you like me to convert?"
+    - i: 1
+      code: 355
+      p:
+      - pbChooseApricorn(8)
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbGet(8) == :NONE
+    - i: 2
+      code: 108
+      p:
+      - Player didn't choose an Apricorn.
+    - i: 2
+      code: 101
+      p:
+      - "\\bLet me know when you want me to convert an "
+    - i: 2
+      code: 401
+      p:
+      - Apricorn for you.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 108
+      p:
+      - Player chose an Apricorn.
+    - i: 2
+      code: 355
+      p:
+      - "$PokemonBag.pbDeleteItem(pbGet(8))"
+    - i: 2
+      code: 355
+      p:
+      - data = GameData::Item.get(pbGet(8))
+    - i: 2
+      code: 655
+      p:
+      - pbSet(3, data.name)
+    - i: 2
+      code: 101
+      p:
+      - "\\bOkay. I'll turn your \\v[3] into a Poké Ball for you."
+    - i: 2
+      code: 101
+      p:
+      - "\\bI should be finished by tomorrow."
+    - i: 2
+      code: 108
+      p:
+      - Convert Apricorn into Ball now.
+    - i: 2
+      code: 355
+      p:
+      - conversion_hash = {
+    - i: 2
+      code: 655
+      p:
+      - "  :REDAPRICORN    => :LEVELBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :YELLOWAPRICORN => :MOONBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :BLUEAPRICORN   => :LUREBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :GREENAPRICORN  => :FRIENDBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :PINKAPRICORN   => :LOVEBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :WHITEAPRICORN  => :FASTBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :BLACKAPRICORN  => :HEAVYBALL"
+    - i: 2
+      code: 655
+      p:
+      - "}"
+    - i: 2
+      code: 355
+      p:
+      - conversion_hash.merge!({
+    - i: 2
+      code: 655
+      p:
+      - "  :YLWAPRICORN => :MOONBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :BLUAPRICORN => :LUREBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :GRNAPRICORN => :FRIENDBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :PNKAPRICORN => :LOVEBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :WHTAPRICORN => :FASTBALL,"
+    - i: 2
+      code: 655
+      p:
+      - "  :BLKAPRICORN => :HEAVYBALL"
+    - i: 2
+      code: 655
+      p:
+      - "})"
+    - i: 2
+      code: 355
+      p:
+      - item = pbGet(8)
+    - i: 2
+      code: 655
+      p:
+      - new_item = conversion_hash[item]
+    - i: 2
+      code: 655
+      p:
+      - pbSet(8, new_item)
+    - i: 2
+      code: 355
+      p:
+      - pbSetEventTime
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 108
+      p:
+      - Player doesn't want to choose an Apricorn.
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back when you have an Apricorn for me."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbGet(8).is_a?(Symbol)
+    - i: 1
+      code: 101
+      p:
+      - "\\bI've been waiting for you. I've completed the Poké "
+    - i: 1
+      code: 401
+      p:
+      - Ball you asked me to make.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(pbGet(8))
+    - i: 2
+      code: 122
+      p:
+      - 8
+      - 8
+      - 0
+      - 0
+      - 0
+    - i: 2
+      code: 123
+      p:
+      - B
+      - 1
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bYou have no room left. Make room, then come see "
+    - i: 2
+      code: 401
+      p:
+      - me.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 108
+      p:
+      - 'This only happens when Kurt is given an item that '
+    - i: 1
+      code: 408
+      p:
+      - couldn't be turned into a Poké Ball on page 1.
+    - i: 1
+      code: 108
+      p:
+      - 'This should never happen. If it does, there is a '
+    - i: 1
+      code: 408
+      p:
+      - 'mistake in the conversion_hash on page 1, namely '
+    - i: 1
+      code: 408
+      p:
+      - 'that it doesn''t contain an "apricorn => Poké Ball" pair '
+    - i: 1
+      code: 408
+      p:
+      - for the item given to Kurt.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI tried making a Poké Ball out of what you gave me, "
+    - i: 1
+      code: 401
+      p:
+      - but it didn't work.
+    - i: 1
+      code: 101
+      p:
+      - "\\bSorry."
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm still working on your Apricorn. Come back later."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 23
+    graphic: NPC 18
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: GS Ball
+  x: 35
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 92
+    graphic: Object ball special
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - It's the GS Ball.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 26
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy grandpa is the best Poké Ball maker in the world!"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Item
+  x: 7
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 13
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe run a Charcoal buisness here that gets "
+    - i: 0
+      code: 401
+      p:
+      - exported as far as Kanto.
+    - i: 0
+      code: 101
+      p:
+      - "\\bHere. Have a sample."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:CHARCOAL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 13
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBe sure to tell your friends about us."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 271
+      - 36
+      - 24
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 26
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 271
+      - 18
+      - 13
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

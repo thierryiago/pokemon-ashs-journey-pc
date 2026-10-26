@@ -1,0 +1,254 @@
+---
+id: 50
+name: Rock Cave
+parent: 49
+width: 30
+height: 26
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Ladder
+  x: 10
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 49
+      - 10
+      - 13
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: StrengthBoulder
+  x: 11
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 57
+    graphic: Object boulder
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPushThisBoulder
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Sign
+  x: 14
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'When pushing a boulder down a hole, make sure it '
+    - i: 0
+      code: 401
+      p:
+      - 'doesn''t appear in the same place as the player does '
+    - i: 0
+      code: 401
+      p:
+      - when they drop down.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: NPC
+  x: 21
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello!  I'm the Ruin Maniac!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bDo you want to dig for buried treasure?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bGrand!  Let's dig into this wall."
+    - i: 1
+      code: 111
+      p:
+      - 6
+      - -1
+      - 6
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 2
+      code: 210
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 2
+      code: 210
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - pbMiningGame
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bNo?  Alright then."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhen using this mining minigame, it is "
+    - i: 0
+      code: 401
+      p:
+      - 'recommended that you limit how often the player can '
+    - i: 0
+      code: 401
+      p:
+      - play it, to prevent them gaining lots of items for free.
+    - i: 0
+      code: 0
+      p: []

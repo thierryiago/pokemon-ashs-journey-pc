@@ -1,0 +1,634 @@
+---
+id: 912
+name: Brooklet Hill
+parent: 911
+width: 30
+height: 35
+tileset: 2
+bgm: PkmRS-CaveForest
+events:
+- id: 1
+  name: EV001
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Wishiwashi
+  x: 13
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: WISHIWASHI
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 746SCry
+        pitch: 100
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TOTEMPOKEMON,"Wishiwashi",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 735Cry
+        pitch: 100
+    - i: 0
+      code: 121
+      p:
+      - 305
+      - 305
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 324
+      - 324
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 496
+      - 496
+      - 1
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I beat my first trial. It feels amazing! Thanks "
+    - i: 0
+      code: 401
+      p:
+      - 'for helping, \PN. With this Waterium Z I''ll become '
+    - i: 0
+      code: 401
+      p:
+      - stronger.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI think Kiawe was heading to a trial. He went west "
+    - i: 0
+      code: 401
+      p:
+      - of here.
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: back door, size(2,1)
+  x: 12
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 911
+      - 9
+      - 48
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Lana
+  x: 12
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar176
+    trigger: 3
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I'm going to clear this trial. Get me warmed up."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONTRAINER_Lana,"Lana",nil,false,2,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar176
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: I think I'm ready. Are you ready to help?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 108
+      p:
+      - 'Makes this event follow the player.  The first '
+    - i: 1
+      code: 408
+      p:
+      - 'parameter means "this event", the second is a name '
+    - i: 1
+      code: 408
+      p:
+      - 'for that dependency, and the third is the Common '
+    - i: 1
+      code: 408
+      p:
+      - 'Event number run when this following event is '
+    - i: 1
+      code: 408
+      p:
+      - interacted with.
+    - i: 1
+      code: 355
+      p:
+      - pbAddDependency2(
+    - i: 1
+      code: 655
+      p:
+      - '   @event_id,"Lana",2)'
+    - i: 1
+      code: 108
+      p:
+      - 'Creates a partner trainer to battle alongside the '
+    - i: 1
+      code: 408
+      p:
+      - 'player.  The parameters are the trainer type and '
+    - i: 1
+      code: 408
+      p:
+      - 'name of the partner.  The partner trainer is defined '
+    - i: 1
+      code: 408
+      p:
+      - in trainers.txt just like any other trainer.
+    - i: 1
+      code: 355
+      p:
+      - pbRegisterPartner(
+    - i: 1
+      code: 655
+      p:
+      - "  :POKEMONTRAINER_Lana,"
+    - i: 1
+      code: 655
+      p:
+      - '  "Lana",2'
+    - i: 1
+      code: 655
+      p:
+      - ")"
+    - i: 1
+      code: 108
+      p:
+      - 'Note that the above two features are entirely '
+    - i: 1
+      code: 408
+      p:
+      - 'unrelated.  You can have a dependent event which '
+    - i: 1
+      code: 408
+      p:
+      - 'isn''t also a partner trainer (e.g. escort mission), or a '
+    - i: 1
+      code: 408
+      p:
+      - partner trainer who doesn't visibly follow you around.
+    - i: 1
+      code: 101
+      p:
+      - "\\PN teamed up with Lana!\\me[Item get]\\wtnp[40]"
+    - i: 1
+      code: 121
+      p:
+      - 496
+      - 496
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rOk then."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 911
+      - 10
+      - 47
+      - 2
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 305
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Block, size(2,1)
+  x: 12
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rLana: Don't forget about my trial."
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 305
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: EV006
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: EV007
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: EV008
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: EV009
+  x: 10
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: EV010
+  x: 11
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: EV011
+  x: 12
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: EV012
+  x: 14
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: EV013
+  x: 15
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: EV014
+  x: 16
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: EV015
+  x: 17
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: EV016
+  x: 18
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: EV017
+  x: 19
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,290 @@
+---
+id: 819
+name: Geosenge House
+parent: 818
+width: 40
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 818
+      - 34
+      - 41
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 3
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rGeosenge Town has been here for ages. The "
+    - i: 0
+      code: 401
+      p:
+      - purpose of it is unknown, but it is believed it
+    - i: 0
+      code: 401
+      p:
+      - served a great purpose.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokemon
+  x: 8
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: CHESNAUGHT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 70
+        name: 652Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rChesnaught"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 24
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 818
+      - 16
+      - 32
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Gurkinn
+  x: 22
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGurkinn: Welcome to Geosenge Town. I believe you "
+    - i: 0
+      code: 401
+      p:
+      - have met my granddaughter Korrina.
+    - i: 0
+      code: 101
+      p:
+      - "\\bShe's an aspiring Trainer. One day she will take "
+    - i: 0
+      code: 401
+      p:
+      - 'over the responsibilities of Mega Evolution. But for '
+    - i: 0
+      code: 401
+      p:
+      - now let me tell you about them.
+    - i: 0
+      code: 101
+      p:
+      - "\\bI don't tell just anyone this stuff. But I see you have "
+    - i: 0
+      code: 401
+      p:
+      - 'a Mega Ring from Sycamore. I told him to give it to a '
+    - i: 0
+      code: 401
+      p:
+      - Trainer that he trusts to handle it.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMega Evolution is a transformation of Pokémon that "
+    - i: 0
+      code: 401
+      p:
+      - 'were thought to be unable to evolve any further! It''s a '
+    - i: 0
+      code: 401
+      p:
+      - whole new level of power!
+    - i: 0
+      code: 101
+      p:
+      - "\\bThere's a reason why I used the word "
+    - i: 0
+      code: 401
+      p:
+      - '"transformation" a moment ago. Mega Evolution '
+    - i: 0
+      code: 401
+      p:
+      - differs from Evolution because it ends after battle.
+    - i: 0
+      code: 101
+      p:
+      - "\\bTo make Mega Evolution work, you need two items: "
+    - i: 0
+      code: 401
+      p:
+      - a Mega Stone for the Pokémon and the Mega Ring.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat seems to be it. Let me give you two stones to "
+    - i: 0
+      code: 401
+      p:
+      - help you out.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:BLAZIKENITE)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:HERACRONITE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGurkinn: Use Mega Evolution well. I trust you'll be "
+    - i: 0
+      code: 401
+      p:
+      - able to handle it.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Pokemon
+  x: 25
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: BLAZIKEN
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 257Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlaziken"
+    - i: 0
+      code: 0
+      p: []

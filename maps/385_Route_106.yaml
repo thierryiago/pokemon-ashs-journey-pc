@@ -1,0 +1,147 @@
+---
+id: 385
+name: Route 106
+parent: 383
+width: 35
+height: 35
+tileset: 1
+bgm: gym
+events:
+- id: 1
+  name: Brawly
+  x: 13
+  "y": 11
+  pages:
+  - condition:
+      switch1: 122
+    graphic: trchar091
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Brawly)
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrawly: You're a strong Trainer, so you deserve "
+    - i: 0
+      code: 401
+      p:
+      - this kind of intense fight. Let's do it.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Brawly,"Brawly",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrawly: You've earned the Knuckle Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:KNUCKLEBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[17]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM52)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM52 contains Focus Blast. A powerful "
+    - i: 1
+      code: 401
+      p:
+      - Special Attack.
+    - i: 1
+      code: 121
+      p:
+      - 114
+      - 114
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar091
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrawly: Be sure to go with the flow when you get "
+    - i: 0
+      code: 401
+      p:
+      - the chance.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Entrance, size(2,1)
+  x: 12
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 383
+      - 10
+      - 17
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,335 @@
+---
+id: 535
+name: Stow-on-Side House
+parent: 526
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 526
+      - 27
+      - 32
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 3
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFighting-types are superior. They can punch really "
+    - i: 0
+      code: 401
+      p:
+      - hard.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokemon
+  x: 3
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: CLOBBOPUS
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 70
+        name: CLOBBOPUS
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bClob"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 3
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rPeople don't pay attention to Allister. I think he "
+    - i: 0
+      code: 401
+      p:
+      - prefers it that way.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Item
+  x: 22
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 25
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou want some extra power in your battle against "
+    - i: 0
+      code: 401
+      p:
+      - Bea? Use this.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:DUSKSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 25
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt will evolve some Dark-types. You'll need it against "
+    - i: 0
+      code: 401
+      p:
+      - her Fighting-types.
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 24
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 526
+      - 32
+      - 32
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 5
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 526
+      - 15
+      - 27
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGhost-types are superior. They can ignore hard "
+    - i: 0
+      code: 401
+      p:
+      - punches.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Pokemon
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: DRAKLOAK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 70
+        name: DRAKLOAK
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rDraka"
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 24
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 526
+      - 15
+      - 38
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

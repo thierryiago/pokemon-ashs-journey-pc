@@ -1,0 +1,252 @@
+---
+id: 603
+name: Pokémon Mansion
+parent: 605
+width: 70
+height: 50
+tileset: 3
+bgm: Radio - Oak
+events:
+- id: 1
+  name: Exit north left
+  x: 36
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 601
+      - 36
+      - 58
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 37
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome to the Pokémon Mansion."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 50
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYears of hard work has allowed me to make the "
+    - i: 0
+      code: 401
+      p:
+      - 'Trophy Garden. Many rare and timid Pokémon live '
+    - i: 0
+      code: 401
+      p:
+      - there.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 53
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is Mr. Backlot's office."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Healing
+  x: 8
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 15
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe have a few vacent rooms for travelers. Rest if "
+    - i: 0
+      code: 401
+      p:
+      - you need to.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Item
+  x: 24
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou seem like someone with a strong heart. You "
+    - i: 0
+      code: 401
+      p:
+      - deserve this.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:OVALSTONE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCome show me your new evolved friend sometime."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Exit north left
+  x: 36
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 604
+      - 19
+      - 27
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

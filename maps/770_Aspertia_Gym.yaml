@@ -1,0 +1,387 @@
+---
+id: 770
+name: Aspertia Gym
+parent: 768
+width: 20
+height: 20
+tileset: 3
+bgm: gym
+events:
+- id: 1
+  name: Cheren
+  x: 3
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar131
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Cheren)
+    - i: 0
+      code: 101
+      p:
+      - "\\bCheren: Hello there. I'm sorry, but the gym is still "
+    - i: 0
+      code: 401
+      p:
+      - under construction. Come back when it's finished.
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, \\PN. Professor Juniper told me about you. "
+    - i: 0
+      code: 401
+      p:
+      - 'I''m sure you will be an interesting challenge. Don''t '
+    - i: 0
+      code: 401
+      p:
+      - prove her wrong.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Cheren,"Cheren")
+    - i: 1
+      code: 101
+      p:
+      - "\\bCheren: Unfortunately I can't give you a badge, but I "
+    - i: 1
+      code: 401
+      p:
+      - can give you this.
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM49)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM79 contains Thrash. The attacks lasts for"
+    - i: 1
+      code: 401
+      p:
+      - two or three turns, with the user becoming confused
+    - i: 1
+      code: 401
+      p:
+      - afterwards.
+    - i: 1
+      code: 121
+      p:
+      - 244
+      - 244
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar131
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCheren: Feel free to enter the White Ruins. You "
+    - i: 0
+      code: 401
+      p:
+      - seem strong enough to handle it.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Text formatting NPC
+  x: 5
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 118
+      p:
+      - Start
+    - i: 0
+      code: 101
+      p:
+      - Choose a status option.
+    - i: 0
+      code: 102
+      p:
+      - - Sleep
+        - Burn
+        - Poison
+        - Cancel
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Sleep
+    - i: 1
+      code: 101
+      p:
+      - A Pokémon can't attack if it is asleep.
+    - i: 1
+      code: 101
+      p:
+      - Pokémon will stay asleep even after battles.
+    - i: 1
+      code: 101
+      p:
+      - Use Awkening to awaken one from sleep.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Burn
+    - i: 1
+      code: 101
+      p:
+      - A burn reduces attack power.
+    - i: 1
+      code: 401
+      p:
+      - It also causes ongoing HP loss.
+    - i: 1
+      code: 101
+      p:
+      - A burn remains after battle.
+    - i: 1
+      code: 401
+      p:
+      - Use Bun Heal to cure a burn.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Poison
+    - i: 1
+      code: 101
+      p:
+      - 'When poisoned, a Pokémon''s health steadily drops. '
+    - i: 1
+      code: 101
+      p:
+      - Poison lingers after battles.
+    - i: 1
+      code: 401
+      p:
+      - Use an Antidote to cure poison!
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Cancel
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Text formatting NPC
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 118
+      p:
+      - Start
+    - i: 0
+      code: 101
+      p:
+      - Choose a status option.
+    - i: 0
+      code: 102
+      p:
+      - - Paralysis
+        - Freeze
+        - Confusion
+        - Cancel
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Paralysis
+    - i: 1
+      code: 101
+      p:
+      - 'Paralysis reduces speed and may prevent the '
+    - i: 1
+      code: 401
+      p:
+      - Pokémon from moving.
+    - i: 1
+      code: 101
+      p:
+      - 'Paralysis remains after battles. Use Parlyz Heal for '
+    - i: 1
+      code: 401
+      p:
+      - treatment.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Freeze
+    - i: 1
+      code: 101
+      p:
+      - It stays frozen even after the battle ends.
+    - i: 1
+      code: 101
+      p:
+      - A frozen Pokémon becomes helplessly immobile.
+    - i: 1
+      code: 101
+      p:
+      - Use Ice Heal to thaw out the suffering Pokémon.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - Confusion
+    - i: 1
+      code: 101
+      p:
+      - 'When confused, a Pokémon''s may attack itself. '
+    - i: 1
+      code: 101
+      p:
+      - Confusion does not last if recalled though.
+    - i: 1
+      code: 119
+      p:
+      - Start
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Cancel
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Exit
+  x: 5
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 767
+      - 15
+      - 37
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

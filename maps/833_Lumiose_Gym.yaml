@@ -1,0 +1,1288 @@
+---
+id: 833
+name: Lumiose Gym
+parent: 794
+width: 50
+height: 55
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Bonnie
+  x: 25
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis leads to the top of Prism Tower."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: NPC 39
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBonnie: Hi \\PN! Did you come to visit us?"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 23
+  "y": 49
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 793
+      - 37
+      - 41
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Clemont
+  x: 23
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Clemont)
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont: It's finally time \\PN. I've been waiting for "
+    - i: 0
+      code: 401
+      p:
+      - 'this battle for a long time. I''m determined to give you a '
+    - i: 0
+      code: 401
+      p:
+      - worthy fight. Let's begin.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Clemont,"Clemont",nil,false,3,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bClemont: You've earned the Voltage Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:VOLTAGEBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[44]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM115)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM115 contains Shock Wave. An electric attack that "
+    - i: 1
+      code: 401
+      p:
+      - never misses.
+    - i: 1
+      code: 121
+      p:
+      - 253
+      - 253
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont: That was an outstanding battle \\PN. "
+    - i: 0
+      code: 401
+      p:
+      - 'Bonnie and I are going to keep traveling for a while. I '
+    - i: 0
+      code: 401
+      p:
+      - want to be able to stand on the same level as you.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 254
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont: It's good to see you again. I've been "
+    - i: 0
+      code: 401
+      p:
+      - 'practicing everyday to grow as a Trainer and '
+    - i: 0
+      code: 401
+      p:
+      - inventor.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 527
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Clemont)
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont: \\PN. I'm glad you had time to stop by "
+    - i: 0
+      code: 401
+      p:
+      - 'before your match. I''ve been working on some '
+    - i: 0
+      code: 401
+      p:
+      - battling techniques that should help you.
+    - i: 0
+      code: 101
+      p:
+      - "\\bAfter all, the future is now, thanks to science!"
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Clemont,"Clemont",nil,false,6,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bClemont: Well, the results weren't what I expected. "
+    - i: 1
+      code: 401
+      p:
+      - But I should expect that coming from you.
+    - i: 1
+      code: 101
+      p:
+      - "\\rBonnie: You both did great! You're going to win your "
+    - i: 1
+      code: 401
+      p:
+      - match for sure.
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou should hurry over. We'll be watching."
+    - i: 1
+      code: 121
+      p:
+      - 528
+      - 528
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont: You should hurry over. We'll be watching."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Clemont)
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont: Wonderful timing, \\PN. I was in need of "
+    - i: 0
+      code: 401
+      p:
+      - someone to help me train.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Clemont,"Clemont",nil,false,7,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont: That was a great battle. I look forward to "
+    - i: 0
+      code: 401
+      p:
+      - our next one.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 15
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 3
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 19
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 23
+      - 27
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 23
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 46
+      - 20
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 27
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 13
+      - 5
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Exit
+  x: 31
+  "y": 41
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 35
+      - 5
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Exit
+  x: 3
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 15
+      - 43
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Exit
+  x: 23
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 19
+      - 43
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Exit
+  x: 46
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 23
+      - 43
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Exit
+  x: 35
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 31
+      - 43
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 13
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 833
+      - 27
+      - 43
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Trainer(4)
+  x: 1
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 253'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooks like you picked wrong."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Mathis")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooks like you won. This time."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 253
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooks like you won. This time."
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Trainer(4)
+  x: 44
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 253'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bNot going to happen."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Rico")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont uses Electric types. Use a ground type to "
+    - i: 0
+      code: 401
+      p:
+      - win.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 253
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont uses Electric types. Use a ground type to "
+    - i: 0
+      code: 401
+      p:
+      - win.
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Gym Guy
+  x: 21
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bEach elevator leads to a different floor. Pick the "
+    - i: 0
+      code: 401
+      p:
+      - right one to fight the gym leader.
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Trainer(4)
+  x: 11
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 253'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI guess it's my job to defeat you."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Maxim")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou might fight Clemont yet. If you pick the right "
+    - i: 0
+      code: 401
+      p:
+      - floor.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 253
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou might fight Clemont yet. If you pick the right "
+    - i: 0
+      code: 401
+      p:
+      - floor.
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Trainer(4)
+  x: 33
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 253'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bTime to finish this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Arno")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe right floor will take you to the top of the tower."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 253
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe right floor will take you to the top of the tower."
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Gym Guy
+  x: 25
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bClemont uses Electric type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against only the Ground type.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Flying and Water. Flying, "
+    - i: 0
+      code: 401
+      p:
+      - 'Electric, and Steel moves also don''t do much '
+    - i: 0
+      code: 401
+      p:
+      - damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Magnemite
+  x: 13
+  "y": 42
+  pages:
+  - condition: {}
+    graphic: MAGNEMITE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: '081Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Magnemite
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Magneton
+  x: 33
+  "y": 42
+  pages:
+  - condition: {}
+    graphic: MAGNETON
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: '082Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Magneton
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Heliolisk
+  x: 22
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: HELIOLISK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 695Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bHeliolosk"
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Luxray
+  x: 24
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: LUXRAY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 405Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bLuxray"
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Dedenne
+  x: 26
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: DEDENNE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 702Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bDedenne!"
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Diggersby
+  x: 30
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: BUNNELBY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 659Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bBunnelby"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 527
+    graphic: DIGGERSBY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: DIGGERSBY
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bDiggersby"
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Chespin
+  x: 16
+  "y": 46
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 285
+    graphic: CHESPIN
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 650Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bChespin"
+    - i: 0
+      code: 0
+      p: []

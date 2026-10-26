@@ -1,0 +1,457 @@
+---
+id: 305
+name: Ecruteak Gym
+parent: 300
+width: 20
+height: 25
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Exit
+  x: 10
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 299
+      - 19
+      - 40
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(5)
+  x: 7
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHANELLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWahh! Who are you?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHANELLER,"Georgina",_I("What happened?"))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI must have slipped out a bit."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 86
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI must have slipped out a bit."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(5)
+  x: 7
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHANELLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rLeave now."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHANELLER,"Grace",_I("Woah."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMaybe you can beat Morty."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 86
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMaybe you can beat Morty."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(3)
+  x: 13
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHANELLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is not an easy Gym."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHANELLER,"Edith",_I("Very powerful."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYour skills are impressive."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 86
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYour skills are impressive."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(3)
+  x: 13
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CHANELLER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rAre you lost?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CHANELLER,"Martha",_I("You're in the right place."))
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMorty uses powerful moves in battle."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 86
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMorty uses powerful moves in battle."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Gym Guy
+  x: 12
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMorty uses Ghost type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Dark and Ghost types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Ghost and Psychic. They "
+    - i: 0
+      code: 401
+      p:
+      - 'are resistant to Bug and Poison and are immune to '
+    - i: 0
+      code: 401
+      p:
+      - 'Normal and Fighting types. '
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Morty
+  x: 10
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar084
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Morty)
+    - i: 0
+      code: 101
+      p:
+      - "\\bMorty: I saw you in the Burned Tower before."
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm ready to go all out against a Trainer like you."
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Morty,"Morty")
+    - i: 1
+      code: 101
+      p:
+      - "\\bMorty: You've earned the Fog Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:FOGBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[11]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM65)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM65 contains Shadow Claw. It has a "
+    - i: 1
+      code: 401
+      p:
+      - chance to inflict a critical hit.
+    - i: 1
+      code: 121
+      p:
+      - 86
+      - 86
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar084
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMorty: Come find me if you ever find the mythical "
+    - i: 0
+      code: 401
+      p:
+      - Ho-Oh.
+    - i: 0
+      code: 0
+      p: []

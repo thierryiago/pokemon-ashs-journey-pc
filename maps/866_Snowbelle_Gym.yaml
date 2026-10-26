@@ -1,0 +1,610 @@
+---
+id: 866
+name: Snowbelle Gym
+parent: 864
+width: 20
+height: 25
+tileset: 6
+bgm: gym
+events:
+- id: 1
+  name: Exit, size(2,1)
+  x: 4
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 863
+      - 31
+      - 28
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Wulfric
+  x: 4
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar163
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Wulfric)
+    - i: 0
+      code: 101
+      p:
+      - "\\bWulfric: Oh. A Trainer, is it? Let's see if you'll give "
+    - i: 0
+      code: 401
+      p:
+      - me a challenge.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Wulfric,"Wulfric",nil,false,0,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bWulfric: You have potential, but you aren't good "
+    - i: 1
+      code: 401
+      p:
+      - 'enough yet. You seem to have forgotten something '
+    - i: 1
+      code: 401
+      p:
+      - important between you and your Pokémon.
+    - i: 1
+      code: 101
+      p:
+      - "\\bTry searching your soul for the answer. You "
+    - i: 1
+      code: 401
+      p:
+      - 'know... I always find the woods to the south a '
+    - i: 1
+      code: 401
+      p:
+      - calming place.
+    - i: 1
+      code: 121
+      p:
+      - 270
+      - 270
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar163
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTry searching your soul for the answer. You "
+    - i: 0
+      code: 401
+      p:
+      - 'know...I always find the woods to the south a '
+    - i: 0
+      code: 401
+      p:
+      - calming place.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 271
+    graphic: trchar163
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Wulfric)
+    - i: 0
+      code: 101
+      p:
+      - "\\bWulfric: So, you came back. Did you find your "
+    - i: 0
+      code: 401
+      p:
+      - answer? Show me what you've learned.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Wulfric,"Wulfric",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bWulfric: You've done very well. I admit that you're a "
+    - i: 1
+      code: 401
+      p:
+      - 'talented and strong Trainer. Here, you earned the '
+    - i: 1
+      code: 401
+      p:
+      - Iceberg Badge.
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:ICEBERGBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[47]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM120)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM120 contains Icicle Crash. It has a chance to "
+    - i: 1
+      code: 401
+      p:
+      - flinch.
+    - i: 1
+      code: 121
+      p:
+      - 256
+      - 256
+      - 0
+    - i: 1
+      code: 121
+      p:
+      - 530
+      - 530
+      - 1
+    - i: 1
+      code: 121
+      p:
+      - 531
+      - 531
+      - 1
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou've earned this as well. Use it with pride."
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:ABOMASITE)
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar163
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWulfric: I wish you luck at the league."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Gym Guy
+  x: 7
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWulfric uses Ice type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - 'weak against the Fire, Fighting, Rock, and Steel '
+    - i: 0
+      code: 401
+      p:
+      - types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Dragon, Flying, Grass, and "
+    - i: 0
+      code: 401
+      p:
+      - Ground. They are resistant to only Ice.
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(1)
+  x: 0
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 256'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm going all out."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Viktor")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle. Good luck with the rest."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 256
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGreat battle. Good luck with the rest."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Trainer(1)
+  x: 8
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 256'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm not cold..."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Theo")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm warm now."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 256
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm warm now."
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(1)
+  x: 4
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 256'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWulfric is ten times harder than me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Shannon")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI guess you might win."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 256
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI guess you might win."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(1)
+  x: 9
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 256'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rWulfric has a secret weapon."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Imelda")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIf he thinks you're strong enough he will show you "
+    - i: 0
+      code: 401
+      p:
+      - that power.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 256
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rIf he thinks you're strong enough he will show you "
+    - i: 0
+      code: 401
+      p:
+      - that power.
+    - i: 0
+      code: 0
+      p: []

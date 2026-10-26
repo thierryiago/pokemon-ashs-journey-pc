@@ -1,0 +1,1264 @@
+---
+id: 970
+name: Spear Pillar
+parent: 550
+width: 35
+height: 45
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Trainer(4)
+  x: 16
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bStop."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC,"Solson")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou won't make it."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Brock
+  x: 19
+  "y": 36
+  pages:
+  - condition: {}
+    graphic: trchar059_2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: Find the ones in charge."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(6)
+  x: 17
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar210
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC_Saturn)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bSaturn: Again and again we run into each other. "
+    - i: 0
+      code: 401
+      p:
+      - That stops today.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC_Saturn,"Saturn",nil,false,2,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar210
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSaturn: Cyrus went into the portal. Will our new "
+    - i: 0
+      code: 401
+      p:
+      - world begin?
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(6)
+  x: 19
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar211
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC_Mars)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rMars: You again? How many times are you going to "
+    - i: 0
+      code: 401
+      p:
+      - get in our way?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC_Mars,"Mars",nil,false,2,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar211
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMars: Boss Cyrus will create a new world."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Pokemon
+  x: 16
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: MESPRIT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 481Cry
+        pitch: 100
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Pokemon
+  x: 18
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: AZELF
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 482Cry
+        pitch: 100
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Pokemon
+  x: 20
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: UXIE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 480Cry
+        pitch: 100
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Encouter Pokemon
+  x: 18
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: DIALGA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'You are about to enter a battle with a legendary that '
+    - i: 0
+      code: 401
+      p:
+      - 'will be unobtainable until the post game if it is not '
+    - i: 0
+      code: 401
+      p:
+      - caught here. Save?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbSaveScreen"
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 483Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Creation Trio
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:DIALGA,50)
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Encouter Pokemon
+  x: 18
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: PALKIA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'You are about to enter a battle with a legendary that '
+    - i: 0
+      code: 401
+      p:
+      - 'will be unobtainable until the post game if it is not '
+    - i: 0
+      code: 401
+      p:
+      - caught here. Save?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbSaveScreen"
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 484Cry
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 15
+    - i: 0
+      code: 132
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Legend Creation Trio
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbWildBattle(:PALKIA,50)
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 121
+      p:
+      - 436
+      - 436
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCynthia: You've done it. The Pokémon have gone "
+    - i: 0
+      code: 401
+      p:
+      - back to their own dimensions.
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooker: Yes, and Team Galactic has been defeated. "
+    - i: 0
+      code: 401
+      p:
+      - " I wonder what happened to their leader, Cyrus? He "
+    - i: 0
+      code: 401
+      p:
+      - disappeared into the portal made by the legendaries.
+    - i: 0
+      code: 101
+      p:
+      - "\\bWe can worry about that later. I'll handle arresting "
+    - i: 0
+      code: 401
+      p:
+      - 'everyone. Cynthia, could you escort the children to '
+    - i: 0
+      code: 401
+      p:
+      - safety?
+    - i: 0
+      code: 101
+      p:
+      - "\\rI would be happy to. \\PN, let's go."
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 630
+      - 61
+      - 35
+      - 2
+      - 1
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Trainer(4)
+  x: 21
+  "y": 28
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHold it."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC,"Richard")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTruth is, I don't know why I'm still here."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Trainer(4)
+  x: 16
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bHow are so many people here?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC,"Sammy")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSomeone will take my place."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Person
+  x: 14
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of our way."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Person
+  x: 24
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of our way."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Person
+  x: 22
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of our way."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Person
+  x: 23
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of our way."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Person
+  x: 13
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of our way."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Person
+  x: 12
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bStay out of our way."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Trainer(4)
+  x: 20
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar209
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bOur boss needs more time."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC,"Grey")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar209
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTeam Galactic will succeed."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 436
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Trainer(3)
+  x: 17
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar212
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:TEAMGALACTIC_Jupiter)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rJupiter: Our boss has already started the process. "
+    - i: 0
+      code: 401
+      p:
+      - You'll never stop him.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMGALACTIC_Jupiter,"Jupiter")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar212
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rJupiter: Cyrus won't be bothered by someone like "
+    - i: 0
+      code: 401
+      p:
+      - you.
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Dawn
+  x: 17
+  "y": 36
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: No need to worry."
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Event
+  x: 7
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: \\PN, Brock, are you alright?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: I'm fine. Did either of you hear a Pokémon's "
+    - i: 0
+      code: 401
+      p:
+      - voice?
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Yes. I think it was the lake guardians calling "
+    - i: 0
+      code: 401
+      p:
+      - 'out to us for help. We need to stop Team Galactic '
+    - i: 0
+      code: 401
+      p:
+      - before it's too late.
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: \\PN, we'll take the grunts on. Hurry and stop "
+    - i: 0
+      code: 401
+      p:
+      - the commanders.
+    - i: 0
+      code: 209
+      p:
+      - 21
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 209
+      p:
+      - 2
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Looker
+  x: 21
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: NPC 48
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooker: Team Galactic is done for. But Dialga and "
+    - i: 0
+      code: 401
+      p:
+      - Palkia are still an issue.
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Cynthia
+  x: 21
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar198
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCynthia: We need to subdue Dialga and Palkia."
+    - i: 0
+      code: 0
+      p: []

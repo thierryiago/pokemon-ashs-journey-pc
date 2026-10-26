@@ -1,0 +1,339 @@
+---
+id: 502
+name: Battle Pyramid Stage
+parent: 500
+width: 20
+height: 17
+tileset: 14
+bgm: evolv
+events:
+- id: 1
+  name: Brandon
+  x: 7
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar104
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PYRAMIDKING_Brandon)
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrandon: So I see you decided to come after all. No "
+    - i: 0
+      code: 401
+      p:
+      - point in keeping you waiting then.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PYRAMIDKING_Brandon,"Brandon",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrandon: I thought you would show me your "
+    - i: 1
+      code: 401
+      p:
+      - 'power, but I feel as though both of us didn''t give it '
+    - i: 1
+      code: 401
+      p:
+      - our all.
+    - i: 1
+      code: 101
+      p:
+      - "\\bCome back soon and I'll be ready. I hope you will be "
+    - i: 1
+      code: 401
+      p:
+      - too.
+    - i: 1
+      code: 121
+      p:
+      - 149
+      - 149
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar104
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 500
+      - 12
+      - 14
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar104
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:PYRAMIDKING_Brandon)
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrandon: I've finished my preparations. Now let me "
+    - i: 0
+      code: 401
+      p:
+      - give you the ultimate challenge.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,4)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:PYRAMIDKING_Brandon,"Brandon",nil,false,2,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrandon: You've earned the Brave Symbol."
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:VICTORY)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:BRAVESYMBOL)
+    - i: 1
+      code: 101
+      p:
+      - "\\bWith this Symbol you have completed the Battle "
+    - i: 1
+      code: 401
+      p:
+      - 'Frontier and now qualify as a Frontier Brain '
+    - i: 1
+      code: 401
+      p:
+      - candidate.
+    - i: 1
+      code: 101
+      p:
+      - "\\bBeing a candidate means that you will get the "
+    - i: 1
+      code: 401
+      p:
+      - 'next opening when one of the Brains steps down. '
+    - i: 1
+      code: 401
+      p:
+      - Until then, continue to grow as a Trainer.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI've also prepared a gift for you as celebration. It "
+    - i: 1
+      code: 401
+      p:
+      - will be out in the lobby.
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 355
+      p:
+      - pbHallOfFameEntry
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 121
+      p:
+      - 145
+      - 145
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: C
+    graphic: trchar104
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Hall of Fame autorun
+  x: 4
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 145
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 500
+      - 12
+      - 14
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning. That was your last "
+    - i: 0
+      code: 401
+      p:
+      - 'challenge, was it not? Probably a good idea to head '
+    - i: 0
+      code: 401
+      p:
+      - home and tell everyone about it.
+    - i: 0
+      code: 121
+      p:
+      - 496
+      - 496
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

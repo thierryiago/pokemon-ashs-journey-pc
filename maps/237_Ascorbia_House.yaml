@@ -1,0 +1,957 @@
+---
+id: 237
+name: Ascorbia House
+parent: 236
+width: 35
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 3
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 236
+      - 27
+      - 44
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 5
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI want to grow up and help stop fires!"
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 3
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 236
+      - 21
+      - 51
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 9
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: trchar033
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you ever get in a fire this will help."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:BURNHEAL)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar039
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bUse it wisely."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 24
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 236
+      - 43
+      - 44
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Exit
+  x: 24
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 236
+      - 36
+      - 51
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 24
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCaptain Aidan does such a good job raising his "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon firefighters.
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 28
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar041
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCaptain Aidan: One of my Wartortle is missing. It "
+    - i: 0
+      code: 401
+      p:
+      - has a scarf on it; you can't miss it.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 79
+    graphic: trchar041
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCaptain Aidan: Thank you for helping out my "
+    - i: 0
+      code: 401
+      p:
+      - Wartortle. Let me reward you.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:YELLOWSCARF)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar041
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCaptain Aidan: I raised all my Pokémon with lots of "
+    - i: 0
+      code: 401
+      p:
+      - care. They can stop any fire that comes their way.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 93
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDayCareDeposited == 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bCaptain Aidan: You have a wonderful member of "
+    - i: 1
+      code: 401
+      p:
+      - 'the Squirtle family. How would you like me to train '
+    - i: 1
+      code: 401
+      p:
+      - one of your Pokémon?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemonCount<=1"
+    - i: 3
+      code: 101
+      p:
+      - "\\bOh?  But you only have one with you."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich Pokémon would you like me to raise?"
+    - i: 2
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1, 3)
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 101
+      p:
+      - "\\bFine."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "!pbCheckAble(pbGet(1))"
+    - i: 3
+      code: 101
+      p:
+      - "\\bf you leave me that Pokémon, what are you gonna "
+    - i: 3
+      code: 401
+      p:
+      - battle with?
+    - i: 3
+      code: 101
+      p:
+      - "\\bCome back with some common sense."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 355
+      p:
+      - pbDayCareDeposit(pbGet(1))
+    - i: 2
+      code: 101
+      p:
+      - "\\bI'll raise your \\v[3] for a while."
+    - i: 2
+      code: 118
+      p:
+      - RaiseAnother
+    - i: 2
+      code: 101
+      p:
+      - "\\bI can raise two of your Pokémon. Would you like "
+    - i: 2
+      code: 401
+      p:
+      - me to raise another?
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemonCount<=1"
+    - i: 4
+      code: 101
+      p:
+      - "\\bOh? But you only have one Pokémon with you."
+    - i: 4
+      code: 101
+      p:
+      - "\\bYou can't go off without a Pokémon. Come back "
+    - i: 4
+      code: 401
+      p:
+      - another time.
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\bWhich Pokémon should I raise for you?"
+    - i: 3
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1, 3)
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 4
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "!pbCheckAble(pbGet(1))"
+    - i: 4
+      code: 101
+      p:
+      - "\\bOh? But you only have one Pokémon with you."
+    - i: 4
+      code: 101
+      p:
+      - "\\bYou can't go off without a Pokémon. Come back "
+    - i: 4
+      code: 401
+      p:
+      - another time.
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareDeposit(pbGet(1))
+    - i: 3
+      code: 101
+      p:
+      - "\\bFine, I'll raise your \\v[3] for a while."
+    - i: 3
+      code: 101
+      p:
+      - "\\bCome back for it later."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 111
+      p:
+      - 2
+      - A
+      - 0
+    - i: 4
+      code: 119
+      p:
+      - TakeBack
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bFine."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bHey \\PN. How's it going? Your Pokémon got "
+    - i: 1
+      code: 401
+      p:
+      - stronger.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbDayCareGetLevelGain(0,3,4) && $game_variables[4]>0
+    - i: 2
+      code: 101
+      p:
+      - "\\bBy level, your \\v[3] has grown by about \\v[4]."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbDayCareGetLevelGain(1,3,4) && $game_variables[4]>0
+    - i: 2
+      code: 101
+      p:
+      - "\\bBy level, your \\v[3] has grown by about \\v[4]."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDayCareDeposited == 1
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 119
+      p:
+      - RaiseAnother
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 118
+      p:
+      - TakeBack
+    - i: 2
+      code: 101
+      p:
+      - "\\bDo you want your Pokémon back?"
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 118
+      p:
+      - TakeBackChosen
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "$Trainer.party.length>=6"
+    - i: 4
+      code: 101
+      p:
+      - "\\bYour Pokémon team is full. Make room, then come "
+    - i: 4
+      code: 401
+      p:
+      - see me.
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareChoose(
+    - i: 3
+      code: 655
+      p:
+      - '  _I("Which one do you want back?"),1)'
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 4
+      code: 101
+      p:
+      - "\\bVery good. Come again."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareGetDeposited(pbGet(1), 3, 4)
+    - i: 3
+      code: 101
+      p:
+      - "\\G\\bIf you want your \\v[3] back, it will cost $\\v[4]."
+    - i: 3
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 3
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 4
+      code: 122
+      p:
+      - 5
+      - 5
+      - 0
+      - 7
+      - 2
+    - i: 4
+      code: 111
+      p:
+      - 1
+      - 5
+      - 1
+      - 4
+      - 4
+    - i: 5
+      code: 101
+      p:
+      - "\\G\\bYou don't have enough money..."
+    - i: 5
+      code: 115
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 125
+      p:
+      - 1
+      - 1
+      - 4
+    - i: 4
+      code: 355
+      p:
+      - pbDayCareWithdraw(pbGet(1))
+    - i: 4
+      code: 101
+      p:
+      - "\\G\\bAwesome\\nHere's your Pokémon."
+    - i: 4
+      code: 101
+      p:
+      - "\\PN took \\v[3] back from Aiden."
+    - i: 4
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDayCareDeposited == 1
+    - i: 5
+      code: 101
+      p:
+      - "\\bDo you want to take back the other one, too?"
+    - i: 5
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 5
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 6
+      code: 119
+      p:
+      - TakeBackChosen
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 6
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 404
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 411
+      p: []
+    - i: 5
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 4
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 404
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 101
+      p:
+      - "\\bI can always train one for you."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Pokemon
+  x: 29
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 79
+    graphic: WARTORTLE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: '008Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bWartortle!"
+    - i: 0
+      code: 0
+      p: []

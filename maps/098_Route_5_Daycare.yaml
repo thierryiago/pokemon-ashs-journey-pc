@@ -1,0 +1,729 @@
+---
+id: 98
+name: Route 5 Daycare
+parent: 97
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Day Care Lady
+  x: 4
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbEggGenerated?
+    - i: 1
+      code: 101
+      p:
+      - "\\rAh, there you are!  My husband was looking for "
+    - i: 1
+      code: 401
+      p:
+      - you.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDayCareDeposited==0
+    - i: 1
+      code: 101
+      p:
+      - "\\rI'm the Day-Care Lady.  We can raise Pokémon for "
+    - i: 1
+      code: 401
+      p:
+      - you.
+    - i: 1
+      code: 101
+      p:
+      - "\\rWould you like us to raise your Pokémon?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemonCount<=1"
+    - i: 3
+      code: 101
+      p:
+      - "\\rOh?  But you only have one Pokémon with you."
+    - i: 3
+      code: 101
+      p:
+      - "\\rYou can't go off without a Pokémon.  Come back "
+    - i: 3
+      code: 401
+      p:
+      - another time.
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rWhich Pokémon should we raise for you?"
+    - i: 2
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1,3)
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 101
+      p:
+      - "\\rOh, fine, then.\\nCome again."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "!pbCheckAble(pbGet(1))"
+    - i: 3
+      code: 101
+      p:
+      - "\\rIf you leave me that Pokémon, what are you gonna "
+    - i: 3
+      code: 401
+      p:
+      - battle with?
+    - i: 3
+      code: 101
+      p:
+      - "\\rCome back another time."
+    - i: 3
+      code: 115
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 355
+      p:
+      - pbDayCareDeposit(pbGet(1))
+    - i: 2
+      code: 101
+      p:
+      - "\\rFine, we'll raise your \\v[3] for a while."
+    - i: 2
+      code: 101
+      p:
+      - "\\rCome back for it later."
+    - i: 2
+      code: 118
+      p:
+      - RaiseAnother
+    - i: 2
+      code: 101
+      p:
+      - "\\rWe can raise two of your Pokémon.  Would you like "
+    - i: 2
+      code: 401
+      p:
+      - us to raise another?
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokemonCount<=1"
+    - i: 4
+      code: 101
+      p:
+      - "\\rOh?  But you only have one Pokémon with you."
+    - i: 4
+      code: 101
+      p:
+      - "\\rYou can't go off without a Pokémon.  Come back "
+    - i: 4
+      code: 401
+      p:
+      - another time.
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\rWhich Pokémon should we raise for you?"
+    - i: 3
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1,3)
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 4
+      code: 101
+      p:
+      - "\\rVery good.  Come again."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "!pbCheckAble(pbGet(1))"
+    - i: 4
+      code: 101
+      p:
+      - "\\rIf you leave me that Pokémon, what are you gonna "
+    - i: 4
+      code: 401
+      p:
+      - battle with?
+    - i: 4
+      code: 101
+      p:
+      - "\\rCome back another time."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareDeposit(pbGet(1))
+    - i: 3
+      code: 101
+      p:
+      - "\\rFine, we'll raise your \\v[3] for a while."
+    - i: 3
+      code: 101
+      p:
+      - "\\rCome back for it later."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 111
+      p:
+      - 2
+      - A
+      - 0
+    - i: 4
+      code: 119
+      p:
+      - TakeBack
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 101
+      p:
+      - "\\rVery good.  Come again."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\rOh, fine, then.\\nCome again."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rAh, it's you!  Good to see you.  Now, about your "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon...
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbDayCareGetLevelGain(0,3,4) && $game_variables[4]>0
+    - i: 2
+      code: 101
+      p:
+      - "\\rBy level, your \\v[3] has grown by about \\v[4]."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbDayCareGetLevelGain(1,3,4) && $game_variables[4]>0
+    - i: 2
+      code: 101
+      p:
+      - "\\rBy level, your \\v[3] has grown by about \\v[4]."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDayCareDeposited==1
+    - i: 2
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 2
+      code: 119
+      p:
+      - RaiseAnother
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 118
+      p:
+      - TakeBack
+    - i: 2
+      code: 101
+      p:
+      - "\\rDo you want your Pokémon back?"
+    - i: 2
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 2
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 3
+      code: 118
+      p:
+      - TakeBackChosen
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "$Trainer.party.length>=6"
+    - i: 4
+      code: 101
+      p:
+      - "\\rYour Pokémon team is full.  Make room, then come "
+    - i: 4
+      code: 401
+      p:
+      - see me.
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareChoose(
+    - i: 3
+      code: 655
+      p:
+      - _I("Which one do you want back?"),1)
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 4
+      code: 101
+      p:
+      - "\\rVery good.  Come again."
+    - i: 4
+      code: 115
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 355
+      p:
+      - pbDayCareGetDeposited(pbGet(1),3,4)
+    - i: 3
+      code: 101
+      p:
+      - "\\G\\rIf you want your \\v[3] back, it will cost $\\v[4]."
+    - i: 3
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 3
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 4
+      code: 122
+      p:
+      - 5
+      - 5
+      - 0
+      - 7
+      - 2
+    - i: 4
+      code: 111
+      p:
+      - 1
+      - 5
+      - 1
+      - 4
+      - 4
+    - i: 5
+      code: 101
+      p:
+      - "\\G\\rYou don't have enough money..."
+    - i: 5
+      code: 115
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 125
+      p:
+      - 1
+      - 1
+      - 4
+    - i: 4
+      code: 355
+      p:
+      - pbDayCareWithdraw(pbGet(1))
+    - i: 4
+      code: 101
+      p:
+      - "\\G\\rExcellent\\nHere's your Pokémon."
+    - i: 4
+      code: 101
+      p:
+      - "\\PN took \\v[3] back from the Day-Care Lady."
+    - i: 4
+      code: 111
+      p:
+      - 12
+      - Kernel.pbDayCareDeposited==1
+    - i: 5
+      code: 101
+      p:
+      - "\\rDo you want to take back the other one, too?"
+    - i: 5
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 5
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 6
+      code: 119
+      p:
+      - TakeBackChosen
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 6
+      code: 101
+      p:
+      - "\\rVery good.  Come again."
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 404
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 411
+      p: []
+    - i: 5
+      code: 101
+      p:
+      - "\\rVery good.  Come again."
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 4
+      code: 101
+      p:
+      - "\\rVery good.  Come again."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 404
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 3
+      code: 101
+      p:
+      - "\\rVery good.  Come again."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 404
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 4
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 97
+      - 25
+      - 23
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: PC
+  x: 5
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

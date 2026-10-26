@@ -1,0 +1,800 @@
+---
+id: 83
+name: Pewter House
+parent: 82
+width: 35
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Person
+  x: 2
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bPokémon learn new moves as they grow."
+    - i: 0
+      code: 101
+      p:
+      - "\\bBut some moves must be taught to them by people."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 5
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI like having Brock and his family around. There are "
+    - i: 0
+      code: 401
+      p:
+      - plenty of kids to play with.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Exit
+  x: 3
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 82
+      - 16
+      - 32
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 23
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 07
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOur Pokémon is hard to handle because we got it in "
+    - i: 0
+      code: 401
+      p:
+      - a trade.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt grows fast, but it may ignore an unskilled Trainer "
+    - i: 0
+      code: 401
+      p:
+      - in battle.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf only we had some Badges..."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Person
+  x: 26
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rNidoran, sit."
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 032Cry
+        pitch: 100
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Pokémon
+  x: 27
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NIDORANmA
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 032Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bNido"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 25
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 82
+      - 47
+      - 13
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Exit
+  x: 3
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 82
+      - 20
+      - 11
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Stairs up
+  x: 10
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - Followers.prevent_y_movement
+          code: 45
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 8
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - Followers.prevent_y_movement
+        code: 45
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 8
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 83
+      - 31
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Stairs down
+  x: 30
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 2
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 2
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 83
+      - 9
+      - 18
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Person
+  x: 26
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBilly: My twin's name is Tilly."
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Person
+  x: 27
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rTilly: My twin's name is Billy."
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Person
+  x: 10
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTimmy: You better not beat my big brother."
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Person
+  x: 8
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar042
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCindy: Our parents left, so Brock takes care of us "
+    - i: 0
+      code: 401
+      p:
+      - now.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Person
+  x: 31
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSalvadore: Brock is more than just a Gym Leader, "
+    - i: 0
+      code: 401
+      p:
+      - he is the best brother we could ever have.
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Person
+  x: 11
+  "y": 23
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rSuzie: Have you battled my big brother yet?"
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Person
+  x: 5
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar021
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYolanda: Our brother Brock does all the cooking and "
+    - i: 0
+      code: 401
+      p:
+      - cleaning around here.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 198
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYolanda: You beat Brock?! Here, take this then."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM37)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rThat's Sandstorm. It inflicts damage every "
+    - i: 1
+      code: 401
+      p:
+      - 'turn to Pokémon that are not the Rock, Ground, '
+    - i: 1
+      code: 401
+      p:
+      - or Steel type.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYolanda: Our brother Brock does all the cooking and "
+    - i: 0
+      code: 401
+      p:
+      - cleaning around here.
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Person
+  x: 6
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bTommy: We all help Brock out at the gym whenever "
+    - i: 0
+      code: 401
+      p:
+      - we can.
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Person
+  x: 0
+  "y": 18
+  pages:
+  - condition:
+      switch1: 39
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bForrest: Oh, you plan on challenging Brock?"
+    - i: 0
+      code: 101
+      p:
+      - "\\bIf you beat him I will give you something "
+    - i: 0
+      code: 401
+      p:
+      - nice.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 4
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bForrest: You beat Brock?! Here, take this then."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM37)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bThat's Sandstorm. It inflicts damage every "
+    - i: 1
+      code: 401
+      p:
+      - 'turn to Pokémon that are not the Rock, Ground, '
+    - i: 1
+      code: 401
+      p:
+      - or Steel type.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bForrest: I hope to be the Gym Leader after Brock is "
+    - i: 0
+      code: 401
+      p:
+      - done.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 198
+      self_switch: A
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbSetSelfSwitch(17,"A",true)
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 198
+      self_switch: B
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bForrest: I'm currently in charge of the Gym. I hope I "
+    - i: 0
+      code: 401
+      p:
+      - can handle it.
+    - i: 0
+      code: 0
+      p: []

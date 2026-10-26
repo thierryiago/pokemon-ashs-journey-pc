@@ -1,0 +1,518 @@
+---
+id: 34
+name: Ice Cave
+parent: 31
+width: 42
+height: 41
+tileset: 6
+bgm: Dkc2cave
+events:
+- id: 1
+  name: Exit
+  x: 23
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 31
+      - 55
+      - 8
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Cracked ice
+  x: 26
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: menu
+        pitch: 100
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - ''
+          - 0
+          - 2
+          - 0
+          code: 41
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - ''
+        - 0
+        - 2
+        - 0
+        code: 41
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: menu
+        pitch: 100
+    - i: 0
+      code: 106
+      p:
+      - 4
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: throw
+        pitch: 100
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 106
+      p:
+      - 4
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 34
+      - 20
+      - 32
+      - 0
+      - 1
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Cracked ice sign
+  x: 25
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'On the right is an example of a cracked ice tile.  You '
+    - i: 0
+      code: 401
+      p:
+      - 'can walk over it once, but step on it again and you''ll '
+    - i: 0
+      code: 401
+      p:
+      - fall through to another map.
+    - i: 0
+      code: 101
+      p:
+      - 'In this case, you will "fall down" to a different part of '
+    - i: 0
+      code: 401
+      p:
+      - 'this same map.  There''s no difference to warrant the '
+    - i: 0
+      code: 401
+      p:
+      - two levels of this cave to be on different maps.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Sliding ice sign
+  x: 33
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Ice you slide around on has terrain tag 12.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: StrengthBoulder
+  x: 21
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: Object boulder
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPushThisBoulder
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 58
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Hole
+  x: 22
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 106
+      p:
+      - 4
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: throw
+        pitch: 100
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 106
+      p:
+      - 4
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 34
+      - 16
+      - 30
+      - 0
+      - 1
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Ladder down
+  x: 16
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 34
+      - 11
+      - 32
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Ladder up
+  x: 10
+  "y": 32
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 34
+      - 17
+      - 16
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Holed boulder
+  x: 17
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 58
+    graphic: Object boulder
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Boulder position checks
+  x: 23
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 4
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Boulder to be pushed down hole is event 5.
+    - i: 0
+      code: 111
+      p:
+      - 2
+      - A
+      - 1
+    - i: 1
+      code: 122
+      p:
+      - 4
+      - 4
+      - 0
+      - 6
+      - 5
+      - 0
+    - i: 1
+      code: 122
+      p:
+      - 5
+      - 5
+      - 0
+      - 6
+      - 5
+      - 1
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 22
+      - 0
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 5
+      - 0
+      - 14
+      - 0
+    - i: 3
+      code: 108
+      p:
+      - Is over hole.
+    - i: 3
+      code: 106
+      p:
+      - 8
+    - i: 3
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: throw
+        pitch: 100
+    - i: 3
+      code: 121
+      p:
+      - 58
+      - 58
+      - 0
+    - i: 3
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Sliding ice sign
+  x: 21
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - This is another boulder-down-hole puzzle.
+    - i: 0
+      code: 101
+      p:
+      - 'It is identical to the regular kind, except the boulder '
+    - i: 0
+      code: 401
+      p:
+      - 'downstairs is just a regular immovable event rather '
+    - i: 0
+      code: 401
+      p:
+      - than a boulder itself.
+    - i: 0
+      code: 0
+      p: []

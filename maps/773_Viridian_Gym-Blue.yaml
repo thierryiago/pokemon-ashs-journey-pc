@@ -1,0 +1,392 @@
+---
+id: 773
+name: Viridian Gym-Blue
+parent: 48
+width: 20
+height: 15
+tileset: 14
+bgm: GSC Intro
+events:
+- id: 1
+  name: Teleport
+  x: 3
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 48
+      - 5
+      - 16
+      - 2
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - You've returned to your world.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Blue
+  x: 9
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar138
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlue: My name is Blue. My special skill is Pokémon "
+    - i: 0
+      code: 401
+      p:
+      - 'training. That is, leveling them up and making them '
+    - i: 0
+      code: 401
+      p:
+      - strong.
+    - i: 0
+      code: 101
+      p:
+      - " \\bBecause of that I've been given the title "
+    - i: 0
+      code: 401
+      p:
+      - "<b>Trainer</b>."
+    - i: 0
+      code: 101
+      p:
+      - "\\bShow me your skills."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Blue,"Blue",nil,false,0,false,0)
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(1,"A",true)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar138
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBlue: You might be strong enough to become a Gym "
+    - i: 0
+      code: 401
+      p:
+      - Leader one day. You never know.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Scizor
+  x: 8
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: SCIZOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 212Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bScizor"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Espeon
+  x: 10
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: CHARIZARD
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 006Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCharizard"
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Golduck
+  x: 15
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: GOLDUCK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 055Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bGolduck"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Rhyperior
+  x: 3
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: RHYPERIOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 464Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bRhyperior"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Porygon2
+  x: 12
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: PORYGON2
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 233Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Porygon2
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Machamp
+  x: 6
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: MACHAMP
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: '068Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMachamp"
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Ninetales
+  x: 3
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: NINETALES
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: '038Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bNinetales"
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Arcanine
+  x: 15
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ARCANINE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: '059Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bArcanine"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Alakazam
+  x: 15
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: ALAKAZAM
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 065Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bAlakazam"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Exeggutor
+  x: 3
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: EXEGGUTOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 103Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bExeggutor"
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Pidgeot
+  x: 9
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: PIDGEOT
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: '018Cry'
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bPidgeot"
+    - i: 0
+      code: 0
+      p: []

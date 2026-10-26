@@ -1,0 +1,711 @@
+---
+id: 458
+name: Sootopolis Gym
+parent: 455
+width: 30
+height: 30
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Gym Guy
+  x: 15
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJuan uses Water type Pokémon. They are weak "
+    - i: 0
+      code: 401
+      p:
+      - against Grass and Electric types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Fire, Ground, and Rock. "
+    - i: 0
+      code: 401
+      p:
+      - 'Fire, Ice, Steel, and Water moves also don''t do much '
+    - i: 0
+      code: 401
+      p:
+      - damage.
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 13
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 454
+      - 44
+      - 42
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(1)
+  x: 19
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar045
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 120'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bDon't even think about it."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Connie")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJuan deserves better than you."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 120
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJuan deserves better than you."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(1)
+  x: 13
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar045
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 120'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bA challenger."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Andre")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSo strong."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 120
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bSo strong."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(1)
+  x: 6
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: trchar045
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 120'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhy not join me in the water?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_M,"Criss")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe water is so warm."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 120
+    graphic: trchar045
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe water is so warm."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Trainer(1)
+  x: 20
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar044
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 120'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rIsn't Juan amazing?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_F,"Tiffany")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar044
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou impress me."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 120
+    graphic: trchar044
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou impress me."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Trainer(1)
+  x: 12
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar044
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 120'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rI can't believe I'm here right now!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_F,"Brianna")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar044
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHow do I stand out now?"
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 120
+    graphic: trchar044
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHow do I stand out now?"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Trainer(1)
+  x: 12
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: trchar044
+    trigger: 2
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - 'EndIfSwitch: 120'
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SWIMMER_M)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rReady to roll?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SWIMMER_F,"Bridget")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar044
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAwesome battle kid."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 120
+    graphic: trchar044
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rAwesome battle kid."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Juan
+  x: 13
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: trchar097
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!pbCanDoubleBattle?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bJuan: Welcome! You'll need at least two Pokémon if "
+    - i: 1
+      code: 401
+      p:
+      - 'you want to battle me. Please come back when '
+    - i: 1
+      code: 401
+      p:
+      - you're ready.
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LEADER_Juan)
+    - i: 0
+      code: 101
+      p:
+      - "\\bJuan: Welcome to the Sootopolis Gym. Here you "
+    - i: 0
+      code: 401
+      p:
+      - 'shall bear witness to our artistry. A grand illusion of '
+    - i: 0
+      code: 401
+      p:
+      - water sculpted by Pokémon and myself!
+    - i: 0
+      code: 101
+      p:
+      - "\\bI hope you're prepared, because this Gym battle is "
+    - i: 0
+      code: 401
+      p:
+      - going to involve two different stages.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe first will be a double battle involving two of my "
+    - i: 0
+      code: 401
+      p:
+      - 'Pokémon. When you beat them we move on to phase '
+    - i: 0
+      code: 401
+      p:
+      - 'two, which is a single battle. '
+    - i: 0
+      code: 101
+      p:
+      - "\\bWith that, let us begin."
+    - i: 0
+      code: 355
+      p:
+      - setBattleRule("double")
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,5)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Juan,"Juan",nil,true)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar097
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJuan: Very good. Onto the second battle."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Juan,"Juan",nil,false,1,false,0)
+    - i: 1
+      code: 101
+      p:
+      - "\\bJuan: You've earned the Rain Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:RAINBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[23]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM96)
+    - i: 1
+      code: 101
+      p:
+      - "\\bTM96 contains Razor Shell. It has a chance "
+    - i: 1
+      code: 401
+      p:
+      - to lower the opponent's defense.
+    - i: 1
+      code: 121
+      p:
+      - 120
+      - 120
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar097
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bJuan: I wish you luck in your league challenge. Feel "
+    - i: 0
+      code: 401
+      p:
+      - 'free to stop by if you ever wish to see a master '
+    - i: 0
+      code: 401
+      p:
+      - performer.
+    - i: 0
+      code: 0
+      p: []

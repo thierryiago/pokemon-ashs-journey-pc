@@ -1,0 +1,941 @@
+---
+id: 197
+name: Indigo Plateau
+parent: 196
+width: 25
+height: 22
+tileset: 4
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Exit
+  x: 17
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 195
+      - 19
+      - 15
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Cop
+  x: 12
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is the path to the Johto region. It is a "
+    - i: 0
+      code: 401
+      p:
+      - 'dangerous path, so we advise people to stay away '
+    - i: 0
+      code: 401
+      p:
+      - during the League.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is the border between Kanto and Johto."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: EV003
+  x: 16
+  "y": 2
+  pages:
+  - condition:
+      switch1: 429
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe look forward to seeing you rematch the Indigo "
+    - i: 0
+      code: 401
+      p:
+      - League, Monarch \PN.
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Cop, size(1,2)
+  x: 12
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis is the path to the Johto region. It is a "
+    - i: 0
+      code: 401
+      p:
+      - 'dangerous path, so we advise people to stay away '
+    - i: 0
+      code: 401
+      p:
+      - during the League.
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 81
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Harrison
+  x: 20
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: trchar041
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGood to see you again. Let's see if I can beat you "
+    - i: 0
+      code: 401
+      p:
+      - again.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Harrison")
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 21
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooking forward to our next match."
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 20
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm so nervous. What should I use?"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 20
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGood luck. You'll need it."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 16
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 07
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe rules here used to be really complex. Due to "
+    - i: 0
+      code: 401
+      p:
+      - too many complaints they were changed.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Door
+  x: 17
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 196
+      - 15
+      - 20
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 22
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - get_character(0).onEvent?
+    - i: 1
+      code: 355
+      p:
+      - Followers.hide_followers
+    - i: 1
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 1
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 1
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - Followers.put_followers_on_player
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Person
+  x: 14
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: trchar035
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bReady Machop!?"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Pokemon
+  x: 15
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: MACHOP
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 066Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMachop!!"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Cop
+  x: 17
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 71
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe Indigo League is done. Come back next year."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 149
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 145
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThe Indigo League is done. Come back next year."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 8
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 250
+      - 42
+      - 9
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Move Tutor
+  x: 19
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: trchar016
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI love being random!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can teach your Pokémon a very random move, "
+    - i: 0
+      code: 401
+      p:
+      - Metronome!
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhich Pokémon would you like me to teach?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:METRONOME)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Encounter Pokémon
+  x: 17
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 425
+    graphic: AIPOM
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 190Cry
+        pitch: 100
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:FRONTIERPASS)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 121
+      p:
+      - 151
+      - 151
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - You got your Frontier Pass back!
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: AIPOM
+    trigger: 3
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 190Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - Would you like to take Aipom with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:AIPOM,5,$Trainer)
+    - i: 1
+      code: 655
+      p:
+      - 'p.makeFemale #Female'
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:SCRATCH)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:SWIFT)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:FOCUSPUNCH)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:DOUBLETEAM)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: AIPOM
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 190Cry
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - p=Pokemon.new(:AIPOM,5,$Trainer)
+    - i: 0
+      code: 655
+      p:
+      - 'p.makeFemale #Female'
+    - i: 0
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 0
+      code: 655
+      p:
+      - p.learn_move(:SCRATCH)
+    - i: 0
+      code: 655
+      p:
+      - p.learn_move(:SWIFT)
+    - i: 0
+      code: 655
+      p:
+      - p.learn_move(:FOCUSPUNCH)
+    - i: 0
+      code: 655
+      p:
+      - p.learn_move(:DOUBLETEAM)
+    - i: 0
+      code: 655
+      p:
+      - ''
+    - i: 0
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 0
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: C
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Item
+  x: 13
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: NPC 25
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou look like you may need this."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:EXPSHARE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 25
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat's an Experience Share. It gives experience to "
+    - i: 0
+      code: 401
+      p:
+      - a Pokémon even if it didn't battle.
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Trainer(2)
+  x: 20
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:SCIENTIST)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou have a Pokédex. Do you know I made the "
+    - i: 0
+      code: 401
+      p:
+      - entries for it?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:SCIENTIST,"Westwood V")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI actually made a lot of them up. It's hard making "
+    - i: 0
+      code: 401
+      p:
+      - Pokédex entries.
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Trainer(3)
+  x: 15
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 149
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bMy Sudowoodo needs help against water."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Keenan")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm sure there's a way to do it."
+    - i: 0
+      code: 0
+      p: []

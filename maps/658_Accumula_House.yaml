@@ -1,0 +1,348 @@
+---
+id: 658
+name: Accumula House
+parent: 656
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 8
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 655
+      - 12
+      - 26
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Tepig
+  x: 8
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: TEPIG
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 75
+        name: 498Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bTep!"
+    - i: 0
+      code: 101
+      p:
+      - 'Tepig seems to like you. Would you like to take '
+    - i: 0
+      code: 401
+      p:
+      - Tepig with you?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - p=Pokemon.new(:TEPIG,5)
+    - i: 1
+      code: 655
+      p:
+      - 'p.makeMale #Male'
+    - i: 1
+      code: 655
+      p:
+      - p.calc_stats
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:EMBER)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:TACKLE)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:FLAMECHARGE)
+    - i: 1
+      code: 655
+      p:
+      - p.learn_move(:FLAMETHROWER)
+    - i: 1
+      code: 655
+      p:
+      - ''
+    - i: 1
+      code: 655
+      p:
+      - pbAddPokemon(p)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bTepig"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Team Rocket
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar073
+    trigger: 3
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 247
+      p: []
+    - i: 0
+      code: 241
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Team Rocket OW Unova
+        pitch: 100
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: What a question, twerpish indeed!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: We'll answer these questions when we "
+    - i: 0
+      code: 401
+      p:
+      - feel the need!
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: Bringing the blinding white light of evil into "
+    - i: 0
+      code: 401
+      p:
+      - the future!
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: Thrusting the hammer of justice down onto "
+    - i: 0
+      code: 401
+      p:
+      - the black darkness of the universe!
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: Carving our names in the Rock of Eternity!"
+    - i: 0
+      code: 101
+      p:
+      - "\\rJessie: The fiery destroyer, Jessie!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: And with thunderous emotion, I am James!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bMeowth: Wisest of the wise, Meowth!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bAnd now gather, under the name of Team "
+    - i: 0
+      code: 401
+      p:
+      - Rocket!
+    - i: 0
+      code: 101
+      p:
+      - "\\bJames: This Tepig is ours!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:TEAMROCKET,"Jessie and James",nil,false,19,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 210
+      - 210
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 248
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Team Rocket
+  x: 9
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar072
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Team Rocket
+  x: 8
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 3
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []

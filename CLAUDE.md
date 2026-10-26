@@ -15,4 +15,7 @@ Plano: "Plano de Desenvolvimento — Pokémon Ash's Journey v0.5" (doc no claude
 
 ## Ferramentas
 - `ruby tools/extract_scripts.rb` — exporta scripts e plugins para `scripts/`.
+- `ruby tools/dump_data.rb` — exporta os `.dat` (espécies, golpes, treinadores, encontros, itens...) para `data/*.yaml`.
+- `ruby tools/dump_maps.rb` — exporta árvore de mapas, eventos de cada mapa e nomes de switches/variáveis para `maps/`.
+- Depois de qualquer mudança em `Data/`, rodar os três exportadores de novo e commitar junto.
 - `ruby tools/map_to_json.rb <id> > m.json && python3 tools/render_map.py m.json m.png` — imagem de um mapa.

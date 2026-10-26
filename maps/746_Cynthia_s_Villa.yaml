@@ -1,0 +1,224 @@
+---
+id: 746
+name: Cynthia's Villa
+parent: 744
+width: 70
+height: 50
+tileset: 3
+bgm: Radio - Oak
+events:
+- id: 1
+  name: Exit north left
+  x: 36
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 743
+      - 13
+      - 9
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Cynthia
+  x: 36
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: trchar198
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCynthia: You made it \\PN. Your friend is waiting in "
+    - i: 0
+      code: 401
+      p:
+      - the back room.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 232
+    graphic: trchar198
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCynthia: The tournament should be starting soon."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 233
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 234
+    graphic: trchar198
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rCynthia: I'm surprised you took on Team Rocket like "
+    - i: 0
+      code: 401
+      p:
+      - that. I'm impressed.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Dawn
+  x: 21
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: \\PN! It's so good to see you again. I've been "
+    - i: 0
+      code: 401
+      p:
+      - 'traveling through Johto and decided to visit Unova for '
+    - i: 0
+      code: 401
+      p:
+      - a while.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm also entering the Pokémon World Tournament "
+    - i: 0
+      code: 401
+      p:
+      - 'Junior Cup. Let''s have a practice round to warm us '
+    - i: 0
+      code: 401
+      p:
+      - up.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONCOORDINATOR_Dawn,"Dawn",nil,false,5,false,0)
+    - i: 1
+      code: 121
+      p:
+      - 232
+      - 232
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: I hope we meet up when it starts. It would "
+    - i: 0
+      code: 401
+      p:
+      - be an epic showdown.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 233
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Healing
+  x: 25
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou look tired. Why don't you take a rest."
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh, good! You and your Pokémon are looking great. "
+    - i: 0
+      code: 401
+      p:
+      - Take care now!
+    - i: 0
+      code: 0
+      p: []

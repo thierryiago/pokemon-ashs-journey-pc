@@ -1,0 +1,413 @@
+---
+id: 584
+name: Veilstone Gym
+parent: 575
+width: 25
+height: 25
+tileset: 14
+bgm: gym
+events:
+- id: 1
+  name: Exit
+  x: 11
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 574
+      - 14
+      - 35
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Trainer(7)
+  x: 7
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bA challenge already? Are you prepared?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Rafael")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI got a bad start."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Trainer(7)
+  x: 7
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bI guess this could be good."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Darren")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou're pretty good."
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Trainer(7)
+  x: 15
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar031
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:BLACKBELT)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bOh ho! A challenge."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:BLACKBELT,"Jeffery")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar031
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI got a bad start."
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Trainer(7)
+  x: 15
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: trchar032
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:CRUSHGIRL)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rDon't disappoint me."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CRUSHGIRL,"Colby")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar032
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBe careful okay?"
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Maylene
+  x: 11
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar109
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMaylene: Hi! Hope you're ready for a super hard "
+    - i: 0
+      code: 401
+      p:
+      - challenge, cause I sure am.
+    - i: 0
+      code: 101
+      p:
+      - "\\rSorry about not accepting challenges earlier. I was "
+    - i: 0
+      code: 401
+      p:
+      - 'in a bit of a funk. I''m gonna do my best to make the '
+    - i: 0
+      code: 401
+      p:
+      - wait worth it though.
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.choose(1,3)
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LEADER_Maylene,"Maylene")
+    - i: 1
+      code: 101
+      p:
+      - "\\rMaylene: You've earned the Cobble Badge."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:COBBLEBADGE)
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.badges[26]=true"
+    - i: 1
+      code: 101
+      p:
+      - "\\rHere, have this TM too."
+    - i: 1
+      code: 355
+      p:
+      - pbReceiveItem(:TM47)
+    - i: 1
+      code: 101
+      p:
+      - "\\rTM47 contains Body Press. Its damage scales based on your"
+    - i: 1
+      code: 401
+      p:
+      - Pokémon's defense stat.
+    - i: 1
+      code: 121
+      p:
+      - 156
+      - 156
+      - 0
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar109
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMaylene: I'm going to keep getting stronger. Just "
+    - i: 0
+      code: 401
+      p:
+      - watch me!
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Gym Guy
+  x: 13
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 15
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMaylene uses Fighting type Pokémon. They are "
+    - i: 0
+      code: 401
+      p:
+      - weak against the Flying, Psychic, and Fairy types.
+    - i: 0
+      code: 101
+      p:
+      - "\\bThey are strong against Normal, Ice, Dark, Rock, "
+    - i: 0
+      code: 401
+      p:
+      - and Steel. They are resistant to Bug, Dark, and Rock.
+    - i: 0
+      code: 0
+      p: []

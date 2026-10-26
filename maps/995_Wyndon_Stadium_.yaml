@@ -1,0 +1,4077 @@
+---
+id: 995
+name: Wyndon Stadium?
+parent: 993
+width: 25
+height: 40
+tileset: 4
+bgm: PkmRS-BTower
+events:
+- id: 1
+  name: Nurse
+  x: 13
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - Kernel.pbSetPokemonCenter
+    - i: 0
+      code: 111
+      p:
+      - 0
+      - 627
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rHello Champion \\PN! Welcome to the Pokémon "
+    - i: 1
+      code: 401
+      p:
+      - Center.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rHello, and welcome to the Pokémon Center."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe restore your tired Pokémon to full health."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWould you like to rest your Pokémon?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\rOK, I'll take your Pokémon for a few seconds."
+    - i: 1
+      code: 314
+      p:
+      - 0
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 1
+      code: 355
+      p:
+      - pbSet(6,$Trainer.party.length)
+    - i: 1
+      code: 106
+      p:
+      - 40
+    - i: 1
+      code: 122
+      p:
+      - 6
+      - 6
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - Kernel.pbPokerus?
+    - i: 2
+      code: 101
+      p:
+      - "\\rYour Pokémon may be infected by PokeRus."
+    - i: 2
+      code: 101
+      p:
+      - "\\rLittle is known about the PokeRus except that they "
+    - i: 2
+      code: 401
+      p:
+      - are microscopic life-forms that attach to Pokémon.
+    - i: 2
+      code: 101
+      p:
+      - "\\rWhile infected, Pokémon are said to grow "
+    - i: 2
+      code: 401
+      p:
+      - exceptionally well.
+    - i: 2
+      code: 121
+      p:
+      - 2
+      - 2
+      - 0
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rThank you for waiting."
+    - i: 2
+      code: 101
+      p:
+      - "\\rWe've restored your Pokémon to full health."
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - NPC 16
+          - 0
+          - 2
+          - 1
+          code: 41
+        - _class: RPG::MoveCommand
+          parameters:
+          - 10
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters:
+          - NPC 16
+          - 0
+          - 2
+          - 0
+          code: 41
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - NPC 16
+        - 0
+        - 2
+        - 1
+        code: 41
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 10
+        code: 15
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - NPC 16
+        - 0
+        - 2
+        - 0
+        code: 41
+    - i: 2
+      code: 101
+      p:
+      - "\\rWe hope to see you again!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rWe hope to see you again!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 1
+    graphic: NPC 16
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rFirst, you should restore your Pokémon to full "
+    - i: 0
+      code: 401
+      p:
+      - health.
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 249
+      p:
+      - _class: RPG::AudioFile
+        volume: 100
+        name: Pokemon Healing
+        pitch: 100
+    - i: 0
+      code: 355
+      p:
+      - pbSet(6,$Trainer.party.length)
+    - i: 0
+      code: 106
+      p:
+      - 40
+    - i: 0
+      code: 122
+      p:
+      - 6
+      - 6
+      - 0
+      - 0
+      - 0
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 101
+      p:
+      - "\\rYour Pokémon have been healed to perfect health."
+    - i: 0
+      code: 101
+      p:
+      - "\\rWe hope you excel!"
+    - i: 0
+      code: 121
+      p:
+      - 1
+      - 1
+      - 1
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit
+  x: 11
+  "y": 17
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 994
+      - 28
+      - 27
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: PC
+  x: 17
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Healing balls left
+  x: 11
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 1
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 2
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 3
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 4
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 5
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 6
+    graphic: Healing balls left
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Healing balls right
+  x: 12
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 1
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 2
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 3
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 4
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 5
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 6
+      - 6
+    graphic: Healing balls right
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Mart
+  x: 0
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.numbadges>=8"
+    - i: 1
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 1
+      code: 655
+      p:
+      - ":POKEBALL,:GREATBALL,"
+    - i: 1
+      code: 655
+      p:
+      - ":ULTRABALL,:POTION,"
+    - i: 1
+      code: 655
+      p:
+      - ":SUPERPOTION,:HYPERPOTION,"
+    - i: 1
+      code: 655
+      p:
+      - ":MAXPOTION,:FULLRESTORE,"
+    - i: 1
+      code: 655
+      p:
+      - ":REVIVE,:ANTIDOTE,"
+    - i: 1
+      code: 655
+      p:
+      - ":PARALYZEHEAL,:AWAKENING,"
+    - i: 1
+      code: 655
+      p:
+      - ":BURNHEAL,:ICEHEAL,"
+    - i: 1
+      code: 655
+      p:
+      - ":FULLHEAL,:ESCAPEROPE,"
+    - i: 1
+      code: 655
+      p:
+      - ":REPEL,:SUPERREPEL,:MAXREPEL"
+    - i: 1
+      code: 655
+      p:
+      - "])"
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.numbadges>=7"
+    - i: 1
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 1
+      code: 655
+      p:
+      - ":POKEBALL,:GREATBALL,"
+    - i: 1
+      code: 655
+      p:
+      - ":ULTRABALL,:POTION,"
+    - i: 1
+      code: 655
+      p:
+      - ":SUPERPOTION,:HYPERPOTION,"
+    - i: 1
+      code: 655
+      p:
+      - ":MAXPOTION,:REVIVE,"
+    - i: 1
+      code: 655
+      p:
+      - ":ANTIDOTE,:PARALYZEHEAL,"
+    - i: 1
+      code: 655
+      p:
+      - ":AWAKENING,:BURNHEAL,"
+    - i: 1
+      code: 655
+      p:
+      - ":ICEHEAL,:FULLHEAL,"
+    - i: 1
+      code: 655
+      p:
+      - ":ESCAPEROPE,:REPEL,"
+    - i: 1
+      code: 655
+      p:
+      - ":SUPERREPEL,:MAXREPEL"
+    - i: 1
+      code: 655
+      p:
+      - "])"
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.numbadges>=5"
+    - i: 1
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 1
+      code: 655
+      p:
+      - ":POKEBALL,:GREATBALL,"
+    - i: 1
+      code: 655
+      p:
+      - ":ULTRABALL,:POTION,"
+    - i: 1
+      code: 655
+      p:
+      - ":SUPERPOTION,:HYPERPOTION,"
+    - i: 1
+      code: 655
+      p:
+      - ":REVIVE,:ANTIDOTE,"
+    - i: 1
+      code: 655
+      p:
+      - ":PARALYZEHEAL,:AWAKENING,"
+    - i: 1
+      code: 655
+      p:
+      - ":BURNHEAL,:ICEHEAL,"
+    - i: 1
+      code: 655
+      p:
+      - ":FULLHEAL,:ESCAPEROPE,"
+    - i: 1
+      code: 655
+      p:
+      - ":REPEL,:SUPERREPEL,"
+    - i: 1
+      code: 655
+      p:
+      - ":MAXREPEL"
+    - i: 1
+      code: 655
+      p:
+      - "])"
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.numbadges>=3"
+    - i: 1
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 1
+      code: 655
+      p:
+      - ":POKEBALL,:GREATBALL,"
+    - i: 1
+      code: 655
+      p:
+      - ":POTION,:SUPERPOTION,"
+    - i: 1
+      code: 655
+      p:
+      - ":HYPERPOTION,:REVIVE,"
+    - i: 1
+      code: 655
+      p:
+      - ":ANTIDOTE,:PARALYZEHEAL,"
+    - i: 1
+      code: 655
+      p:
+      - ":AWAKENING,:BURNHEAL,"
+    - i: 1
+      code: 655
+      p:
+      - ":ICEHEAL,:ESCAPEROPE,"
+    - i: 1
+      code: 655
+      p:
+      - ":REPEL,:SUPERREPEL"
+    - i: 1
+      code: 655
+      p:
+      - "])"
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.numbadges>=1"
+    - i: 1
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 1
+      code: 655
+      p:
+      - ":POKEBALL,:GREATBALL,"
+    - i: 1
+      code: 655
+      p:
+      - ":POTION,:SUPERPOTION,"
+    - i: 1
+      code: 655
+      p:
+      - ":ANTIDOTE,:PARALYZEHEAL,"
+    - i: 1
+      code: 655
+      p:
+      - ":AWAKENING,:BURNHEAL,"
+    - i: 1
+      code: 655
+      p:
+      - ":ICEHEAL,:ESCAPEROPE,"
+    - i: 1
+      code: 655
+      p:
+      - ":REPEL"
+    - i: 1
+      code: 655
+      p:
+      - "])"
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":POKEBALL,"
+    - i: 0
+      code: 655
+      p:
+      - ":POTION"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Town Map, size(2,1)
+  x: 19
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbShowMap
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Door
+  x: 4
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 10
+      - 1
+    - i: 1
+      code: 121
+      p:
+      - 675
+      - 675
+      - 0
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 996
+      - 11
+      - 27
+      - 8
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 7
+      - 1
+    - i: 2
+      code: 201
+      p:
+      - 0
+      - 996
+      - 61
+      - 31
+      - 8
+      - 1
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 122
+      p:
+      - 100
+      - 100
+      - 0
+      - 2
+      - 1
+      - 8
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 100
+      - 0
+      - 8
+      - 0
+    - i: 3
+      code: 201
+      p:
+      - 0
+      - 996
+      - 61
+      - 12
+      - 8
+      - 1
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 100
+      - 0
+      - 7
+      - 0
+    - i: 4
+      code: 201
+      p:
+      - 0
+      - 996
+      - 49
+      - 50
+      - 8
+      - 1
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 111
+      p:
+      - 1
+      - 100
+      - 0
+      - 6
+      - 0
+    - i: 5
+      code: 201
+      p:
+      - 0
+      - 996
+      - 34
+      - 50
+      - 8
+      - 1
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 411
+      p: []
+    - i: 5
+      code: 111
+      p:
+      - 1
+      - 100
+      - 0
+      - 5
+      - 0
+    - i: 6
+      code: 201
+      p:
+      - 0
+      - 996
+      - 19
+      - 50
+      - 8
+      - 1
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 411
+      p: []
+    - i: 6
+      code: 111
+      p:
+      - 1
+      - 100
+      - 0
+      - 4
+      - 0
+    - i: 7
+      code: 201
+      p:
+      - 0
+      - 996
+      - 46
+      - 31
+      - 8
+      - 1
+    - i: 7
+      code: 0
+      p: []
+    - i: 6
+      code: 411
+      p: []
+    - i: 7
+      code: 111
+      p:
+      - 1
+      - 100
+      - 0
+      - 3
+      - 0
+    - i: 8
+      code: 201
+      p:
+      - 0
+      - 996
+      - 31
+      - 31
+      - 8
+      - 1
+    - i: 8
+      code: 0
+      p: []
+    - i: 7
+      code: 411
+      p: []
+    - i: 8
+      code: 111
+      p:
+      - 1
+      - 100
+      - 0
+      - 2
+      - 0
+    - i: 9
+      code: 201
+      p:
+      - 0
+      - 996
+      - 46
+      - 12
+      - 8
+      - 1
+    - i: 9
+      code: 0
+      p: []
+    - i: 8
+      code: 411
+      p: []
+    - i: 9
+      code: 201
+      p:
+      - 0
+      - 996
+      - 31
+      - 12
+      - 8
+      - 1
+    - i: 9
+      code: 0
+      p: []
+    - i: 8
+      code: 412
+      p: []
+    - i: 8
+      code: 0
+      p: []
+    - i: 7
+      code: 412
+      p: []
+    - i: 7
+      code: 0
+      p: []
+    - i: 6
+      code: 412
+      p: []
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 412
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Statue Left
+  x: 2
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - "\\w[signskin]To stadium"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Statue Right
+  x: 6
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 1
+      code: 101
+      p:
+      - "\\w[signskin]To stadium"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Guard
+  x: 4
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 0
+      - 626
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rReady to battle?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - pbBattleChallenge.set("pwc",7,
+    - i: 2
+      code: 655
+      p:
+      - pbPWCRules)
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - "!pbHasEligible?"
+    - i: 3
+      code: 101
+      p:
+      - "\\rSorry, you can't participate. You need six different "
+    - i: 3
+      code: 401
+      p:
+      - Pokémon to enter.
+    - i: 3
+      code: 101
+      p:
+      - "\\rThey must be of different species and hold "
+    - i: 3
+      code: 401
+      p:
+      - different items.
+    - i: 3
+      code: 101
+      p:
+      - "\\rCertain exotic species, as well as eggs, are "
+    - i: 3
+      code: 401
+      p:
+      - ineligible.
+    - i: 3
+      code: 119
+      p:
+      - End
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rPlease come through."
+    - i: 2
+      code: 111
+      p:
+      - 6
+      - -1
+      - 8
+    - i: 3
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 13
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 13
+    - i: 3
+      code: 210
+      p: []
+    - i: 3
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 25
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 13
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 25
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 13
+    - i: 3
+      code: 210
+      p: []
+    - i: 3
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 3
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\rTake your time to prepare. Your opponents are "
+    - i: 2
+      code: 401
+      p:
+      - tough!
+    - i: 2
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 2
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rYou are currently not registered to battle."
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 118
+      p:
+      - End
+    - i: 0
+      code: 355
+      p:
+      - pbBattleChallenge.pbCancel
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Stairs down
+  x: 23
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 6
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 6
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 995
+      - 22
+      - 33
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Stairs up
+  x: 23
+  "y": 33
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 39
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 3
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 8
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 40
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 39
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 3
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 8
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 40
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 995
+      - 22
+      - 13
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: League
+  x: 6
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 0
+      - 627
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rHello, World Champion \\PN! Would you like to start a "
+    - i: 1
+      code: 401
+      p:
+      - new season of the Pokémon World Championships?
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rHello. Here you can register for the Pokémon World "
+    - i: 1
+      code: 401
+      p:
+      - Championships!
+    - i: 1
+      code: 101
+      p:
+      - "\\rWould you like to register?"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 111
+      p:
+      - 0
+      - 627
+      - 1
+    - i: 2
+      code: 101
+      p:
+      - "\\rLet me take your name..."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 106
+      p:
+      - 20
+    - i: 1
+      code: 101
+      p:
+      - "\\rAll set! Contestant \\PN, please go through when "
+    - i: 1
+      code: 401
+      p:
+      - you're ready.
+    - i: 1
+      code: 121
+      p:
+      - 626
+      - 626
+      - 0
+    - i: 1
+      code: 122
+      p:
+      - 36
+      - 36
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - "# Clear trainers"
+    - i: 1
+      code: 655
+      p:
+      - pbSet(37, [])
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 111
+      p:
+      - 0
+      - 627
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\rNo problem. Have a great day, Champion \\PN!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rNo problem. Have a good day."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 626
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWould you like to know more about the Pokémon "
+    - i: 0
+      code: 401
+      p:
+      - World Championships?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\rThe Pokémon World Championships is a prestigious "
+    - i: 1
+      code: 401
+      p:
+      - 'tournament where all trainers in the whole world '
+    - i: 1
+      code: 401
+      p:
+      - come together to determine who's the strongest.
+    - i: 1
+      code: 101
+      p:
+      - "\\rIt starts with a group stage where you're matched "
+    - i: 1
+      code: 401
+      p:
+      - 'with 3 other contestants, then a single elimination '
+    - i: 1
+      code: 401
+      p:
+      - stage with 10 rounds.
+    - i: 1
+      code: 101
+      p:
+      - "\\rBattles can be 1v1, 2v2 or 3v3 and in them, you're "
+    - i: 1
+      code: 401
+      p:
+      - 'only allowed to use 1 item and you''re forced into the '
+    - i: 1
+      code: 401
+      p:
+      - '"Set" battle style, whatever that means.'
+    - i: 1
+      code: 101
+      p:
+      - "\\rLastly, battles take place on fields with special "
+    - i: 1
+      code: 401
+      p:
+      - 'effects. What do I mean by that? You''ll find out as '
+    - i: 1
+      code: 401
+      p:
+      - soon as you step in!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rOh, ok. All the best!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Person
+  x: 22
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis room is only for contestants of the Pokémon "
+    - i: 0
+      code: 401
+      p:
+      - World Championships.
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 626
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Person
+  x: 22
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 626
+    graphic: NPC 01
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 0
+      - 627
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rThis way to the contestants lounge, Champion \\PN."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\rThis way to the contestants lounge."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: up the ladder
+  x: 18
+  "y": 26
+  pages:
+  - condition: {}
+    graphic: doors8
+    trigger: 1
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - _class: RPG::AudioFile
+            volume: 100
+            name: Entering Door
+            pitch: 100
+          code: 44
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - _class: RPG::AudioFile
+          volume: 100
+          name: Entering Door
+          pitch: 100
+        code: 44
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 37
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 4
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 38
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 37
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 4
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 38
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 117
+      p:
+      - 46
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 994
+      - 29
+      - 15
+      - 2
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Move Relearner
+  x: 0
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - isTempSwitchOff?("A")
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'm the Pokémon Move Maniac."
+    - i: 1
+      code: 101
+      p:
+      - "\\bI know every single move that Pokémon learn "
+    - i: 1
+      code: 401
+      p:
+      - growing up.
+    - i: 1
+      code: 101
+      p:
+      - "\\bI'm also a collector of Heart Scales."
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf you bring me one, I'll teach a move to one of your "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon.
+    - i: 1
+      code: 355
+      p:
+      - setTempSwitchOn("A")
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$PokemonBag.pbHasItem?(:HEARTSCALE)"
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh! That's it! That's an honest to goodness Heart "
+    - i: 1
+      code: 401
+      p:
+      - Scale!
+    - i: 1
+      code: 101
+      p:
+      - "\\bLet me guess, you want me to teach one of your "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon a move?
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 118
+      p:
+      - ChoosePokemon
+    - i: 2
+      code: 101
+      p:
+      - "\\bWhich Pokémon needs tutoring?"
+    - i: 2
+      code: 355
+      p:
+      - pbChoosePokemon(1, 3, proc{ |pkmn|
+    - i: 2
+      code: 655
+      p:
+      - "  pkmn.can_relearn_move?"
+    - i: 2
+      code: 655
+      p:
+      - "  }, true"
+    - i: 2
+      code: 655
+      p:
+      - ")"
+    - i: 2
+      code: 108
+      p:
+      - 'If Game Variable 1 is less than 0, it means the player '
+    - i: 2
+      code: 408
+      p:
+      - has canceled choosing a Pokémon.
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 3
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 3
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).egg?
+    - i: 4
+      code: 101
+      p:
+      - "\\bHunh? There isn't a single move that I can teach an "
+    - i: 4
+      code: 401
+      p:
+      - Egg.
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).shadowPokemon?
+    - i: 4
+      code: 101
+      p:
+      - "\\bNo way, I don't want to go near a Shadow "
+    - i: 4
+      code: 401
+      p:
+      - Pokémon..
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - "!pbGetPokemon(1).can_relearn_move?"
+    - i: 4
+      code: 101
+      p:
+      - "\\bSorry..."
+    - i: 4
+      code: 101
+      p:
+      - "\\bIt doesn't appear as if I have any move I can teach "
+    - i: 4
+      code: 401
+      p:
+      - to your \v[3].
+    - i: 4
+      code: 119
+      p:
+      - ChoosePokemon
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\bWhich move should I teach to your \\v[3]?"
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbRelearnMoveScreen(pbGetPokemon(1))
+    - i: 4
+      code: 355
+      p:
+      - "$PokemonBag.pbDeleteItem(:HEARTSCALE)"
+    - i: 4
+      code: 101
+      p:
+      - "\\PN handed over one Heart Scale in exchange."
+    - i: 4
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 4
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 4
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 2
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bIf your Pokémon need to learn a move, come back "
+    - i: 1
+      code: 401
+      p:
+      - with a Heart Scale.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Exotic Tip
+  x: 6
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trainer_COOLTRAINER_M
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWhat do you mean I can't use my Groudon, Arceus, "
+    - i: 0
+      code: 401
+      p:
+      - or Urshifu? This is rigged!
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Exotic Tip
+  x: 0
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trainer_COOLTRAINER_F
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDidn't realise you needed 6 'mons. Never had ta "
+    - i: 0
+      code: 401
+      p:
+      - 'catch more cuz I beat all the gym leaders with my '
+    - i: 0
+      code: 401
+      p:
+      - level 100 Lucario that megas and dynamaxes.
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Person
+  x: 7
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: trchar030
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bForget about the battles. Do you see everything "
+    - i: 0
+      code: 401
+      p:
+      - they are selling here?
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Brock
+  x: 16
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBrock: You're here too, \\PN? If you want I can "
+    - i: 0
+      code: 401
+      p:
+      - groom one of your Pokémon. It may help it in battle.
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrock: Which Pokémon do you want me to groom?"
+    - i: 1
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1,2)
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 2
+      code: 101
+      p:
+      - "\\bBrock: Oh, okay then."
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - poke=pbGetPokemon(1)
+    - i: 1
+      code: 655
+      p:
+      - poke.changeHappiness("groom")
+    - i: 1
+      code: 655
+      p:
+      - poke.beauty+=40
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrock: There! \\v[2] looks a lot better now!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bBrock: Oh, okay then."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Misty
+  x: 16
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar060
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing her,
+    - i: 0
+      code: 408
+      p:
+      - below after facing her
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rMisty: It's the last battle with Leon, huh? Give it all "
+    - i: 1
+      code: 401
+      p:
+      - you've got!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(2)"
+    - i: 2
+      code: 101
+      p:
+      - "\\rMisty: \\PN, you're here too? Well, I guess that makes "
+    - i: 2
+      code: 401
+      p:
+      - sense, this is where all the hype is at.
+    - i: 2
+      code: 101
+      p:
+      - "\\rI won't lose if we battle later!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rMisty: I'll get you next time!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: May
+  x: 15
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar003
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing her,
+    - i: 0
+      code: 408
+      p:
+      - below after facing her
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rMay: Hey \\PN! It's the final battle until you're the "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon World Champion! All the best!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(35)"
+    - i: 2
+      code: 101
+      p:
+      - "\\rMay: Hi \\PN, it's been a while! There's no contests "
+    - i: 2
+      code: 401
+      p:
+      - 'happening at the moment, so I figured it would be a '
+    - i: 2
+      code: 401
+      p:
+      - great idea to take part!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rMay: That was a nice battle earlier! We've gotta do "
+    - i: 2
+      code: 401
+      p:
+      - that again soon!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Dawn
+  x: 14
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing her,
+    - i: 0
+      code: 408
+      p:
+      - below after facing her
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rDawn: Hey \\PN! You've got the finals next, huh? I'll "
+    - i: 1
+      code: 401
+      p:
+      - be cheering you on with Piplup!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(50)"
+    - i: 2
+      code: 101
+      p:
+      - "\\rDawn: Hi \\PN! Good to see you here too. There's no "
+    - i: 2
+      code: 401
+      p:
+      - 'contests happening at the moment, so I figured it '
+    - i: 2
+      code: 401
+      p:
+      - would be a great idea to take part!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rDawn: That was a close battle earlier! I'll be "
+    - i: 2
+      code: 401
+      p:
+      - cheering you on with Piplup from here!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Lance
+  x: 4
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar070
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing him,
+    - i: 0
+      code: 408
+      p:
+      - below after facing him
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bLance: Beat Leon for me, alright? I know you can "
+    - i: 1
+      code: 401
+      p:
+      - do it.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(135)"
+    - i: 2
+      code: 101
+      p:
+      - "\\bLance: Good to see you, \\PN. I won't hold back if "
+    - i: 2
+      code: 401
+      p:
+      - we battle.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bLance: Close battle earlier. Good luck with the rest."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Steven
+  x: 3
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar196
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing him,
+    - i: 0
+      code: 408
+      p:
+      - below after facing him
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bSteven: Usually, I wouldn't stick around, but I'll make "
+    - i: 1
+      code: 401
+      p:
+      - an exception for you. Good luck with Leon.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(136)"
+    - i: 2
+      code: 101
+      p:
+      - "\\bSteven: So you're here too. I'll give you a tough "
+    - i: 2
+      code: 401
+      p:
+      - battle if we face each other later.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bSteven: I lost, but want to go looking for some "
+    - i: 2
+      code: 401
+      p:
+      - rocks later?
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Drake
+  x: 4
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar080
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing him,
+    - i: 0
+      code: 408
+      p:
+      - below after facing him
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bDrake: So, it's just Leon left, huh? You've got this, "
+    - i: 1
+      code: 401
+      p:
+      - "\\PN."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(133)"
+    - i: 2
+      code: 101
+      p:
+      - "\\bDrake: It's been a while, \\PN! Let me give you a "
+    - i: 2
+      code: 401
+      p:
+      - battle worthy of a Champion later.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bDrake: Close battle earlier. I know you'll beat the "
+    - i: 2
+      code: 401
+      p:
+      - rest.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Cynthia
+  x: 2
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar198
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing her,
+    - i: 0
+      code: 408
+      p:
+      - below after facing her
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rCynthia: I know you can beat Leon, \\PN."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(138)"
+    - i: 2
+      code: 101
+      p:
+      - "\\rCynthia: Oh my, it's \\PN. I suppose you feel ready to "
+    - i: 2
+      code: 401
+      p:
+      - take on the world now.
+    - i: 2
+      code: 101
+      p:
+      - "\\rI won't be holding back if we end up battling each "
+    - i: 2
+      code: 401
+      p:
+      - other later!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rCynthia: That was an exciting battle!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Alder
+  x: 9
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar221
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing him,
+    - i: 0
+      code: 408
+      p:
+      - below after facing him
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bAlder: Hmm, I suppose I can see you beating Leon "
+    - i: 1
+      code: 401
+      p:
+      - if you give it your all.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(139)"
+    - i: 2
+      code: 101
+      p:
+      - "\\bAlder: Zzz... Oh, it's \\PN. Honestly, I don't even "
+    - i: 2
+      code: 401
+      p:
+      - 'know why I''m here, since I''m not even the current '
+    - i: 2
+      code: 401
+      p:
+      - Champion of Unova.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bAlder: That was a nice battle, I guess."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Iris
+  x: 9
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar220
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing her,
+    - i: 0
+      code: 408
+      p:
+      - below after facing her
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rIris: Hi \\PN! I'll be cheering you on with your battle "
+    - i: 1
+      code: 401
+      p:
+      - against Leon!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(140)"
+    - i: 2
+      code: 101
+      p:
+      - "\\rIris: Hey \\PN! I can't wait to show you how much "
+    - i: 2
+      code: 401
+      p:
+      - I've improved since our last battle.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rIris: I still can't believe I lost... but I'll get you next "
+    - i: 2
+      code: 401
+      p:
+      - time! For now, I'll be cheering you on.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Leon
+  x: 7
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar224
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, below before facing him
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bLeon: Look like it's the two of us now, huh? Let's "
+    - i: 1
+      code: 401
+      p:
+      - both give it our all and have a Champion Time!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bLeon: Ah, \\PN. I'll be sure to give you a Champion "
+    - i: 1
+      code: 401
+      p:
+      - Time if we battle later.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Cilan
+  x: 22
+  "y": 29
+  pages:
+  - condition: {}
+    graphic: trchar120
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing him,
+    - i: 0
+      code: 408
+      p:
+      - below after facing him
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bCilan: Hey \\PN! It's the final battle with Leon, right? "
+    - i: 1
+      code: 401
+      p:
+      - Good luck!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(52)"
+    - i: 2
+      code: 101
+      p:
+      - "\\bCilan: Hey \\PN! If we face each other later, let's"
+    - i: 2
+      code: 401
+      p:
+      - be sure to give each other a delightful battle!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bCilan: Hey \\PN! That was a great battle earlier!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 34
+  name: Serena
+  x: 22
+  "y": 30
+  pages:
+  - condition: {}
+    graphic: trchar240
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing her,
+    - i: 0
+      code: 408
+      p:
+      - below after facing her
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rSerena: Hi \\PN! One last battle until you're the "
+    - i: 1
+      code: 401
+      p:
+      - Pokémon World Champion! You've got this!
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(84)"
+    - i: 2
+      code: 101
+      p:
+      - "\\rSerena: Hi \\PN! It makes sense that you'd be here too."
+    - i: 2
+      code: 401
+      p:
+      - There's no contests happening at the moment, so I
+    - i: 2
+      code: 401
+      p:
+      - thought it would be a great idea to take part!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rSerena: Hi \\PN! Let's keep doing our best, alright?"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 35
+  name: Clemont
+  x: 21
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar160
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing him,
+    - i: 0
+      code: 408
+      p:
+      - below after facing him
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bClemont: Hi \\PN! All the best with the finals!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(73)"
+    - i: 2
+      code: 101
+      p:
+      - "\\bClemont: Hi \\PN! If we face each other, the future "
+    - i: 2
+      code: 401
+      p:
+      - will be now, thanks to science!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bClemont: Hi \\PN! That was a great battle earlier."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 36
+  name: Bonnie
+  x: 20
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: NPC 39
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rBonnie: Hi \\PN! I'm not actually participating, I'm just"
+    - i: 0
+      code: 401
+      p:
+      - here with Clemont. Good luck!
+    - i: 0
+      code: 0
+      p: []
+- id: 37
+  name: Diantha
+  x: 8
+  "y": 31
+  pages:
+  - condition: {}
+    graphic: trchar165
+    trigger: 0
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Top for VS Leon, middle before facing her,
+    - i: 0
+      code: 408
+      p:
+      - below after facing her
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 36
+      - 0
+      - 12
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\rDiantha: I'm rooting for you to beat Leon."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - "!pbGet(37).include?(141)"
+    - i: 2
+      code: 101
+      p:
+      - "\\rDiantha: Oh, it's \\PN! I'm excited at the chance to "
+    - i: 2
+      code: 401
+      p:
+      - finally get to battle you in an official match.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\rDiantha: That was a fun battle."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []

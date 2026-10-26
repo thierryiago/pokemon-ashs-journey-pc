@@ -1,0 +1,272 @@
+---
+id: 571
+name: Route 210 House
+parent: 570
+width: 20
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Vendor
+  x: 6
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPokemonMart([
+    - i: 0
+      code: 655
+      p:
+      - ":MOOMOOMILK,"
+    - i: 0
+      code: 655
+      p:
+      - "])"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 2
+  "y": 25
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bMoomoo Milk is amazing. I hear it is rare to have it "
+    - i: 0
+      code: 401
+      p:
+      - outside of Johto.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Person
+  x: 10
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis costs too much for me, but I walked all the "
+    - i: 0
+      code: 401
+      p:
+      - way here. What do I do now?
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Person
+  x: 3
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMy sisters and I work together to make the best "
+    - i: 0
+      code: 401
+      p:
+      - milk. They are out selling some right now.
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Exit
+  x: 6
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 606
+      - 96
+      - 10
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Move Tutor
+  x: 5
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 11
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rHello. I'm a Move Tutor."
+    - i: 0
+      code: 101
+      p:
+      - "\\rI can teach one of your Dragon Pokémon a "
+    - i: 0
+      code: 401
+      p:
+      - powerful move, Draco Meteor.
+    - i: 0
+      code: 101
+      p:
+      - "\\rWhich Pokémon would you like me to teach?"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:DRACOMETEOR)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bCome back anytime!"
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Miltank
+  x: 10
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: MILTANK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 241Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rMil!"
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Exit
+  x: 6
+  "y": 27
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 570
+      - 98
+      - 75
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Miltank
+  x: 2
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: MILTANK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 241Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rMil!"
+    - i: 0
+      code: 0
+      p: []

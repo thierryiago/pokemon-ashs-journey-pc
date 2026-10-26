@@ -1,0 +1,787 @@
+---
+id: 354
+name: Silver Stadium
+parent: 350
+width: 20
+height: 15
+tileset: 14
+bgm: PkmRS-BTower
+events:
+- id: 2
+  name: Entrance
+  x: 6
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: e4wall
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: League Battle
+  x: 6
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: trchar004
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGary: Well \\PN, looks like we finally get to battle it "
+    - i: 0
+      code: 401
+      p:
+      - out.
+    - i: 0
+      code: 101
+      p:
+      - "\\bMay the best Trainer win, which will be me of "
+    - i: 0
+      code: 401
+      p:
+      - course.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:RIVAL1,"Gary",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar004
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 108
+      - 108
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 109
+      - 109
+      - 0
+    - i: 0
+      code: 101
+      p:
+      - "\\bGary: Well, I guess I lost. Good job \\PN. I suppose "
+    - i: 0
+      code: 401
+      p:
+      - you have some skill after all.
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:JOHTO)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 350
+      - 16
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bYour next match will be held in the Silver Stadium "
+    - i: 0
+      code: 401
+      p:
+      - again whenever you are ready.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar035
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI'm excited to get started. Let's not waste any time."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Harrison")
+    - i: 1
+      code: 123
+      p:
+      - C
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: C
+    graphic: trchar035
+    trigger: 3
+    commands:
+    - i: 0
+      code: 121
+      p:
+      - 109
+      - 109
+      - 1
+    - i: 0
+      code: 121
+      p:
+      - 110
+      - 110
+      - 0
+    - i: 0
+      code: 121
+      p:
+      - 496
+      - 496
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:JOHTO)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou did good. I suggest trying out for the Hoenn "
+    - i: 0
+      code: 401
+      p:
+      - League.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 350
+      - 16
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bYou placed in the Top 8 this year. Come back next "
+    - i: 0
+      code: 401
+      p:
+      - year to try again. Thank you for competing.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 28
+      - 4
+    graphic: trchar041
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHarrison: Good to see you again. Let's see if I can beat you "
+    - i: 0
+      code: 401
+      p:
+      - again, even if you're the Monarch now.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_M,"Harrison",nil,false,1,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou did good. Good luck with the finals."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 350
+      - 16
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:JOHTO)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bYour next match will be held in the Silver Stadium "
+    - i: 1
+      code: 401
+      p:
+      - again whenever you are ready.
+    - i: 1
+      code: 122
+      p:
+      - 28
+      - 28
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bYou did good."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 350
+      - 16
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 34
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 28
+      - 5
+    graphic: trchar005
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bGary: Well \\PN, looks like we get to battle it out here again."
+    - i: 0
+      code: 101
+      p:
+      - "\\bI had some time off from research and heard you were going to"
+    - i: 0
+      code: 401
+      p:
+      - challenge the Silver League again, so I thought, why not?
+    - i: 0
+      code: 101
+      p:
+      - "\\bMay the best Trainer win, which will be me, of "
+    - i: 0
+      code: 401
+      p:
+      - course. Even if you're now the Monarch!
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:RIVAL2,"Gary",nil,false,2,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bGary: Well, I guess I lost. Good job \\PN. I suppose "
+    - i: 1
+      code: 401
+      p:
+      - you really have some skill now.
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 350
+      - 16
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 1
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:JOHTO)"
+    - i: 1
+      code: 655
+      p:
+      - end
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bYour next match will be held in the Silver Stadium "
+    - i: 1
+      code: 401
+      p:
+      - again whenever you are ready.
+    - i: 1
+      code: 122
+      p:
+      - 28
+      - 28
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bGood game, \\PN."
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 350
+      - 16
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 34
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 28
+      - 6
+    graphic: trchar033
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHi there! It's an honor to be defending my title as the Silver"
+    - i: 0
+      code: 401
+      p:
+      - League Champion against the Monarch!
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CAMPER,"Jon Dickson",nil,false,0,true)
+    - i: 1
+      code: 101
+      p:
+      - "\\bAww man! You're really strong after all."
+    - i: 1
+      code: 122
+      p:
+      - 28
+      - 28
+      - 1
+      - 0
+      - 1
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bYes! Though I'm sure there were reasons for your loss,"
+    - i: 1
+      code: 401
+      p:
+      - I appreciate the time you took to battle me.
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 350
+      - 16
+      - 6
+      - 8
+      - 0
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 117
+      p:
+      - 34
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:JOHTO)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 429
+      variable:
+      - 28
+      - 7
+    graphic: trchar033
+    trigger: 3
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - "$Trainer.pokemon_party.each do |pkmn|"
+    - i: 0
+      code: 655
+      p:
+      - "  pkmn.giveRibbon(:CHAMPION)"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbHallOfFameEntry
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 350
+      - 16
+      - 6
+      - 8
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 101
+      p:
+      - "\\bCongratulations on winning the Silver Conference!"
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:RAIKOU)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(6, "A", false, 303)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:ENTEI)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(9, "A", false, 303)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:SUICUNE)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(5, "A", false, 303)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:LUGIA)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(2, "A", false, 322)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.owned?(:CELEBI)"
+    - i: 1
+      code: 355
+      p:
+      - pbSetSelfSwitch(11, "A", false, 485)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbResetSilverLeague
+    - i: 0
+      code: 0
+      p: []

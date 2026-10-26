@@ -1,0 +1,1190 @@
+---
+id: 4
+name: Pokémon Lab
+parent: 2
+width: 20
+height: 15
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Professor
+  x: 6
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: You should battle with your Pokémon to make "
+    - i: 0
+      code: 401
+      p:
+      - it strong.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "$Trainer.pokegear"
+    - i: 1
+      code: 101
+      p:
+      - "\\bOak: If you register me in your Pokégear, you can "
+    - i: 1
+      code: 401
+      p:
+      - call me any time to rate your Pokédex completion.
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 355
+      p:
+      - pbPhoneRegisterNPC(1,"Professor Oak",4)
+    - i: 2
+      code: 101
+      p:
+      - "\\bOak: Please let me know how you get on!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bOak: Oh, okay. Let me know if you change your "
+    - i: 2
+      code: 401
+      p:
+      - mind.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: phone001
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Well, which one do you want?"
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Turn back 1
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Wait, don't leave yet!"
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 22
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 22
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Turn back 2
+  x: 6
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Wait, don't leave yet!"
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 22
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 22
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Grass ball
+  x: 8
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'This ball contains a Pokémon caught by the '
+    - i: 0
+      code: 401
+      p:
+      - Professor.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: So, you want Bulbasaur, the grass Pokémon?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbAddPokemon(PBSpecies::BULBASAUR,5)
+    - i: 1
+      code: 121
+      p:
+      - 3
+      - 3
+      - 1
+    - i: 1
+      code: 122
+      p:
+      - 7
+      - 7
+      - 0
+      - 0
+      - 1
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bOak: Choose carefully!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Fire ball
+  x: 9
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'This ball contains a Pokémon caught by the '
+    - i: 0
+      code: 401
+      p:
+      - Professor.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: So, you want Charmander, the fire Pokémon?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbAddPokemon(PBSpecies::CHARMANDER,5)
+    - i: 1
+      code: 121
+      p:
+      - 3
+      - 3
+      - 1
+    - i: 1
+      code: 122
+      p:
+      - 7
+      - 7
+      - 0
+      - 0
+      - 2
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bOak: Choose carefully!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Water ball
+  x: 10
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'This ball contains a Pokémon caught by the '
+    - i: 0
+      code: 401
+      p:
+      - Professor.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: So, you want Squirtle, the water Pokémon?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - pbAddPokemon(PBSpecies::SQUIRTLE,5)
+    - i: 1
+      code: 121
+      p:
+      - 3
+      - 3
+      - 1
+    - i: 1
+      code: 122
+      p:
+      - 7
+      - 7
+      - 0
+      - 0
+      - 3
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bOak: Choose carefully!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Exit
+  x: 6
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 2
+      - 18
+      - 13
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Controlling event
+  x: 7
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: true
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 210
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Here, take one of these rare Pokémon."
+    - i: 0
+      code: 121
+      p:
+      - 3
+      - 3
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      variable:
+      - 7
+      - 1
+    graphic: ''
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Ah, you made your choice!"
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 7
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bOak: Bulbasaur, an excellent choice!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 7
+      - 0
+      - 2
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bOak: Charmander, an excellent choice!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - "\\bOak: Squirtle, an excellent choice!"
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: If I had a grandson, he would probably want "
+    - i: 0
+      code: 401
+      p:
+      - his own Pokémon around now...
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Turn back 3
+  x: 7
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 3
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bOak: Wait, don't leave yet!"
+    - i: 0
+      code: 209
+      p:
+      - -1
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 22
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 12
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 22
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 12
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Wall sign left
+  x: 6
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'The event next to the Professor contains the autorun '
+    - i: 0
+      code: 401
+      p:
+      - commands.
+    - i: 0
+      code: 101
+      p:
+      - 'There are two lots: those that happen when the '
+    - i: 0
+      code: 401
+      p:
+      - 'player first enters the map, and those that happen '
+    - i: 0
+      code: 401
+      p:
+      - when the player has chosen a starter.
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Wall sign right
+  x: 7
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'Global variable 7 should store 1 if the player chose '
+    - i: 0
+      code: 401
+      p:
+      - 'the Grass starter, 2 if they chose the Fire starter, and '
+    - i: 0
+      code: 401
+      p:
+      - 3 if they chose the Water starter.
+    - i: 0
+      code: 101
+      p:
+      - 'This information can be used later in the game, e.g. to '
+    - i: 0
+      code: 401
+      p:
+      - determine which Pokémon the rival uses.
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Pokédex
+  x: 4
+  "y": 1
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - "!$Trainer.pokedex"
+    - i: 1
+      code: 101
+      p:
+      - "\\PN received a Pokédex!"
+    - i: 1
+      code: 355
+      p:
+      - "$Trainer.pokedex=true"
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - You already have a Pokédex.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Dex access
+  x: 3
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: trchar028
+    trigger: 0
+    commands:
+    - i: 0
+      code: 118
+      p:
+      - Start
+    - i: 0
+      code: 101
+      p:
+      - "\\bI can control your Pokédex access.  What do you "
+    - i: 0
+      code: 401
+      p:
+      - want me to do?
+    - i: 0
+      code: 102
+      p:
+      - - Kanto Dex access
+        - Johto Dex access
+        - National Dex access
+        - Exit
+      - 4
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - Kanto Dex access
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhat about it?"
+    - i: 1
+      code: 102
+      p:
+      - - Unlock Kanto Dex
+        - Lock Kanto Dex
+        - Exit
+      - 3
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - Unlock Kanto Dex
+    - i: 2
+      code: 355
+      p:
+      - pbUnlockDex(0)
+    - i: 2
+      code: 101
+      p:
+      - "\\bThe Kanto Dex was unlocked."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - Lock Kanto Dex
+    - i: 2
+      code: 355
+      p:
+      - pbLockDex(0)
+    - i: 2
+      code: 101
+      p:
+      - "\\bThe Kanto Dex was locked."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 2
+      - Exit
+    - i: 2
+      code: 119
+      p:
+      - Start
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - Johto Dex access
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhat about it?"
+    - i: 1
+      code: 102
+      p:
+      - - Unlock Johto Dex
+        - Lock Johto Dex
+        - Exit
+      - 3
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - Unlock Johto Dex
+    - i: 2
+      code: 355
+      p:
+      - pbUnlockDex(1)
+    - i: 2
+      code: 101
+      p:
+      - "\\bThe Johto Dex was unlocked."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - Lock Johto Dex
+    - i: 2
+      code: 355
+      p:
+      - pbLockDex(1)
+    - i: 2
+      code: 101
+      p:
+      - "\\bThe Johto Dex was locked."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 2
+      - Exit
+    - i: 2
+      code: 119
+      p:
+      - Start
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 2
+      - National Dex access
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhat about it?"
+    - i: 1
+      code: 102
+      p:
+      - - Unlock National Dex
+        - Lock National Dex
+        - Exit
+      - 3
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - Unlock National Dex
+    - i: 2
+      code: 355
+      p:
+      - pbUnlockDex
+    - i: 2
+      code: 121
+      p:
+      - 29
+      - 29
+      - 0
+    - i: 2
+      code: 101
+      p:
+      - "\\bThe National Dex was unlocked."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - Lock National Dex
+    - i: 2
+      code: 355
+      p:
+      - pbLockDex
+    - i: 2
+      code: 121
+      p:
+      - 29
+      - 29
+      - 1
+    - i: 2
+      code: 101
+      p:
+      - "\\bThe National Dex was locked."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 2
+      - Exit
+    - i: 2
+      code: 119
+      p:
+      - Start
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 3
+      - Exit
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Storage creator
+  x: 9
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: NPC 25
+    trigger: 0
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbSet(2,Kernel.pbGetStorageCreator)
+    - i: 0
+      code: 101
+      p:
+      - "\\bHi!  I'm \\v[2]."
+    - i: 0
+      code: 101
+      p:
+      - "\\bI created the Pokémon Storage System."
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat's interesting, isn't it?"
+    - i: 0
+      code: 355
+      p:
+      - "$PokemonGlobal.seenStorageCreator=true"
+    - i: 0
+      code: 0
+      p: []

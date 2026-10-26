@@ -1,0 +1,93 @@
+---
+id: 360
+name: Route 101
+parent: 355
+width: 35
+height: 32
+tileset: 1
+bgm: Hoenn Route
+events:
+- id: 1
+  name: Person
+  x: 11
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar023
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI've always wanted to go to Rustboro City."
+    - i: 0
+      code: 101
+      p:
+      - "\\rIt's not too far but I just can't commit."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 24
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI thought I had finally captured my Poochyena..."
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Item
+  x: 25
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bAh to be so young. Why don't you take this and put "
+    - i: 0
+      code: 401
+      p:
+      - it to better use.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:TM41)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar014
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bBe sure to use it."
+    - i: 0
+      code: 0
+      p: []

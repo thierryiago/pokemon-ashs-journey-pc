@@ -1,0 +1,2725 @@
+---
+id: 591
+name: Lake Valor Contest
+parent: 588
+width: 50
+height: 50
+tileset: 3
+bgm: Contest Hall
+events:
+- id: 1
+  name: Person
+  x: 6
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome. I'll be able to register you in a minute."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 180
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rWelcome. You're just in time to enter our Contest. "
+    - i: 0
+      code: 401
+      p:
+      - Are you ready?
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 355
+      p:
+      - PokemonSelection.choose(1,1)
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 106
+      p:
+      - 8
+    - i: 1
+      code: 201
+      p:
+      - 0
+      - 591
+      - 39
+      - 23
+      - 8
+      - 1
+    - i: 1
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\rPlease come again."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 432
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThank you for entering."
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Dawn
+  x: 10
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Hi \\PN. Are you entering the Contest too? No "
+    - i: 0
+      code: 401
+      p:
+      - need to worry, you'll do great.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 432
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: I won the Contest!! I can't believe I did it."
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 157
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 191
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Did you come to wish me luck? No need to "
+    - i: 0
+      code: 401
+      p:
+      - worry, I've got this in the bag.
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou should focus on your gym battle. Where is it at, "
+    - i: 0
+      code: 401
+      p:
+      - 'Sunnyshore City? I''ll meet up with you and tell you '
+    - i: 0
+      code: 401
+      p:
+      - what happened.
+    - i: 0
+      code: 121
+      p:
+      - 438
+      - 438
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar105
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rDawn: Did you come to wish me luck? No need to "
+    - i: 0
+      code: 401
+      p:
+      - worry, I've got this in the bag.
+    - i: 0
+      code: 101
+      p:
+      - "\\rYou should focus on your gym battle. Where is it at, "
+    - i: 0
+      code: 401
+      p:
+      - 'Sunnyshore City? I''ll meet up with you and tell you '
+    - i: 0
+      code: 401
+      p:
+      - what happened.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 161
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: PC
+  x: 15
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 355
+      p:
+      - pbPokeCenterPC
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 1
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit, size(4,1)
+  x: 6
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 587
+      - 20
+      - 47
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: May
+  x: 9
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar003
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMay: Good to see you \\PN. I met your friend Dawn "
+    - i: 0
+      code: 401
+      p:
+      - and I'm impressed with her skill.
+    - i: 0
+      code: 101
+      p:
+      - "\\rI need to train a bit more, so no one could help more "
+    - i: 0
+      code: 401
+      p:
+      - than you. Hope you're ready.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:POKEMONCOORDINATOR_May,"May",nil,false,6,false,0)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\rMay: You never did let up on me. I'm really glad I got "
+    - i: 0
+      code: 401
+      p:
+      - to run into you here.
+    - i: 0
+      code: 121
+      p:
+      - 180
+      - 180
+      - 0
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar003
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMay: Maybe we'll meet up and face each other in "
+    - i: 0
+      code: 401
+      p:
+      - the Contest.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 432
+    graphic: trchar003
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rMay: Go earn your next badge \\PN. I'm sure you're "
+    - i: 0
+      code: 401
+      p:
+      - looking forward to it.
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 157
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Person
+  x: 11
+  "y": 16
+  pages:
+  - condition: {}
+    graphic: NPC 08
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rUm, do you need something? Weirdo..."
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 13
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wanted to enter the contest. I got too scared in the "
+    - i: 0
+      code: 401
+      p:
+      - end...
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 2
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar022
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThe contest lets you use the ribbon in any region. "
+    - i: 0
+      code: 401
+      p:
+      - What a lucky item that is to have.
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Person
+  x: 4
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: NPC 04
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm so nervous. I've never seen a champion before."
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Move Tutor
+  x: 4
+  "y": 11
+  pages:
+  - condition: {}
+    graphic: NPC 35
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWallace: Ah \\PN, you came. I'm glad to see that."
+    - i: 0
+      code: 101
+      p:
+      - "\\bPerhaps you might be interested in learning a move "
+    - i: 0
+      code: 401
+      p:
+      - to help you out.
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's a move that my Milotic and I often use, Aqua Tail. "
+    - i: 0
+      code: 401
+      p:
+      - Would you like to learn it?
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbMoveTutorChoose(:AQUATAIL)
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Item
+  x: 12
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: Object ball
+    trigger: 0
+    commands:
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbItemBall(:PIXIEPLATE)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Stats judge
+  x: 39
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bFor the Performance Stage I'll be judging your "
+    - i: 0
+      code: 401
+      p:
+      - Pokémon.
+    - i: 0
+      code: 355
+      p:
+      - pbChooseNonEggPokemon(1,2)
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 1
+      code: 101
+      p:
+      - "\\b...Oh? You don't need me to judge. I get it."
+    - i: 1
+      code: 115
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - 'Say something depending on the total number of IVs '
+    - i: 0
+      code: 408
+      p:
+      - the Pokémon has.
+    - i: 0
+      code: 355
+      p:
+      - ivs = pbGetPokemon(1).calcIV
+    - i: 0
+      code: 655
+      p:
+      - total = 0
+    - i: 0
+      code: 655
+      p:
+      - ivs.each_value { |v| total += v }
+    - i: 0
+      code: 655
+      p:
+      - pbSet(2, total)
+    - i: 0
+      code: 101
+      p:
+      - "\\bI see, I see..."
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 150
+      - 3
+    - i: 1
+      code: 101
+      p:
+      - "\\bThis Pokémon's potential is outstanding overall."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 120
+      - 3
+    - i: 2
+      code: 101
+      p:
+      - "\\bThis Pokémon's potential is relatively superior "
+    - i: 2
+      code: 401
+      p:
+      - overall.
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 90
+      - 3
+    - i: 3
+      code: 101
+      p:
+      - "\\bThis Pokémon's potential is above average overall."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\bThis Pokémon's potential is decent overall."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat's my determination, and it's final."
+    - i: 0
+      code: 108
+      p:
+      - 'Find out which stat(s) have the highest value, and '
+    - i: 0
+      code: 408
+      p:
+      - show a message about each of them.
+    - i: 0
+      code: 355
+      p:
+      - pkmn = pbGetPokemon(1)
+    - i: 0
+      code: 655
+      p:
+      - ivs  = pkmn.calcIV
+    - i: 0
+      code: 655
+      p:
+      - best = []
+    - i: 0
+      code: 655
+      p:
+      - val  = -1
+    - i: 0
+      code: 355
+      p:
+      - "[:HP, :ATTACK, :DEFENSE,"
+    - i: 0
+      code: 655
+      p:
+      - " :SPECIAL_ATTACK, :SPECIAL_DEFENSE,"
+    - i: 0
+      code: 655
+      p:
+      - " :SPEED].each do |s|"
+    - i: 0
+      code: 655
+      p:
+      - "  if ivs[s] > val"
+    - i: 0
+      code: 655
+      p:
+      - "    best = [s]"
+    - i: 0
+      code: 655
+      p:
+      - "    val  = ivs[s]"
+    - i: 0
+      code: 655
+      p:
+      - "  elsif ivs[s] == val"
+    - i: 0
+      code: 655
+      p:
+      - "    best.push(s)"
+    - i: 0
+      code: 655
+      p:
+      - "  end"
+    - i: 0
+      code: 655
+      p:
+      - end
+    - i: 0
+      code: 355
+      p:
+      - pbSet(2, best)
+    - i: 0
+      code: 655
+      p:
+      - pbSet(3, val)
+    - i: 0
+      code: 655
+      p:
+      - data = GameData::Stat.get(best[0])
+    - i: 0
+      code: 655
+      p:
+      - pbSet(4, data.name)
+    - i: 0
+      code: 655
+      p:
+      - pbSet(5, best.length - 1)
+    - i: 0
+      code: 101
+      p:
+      - "\\bIncidentally, I would say the best potential lies in its "
+    - i: 0
+      code: 401
+      p:
+      - "\\v[4] stat."
+    - i: 0
+      code: 112
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 5
+      - 0
+      - 0
+      - 3
+    - i: 2
+      code: 355
+      p:
+      - best = pbGet(2)
+    - i: 2
+      code: 655
+      p:
+      - best[0] = nil
+    - i: 2
+      code: 655
+      p:
+      - best.compact!
+    - i: 2
+      code: 355
+      p:
+      - num = {
+    - i: 2
+      code: 655
+      p:
+      - "  :HP              => 0,"
+    - i: 2
+      code: 655
+      p:
+      - "  :ATTACK          => 1,"
+    - i: 2
+      code: 655
+      p:
+      - "  :DEFENSE         => 2,"
+    - i: 2
+      code: 655
+      p:
+      - "  :SPEED           => 3,"
+    - i: 2
+      code: 655
+      p:
+      - "  :SPECIAL_ATTACK  => 4,"
+    - i: 2
+      code: 655
+      p:
+      - "  :SPECIAL_DEFENSE => 5"
+    - i: 2
+      code: 655
+      p:
+      - "}[best[0]]"
+    - i: 2
+      code: 655
+      p:
+      - pbSet(4, num)
+    - i: 2
+      code: 122
+      p:
+      - 5
+      - 5
+      - 2
+      - 0
+      - 1
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 1
+      - 0
+    - i: 3
+      code: 101
+      p:
+      - "\\bAnd its Attack stat is also good."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 2
+      - 0
+    - i: 4
+      code: 101
+      p:
+      - "\\bI see, its Defense stat is also good."
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 3
+      - 0
+    - i: 5
+      code: 101
+      p:
+      - "\\bWell, its Speed stat is also good."
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 411
+      p: []
+    - i: 5
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 4
+      - 0
+    - i: 6
+      code: 101
+      p:
+      - "\\bIts Special Attack stat is equally good."
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 411
+      p: []
+    - i: 6
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 5
+      - 0
+    - i: 7
+      code: 101
+      p:
+      - "\\bIts Special Defense stat is good as well."
+    - i: 7
+      code: 0
+      p: []
+    - i: 6
+      code: 411
+      p: []
+    - i: 7
+      code: 0
+      p: []
+    - i: 6
+      code: 412
+      p: []
+    - i: 6
+      code: 0
+      p: []
+    - i: 5
+      code: 412
+      p: []
+    - i: 5
+      code: 0
+      p: []
+    - i: 4
+      code: 412
+      p: []
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 113
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 413
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - 'Show a message depending on the value of the '
+    - i: 0
+      code: 408
+      p:
+      - highest stat IV.
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 30
+      - 3
+    - i: 1
+      code: 101
+      p:
+      - "\\bIt can't be better in that regard. That's how I judged "
+    - i: 1
+      code: 401
+      p:
+      - it.
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 25
+      - 3
+    - i: 2
+      code: 101
+      p:
+      - "\\bIt's fantastic in that regard. That's how I judged it."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 3
+      - 0
+      - 15
+      - 3
+    - i: 3
+      code: 101
+      p:
+      - "\\bIt's very good in that regard. That's how I judged it."
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 101
+      p:
+      - "\\bIt's rather decent in that regard. That's how I judged "
+    - i: 3
+      code: 401
+      p:
+      - it.
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 10
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooks like the judges agree. Congratulations, you're "
+    - i: 0
+      code: 401
+      p:
+      - moving on to the Battle Stage.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 591
+      - 43
+      - 4
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: NPC 10
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bLooks like the judges agree. Congratulations, you're "
+    - i: 0
+      code: 401
+      p:
+      - moving on to the Battle Stage.
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 591
+      - 43
+      - 4
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Person
+  x: 46
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Person
+  x: 46
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Person
+  x: 31
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 16
+  name: Person
+  x: 31
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 17
+  name: Person
+  x: 31
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 18
+  name: Person
+  x: 31
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 19
+  name: Person
+  x: 31
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 20
+  name: Person
+  x: 31
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 21
+  name: Person
+  x: 31
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 22
+  name: Person
+  x: 31
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 23
+  name: Person
+  x: 32
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 24
+  name: Person
+  x: 32
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 25
+  name: Person
+  x: 32
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 26
+  name: Person
+  x: 32
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 27
+  name: Person
+  x: 33
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: PIDGEY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 28
+  name: Person
+  x: 33
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: PIDGEY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 29
+  name: Person
+  x: 33
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 30
+  name: Person
+  x: 33
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 31
+  name: Person
+  x: 32
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: RHYPERIOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 32
+  name: Person
+  x: 32
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: RHYPERIOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 33
+  name: Person
+  x: 32
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 34
+  name: Person
+  x: 32
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 35
+  name: Person
+  x: 33
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 36
+  name: Person
+  x: 33
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 37
+  name: Person
+  x: 33
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 38
+  name: Person
+  x: 33
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 39
+  name: Person
+  x: 45
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 28
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 40
+  name: Person
+  x: 45
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: NPC 28
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 41
+  name: Person
+  x: 45
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 42
+  name: Person
+  x: 45
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 43
+  name: Person
+  x: 46
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 26
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 44
+  name: Person
+  x: 46
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: NPC 26
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 45
+  name: Person
+  x: 46
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 46
+  name: Person
+  x: 46
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 47
+  name: Person
+  x: 47
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 48
+  name: Person
+  x: 47
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 49
+  name: Person
+  x: 47
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 50
+  name: Person
+  x: 47
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 51
+  name: Person
+  x: 46
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 52
+  name: Person
+  x: 46
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 53
+  name: Person
+  x: 46
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: trchar007
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 55
+  name: Person
+  x: 47
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 56
+  name: Person
+  x: 47
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 57
+  name: Person
+  x: 47
+  "y": 3
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 58
+  name: Person
+  x: 47
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 59
+  name: Person
+  x: 45
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: NPC 25
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 60
+  name: Person
+  x: 45
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: NPC 25
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 61
+  name: Person
+  x: 45
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 62
+  name: Person
+  x: 45
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 63
+  name: Person
+  x: 36
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 64
+  name: Person
+  x: 36
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 65
+  name: Person
+  x: 38
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 66
+  name: Person
+  x: 38
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 67
+  name: Person
+  x: 40
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 68
+  name: Person
+  x: 40
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 70
+  name: Trainer(6)
+  x: 36
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar039
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI wish you luck. You'll need it."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:CAMPER,"Matt")
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar039
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat's the battle. The judges are now giving their "
+    - i: 0
+      code: 401
+      p:
+      - scores and...
+    - i: 0
+      code: 101
+      p:
+      - "\\bContestant \\PN wins by a landslide! They'll be "
+    - i: 0
+      code: 401
+      p:
+      - moving on to round 2.
+    - i: 0
+      code: 314
+      p:
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 591
+      - 42
+      - 39
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar039
+    trigger: 0
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 591
+      - 42
+      - 39
+      - 4
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 71
+  name: Trainer(6)
+  x: 5
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 191
+    graphic: NPC 80
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:COOLTRAINER_F)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rGood to see you again."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:COOLTRAINER_F,"Zoey",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: NPC 80
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rI'm impressed. I see where Dawn gets some of her "
+    - i: 0
+      code: 401
+      p:
+      - talent.
+    - i: 0
+      code: 0
+      p: []
+- id: 72
+  name: Person
+  x: 32
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: NPC 22
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 73
+  name: Person
+  x: 33
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: PIDGEY
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 74
+  name: Person
+  x: 31
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: NPC 18
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 75
+  name: Person
+  x: 45
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: NPC 25
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 76
+  name: Person
+  x: 46
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: trchar018
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 77
+  name: Person
+  x: 47
+  "y": 40
+  pages:
+  - condition: {}
+    graphic: trchar020
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 78
+  name: Person
+  x: 47
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: NPC 19
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 80
+  name: Person
+  x: 45
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: MEOWTH
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 81
+  name: Person
+  x: 45
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 82
+  name: Person
+  x: 46
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: NPC 26
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 83
+  name: Person
+  x: 47
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar019
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 84
+  name: Person
+  x: 31
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar054
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 85
+  name: Person
+  x: 32
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar010
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 86
+  name: Person
+  x: 33
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: NPC 21
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 87
+  name: Person
+  x: 33
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: NPC 24
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 88
+  name: Person
+  x: 32
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: RHYPERIOR
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 89
+  name: Person
+  x: 31
+  "y": 38
+  pages:
+  - condition: {}
+    graphic: NPC 20
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 90
+  name: Person
+  x: 47
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: trchar027
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 91
+  name: Person
+  x: 46
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 92
+  name: Person
+  x: 45
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: NPC 28
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 93
+  name: Person
+  x: 33
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: trchar059
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 94
+  name: Person
+  x: 32
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: trchar012
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 95
+  name: Person
+  x: 31
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: trchar011
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 96
+  name: Person
+  x: 36
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 97
+  name: Person
+  x: 38
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: NPC 06
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 98
+  name: Person
+  x: 40
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: NPC 16
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 99
+  name: Wallace
+  x: 42
+  "y": 2
+  pages:
+  - condition: {}
+    graphic: NPC 35
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 100
+  name: Wallace
+  x: 42
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: NPC 35
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 101
+  name: Wallace
+  x: 42
+  "y": 37
+  pages:
+  - condition: {}
+    graphic: NPC 35
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 102
+  name: Trainer(6)
+  x: 36
+  "y": 39
+  pages:
+  - condition: {}
+    graphic: trchar015
+    trigger: 2
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bI've seen your performance. This should be easy."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:FISHERMAN,"Kyle",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - PokemonSelection.restore
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar015
+    trigger: 3
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThat's the battle. The judges are now giving their "
+    - i: 0
+      code: 401
+      p:
+      - scores and...
+    - i: 0
+      code: 101
+      p:
+      - "\\bContestant Kyle wins! He'll be moving on to round 3."
+    - i: 0
+      code: 121
+      p:
+      - 432
+      - 432
+      - 0
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 591
+      - 6
+      - 5
+      - 8
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 101
+      p:
+      - "\\rThank you for competing. Please take this as a "
+    - i: 0
+      code: 401
+      p:
+      - participation reward.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbReceiveItem(:HONDEWBERRY)
+    - i: 1
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: B
+    graphic: trchar015
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 103
+  name: Trainer(6)
+  x: 10
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 191
+    graphic: trchar017
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:GENTLEMAN)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bAh, \\PN, a pleasure to meet you again. Perhaps we "
+    - i: 0
+      code: 401
+      p:
+      - have time for a quick battle.
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:GENTLEMAN,"Nando",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bWish me luck in the Contest. I will hopefully see you "
+    - i: 0
+      code: 401
+      p:
+      - at the Sinnoh League.
+    - i: 0
+      code: 0
+      p: []
+- id: 104
+  name: Trainer(6)
+  x: 5
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 191
+    graphic: trchar038
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:LASS)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\rHmph. You're not even a warm up."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:LASS,"Ursula",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar038
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rThis won't be enough to stop me. You caught me on "
+    - i: 0
+      code: 401
+      p:
+      - a bad day.
+    - i: 0
+      code: 0
+      p: []
+- id: 105
+  name: Trainer(6)
+  x: 10
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 191
+    graphic: trchar037
+    trigger: 2
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerIntro(:YOUNGSTER)
+    - i: 0
+      code: 355
+      p:
+      - pbNoticePlayer(get_character(0))
+    - i: 0
+      code: 101
+      p:
+      - "\\bNo time like the present. Let's get some practice in."
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - pbTrainerBattle(:YOUNGSTER,"Kenny",nil,false,1,false,0)
+    - i: 1
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 355
+      p:
+      - pbTrainerEnd
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThanks. Hopefully I don't lose in the first round."
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,651 @@
+---
+id: 139
+name: Lavender House
+parent: 137
+width: 40
+height: 30
+tileset: 3
+bgm: Lab
+events:
+- id: 1
+  name: Exit
+  x: 5
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 137
+      - 10
+      - 25
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Person
+  x: 3
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar036
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\rPokémon Tower is a creepy place. I wouldn't go in "
+    - i: 0
+      code: 401
+      p:
+      - there.
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Pokemon
+  x: 7
+  "y": 6
+  pages:
+  - condition: {}
+    graphic: CUBONE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 104Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bCubone!"
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Exit
+  x: 22
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 137
+      - 15
+      - 25
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: Name Rater
+  x: 20
+  "y": 4
+  pages:
+  - condition: {}
+    graphic: trchar017
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bHello, hello!\\nI am the official Name Rater!"
+    - i: 0
+      code: 101
+      p:
+      - "\\bWant me to rate the nicknames of your Pokémon?"
+    - i: 0
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 0
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 1
+      code: 101
+      p:
+      - "\\bWhich Pokémon's nickname should I critique?"
+    - i: 1
+      code: 108
+      p:
+      - 'Opens a screen for choosing a Pokémon. The index '
+    - i: 1
+      code: 408
+      p:
+      - 'is stored in Game Variable 1, and the name in Game '
+    - i: 1
+      code: 408
+      p:
+      - Variable 3.
+    - i: 1
+      code: 355
+      p:
+      - pbChoosePokemon(1, 3)
+    - i: 1
+      code: 108
+      p:
+      - 'If Game Variable 1 is less than 0, it means the player '
+    - i: 1
+      code: 408
+      p:
+      - has canceled choosing a Pokémon.
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 4
+    - i: 2
+      code: 101
+      p:
+      - "\\bI see.\\nDo come visit again."
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 108
+      p:
+      - Check for eggs.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).egg?
+    - i: 2
+      code: 101
+      p:
+      - "\\bNow, now... That is merely an Egg!"
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 108
+      p:
+      - Check for Shadow Pokémon.
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbGetPokemon(1).shadowPokemon?
+    - i: 2
+      code: 101
+      p:
+      - "\\bI wouldn't dare critique a Shadow Pokémon's name!"
+    - i: 2
+      code: 115
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\b\\v[3], is it?\\nThat is a decent nickname!"
+    - i: 1
+      code: 101
+      p:
+      - "\\bBut, would you like me to give it a nicer name?"
+    - i: 1
+      code: 101
+      p:
+      - "\\bHow about it?"
+    - i: 1
+      code: 102
+      p:
+      - - 'Yes'
+        - 'No'
+      - 2
+    - i: 1
+      code: 402
+      p:
+      - 0
+      - 'Yes'
+    - i: 2
+      code: 101
+      p:
+      - "\\bAh, good. Then, what shall the new nickname be?"
+    - i: 2
+      code: 355
+      p:
+      - pkmn = pbGetPokemon(1)
+    - i: 2
+      code: 655
+      p:
+      - species = pkmn.speciesName
+    - i: 2
+      code: 655
+      p:
+      - pbSet(4, species)
+    - i: 2
+      code: 655
+      p:
+      - pbTextEntry("#{species}'s nickname?",
+    - i: 2
+      code: 655
+      p:
+      - "  0, Pokemon::MAX_NAME_SIZE, 5)"
+    - i: 2
+      code: 111
+      p:
+      - 12
+      - pbGet(5) == pbGet(3) || (pbGet(5) == "" && pbGet(3) == pbGet(4))
+    - i: 3
+      code: 108
+      p:
+      - The Pokémon's nickname wasn't changed.
+    - i: 3
+      code: 101
+      p:
+      - "\\bI see. You're right, there's no need to change this "
+    - i: 3
+      code: 401
+      p:
+      - Pokémon's nickname.
+    - i: 3
+      code: 101
+      p:
+      - "\\bIt already had a superb name!"
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 411
+      p: []
+    - i: 3
+      code: 111
+      p:
+      - 12
+      - pbGet(5) == "" || pbGet(5) == pbGet(4)
+    - i: 4
+      code: 108
+      p:
+      - Resets the Pokémon's nickname to the species name.
+    - i: 4
+      code: 355
+      p:
+      - pkmn = pbGetPokemon(1)
+    - i: 4
+      code: 655
+      p:
+      - pkmn.name = nil
+    - i: 4
+      code: 655
+      p:
+      - pbSet(3, pkmn.name)
+    - i: 4
+      code: 101
+      p:
+      - "\\bDone! From now on, this Pokémon shall be known"
+    - i: 4
+      code: 401
+      p:
+      - as \v[3]!
+    - i: 4
+      code: 101
+      p:
+      - "\\bIt looks no different from before, and yet, this is "
+    - i: 4
+      code: 401
+      p:
+      - vastly superior!
+    - i: 4
+      code: 101
+      p:
+      - "\\bHow fortunate for you!"
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 411
+      p: []
+    - i: 4
+      code: 108
+      p:
+      - 'Retrieves the Pokémon whose party index is stored in '
+    - i: 4
+      code: 408
+      p:
+      - 'Game Variable 1, and changes its name to the name '
+    - i: 4
+      code: 408
+      p:
+      - stored in Game Variable 5.
+    - i: 4
+      code: 355
+      p:
+      - pkmn = pbGetPokemon(1)
+    - i: 4
+      code: 655
+      p:
+      - pkmn.name = pbGet(5)
+    - i: 4
+      code: 101
+      p:
+      - "\\bDone! From now on, this Pokémon shall be known"
+    - i: 4
+      code: 401
+      p:
+      - as \v[5]!
+    - i: 4
+      code: 101
+      p:
+      - "\\bIt is a better name than before!\\nHow fortunate for "
+    - i: 4
+      code: 401
+      p:
+      - you!
+    - i: 4
+      code: 0
+      p: []
+    - i: 3
+      code: 412
+      p: []
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 2
+      code: 101
+      p:
+      - "\\bI see.\\nDo come visit again."
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 404
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 402
+      p:
+      - 1
+      - 'No'
+    - i: 1
+      code: 101
+      p:
+      - "\\bI see.\\nDo come visit again."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 404
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: Sign
+  x: 4
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Pokémon Fan Magazine\n
+    - i: 0
+      code: 401
+      p:
+      - Monthly Grand Prize Drawing!
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: Person
+  x: 1
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: trchar037
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bThis is a sanctuary for abandoned Pokémon."
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Person
+  x: 8
+  "y": 21
+  pages:
+  - condition: {}
+    graphic: NPC 02
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bIt's so warm!\\nPokémon are so nice to hug."
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Pokemon
+  x: 8
+  "y": 22
+  pages:
+  - condition: {}
+    graphic: PSYDUCK
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 054Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rPsy?"
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: Pokemon
+  x: 1
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: BUTTERFREE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 012Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\rFree!"
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: Pokemon
+  x: 10
+  "y": 18
+  pages:
+  - condition: {}
+    graphic: MACHOKE
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 067Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bMachoke"
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: Pokemon
+  x: 7
+  "y": 19
+  pages:
+  - condition: {}
+    graphic: PIKACHU_3_female
+    trigger: 0
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: 025Cry
+        pitch: 100
+    - i: 0
+      code: 101
+      p:
+      - "\\bPikachu!"
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Exit
+  x: 4
+  "y": 24
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: Exit Door
+        pitch: 100
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 137
+      - 15
+      - 19
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []

@@ -1,0 +1,1348 @@
+---
+id: 49
+name: Rock Cave
+parent: 47
+width: 34
+height: 29
+tileset: 6
+bgm: Cave
+events:
+- id: 1
+  name: Exit south
+  x: 12
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 47
+      - 46
+      - 11
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 2
+  name: Exit right
+  x: 20
+  "y": 20
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 355
+      p:
+      - pbCaveExit
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 47
+      - 56
+      - 16
+      - 0
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 3
+  name: Ladder
+  x: 10
+  "y": 12
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 50
+      - 11
+      - 12
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 4
+  name: Hole
+  x: 12
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 106
+      p:
+      - 4
+    - i: 0
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: throw
+        pitch: 100
+    - i: 0
+      code: 208
+      p:
+      - 0
+    - i: 0
+      code: 106
+      p:
+      - 4
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 50
+      - 12
+      - 7
+      - 0
+      - 1
+    - i: 0
+      code: 208
+      p:
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 5
+  name: NPC
+  x: 17
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: NPC 05
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - "\\bCan you push that boulder onto the switch?"
+    - i: 0
+      code: 111
+      p:
+      - 2
+      - A
+      - 0
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh!  The boulder has been moved onto the switch!"
+    - i: 1
+      code: 101
+      p:
+      - "\\bWell done!"
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 101
+      p:
+      - "\\bOh.  The boulder is not on the switch."
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 6
+  name: StrengthBoulder
+  x: 12
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: Object boulder
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPushThisBoulder
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      switch1: 57
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 7
+  name: StrengthBoulder
+  x: 19
+  "y": 7
+  pages:
+  - condition: {}
+    graphic: Object boulder
+    trigger: 1
+    commands:
+    - i: 0
+      code: 355
+      p:
+      - pbPushThisBoulder
+    - i: 0
+      code: 0
+      p: []
+  - condition:
+      self_switch: A
+    graphic: Object boulder
+    trigger: 0
+    commands:
+    - i: 0
+      code: 0
+      p: []
+- id: 8
+  name: Boulder position checks
+  x: 6
+  "y": 5
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 4
+    commands:
+    - i: 0
+      code: 108
+      p:
+      - Boulder to be pushed down hole is event 6.
+    - i: 0
+      code: 111
+      p:
+      - 2
+      - A
+      - 1
+    - i: 1
+      code: 122
+      p:
+      - 4
+      - 4
+      - 0
+      - 6
+      - 6
+      - 0
+    - i: 1
+      code: 122
+      p:
+      - 5
+      - 5
+      - 0
+      - 6
+      - 6
+      - 1
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 12
+      - 0
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 5
+      - 0
+      - 7
+      - 0
+    - i: 3
+      code: 108
+      p:
+      - Is over hole.
+    - i: 3
+      code: 106
+      p:
+      - 8
+    - i: 3
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: throw
+        pitch: 100
+    - i: 3
+      code: 121
+      p:
+      - 57
+      - 57
+      - 0
+    - i: 3
+      code: 123
+      p:
+      - A
+      - 0
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 108
+      p:
+      - Boulder to be pushed onto switch is event 7.
+    - i: 0
+      code: 108
+      p:
+      - 'There is more to this one because the boulder can be '
+    - i: 0
+      code: 408
+      p:
+      - pushed off the switch again.
+    - i: 0
+      code: 111
+      p:
+      - 2
+      - B
+      - 1
+    - i: 1
+      code: 122
+      p:
+      - 4
+      - 4
+      - 0
+      - 6
+      - 7
+      - 0
+    - i: 1
+      code: 122
+      p:
+      - 5
+      - 5
+      - 0
+      - 6
+      - 7
+      - 1
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 20
+      - 0
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 5
+      - 0
+      - 7
+      - 0
+    - i: 3
+      code: 108
+      p:
+      - Is on switch.
+    - i: 3
+      code: 106
+      p:
+      - 8
+    - i: 3
+      code: 250
+      p:
+      - _class: RPG::AudioFile
+        volume: 80
+        name: balldrop
+        pitch: 100
+    - i: 3
+      code: 355
+      p:
+      - pbSetSelfSwitch(5,"A",true)
+    - i: 3
+      code: 123
+      p:
+      - B
+      - 0
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 411
+      p: []
+    - i: 1
+      code: 122
+      p:
+      - 4
+      - 4
+      - 0
+      - 6
+      - 7
+      - 0
+    - i: 1
+      code: 122
+      p:
+      - 5
+      - 5
+      - 0
+      - 6
+      - 7
+      - 1
+    - i: 1
+      code: 111
+      p:
+      - 1
+      - 4
+      - 0
+      - 20
+      - 5
+    - i: 2
+      code: 108
+      p:
+      - Boulder has been moved off the switch.
+    - i: 2
+      code: 355
+      p:
+      - pbSetSelfSwitch(5,"A",false)
+    - i: 2
+      code: 123
+      p:
+      - B
+      - 1
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 111
+      p:
+      - 1
+      - 5
+      - 0
+      - 7
+      - 5
+    - i: 3
+      code: 108
+      p:
+      - Boulder has been moved off the switch.
+    - i: 3
+      code: 355
+      p:
+      - pbSetSelfSwitch(5,"A",false)
+    - i: 3
+      code: 123
+      p:
+      - B
+      - 1
+    - i: 3
+      code: 0
+      p: []
+    - i: 2
+      code: 412
+      p: []
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 9
+  name: Sign
+  x: 14
+  "y": 10
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - 'The positions of the boulders are checked by a '
+    - i: 0
+      code: 401
+      p:
+      - Parallel Process event.
+    - i: 0
+      code: 101
+      p:
+      - 'The hole event must have its "Through" option set, to '
+    - i: 0
+      code: 401
+      p:
+      - allow boulder events to be pushed onto it.
+    - i: 0
+      code: 0
+      p: []
+- id: 10
+  name: SmashRock
+  x: 20
+  "y": 15
+  pages:
+  - condition: {}
+    graphic: Object rock
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbRockSmash
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - pbEraseThisEvent
+    - i: 1
+      code: 355
+      p:
+      - Kernel.pbRockSmashRandomEncounter
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 11
+  name: SmashRock
+  x: 20
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: Object rock
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbRockSmash
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - pbEraseThisEvent
+    - i: 1
+      code: 355
+      p:
+      - Kernel.pbRockSmashRandomEncounter
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 12
+  name: SmashRock
+  x: 14
+  "y": 9
+  pages:
+  - condition: {}
+    graphic: Object rock
+    trigger: 0
+    commands:
+    - i: 0
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 16
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 0
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 16
+    - i: 0
+      code: 111
+      p:
+      - 12
+      - Kernel.pbRockSmash
+    - i: 1
+      code: 209
+      p:
+      - 0
+      - _class: RPG::MoveRoute
+        list:
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 17
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 18
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 19
+        - _class: RPG::MoveCommand
+          parameters:
+          - 2
+          code: 15
+        - _class: RPG::MoveCommand
+          parameters: []
+          code: 0
+        skippable: false
+        repeat: false
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 17
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 18
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters: []
+        code: 19
+    - i: 1
+      code: 509
+      p:
+      - _class: RPG::MoveCommand
+        parameters:
+        - 2
+        code: 15
+    - i: 1
+      code: 210
+      p: []
+    - i: 1
+      code: 355
+      p:
+      - pbEraseThisEvent
+    - i: 1
+      code: 355
+      p:
+      - Kernel.pbRockSmashRandomEncounter
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
+- id: 13
+  name: Dungeon ladder
+  x: 24
+  "y": 14
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 1
+    commands:
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 106
+      p:
+      - 8
+    - i: 0
+      code: 201
+      p:
+      - 0
+      - 51
+      - 0
+      - 0
+      - 6
+      - 1
+    - i: 0
+      code: 223
+      p:
+      - _class: Tone
+      - 6
+    - i: 0
+      code: 0
+      p: []
+- id: 14
+  name: Dungeon sign
+  x: 24
+  "y": 13
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - This ladder leads to a random dungeon.
+    - i: 0
+      code: 101
+      p:
+      - 'The levels of Pokémon within are based on the levels '
+    - i: 0
+      code: 401
+      p:
+      - 'of Pokémon in the player''s party.  The relevant code '
+    - i: 0
+      code: 401
+      p:
+      - is in the script section PokemonEncounterModifiers.
+    - i: 0
+      code: 0
+      p: []
+- id: 15
+  name: Tile puzzles
+  x: 24
+  "y": 8
+  pages:
+  - condition: {}
+    graphic: ''
+    trigger: 0
+    commands:
+    - i: 0
+      code: 101
+      p:
+      - Which tile puzzle do you want to play?\ch[1,8,
+    - i: 0
+      code: 401
+      p:
+      - Alph,Alph Rotator,Mystic Square,Tile Swap,
+    - i: 0
+      code: 401
+      p:
+      - Tile Swap Rotator,Rubik's Square,Star Rotator,Cancel]
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 0
+      - 0
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbTilePuzzle(1,"Kabuto")
+    - i: 2
+      code: 101
+      p:
+      - Puzzle solved!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - Gave up...
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 1
+      - 0
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbTilePuzzle(2,"Kabuto")
+    - i: 2
+      code: 101
+      p:
+      - Puzzle solved!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - Gave up...
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 2
+      - 0
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbTilePuzzle(3,"Kabuto")
+    - i: 2
+      code: 101
+      p:
+      - Puzzle solved!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - Gave up...
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 3
+      - 0
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbTilePuzzle(4,"Kabuto")
+    - i: 2
+      code: 101
+      p:
+      - Puzzle solved!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - Gave up...
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 4
+      - 0
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbTilePuzzle(5,"Kabuto")
+    - i: 2
+      code: 101
+      p:
+      - Puzzle solved!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - Gave up...
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 5
+      - 0
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbTilePuzzle(6,"Kabuto")
+    - i: 2
+      code: 101
+      p:
+      - Puzzle solved!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - Gave up...
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 111
+      p:
+      - 1
+      - 1
+      - 0
+      - 6
+      - 0
+    - i: 1
+      code: 111
+      p:
+      - 12
+      - pbTilePuzzle(7,"Kabuto")
+    - i: 2
+      code: 101
+      p:
+      - Puzzle solved!
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 411
+      p: []
+    - i: 2
+      code: 101
+      p:
+      - Gave up...
+    - i: 2
+      code: 0
+      p: []
+    - i: 1
+      code: 412
+      p: []
+    - i: 1
+      code: 0
+      p: []
+    - i: 0
+      code: 412
+      p: []
+    - i: 0
+      code: 0
+      p: []
