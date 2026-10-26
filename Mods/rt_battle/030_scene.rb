@@ -652,12 +652,12 @@ module RTB
     def float_text(f, text, color, dur)
       s = Sprite.new(@hud_vp)
       w = [text.length * 8 + 16, 32].max
-      s.bitmap = Bitmap.new(w, 22)
+      s.bitmap = Bitmap.new(w, 28)
       pbSetSmallFont(s.bitmap)
       s.bitmap.font.color = Color.new(0, 0, 0, 200)
-      s.bitmap.draw_text(1, 1, w, 22, text, 1)
+      s.bitmap.draw_text(1, 1, w, 26, text, 1)
       s.bitmap.font.color = color
-      s.bitmap.draw_text(0, 0, w, 22, text, 1)
+      s.bitmap.draw_text(0, 0, w, 26, text, 1)
       s.ox = w / 2
       stack = @text_sprites.count { |t| t[1] == f && t[2] < 0.3 }
       @text_sprites.push([s, f, 0.0, dur, stack])
@@ -675,7 +675,7 @@ module RTB
         s, f, age, dur, stack = t
         t[2] = age + dt
         sx, sy = RTB.screen_xy(f.x, f.y)
-        s.x = sx; s.y = sy - 44 - stack * 16 - t[2] * 18
+        s.x = sx; s.y = sy - 48 - stack * 18 - t[2] * 18
         s.opacity = t[2] > dur - 0.25 ? [((dur - t[2]) / 0.25 * 255).to_i, 0].max : 255
       end
       @text_sprites.reject! { |t| (t[2] >= t[3]) && (t[0].bitmap.dispose; t[0].dispose; true) }
@@ -771,41 +771,41 @@ module RTB
       gw = Graphics.width; gh = Graphics.height
       # Inimigo (topo)
       e = @enemy
-      b.fill_rect(gw / 2 - 110, 6, 220, 32, Color.new(0, 0, 0, 120))
-      draw_text_shadow(b, gw / 2 - 104, 6, 150, 18, "#{e.name}  Nv. #{e.level}")
+      b.fill_rect(gw / 2 - 120, 4, 240, 40, Color.new(0, 0, 0, 130))
+      draw_text_shadow(b, gw / 2 - 112, 6, 160, 22, "#{e.name}  Nv. #{e.level}")
       tag = status_tag(e)
-      draw_text_shadow(b, gw / 2 + 50, 6, 52, 18, tag, 2, Color.new(255, 200, 120)) if tag
-      draw_bar(b, gw / 2 - 104, 26, 208, 6, e.totalhp > 0 ? e.hp.to_f / e.totalhp : 0)
+      draw_text_shadow(b, gw / 2 + 56, 6, 56, 22, tag, 2, Color.new(255, 200, 120)) if tag
+      draw_bar(b, gw / 2 - 112, 32, 224, 6, e.totalhp > 0 ? e.hp.to_f / e.totalhp : 0)
       # Jogador (baixo, à esquerda)
       m = @mine
-      b.fill_rect(4, gh - 66, 170, 62, Color.new(0, 0, 0, 120))
-      draw_text_shadow(b, 10, gh - 64, 160, 18, "#{m.name}  Nv. #{m.level}")
-      draw_bar(b, 10, gh - 44, 158, 6, m.totalhp > 0 ? m.hp.to_f / m.totalhp : 0)
-      draw_text_shadow(b, 10, gh - 38, 158, 18, "#{m.hp}/#{m.totalhp}", 2)
+      b.fill_rect(4, gh - 84, 184, 80, Color.new(0, 0, 0, 130))
+      draw_text_shadow(b, 12, gh - 82, 170, 22, "#{m.name}  Nv. #{m.level}")
+      draw_bar(b, 12, gh - 56, 168, 6, m.totalhp > 0 ? m.hp.to_f / m.totalhp : 0)
+      draw_text_shadow(b, 12, gh - 48, 168, 22, "#{m.hp}/#{m.totalhp}", 2)
       tag = status_tag(m)
-      draw_text_shadow(b, 10, gh - 38, 60, 18, tag, 0, Color.new(255, 200, 120)) if tag
+      draw_text_shadow(b, 12, gh - 48, 60, 22, tag, 0, Color.new(255, 200, 120)) if tag
       ready = m.dodge_cd <= 0
-      draw_text_shadow(b, 10, gh - 22, 160, 18, _INTL("Espaço: esquiva"), 0,
+      draw_text_shadow(b, 12, gh - 26, 170, 22, _INTL("Espaço: esquiva"), 0,
                        ready ? Color.new(255, 255, 255) : Color.new(140, 140, 140))
       # Golpes (baixo, à direita): 2x2
       m.specs.each_with_index do |spec, i|
-        x = gw - 254 + (i % 2) * 126
-        y = gh - 62 + (i / 2) * 30
-        b.fill_rect(x, y, 122, 26, Color.new(0, 0, 0, 150))
-        b.fill_rect(x, y, 4, 26, RTB.type_color(spec.type))
+        x = gw - 264 + (i % 2) * 132
+        y = gh - 84 + (i / 2) * 41
+        b.fill_rect(x, y, 128, 39, Color.new(0, 0, 0, 150))
+        b.fill_rect(x, y, 4, 39, RTB.type_color(spec.type))
         cd = m.cds[i]
         if cd > 0
           frac = [cd / (spec.cooldown * RTB.cooldown_scale), 1.0].min
-          b.fill_rect(x + 4, y, (118 * frac).round, 26, Color.new(0, 0, 0, 120))
+          b.fill_rect(x + 4, y, (124 * frac).round, 39, Color.new(0, 0, 0, 120))
         end
         pp = m.move_pp(i)
         mv = m.pkmn.moves[i]
         col = pp <= 0 ? Color.new(255, 120, 120) : (cd > 0 ? Color.new(160, 160, 160) : Color.new(255, 255, 255))
-        draw_text_shadow(b, x + 8, y - 2, 110, 18, "#{i + 1} #{spec.name}", 0, col)
-        draw_text_shadow(b, x + 8, y + 10, 110, 18, "PP #{pp}/#{mv ? mv.total_pp : 0}", 2,
+        draw_text_shadow(b, x + 8, y + 1, 118, 22, "#{i + 1} #{spec.name}", 0, col)
+        draw_text_shadow(b, x + 8, y + 18, 116, 22, "PP #{pp}/#{mv ? mv.total_pp : 0}", 2,
                          Color.new(200, 200, 200))
       end
-      draw_text_shadow(b, gw - 254, gh - 82, 250, 18, _INTL("F: Poké Bola   Q: trocar   Esc: fugir"), 2,
+      draw_text_shadow(b, gw - 264, gh - 106, 260, 22, _INTL("F: Poké Bola  Q: trocar  Esc: fugir"), 2,
                        Color.new(220, 220, 220))
     end
 
