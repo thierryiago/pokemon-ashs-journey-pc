@@ -360,6 +360,7 @@ module RTB
       else
         foe_at = spawn_point(px + dx * 130, py + dy * 130, arena, walkable)
       end
+      foe_at = reachable_point(foe_at, me, arena, walkable)
       @foe_at = foe_at
       @enemy = add_foe_fighter(@foe_pkmn, foe_at[0], foe_at[1])
       @enemy.fx, @enemy.fy = norm_dir(me[0] - foe_at[0], me[1] - foe_at[1])
@@ -426,6 +427,32 @@ module RTB
         end
       end
       [$game_player.x * 32 + 16, $game_player.y * 32 + 16]
+    end
+
+    # Garante que o adversário nasce num tile alcançável a pé a partir do
+    # Pokémon do jogador (sem ficar preso atrás de árvores ou cercas).
+    def reachable_point(target, from, arena, walkable)
+      tx0 = (arena[0] / 32); ty0 = (arena[1] / 32)
+      tx1 = (arena[2] / 32); ty1 = (arena[3] / 32)
+      start = [(from[0] / 32).floor, (from[1] / 32).floor]
+      seen = { start => true }
+      queue = [start]
+      until queue.empty?
+        x, y = queue.shift
+        [[1, 0], [-1, 0], [0, 1], [0, -1]].each do |dx, dy|
+          n = [x + dx, y + dy]
+          next if seen[n] || n[0] < tx0 || n[0] > tx1 || n[1] < ty0 || n[1] > ty1
+          next unless walkable.call(n[0] * 32 + 16, n[1] * 32 + 16)
+          seen[n] = true
+          queue.push(n)
+        end
+      end
+      want = [(target[0] / 32).floor, (target[1] / 32).floor]
+      return target if seen[want]
+      far = seen.keys.reject { |k| k == start }
+      return target if far.empty?
+      best = far.min_by { |k| (k[0] - want[0])**2 + (k[1] - want[1])**2 }
+      [best[0] * 32 + 16, best[1] * 32 + 16]
     end
 
     def add_player_fighter(index, x, y)

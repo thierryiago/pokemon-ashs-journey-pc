@@ -1,5 +1,5 @@
 # Desenha um mapa a partir do JSON de map_to_json.rb, com os tilesets e autotiles do jogo.
-# Uso: python3 tools/render_map.py /tmp/map033.json /tmp/map033.png
+# Uso: python3 tools/render_map.py /tmp/map033.json /tmp/map033.png [--full]   (--full = escala 1:1)
 import json,sys
 from PIL import Image
 import os
@@ -36,4 +36,6 @@ for z in range(Z):
       if i: 
         t=tile(i)
         if t: out.alpha_composite(t,(x*32,y*32))
-out.convert("RGB").resize((W*16,H*16)).save(sys.argv[2])
+full = len(sys.argv) > 3 and sys.argv[3] == "--full"
+img = out.convert("RGB")
+(img if full else img.resize((W*16,H*16))).save(sys.argv[2])
