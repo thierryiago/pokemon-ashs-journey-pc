@@ -41,8 +41,14 @@ module RTB
     defined?(Settings::MAXRAID_SWITCH) && $game_switches[Settings::MAXRAID_SWITCH]
   end
 
+  # Algum arquivo de Mods/ falhou ao carregar? Então tudo fica por turno.
+  def mods_ok?
+    !defined?(AJMods) || !AJMods.respond_to?(:ok?) || AJMods.ok?
+  end
+
   def wild_eligible?(args)
     return false unless defined?(AshJourney) && AshJourney::REALTIME_WILD_BATTLES
+    return false unless mods_ok?
     return false if $PokemonSystem.respond_to?(:aj_battle_mode) && $PokemonSystem.aj_battle_mode != 0
     return false unless rules_supported?
     return false if max_raid?
@@ -116,6 +122,7 @@ module RTB
 
   def trainer_eligible?(args)
     return false unless defined?(AshJourney) && AshJourney::REALTIME_WILD_BATTLES
+    return false unless mods_ok?
     return false unless $PokemonSystem.respond_to?(:aj_trainer_mode) && $PokemonSystem.aj_trainer_mode == 1
     return false if args.length != 1
     return false unless rules_supported?
