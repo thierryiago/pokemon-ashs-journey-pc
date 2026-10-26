@@ -57,6 +57,17 @@ module RTB
     "0BD" => { hits: 2 }, "0C0" => { hits: 3 },
     "0D5" => { heal: 0.5 }, "0D6" => { heal: 0.5 }, "0D8" => { heal: 0.5 },
     "0DD" => { drain: 0.5 },
+    # Aproximações de efeitos que não existem em tempo real (precisão, evasão, telas)
+    "022" => { user_stages: { spe: 1 } },  "034" => { user_stages: { spe: 1 } },
+    "047" => { target_stages: { spe: -1 } }, "048" => { target_stages: { spe: -1 } },
+    "0A2" => { user_stages: { def: 1 } },  "0A3" => { user_stages: { spd: 1 } },
+    "023" => { user_stages: { crit: 2 } },
+    "051" => { haze: true },
+    "0AA" => { protect: 1.0 },           # Protect/Detect: invencível por 1 s
+    "0D9" => { heal: 1.0, rest: true },  # Rest: cura tudo e dorme
+    "0DC" => { leech: true },            # Leech Seed
+    "0EA" => { flee: true },             # Teleport: foge da batalha selvagem
+    "0EB" => { force_out: true },        # Roar/Whirlwind: espanta o selvagem
     "0FA" => { recoil: 0.25 }, "0FB" => { recoil: 0.33 }, "0FC" => { recoil: 0.5 },
     "0FD" => { recoil: 0.33, status: :PARALYSIS }, "0FE" => { recoil: 0.33, status: :BURN }
   }
@@ -80,7 +91,7 @@ module RTB
     cat    = data[:category].to_i
     id     = data[:id].to_s
     effect = (EFFECTS[code] || {}).dup
-    if effect[:status] || effect[:target_stages]
+    if effect[:status] || effect[:target_stages] || effect[:leech] || effect[:force_out]
       chance = data[:effect_chance].to_i
       effect[:chance] = (cat == 2 || chance <= 0) ? 100 : chance
     end
@@ -90,12 +101,14 @@ module RTB
 
     kind =
       if cat == 2
-        if %w[User UserSide UserAndAllies UserOrNearAlly].include?(target)
-          (effect[:user_stages] || effect[:heal]) ? :buff : :noop
+        if effect[:haze]
+          :buff
+        elsif %w[User UserSide UserAndAllies UserOrNearAlly].include?(target)
+          (effect[:user_stages] || effect[:heal] || effect[:protect] || effect[:flee]) ? :buff : :noop
         elsif area
           effect[:target_stages] ? :debuff : (effect[:status] ? :pulse : :noop)
         elsif %w[NearOther Other NearFoe RandomNearFoe].include?(target)
-          (effect[:status] || effect[:target_stages]) ? :status : :noop
+          (effect[:status] || effect[:target_stages] || effect[:leech] || effect[:force_out]) ? :status : :noop
         else
           :noop # FoeSide (armadilhas), BothSides (clima/terreno) etc.
         end

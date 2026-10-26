@@ -32,7 +32,7 @@ module RTB
     attr_reader   :pkmn, :side, :specs, :cds, :stages
     attr_accessor :x, :y, :fx, :fy, :radius, :lock, :pending, :dash, :dodge,
                   :dodge_cd, :stun, :confuse, :dot_t, :invuln, :flash, :anim_t,
-                  :ai, :hidden
+                  :ai, :hidden, :leech_by, :leech_t
 
     def initialize(pkmn, side, specs, x, y)
       @pkmn = pkmn; @side = side; @specs = specs
@@ -43,7 +43,7 @@ module RTB
       @stages = Hash.new(0)
       @lock = 0.0; @pending = nil; @dash = nil; @dodge = nil; @dodge_cd = 0.0
       @stun = 0.0; @confuse = 0.0; @dot_t = 0.0; @invuln = 0.0; @flash = 0.0
-      @anim_t = 0.0; @hidden = false
+      @anim_t = 0.0; @hidden = false; @leech_by = nil; @leech_t = 0.0
       if pkmn.status == :SLEEP
         @stun = 3.0
       elsif pkmn.status == :FROZEN
@@ -172,6 +172,16 @@ module RTB
         if f.stun <= 0 && [:SLEEP, :FROZEN].include?(f.status)
           emit(:text, f, f.status == :SLEEP ? "acordou" : "descongelou")
           f.pkmn.status = :NONE
+        end
+      end
+      if f.leech_by
+        f.leech_t += dt
+        if f.leech_t >= BURN_TICK
+          f.leech_t -= BURN_TICK
+          dmg = [f.totalhp / 16, 1].max
+          apply_damage(f, dmg, nil, 1.0, false)
+          seeder = active(f.leech_by)
+          heal(seeder, dmg) if seeder
         end
       end
       if [:BURN, :POISON].include?(f.status)
@@ -324,7 +334,7 @@ module RTB
           return
         end
         hits = eff[:hits] || 1
-        crit = rand_f < 1.0 / 24
+        crit = rand_f < [1.0 / 24, 1.0 / 8, 0.5, 1.0][att.stages[:crit].clamp(0, 3)]
         total = 0
         hits.times { total += calc_damage(att, dfn, spec, mult, crit) }
         apply_damage(dfn, total, att, mult, crit)
@@ -391,6 +401,15 @@ module RTB
       if eff[:status]
         set_status(dfn, eff[:status], spec)
       end
+      if eff[:leech]
+        if dfn.types.map(&:to_s).include?("GRASS")
+          emit(:text, dfn, "não afeta")
+        else
+          dfn.leech_by = att.side
+          emit(:text, dfn, "foi semeado!")
+        end
+      end
+      emit(:force_out, dfn) if eff[:force_out]
       if eff[:target_stages]
         eff[:target_stages].each do |k, v|
           dfn.stages[k] = (dfn.stages[k] + v).clamp(-6, 6)
@@ -406,6 +425,20 @@ module RTB
         emit(:stages, f, eff[:user_stages])
       end
       heal(f, (f.totalhp * eff[:heal]).floor) if eff[:heal]
+      if eff[:rest]
+        f.pkmn.status = :SLEEP
+        f.stun = 3.0
+        emit(:status, f, :SLEEP)
+      end
+      if eff[:protect]
+        f.invuln = [f.invuln, eff[:protect]].max
+        emit(:text, f, "se protegeu!")
+      end
+      if eff[:haze]
+        @fighters.each { |x| x.stages.clear }
+        emit(:text, f, "atributos de todos voltaram ao normal")
+      end
+      emit(:flee, f) if eff[:flee]
     end
 
     IMMUNE = {

@@ -22,7 +22,8 @@ module RTB
     PARALYSIS: "ficou paralisado", FROZEN: "congelou", CONFUSED: "ficou confuso"
   }
 
-  STAGE_NAMES = { atk: "Ataque", def: "Defesa", spa: "At. Esp.", spd: "Def. Esp.", spe: "Velocidade" }
+  STAGE_NAMES = { atk: "Ataque", def: "Defesa", spa: "At. Esp.", spd: "Def. Esp.", spe: "Velocidade",
+                  crit: "Chance de crítico" }
 
   BALLS = { POKEBALL: 1.0, GREATBALL: 1.5, ULTRABALL: 2.0, PREMIERBALL: 1.0 }
 
@@ -626,6 +627,23 @@ module RTB
           float_text(f, ev[2], Color.new(255, 255, 255), 0.8) unless ev[2].to_s.empty?
         when :use
           @hud_tick = 0
+        when :flee
+          if f.side == 1 && !@trainer && !@end_t
+            float_text(f, _INTL("{1} fugiu!", f.name), Color.new(255, 255, 255), 1.0)
+            f.hidden = true
+            finish(3, 0.8)
+          elsif f.side == 0
+            try_run
+          end
+        when :force_out
+          if f.side == 1 && !@trainer && !@end_t
+            float_text(f, _INTL("{1} foi espantado!", f.name), Color.new(255, 255, 255), 1.0)
+            f.hidden = true
+            finish(3, 0.8)
+          elsif f.side == 0 && !@end_t && !@trainer
+            float_text(f, _INTL("{1} foi espantado!", f.name), Color.new(255, 255, 255), 1.0)
+            finish(3, 0.8)
+          end
         end
       end
       @sim.events.clear
