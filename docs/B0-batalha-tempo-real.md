@@ -28,7 +28,9 @@ No menu **Opções**:
 
 ## O que conferir e me contar
 
-- O jogo abre sem erro? (Se der erro, a mensagem cita o arquivo de `Mods/` e a linha.)
+- O jogo abre sem erro? (Se der erro ao abrir, a mensagem cita o arquivo de `Mods/` e a linha.)
+- Se a batalha em tempo real der erro no meio, o jogo avisa, continua a mesma luta por turno e grava os
+  detalhes em `Mods/rt_battle_erros.txt`. Me mande esse arquivo.
 - A luta fica fluida? Se travar, diga em que momento (muitos golpes na tela, troca, captura).
 - Os Pokémon aparecem com o sprite certo e andando para o lado certo?
 - As paredes e árvores bloqueiam o movimento e os disparos?

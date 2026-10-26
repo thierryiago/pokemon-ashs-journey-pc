@@ -7,6 +7,21 @@
 #   1 vitória, 2 derrota, 3 fuga, 4 captura.
 #==============================================================================
 module RTB
+  ERROR_LOG = "Mods/rt_battle_erros.txt"
+
+  # Registra o erro num arquivo de texto (para mandar ao desenvolvimento) e avisa o jogador.
+  def self.report_failure(e)
+    File.open(ERROR_LOG, "a") do |f|
+      f.puts "#{Time.now} #{e.class}: #{e.message}"
+      (e.backtrace || []).first(12).each { |l| f.puts "    #{l}" }
+      f.puts
+    end
+  rescue StandardError
+    nil
+  ensure
+    pbMessage(_INTL("A batalha em tempo real deu erro e vai continuar por turno. Detalhes em {1}.", ERROR_LOG)) rescue nil
+  end
+
   # Regras de batalha que a versão em tempo real entende. Qualquer outra
   # (limite de itens, efeito de campo...) mantém a batalha por turno.
   SUPPORTED_RULES = %w[size outcomeVar canLose canRun noPartner roamerFlees expGain moneyGain
@@ -69,6 +84,14 @@ def pbWildBattleCore(*args)
   decision = 0
   begin
     decision = RTB::Battle.new(foe, canRun, can_lose: canLose, exp_gain: expGain).run
+  rescue StandardError => e
+    $game_temp.in_battle = false
+    RTB.report_failure(e)
+    setBattleRule("outcomeVar", outcomeVar) if outcomeVar != 1
+    setBattleRule("canLose") if canLose
+    setBattleRule("cannotRun") if !canRun
+    setBattleRule("noexp") if !expGain
+    return aj_turn_based_pbWildBattleCore(foe)
   ensure
     $game_temp.in_battle = false
   end
@@ -139,6 +162,14 @@ def pbTrainerBattleCore(*args)
   begin
     decision = RTB::Battle.new(nil, false, trainer: trainer, trainer_event: event, can_lose: canLose,
                                exp_gain: expGain, money_gain: moneyGain).run
+  rescue StandardError => e
+    $game_temp.in_battle = false
+    RTB.report_failure(e)
+    setBattleRule("outcomeVar", outcomeVar) if outcomeVar != 1
+    setBattleRule("canLose") if canLose
+    setBattleRule("noexp") if !expGain
+    setBattleRule("nomoney") if !moneyGain
+    return aj_turn_based_pbTrainerBattleCore(trainer)
   ensure
     $game_temp.in_battle = false
   end

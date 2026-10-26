@@ -70,5 +70,20 @@ reset.call
 pbTrainerBattleCore(NPCTrainer.new)
 check.($calls.last[0] == :turnos_treinador || $calls.last[0] == :tempo_real, 'treinador não quebra')
 
+# Erro dentro da batalha em tempo real: registra e segue por turno com o mesmo Pokémon
+def setBattleRule(*a); $rules_set << a; end
+def pbMessage(*); end
+def _INTL(s, *a) = s
+$rules_set = []
+module RTB; class Battle; def run = raise(ArgumentError, 'teste de falha'); end; end
+log = RTB::ERROR_LOG
+File.delete(log) if File.exist?(log)
+reset.call({ 'canRun' => false })
+pbWildBattleCore(:RATTATA, 3)
+check.($calls.last[0] == :turnos && $calls.last[1] == [[:wild, :RATTATA, 3]], "falha cai para turno com o mesmo Pokémon (#{$calls.last.inspect})")
+check.($rules_set.include?(['cannotRun']), 'regra de não fugir repassada ao modo por turno')
+check.(File.exist?(log) && File.read(log).include?('teste de falha'), "erro registrado em #{log}")
+File.delete(log) if File.exist?(log)
+
 puts fails.zero? ? "\nTUDO OK" : "\n#{fails} FALHA(S)"
 exit(fails.zero? ? 0 : 1)

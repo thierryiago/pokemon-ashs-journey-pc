@@ -295,6 +295,7 @@ module RTB
     # trainer: NPCTrainer numa batalha de treinador; trainer_event: o evento dele no mapa.
     def initialize(foe, can_run = true, trainer: nil, trainer_event: nil, can_lose: false,
                    exp_gain: true, money_gain: true)
+      @bgm_before = :unset
       @exp_gain = exp_gain
       @money_gain = money_gain
       @trainer = trainer
@@ -313,9 +314,28 @@ module RTB
       @end_t = nil
     end
 
+    # Se algo der errado no meio, desmonta a cena e repassa o erro para o
+    # gancho (040_hook.rb), que registra e segue a batalha por turno.
     def run
-      setup
-      intro
+      failure = nil
+      begin
+        setup
+        intro
+        main_loop
+      rescue StandardError => e
+        failure = e
+      end
+      begin
+        teardown
+      rescue StandardError
+        nil
+      end
+      raise failure if failure
+      after_battle
+      @decision
+    end
+
+    def main_loop
       loop do
         Graphics.update
         Input.update
@@ -335,9 +355,6 @@ module RTB
         check_end(dt)
         break if @end_t && @end_t <= 0
       end
-      teardown
-      after_battle
-      @decision
     end
 
     #--------------------------------------------------------------------------
@@ -938,16 +955,16 @@ module RTB
       @sim.frozen = true
     end
 
+    # Funciona mesmo se a montagem parou no meio (objetos ainda nil).
     def teardown
-      @sprites.each(&:dispose)
-      @fx_sprites.each(&:dispose)
-      @text_sprites.each { |t| t[0].bitmap.dispose; t[0].dispose }
-      @border.bitmap.dispose; @border.dispose
-      @hud.bitmap.dispose; @hud.dispose
-      @pause_sprite.bitmap.dispose; @pause_sprite.dispose
-      @viewport.dispose; @hud_vp.dispose
+      (@sprites || []).each(&:dispose)
+      (@fx_sprites || []).each(&:dispose)
+      (@text_sprites || []).each { |t| t[0].bitmap.dispose; t[0].dispose }
+      [@border, @hud, @pause_sprite].compact.each { |sp| sp.bitmap.dispose if sp.bitmap; sp.dispose }
+      @viewport.dispose if @viewport
+      @hud_vp.dispose if @hud_vp
       restore_followers
-      $game_system.bgm_resume(@bgm_before) if @decision != 2
+      $game_system.bgm_resume(@bgm_before) if @decision != 2 && @bgm_before != :unset
     end
 
     def after_battle
