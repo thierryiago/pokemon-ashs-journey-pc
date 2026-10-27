@@ -10,7 +10,7 @@ module AshJourney
 
   # Ajustes de balanceamento da batalha em tempo real (1.0 = fórmula do jogo).
   # Dano maior que 1.0 deixa as lutas mais curtas; recarga maior deixa mais lentas.
-  RT_DAMAGE_SCALE   = 1.0
+  RT_DAMAGE_SCALE   = 0.4
   RT_COOLDOWN_SCALE = 1.0
 
   # Velocidade da batalha em tempo real (1.0 = normal, 0.5 = metade da velocidade).

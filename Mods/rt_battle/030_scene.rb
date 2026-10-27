@@ -368,6 +368,10 @@ module RTB
       @arena_tiles = [ax, ay, aw, ah]
       arena = [ax * 32, ay * 32, (ax + aw) * 32 - 1, (ay + ah) * 32 - 1]
       solid = RTB.solid_event_tiles
+      # Golpes passam pelo jogador e pelo treinador: eles ficam fora da luta.
+      fly_solid = solid.dup
+      fly_solid.delete([$game_player.x, $game_player.y])
+      fly_solid.delete([@trainer_event.x, @trainer_event.y]) if @trainer_event
       walk_cache = {}; fly_cache = {}; cross_cache = {}
       walkable = lambda do |px, py|
         tx = (px / 32).floor; ty = (py / 32).floor
@@ -377,7 +381,7 @@ module RTB
       flyable = lambda do |px, py|
         tx = (px / 32).floor; ty = (py / 32).floor
         k = tx * 10_000 + ty
-        fly_cache.key?(k) ? fly_cache[k] : (fly_cache[k] = !solid[[tx, ty]] && RTB.tile_flyable?(tx, ty))
+        fly_cache.key?(k) ? fly_cache[k] : (fly_cache[k] = !fly_solid[[tx, ty]] && RTB.tile_flyable?(tx, ty))
       end
       crossable = lambda do |x1, y1, x2, y2|
         k = [x1, y1, x2, y2]

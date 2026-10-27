@@ -351,10 +351,11 @@ module RTB
                                          vx: f.fx * spec.speed, vy: f.fy * spec.speed,
                                          dist: 0.0, max: spec.range, r: spec.width.to_f, dead: false))
       when :beam
-        x2 = f.x + f.fx * spec.range; y2 = f.y + f.fy * spec.range
+        len = ray_length(f.x, f.y, f.fx, f.fy, spec.range)
+        x2 = f.x + f.fx * len; y2 = f.y + f.fy * len
         add_effect(:beam, f.x, f.y, x2: x2, y2: y2, r: spec.width, max: 0.3, type: spec.type, spec: spec)
         hit_beam = foe && seg_dist(foe.x, foe.y, f.x, f.y, x2, y2) <= spec.width + foe.radius
-        tx, ty = hit_beam ? [foe.x, foe.y] : [f.x + f.fx * spec.range * 0.6, f.y + f.fy * spec.range * 0.6]
+        tx, ty = hit_beam ? [foe.x, foe.y] : [f.x + f.fx * len * 0.6, f.y + f.fy * len * 0.6]
         emit(:anim, f, spec, f.x, f.y, tx, ty, :full)
         hit(f, foe, spec) if hit_beam
       when :pulse, :debuff
@@ -654,6 +655,17 @@ module RTB
         prev = cur
         ok
       end
+    end
+
+    # Até onde um feixe chega antes de bater numa parede (passa por cima de água etc.).
+    def ray_length(x, y, dx, dy, range)
+      d = 8.0
+      while d <= range
+        px = x + dx * d; py = y + dy * d
+        return [d - 8, 0].max.to_f unless inside_arena?(px, py) && @flyable.call(px, py)
+        d += 8
+      end
+      range.to_f
     end
 
     def tile_of(x, y)

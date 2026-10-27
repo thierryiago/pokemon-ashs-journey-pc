@@ -50,8 +50,14 @@ Os Pokémon seguem as mesmas regras de passagem do jogador (`Mods/rt_battle/025_
 - cercas e muros que bloqueiam só um lado do tile seguram o Pokémon naquele lado;
 - pedras, árvores, placas, NPCs, o treinador e o próprio jogador ocupam o tile deles;
 - pontes funcionam como para o jogador (em cima não cai pelos lados; embaixo, passa por baixo);
-- golpes à distância voam por cima de água, barrancos e cercas; só paredes cheias e eventos sólidos os param;
+- golpes à distância (projéteis e feixes) voam por cima de água, barrancos e cercas; só paredes cheias e eventos
+  sólidos os param. O jogador e o treinador não são atingidos: os golpes passam por eles;
 - a IA contorna cercas pelo caminho mais curto.
+
+## Dano (ajuste de 27/10)
+
+- O dano é **40%** da fórmula do jogo (`RT_DAMAGE_SCALE = 0.4`), porque em tempo real os golpes saem bem mais
+  rápido que por turno. Uma luta de nível baixo entre duas IAs dura ~12 s na velocidade 0,5x.
 
 ## O que conferir e me contar
 

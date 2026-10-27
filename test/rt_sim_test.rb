@@ -111,5 +111,11 @@ check.(s.line_clear?(60, 120, 60, 220) == false, 'IA enxerga a cerca no caminho'
 check.(s.line_clear?(200, 120, 200, 220), 'sem cerca, caminho livre')
 check.(s.bfs_next(48, 144, 48, 176) == [2, 4], "caminho da IA contorna a cerca (#{s.bfs_next(48, 144, 48, 176).inspect})")
 
+# 6) Feixe para na parede
+s = RTB::Sim.new(arena: [0, 0, 416, 288], walkable: ->(x, y) { !x.between?(160, 191) },
+                 type_mult: method(:type_mult), rng: Random.new(3))
+check.(s.ray_length(100, 100, 1.0, 0.0, 260) < 70, 'feixe para na parede')
+check.(s.ray_length(100, 100, 0.0, 1.0, 150) == 150, 'feixe sem parede vai até o fim')
+
 puts fails.zero? ? "\nTUDO OK" : "\n#{fails} FALHA(S)"
 exit(fails.zero? ? 0 : 1)
