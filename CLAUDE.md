@@ -21,8 +21,8 @@ Plano: "Plano de Desenvolvimento — Pokémon Ash's Journey v0.5" (doc no claude
 - `Mods/010_data_overrides.rb` + `Mods/data/*.rb`: mudanças de conteúdo (encontros etc.) em texto,
   aplicadas depois do `GameData.load_all`; os `.dat` ficam como no Fire Ash.
 - `Mods/rt_battle/`: batalha em tempo real. `010_moves` e `020_sim` são Ruby puro (testáveis fora do jogo);
-  `030_scene` desenha no mapa; `040_hook` troca a batalha selvagem quando possível.
-- Testes fora do jogo (rodar antes de commitar): `ruby test/rt_sim_test.rb`, `ruby test/rt_scene_test.rb`,
+  `025_map` é a física do mapa (mesmas regras de passagem do jogador); `030_scene` desenha no mapa; `040_hook` troca a batalha selvagem quando possível.
+- Testes fora do jogo (rodar antes de commitar): `ruby test/rt_sim_test.rb`, `ruby test/rt_map_test.rb`, `ruby test/rt_scene_test.rb`,
   `ruby test/rt_hook_test.rb`, `LANG=C.UTF-8 ruby test/rt_anim_test.rb` (animações reais do Fire Ash)
   e `LANG=C.UTF-8 ruby test/rt_fuzz_test.rb 100` (batalhas aleatórias).
 - `035_move_anims` toca as animações de golpe do Fire Ash (PkmnAnimations.rxdata) no mapa.

@@ -42,6 +42,17 @@ No menu **Opções**:
 - **Golpes de status** com animação no alvo (Thunder Wave, Sleep Powder...) continuam **caindo de cima** num
   ponto marcado no chão, com tempo para sair da marca.
 
+## Física do mapa (ajuste de 27/10)
+
+Os Pokémon seguem as mesmas regras de passagem do jogador (`Mods/rt_battle/025_map.rb`):
+
+- paredes, água e barrancos (ledges) não deixam passar; o Pokémon não pula barranco durante a luta;
+- cercas e muros que bloqueiam só um lado do tile seguram o Pokémon naquele lado;
+- pedras, árvores, placas, NPCs, o treinador e o próprio jogador ocupam o tile deles;
+- pontes funcionam como para o jogador (em cima não cai pelos lados; embaixo, passa por baixo);
+- golpes à distância voam por cima de água, barrancos e cercas; só paredes cheias e eventos sólidos os param;
+- a IA contorna cercas pelo caminho mais curto.
+
 ## O que conferir e me contar
 
 - O jogo abre sem erro? (Se der erro ao abrir, a mensagem cita o arquivo de `Mods/` e a linha.)

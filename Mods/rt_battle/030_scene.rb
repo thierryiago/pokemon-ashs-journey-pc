@@ -81,22 +81,6 @@ module RTB
     spec
   end
 
-  # Tile em que um Pokémon pode ficar (chão, sem parede, sem água).
-  def tile_walkable?(tx, ty)
-    return false unless $game_map.valid?(tx, ty)
-    [2, 1, 0].each do |i|
-      tid = $game_map.data[tx, ty, i]
-      next if !tid || tid == 0
-      tag = GameData::TerrainTag.try_get($game_map.terrain_tags[tid])
-      return false if tag && tag.can_surf
-      next if tag && tag.ignore_passability
-      pas = $game_map.passages[tid]
-      return false if pas & 0x0f == 0x0f
-      return true if $game_map.priorities[tid] == 0
-    end
-    true
-  end
-
   #----------------------------------------------------------------------------
   # Sprites do PMD SpriteCollab (Graphics/RTB/<ESPÉCIE>/, ver tools/fetch_pmd_sprites.py)
   #----------------------------------------------------------------------------
@@ -383,16 +367,28 @@ module RTB
       aw = [ARENA_W, $game_map.width].min; ah = [ARENA_H, $game_map.height].min
       @arena_tiles = [ax, ay, aw, ah]
       arena = [ax * 32, ay * 32, (ax + aw) * 32 - 1, (ay + ah) * 32 - 1]
-      walk_cache = {}
+      solid = RTB.solid_event_tiles
+      walk_cache = {}; fly_cache = {}; cross_cache = {}
       walkable = lambda do |px, py|
         tx = (px / 32).floor; ty = (py / 32).floor
         k = tx * 10_000 + ty
-        walk_cache.key?(k) ? walk_cache[k] : (walk_cache[k] = RTB.tile_walkable?(tx, ty))
+        walk_cache.key?(k) ? walk_cache[k] : (walk_cache[k] = !solid[[tx, ty]] && RTB.tile_walkable?(tx, ty))
       end
+      flyable = lambda do |px, py|
+        tx = (px / 32).floor; ty = (py / 32).floor
+        k = tx * 10_000 + ty
+        fly_cache.key?(k) ? fly_cache[k] : (fly_cache[k] = !solid[[tx, ty]] && RTB.tile_flyable?(tx, ty))
+      end
+      crossable = lambda do |x1, y1, x2, y2|
+        k = [x1, y1, x2, y2]
+        cross_cache.key?(k) ? cross_cache[k] : (cross_cache[k] = RTB.tiles_crossable?(x1, y1, x2, y2))
+      end
+      @crossable = crossable
       type_mult = lambda do |mtype, dtypes|
         Effectiveness.calculate(mtype, *dtypes[0, 3]).to_f / Effectiveness::NORMAL_EFFECTIVE
       end
-      @sim = Sim.new(arena: arena, walkable: walkable, type_mult: type_mult, ai_level: @trainer ? 1 : 0,
+      @sim = Sim.new(arena: arena, walkable: walkable, flyable: flyable, crossable: crossable,
+                     type_mult: type_mult, ai_level: @trainer ? 1 : 0,
                      rng: RTB.rng_override || Random.new)
       # Posições iniciais: o Pokémon do jogador ao lado do treinador, o selvagem à frente
       px = $game_player.x * 32 + 16; py = $game_player.y * 32 + 16
@@ -494,6 +490,7 @@ module RTB
           n = [x + dx, y + dy]
           next if seen[n] || n[0] < tx0 || n[0] > tx1 || n[1] < ty0 || n[1] > ty1
           next unless walkable.call(n[0] * 32 + 16, n[1] * 32 + 16)
+          next if @crossable && !@crossable.call(x, y, n[0], n[1])
           seen[n] = true
           queue.push(n)
         end

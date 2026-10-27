@@ -93,5 +93,23 @@ geo.hp = 10
 s.apply_self_effect(fg, spec_for(:RECOVER))
 check.(geo.hp == 25, "Recover cura metade (hp #{geo.hp})")
 
+# 5) Física: cerca entre duas linhas de tiles (só um lado do tile), projétil passa por cima
+fence = ->(x1, y1, x2, y2) { !(x1 == x2 && x1 <= 3 && [y1, y2].sort == [4, 5]) }  # aberta em x >= 4
+s = RTB::Sim.new(arena: [0, 0, 416, 288], walkable: ->(x, y) { true }, crossable: fence,
+                 type_mult: method(:type_mult), rng: Random.new(2))
+a1 = PkmnStub.new('Rattata', 10, [:NORMAL], [30, 15, 10, 14, 12, 22], [:TACKLE])
+b1 = PkmnStub.new('Rattata', 10, [:NORMAL], [30, 15, 10, 14, 12, 22], [:TACKLE])
+fa = s.add(RTB::Fighter.new(a1, 0, [spec_for(:TACKLE)], 60, 120))
+fb = s.add(RTB::Fighter.new(b1, 1, [spec_for(:TACKLE)], 390, 30))
+still = { mx: 0.0, my: 0.0 }
+80.times { s.update(1.0 / 40, { 0 => { mx: 0.0, my: 1.0 }, 1 => still }) }
+check.(fa.y < 160, format('cerca segura quem anda contra ela (y = %.1f)', fa.y))
+s.update(1.0 / 40, { 0 => { mx: 1.0, my: 0.0 }, 1 => still }) until fa.x > 150
+80.times { s.update(1.0 / 40, { 0 => { mx: 0.0, my: 1.0 }, 1 => still }) }
+check.(fa.y > 160, format('passa pela abertura da cerca (x = %.1f, y = %.1f)', fa.x, fa.y))
+check.(s.line_clear?(60, 120, 60, 220) == false, 'IA enxerga a cerca no caminho')
+check.(s.line_clear?(200, 120, 200, 220), 'sem cerca, caminho livre')
+check.(s.bfs_next(48, 144, 48, 176) == [2, 4], "caminho da IA contorna a cerca (#{s.bfs_next(48, 144, 48, 176).inspect})")
+
 puts fails.zero? ? "\nTUDO OK" : "\n#{fails} FALHA(S)"
 exit(fails.zero? ? 0 : 1)

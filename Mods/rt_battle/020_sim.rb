@@ -136,10 +136,16 @@ module RTB
     attr_reader :fighters, :projectiles, :effects, :events, :arena, :time
     attr_accessor :frozen
 
-    # arena: [x0, y0, x1, y1] em pixels. walkable: ->(px, py) { true/false }.
+    # arena: [x0, y0, x1, y1] em pixels. walkable: ->(px, py) { true/false } (a pé).
+    # flyable: ->(px, py) por onde os projéteis passam (padrão: walkable).
+    # crossable: ->(tx1, ty1, tx2, ty2) dá para passar entre dois tiles vizinhos? (cercas
+    # e muros que bloqueiam só um lado do tile). Padrão: sempre.
     # type_mult: ->(move_type, [tipos do alvo]) { multiplicador }
-    def initialize(arena:, walkable:, type_mult:, rng: Random.new, ai_level: 0)
+    def initialize(arena:, walkable:, type_mult:, rng: Random.new, ai_level: 0,
+                   flyable: nil, crossable: nil)
       @arena = arena; @walkable = walkable; @type_mult = type_mult; @rng = rng
+      @flyable = flyable || walkable
+      @crossable = crossable
       @ai_level = ai_level
       @fighters = []; @projectiles = []; @effects = []; @events = []
       @time = 0.0; @frozen = false
@@ -524,7 +530,7 @@ module RTB
         sx = p.vx * dt; sy = p.vy * dt
         p.x += sx; p.y += sy
         p.dist += Math.sqrt(sx * sx + sy * sy)
-        if p.dist >= p.max || !inside_arena?(p.x, p.y) || !@walkable.call(p.x, p.y)
+        if p.dist >= p.max || !inside_arena?(p.x, p.y) || !@flyable.call(p.x, p.y)
           p.dead = true
           add_effect(:puff, p.x, p.y, r: p.r + 4, max: 0.15, type: p.spec.type, spec: p.spec)
           next
@@ -636,13 +642,35 @@ module RTB
       best
     end
 
-    # Há linha livre entre os dois pontos? (amostra a cada 8 px)
+    # Dá para andar em linha reta entre os dois pontos? (amostra a cada 8 px)
     def line_clear?(x1, y1, x2, y2)
       n = (Math.hypot(x2 - x1, y2 - y1) / 8).ceil
+      prev = tile_of(x1, y1)
       (1...n).all? do |i|
         t = i.to_f / n
-        @walkable.call(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t)
+        x = x1 + (x2 - x1) * t; y = y1 + (y2 - y1) * t
+        cur = tile_of(x, y)
+        ok = @walkable.call(x, y) && step_crossable?(prev, cur)
+        prev = cur
+        ok
       end
+    end
+
+    def tile_of(x, y)
+      [(x / 32).floor, (y / 32).floor]
+    end
+
+    # Passa de um tile para outro (vizinho, inclusive na diagonal)?
+    def step_crossable?(a, b)
+      return true if !@crossable || a == b
+      if a[0] != b[0] && a[1] != b[1]
+        # diagonal: vale se um dos dois caminhos em L estiver livre
+        m1 = [b[0], a[1]]; m2 = [a[0], b[1]]
+        return (@walkable.call(m1[0] * 32 + 16, m1[1] * 32 + 16) && step_crossable?(a, m1) && step_crossable?(m1, b)) ||
+               (@walkable.call(m2[0] * 32 + 16, m2[1] * 32 + 16) && step_crossable?(a, m2) && step_crossable?(m2, b))
+      end
+      return false if (a[0] - b[0]).abs > 1 || (a[1] - b[1]).abs > 1
+      @crossable.call(a[0], a[1], b[0], b[1])
     end
 
     # Direção do próximo passo pelo caminho mais curto em tiles (BFS), refeito a cada 0,4 s.
@@ -672,6 +700,7 @@ module RTB
           n = [cur[0] + dx, cur[1] + dy]
           next if prev.key?(n) || n[0] < tx0 || n[0] > tx1 || n[1] < ty0 || n[1] > ty1
           next unless n == goal || @walkable.call(n[0] * 32 + 16, n[1] * 32 + 16)
+          next unless step_crossable?(cur, n)
           prev[n] = cur
           queue.push(n)
         end
@@ -723,8 +752,17 @@ module RTB
     end
 
     def move_by(f, dx, dy)
-      f.x += dx if free?(f, f.x + dx, f.y)
-      f.y += dy if free?(f, f.x, f.y + dy)
+      f.x += dx if free?(f, f.x + dx, f.y) && edges_ok?(f, f.x, f.y, f.x + dx, f.y)
+      f.y += dy if free?(f, f.x, f.y + dy) && edges_ok?(f, f.x, f.y, f.x, f.y + dy)
+    end
+
+    # Nenhum ponto do círculo atravessa um lado de tile bloqueado (cerca, muro baixo)?
+    def edges_ok?(f, x0, y0, x1, y1)
+      return true unless @crossable
+      r = f.radius - 2
+      [[0, 0], [-r, 0], [r, 0], [0, -r], [0, r]].all? do |ox, oy|
+        step_crossable?(tile_of(x0 + ox, y0 + oy), tile_of(x1 + ox, y1 + oy))
+      end
     end
 
     def separate_fighters

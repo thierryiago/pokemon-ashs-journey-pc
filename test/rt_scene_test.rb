@@ -188,9 +188,13 @@ def pbLearnMove(*); end
 
 load File.expand_path('../Mods/rt_battle/010_moves.rb', __dir__)
 load File.expand_path('../Mods/rt_battle/020_sim.rb', __dir__)
+load File.expand_path('../Mods/rt_battle/025_map.rb', __dir__)
 load File.expand_path('../Mods/rt_battle/030_scene.rb', __dir__)
 module RTB
   def self.tile_walkable?(tx, ty) = !(tx == 8 && ty.between?(5, 7))   # uma "parede" no meio
+  def self.tile_flyable?(tx, ty) = tile_walkable?(tx, ty)
+  # uma cerca entre as linhas 10 e 11, de x = 5 a 9 (bloqueia só a passagem entre elas)
+  def self.tiles_crossable?(x1, y1, x2, y2) = !(x1 == x2 && x1.between?(5, 9) && [y1, y2].sort == [10, 11])
 end
 
 #--- Cenários -----------------------------------------------------------------
