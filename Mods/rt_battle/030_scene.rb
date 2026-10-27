@@ -66,7 +66,36 @@ module RTB
   # Spec de tempo real a partir de um golpe do Pokémon (Pokemon::Move).
   # side 0 = jogador, 1 = adversário (para achar a animação certa).
   def spec_for_move(move, side = 0)
-    data = GameData::Move.get(move.id)
+    spec_for_id(move.id, side)
+  end
+
+  # Golpes que o Metronome pode sortear: os do jogo base (código de 3 dígitos), sem os que
+  # chamam outros golpes e sem os que ainda não têm versão em tempo real.
+  METRONOME_SKIP = %w[002 0AE 0AF 0B0 0B3 0B4 0B5 0B6].freeze
+
+  def metronome_pool
+    @metronome_pool ||= begin
+      list = []
+      GameData::Move.each do |m|
+        code = m.function_code.to_s.upcase
+        next unless code =~ /\A[0-9A-F]{3}\z/ && !METRONOME_SKIP.include?(code)
+        list.push(m.id)
+      end
+      list
+    end
+  end
+
+  def random_spec(side, rng = Random)
+    pool = metronome_pool
+    20.times do
+      spec = spec_for_id(pool[rng.rand(pool.length)], side)
+      return spec unless spec.kind == :noop
+    end
+    nil
+  end
+
+  def spec_for_id(id, side = 0)
+    data = GameData::Move.get(id)
     spec = classify(id: data.id, name: data.name, type: data.type, category: data.category,
                     power: data.base_damage, function_code: data.function_code,
                     effect_chance: data.effect_chance, target: data.target,
@@ -161,6 +190,7 @@ module RTB
       @shadow.visible = !f.hidden && !f.fainted?
       @sprite.opacity = f.fainted? ? [@sprite.opacity - 12, 0].max : [(@appear / 0.3 * 255).to_i, 255].min
       @sprite.opacity = 140 if f.invuln > 0 && f.dodge
+      @sprite.opacity = 60 if f.semi          # voando, debaixo da terra ou da água
       @sprite.color =
         if f.flash > 0 then Color.new(255, 255, 255, 200)
         elsif f.status == :PARALYSIS then Color.new(248, 208, 48, 60)
@@ -170,6 +200,7 @@ module RTB
         elsif f.status == :SLEEP then Color.new(40, 40, 80, 80)
         else Color.new(0, 0, 0, 0)
         end
+      @sprite.color = Color.new(140, 200, 255, 90) if f.sub_hp.to_i > 0 && f.flash <= 0   # substituto
       @sprite.tone = (f.lock > 0 && f.pending) ? Tone.new(40, 40, 40) : Tone.new(0, 0, 0)
     end
 
@@ -391,9 +422,11 @@ module RTB
       type_mult = lambda do |mtype, dtypes|
         Effectiveness.calculate(mtype, *dtypes[0, 3]).to_f / Effectiveness::NORMAL_EFFECTIVE
       end
+      rng = RTB.rng_override || Random.new
       @sim = Sim.new(arena: arena, walkable: walkable, flyable: flyable, crossable: crossable,
-                     type_mult: type_mult, ai_level: @trainer ? 1 : 0,
-                     rng: RTB.rng_override || Random.new)
+                     type_mult: type_mult, ai_level: @trainer ? 1 : 0, rng: rng,
+                     spec_lookup: ->(id, side) { RTB.spec_for_id(id, side) rescue nil },
+                     random_spec: ->(side) { RTB.random_spec(side, rng) rescue nil })
       # Posições iniciais: o Pokémon do jogador ao lado do treinador, o selvagem à frente
       px = $game_player.x * 32 + 16; py = $game_player.y * 32 + 16
       dx, dy = dir_vector($game_player.direction)
@@ -563,6 +596,10 @@ module RTB
     end
 
     def try_run
+      if @can_run && !@sim.can_escape?(@mine)
+        float_text(@mine, _INTL("{1} está preso e não pode fugir!", @mine.name), Color.new(255, 160, 160), 0.9)
+        return
+      end
       if !@can_run
         msg = @trainer ? _INTL("Não dá para fugir de um treinador!") : _INTL("Não dá para fugir!")
         float_text(@mine, msg, Color.new(255, 160, 160), 0.9)
@@ -573,8 +610,12 @@ module RTB
       finish(3, 0.6)
     end
 
-    def switch_pokemon
-      return if @mine.busy? && !@mine.fainted?
+    def switch_pokemon(carry = nil)
+      return if @mine.busy? && !@mine.fainted? && !carry
+      if !carry && !@mine.fainted? && !@sim.can_escape?(@mine)
+        float_text(@mine, _INTL("{1} está preso e não pode voltar!", @mine.name), Color.new(255, 160, 160), 0.9)
+        return
+      end
       party = $Trainer.party
       cur = party.index(@mine.pkmn)
       nxt = (1...party.length).map { |o| (cur + o) % party.length }.find { |i| party[i].able? }
@@ -582,13 +623,18 @@ module RTB
         float_text(@mine, _INTL("Nenhum outro Pokémon pode lutar."), Color.new(255, 200, 200), 0.8)
         return
       end
-      send_out(nxt, _INTL("Volta, {1}! Vai, {2}!", @mine.name, party[nxt].name))
+      send_out(nxt, _INTL("Volta, {1}! Vai, {2}!", @mine.name, party[nxt].name), carry)
     end
 
-    def send_out(index, text)
+    # carry: o que o Baton Pass passa adiante (atributos e substituto).
+    def send_out(index, text, carry = nil)
       old = @mine
       old.hidden = true
       new_f = add_player_fighter(index, old.x, old.y)
+      if carry && carry[:stages]
+        carry[:stages].each { |k, v| new_f.stages[k] = v }
+        new_f.sub_hp = carry[:sub_hp].to_i
+      end
       new_f.fx, new_f.fy = old.fx, old.fy
       new_f.lock = 0.4
       new_f.invuln = 0.6
@@ -709,7 +755,16 @@ module RTB
             float_text(f, "#{STAGE_NAMES[k]} #{word}", Color.new(200, 220, 255), 0.9)
           end
         when :text
-          float_text(f, ev[2], Color.new(255, 255, 255), 0.8) unless ev[2].to_s.empty?
+          float_text(f || @mine, ev[2], Color.new(255, 255, 255), 0.8) unless ev[2].to_s.empty?
+        when :switch_out
+          # U-turn, Volt Switch, Baton Pass: o jogador troca para o próximo Pokémon
+          if f.side == 0 && f == @mine && !@end_t
+            if $Trainer.party.count { |p| p.able? } > 1
+              switch_pokemon(ev[2] || {})
+            elsif ev[2]
+              float_text(f, _INTL("Mas falhou!"), Color.new(255, 255, 255), 0.8)
+            end
+          end
         when :use
           @hud_tick = 0
         when :anim
@@ -797,8 +852,36 @@ module RTB
       s.src_rect.set(0, 0, bmp.width, bmp.height)
     end
 
+    WEATHER_TINT = { RAIN: [40, 60, 140, 45], SUN: [255, 200, 80, 35], SAND: [190, 150, 80, 55],
+                     HAIL: [200, 230, 255, 50] }
+
     def draw_effects
       n = 0
+      # Clima: um véu de cor sobre a arena
+      tint = WEATHER_TINT[@sim.weather]
+      @weather_sprite ||= Sprite.new(@viewport)
+      if tint
+        unless @weather_sprite.bitmap && @weather_tint == tint
+          @weather_sprite.bitmap.dispose if @weather_sprite.bitmap
+          @weather_sprite.bitmap = Bitmap.new(Graphics.width, Graphics.height)
+          @weather_sprite.bitmap.fill_rect(0, 0, Graphics.width, Graphics.height, Color.new(*tint))
+          @weather_tint = tint
+        end
+        @weather_sprite.z = 8500
+        @weather_sprite.visible = true
+      else
+        @weather_sprite.visible = false
+      end
+      # Armadilhas no chão (Spikes, Stealth Rock...)
+      @sim.hazards.each do |h|
+        s = fx_sprite(n); n += 1
+        r = [h.r.to_i, 4].max
+        use_bitmap(s, RTB.circle_bitmap(r, RTB.type_color(h.type, h.kind == :sticky_web ? 90 : 170), h.kind == :sticky_web))
+        s.ox = r; s.oy = r
+        s.opacity = h.t < 3 ? (h.t / 3 * 255).to_i : 255
+        s.z = 7900
+        s.x, s.y = RTB.screen_xy(h.x, h.y)
+      end
       @sim.projectiles.each do |p|
         s = fx_sprite(n); n += 1
         info = p.spec.anim
@@ -914,6 +997,11 @@ module RTB
       tag = status_tag(e)
       draw_text_shadow(b, gw / 2 + 56, 6, 56, 22, tag, 2, Color.new(255, 200, 120)) if tag
       draw_bar(b, gw / 2 - 112, 32, 224, 6, e.totalhp > 0 ? e.hp.to_f / e.totalhp : 0)
+      # Clima e terreno ativos
+      field = []
+      field.push("#{WEATHER_NAMES[@sim.weather]} #{@sim.weather_t.ceil}s") if @sim.weather
+      field.push("#{TERRAIN_NAMES[@sim.terrain]} #{@sim.terrain_t.ceil}s") if @sim.terrain
+      draw_text_shadow(b, gw / 2 - 120, 46, 240, 22, field.join("  "), 1, Color.new(200, 230, 255)) unless field.empty?
       # Jogador (baixo, à esquerda)
       m = @mine
       b.fill_rect(4, gh - 84, 184, 80, Color.new(0, 0, 0, 130))
@@ -921,7 +1009,8 @@ module RTB
       draw_bar(b, 12, gh - 56, 168, 6, m.totalhp > 0 ? m.hp.to_f / m.totalhp : 0)
       draw_text_shadow(b, 12, gh - 48, 168, 22, "#{m.hp}/#{m.totalhp}", 2)
       tag = status_tag(m)
-      draw_text_shadow(b, 12, gh - 48, 60, 22, tag, 0, Color.new(255, 200, 120)) if tag
+      tag = [tag, ("SUB" if m.sub_hp.to_i > 0)].compact.join(" ")
+      draw_text_shadow(b, 12, gh - 48, 90, 22, tag, 0, Color.new(255, 200, 120)) unless tag.empty?
       ready = m.dodge_cd <= 0
       draw_text_shadow(b, 12, gh - 26, 170, 22, _INTL("Espaço: esquiva"), 0,
                        ready ? Color.new(255, 255, 255) : Color.new(140, 140, 140))
@@ -1015,7 +1104,7 @@ module RTB
       (@move_anims || []).each(&:dispose)
       RTB.clear_anim_sheets if RTB.respond_to?(:clear_anim_sheets)
       (@text_sprites || []).each { |t| t[0].bitmap.dispose; t[0].dispose }
-      [@border, @hud, @pause_sprite].compact.each { |sp| sp.bitmap.dispose if sp.bitmap; sp.dispose }
+      [@border, @hud, @pause_sprite, @weather_sprite].compact.each { |sp| sp.bitmap.dispose if sp.bitmap; sp.dispose }
       @viewport.dispose if @viewport
       @hud_vp.dispose if @hud_vp
       restore_followers

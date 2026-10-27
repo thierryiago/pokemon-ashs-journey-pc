@@ -59,6 +59,11 @@ Os Pokémon seguem as mesmas regras de passagem do jogador (`Mods/rt_battle/025_
 - O dano é **40%** da fórmula do jogo (`RT_DAMAGE_SCALE = 0.4`), porque em tempo real os golpes saem bem mais
   rápido que por turno. Uma luta de nível baixo entre duas IAs dura ~12 s na velocidade 0,5x.
 
+## Golpes (27/10)
+
+Clima, terrenos, telas, armadilhas no chão, golpes de dois tempos, substituto e o resto dos efeitos estão em
+`docs/B2-golpes-tempo-real.md`.
+
 ## O que conferir e me contar
 
 - O jogo abre sem erro? (Se der erro ao abrir, a mensagem cita o arquivo de `Mods/` e a linha.)

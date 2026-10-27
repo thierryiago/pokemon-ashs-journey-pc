@@ -46,10 +46,12 @@ module RTB
   # Um Pokémon em campo. pkmn é o Pokemon do jogo (ou um dublê nos testes).
   #----------------------------------------------------------------------------
   class Fighter
-    attr_reader   :pkmn, :side, :specs, :cds, :stages
+    attr_reader   :pkmn, :side, :cds, :stages, :timers, :recent, :combo
     attr_accessor :x, :y, :fx, :fy, :radius, :lock, :pending, :dash, :dodge,
                   :dodge_cd, :stun, :confuse, :dot_t, :invuln, :flash, :anim_t,
-                  :ai, :hidden, :leech_by, :leech_t
+                  :ai, :hidden, :leech_by, :leech_t, :specs,
+                  :sub_hp, :type_override, :last_slot, :last_spec, :semi, :age,
+                  :protect_kind, :power_trick, :bind_t, :perish
 
     def initialize(pkmn, side, specs, x, y)
       @pkmn = pkmn; @side = side; @specs = specs
@@ -61,6 +63,11 @@ module RTB
       @lock = 0.0; @pending = nil; @dash = nil; @dodge = nil; @dodge_cd = 0.0
       @stun = 0.0; @confuse = 0.0; @dot_t = 0.0; @invuln = 0.0; @flash = 0.0
       @anim_t = 0.0; @hidden = false; @leech_by = nil; @leech_t = 0.0
+      @timers = Hash.new(0.0)   # efeitos com duração (s): :taunt, :bound, :magnet_rise...
+      @recent = []              # danos recebidos: [hora, dano, categoria, lado de quem bateu]
+      @combo = {}               # golpes em sequência (Fury Cutter, Rollout): id => [vezes, hora]
+      @sub_hp = 0; @type_override = nil; @last_slot = nil; @last_spec = nil; @semi = nil
+      @age = 0.0; @protect_kind = nil; @power_trick = false; @bind_t = 0.0; @perish = nil
       if pkmn.status == :SLEEP
         @stun = 3.0
       elsif pkmn.status == :FROZEN
@@ -74,9 +81,28 @@ module RTB
     def totalhp;  @pkmn.totalhp; end
     def fainted?; @pkmn.hp <= 0; end
     def status;   @pkmn.status;  end
-    def types;    t = @pkmn.types; t.is_a?(Array) ? t : [t]; end
+    def types
+      return @type_override if @type_override
+      t = @pkmn.types
+      t.is_a?(Array) ? t : [t]
+    end
+
+    def type?(t)
+      types.any? { |x| x.to_s == t.to_s }
+    end
+
+    def gender
+      @pkmn.respond_to?(:gender) ? @pkmn.gender : 2
+    end
+
+    # Encostado no chão? (voador e Magnet Rise flutuam; Gravity derruba todo mundo)
+    def grounded?(gravity = false)
+      return true if gravity
+      !type?(:FLYING) && @timers[:magnet_rise] <= 0 && @timers[:telekinesis] <= 0
+    end
 
     def stat(key)
+      key = { atk: :def, def: :atk }[key] || key if @power_trick
       base = case key
              when :atk then @pkmn.attack
              when :def then @pkmn.defense
@@ -125,34 +151,46 @@ module RTB
     end
   end
 
-  Projectile = Struct.new(:owner, :spec, :x, :y, :vx, :vy, :dist, :max, :r, :dead,
+  Projectile = Struct.new(:owner, :spec, :x, :y, :vx, :vy, :dist, :max, :r, :dead, :homing,
                           keyword_init: true)
+  # Armadilha no chão (Spikes, Toxic Spikes, Stealth Rock, Sticky Web). side = quem jogou.
+  Hazard = Struct.new(:kind, :side, :x, :y, :r, :t, :type, keyword_init: true)
   Effect = Struct.new(:kind, :x, :y, :x2, :y2, :r, :t, :max, :type, :spec, keyword_init: true)
 
   #----------------------------------------------------------------------------
   # Simulação
   #----------------------------------------------------------------------------
   class Sim
-    attr_reader :fighters, :projectiles, :effects, :events, :arena, :time
-    attr_accessor :frozen
+    attr_reader :fighters, :projectiles, :effects, :events, :arena, :time,
+                :weather, :weather_t, :terrain, :terrain_t, :side_fx, :field, :hazards
+    attr_accessor :frozen, :spec_lookup, :random_spec
 
     # arena: [x0, y0, x1, y1] em pixels. walkable: ->(px, py) { true/false } (a pé).
     # flyable: ->(px, py) por onde os projéteis passam (padrão: walkable).
     # crossable: ->(tx1, ty1, tx2, ty2) dá para passar entre dois tiles vizinhos? (cercas
     # e muros que bloqueiam só um lado do tile). Padrão: sempre.
     # type_mult: ->(move_type, [tipos do alvo]) { multiplicador }
+    # spec_lookup: ->(move_id, side) { spec } e random_spec: ->(side) { spec } servem para
+    # golpes que chamam outros (Metronome, Nature Power...). Sem eles, esses golpes falham.
     def initialize(arena:, walkable:, type_mult:, rng: Random.new, ai_level: 0,
-                   flyable: nil, crossable: nil)
+                   flyable: nil, crossable: nil, spec_lookup: nil, random_spec: nil)
       @arena = arena; @walkable = walkable; @type_mult = type_mult; @rng = rng
       @flyable = flyable || walkable
       @crossable = crossable
       @ai_level = ai_level
       @fighters = []; @projectiles = []; @effects = []; @events = []
       @time = 0.0; @frozen = false
+      @spec_lookup = spec_lookup; @random_spec = random_spec
+      @weather = nil; @weather_t = 0.0; @terrain = nil; @terrain_t = 0.0
+      @side_fx = [Hash.new(0.0), Hash.new(0.0)]   # telas, Safeguard, Tailwind... por lado
+      @field = Hash.new(0.0)                       # Gravity, Trick Room, Mud Sport...
+      @hazards = []
+      @last_spec = nil; @field_tick = 0.0
     end
 
     def add(fighter)
       @fighters.push(fighter)
+      on_enter(fighter)
       fighter
     end
 
@@ -186,6 +224,7 @@ module RTB
       end
       separate_fighters
       step_projectiles(dt)
+      step_field(dt)
       @effects.each { |e| e.t += dt }
       @effects.reject! { |e| e.t >= e.max }
     end
@@ -198,6 +237,8 @@ module RTB
       f.flash -= dt if f.flash > 0
       f.confuse -= dt if f.confuse > 0
       f.anim_t += dt
+      f.age += dt
+      tick_effects(f, dt)
       if f.stun > 0
         f.stun -= dt
         if f.stun <= 0 && [:SLEEP, :FROZEN].include?(f.status)
@@ -244,7 +285,10 @@ module RTB
           emit(:anim, f, d[:spec], f.x, f.y, foe.x, foe.y, :full)
           hit(f, foe, d[:spec])
         end
-        f.dash = nil if d[:t] >= 0.2
+        if d[:t] >= 0.2
+          f.dash = nil
+          crash(f, d[:spec]) unless d[:hit]
+        end
         return
       end
       if f.lock > 0
@@ -256,9 +300,14 @@ module RTB
         end
         return
       end
-      return if f.stun > 0
-      # Esquiva
-      if input[:dodge] && f.dodge_cd <= 0
+      if f.stun > 0
+        # Sleep Talk e Snore funcionam dormindo
+        slot = input[:use]
+        start_move(f, slot) if slot && f.status == :SLEEP && sleep_usable?(f, slot)
+        return
+      end
+      # Esquiva (presa por Wrap/Bind, sob Gravity ou Telekinesis não dá)
+      if input[:dodge] && f.dodge_cd <= 0 && can_dodge?(f)
         dx, dy = norm(input[:mx].to_f, input[:my].to_f)
         dx, dy = f.fx, f.fy if dx == 0 && dy == 0
         f.dodge = { t: 0.0, dx: dx, dy: dy }
@@ -275,8 +324,8 @@ module RTB
       if mx != 0 || my != 0
         nx, ny = norm(mx, my)
         (f.fx = nx; f.fy = ny) unless input[:face]
-        sp = f.move_speed
-        move_by(f, nx * sp * dt, ny * sp * dt)
+        sp = move_speed_of(f)
+        move_by(f, nx * sp * dt, ny * sp * dt) if f.timers[:bound] <= 0
       end
       if input[:face]
         f.fx, f.fy = norm(*input[:face])
@@ -295,9 +344,16 @@ module RTB
       end
       f.cds[slot] = spec.cooldown * RTB.cooldown_scale
       f.cds[slot] *= 1.25 if f.status == :PARALYSIS
+      f.cds[slot] *= 0.75 if @side_fx[f.side][:tailwind] > 0
+      f.last_slot = slot
+      return unless move_allowed?(f, spec, slot)
       aim_assist(f, spec)
-      f.lock = spec.windup
+      f.lock = windup_of(f, spec)
       f.pending = [spec, slot]
+      if spec.effect && spec.effect[:semi]
+        f.semi = spec.effect[:semi]
+        emit(:text, f, SEMI_TEXT[f.semi])
+      end
       if spec.kind == :strike
         # O golpe cai num ponto: o alvo (se estiver na mira e no alcance) ou o fim do alcance.
         foe = opponent(f)
@@ -305,7 +361,7 @@ module RTB
         d = spec.range if d > spec.range || (foe && facing_dot(f, foe) < 0.8)
         px = f.x + f.fx * d; py = f.y + f.fy * d
         f.pending = [spec, slot, [px, py]]
-        add_effect(:telegraph, px, py, r: spec.width, max: spec.windup, type: spec.type, spec: spec)
+        add_effect(:telegraph, px, py, r: spec.width, max: f.lock, type: spec.type, spec: spec) unless f.semi
       end
       emit(:windup, f, spec)
     end
@@ -318,17 +374,30 @@ module RTB
       return if [:buff, :noop, :pulse, :debuff].include?(spec.kind)
       dx, dy = norm(foe.x - f.x, foe.y - f.y)
       dx, dy = -dx, -dy if f.confuse > 0 && f.side == 1
-      if dx * f.fx + dy * f.fy > 0.7
+      if dx * f.fx + dy * f.fy > 0.7 || f.timers[:lock_on] > 0 || (spec.effect || {})[:homing]
         f.fx = dx; f.fy = dy
       end
     end
 
-    def release(f, spec, slot, point = nil)
+    def release(f, spec, slot, point = nil, depth = 0)
       foe = opponent(f)
+      eff = spec.effect || {}
+      if eff[:call]
+        called = resolve_call(f, spec, slot)
+        return release(f, called, slot, nil, depth + 1) if called && depth < 2
+        emit(:text, f, "Mas falhou!")
+        return
+      end
+      f.semi = nil
+      remember_use(f, spec)
       emit(:use, f, spec)
+      return if before_release(f, spec, foe)
       case spec.kind
       when :strike
         px, py = point || [f.x + f.fx * spec.range, f.y + f.fy * spec.range]
+        if foe && (eff[:semi] || eff[:delayed]) && dist(f, foe) <= spec.range + 40
+          px, py = foe.x, foe.y   # quem voa/cava cai em cima do alvo
+        end
         add_effect(:puff, px, py, r: spec.width, max: 0.25, type: spec.type, spec: spec)
         emit(:anim, f, spec, f.x, f.y, px, py, :full)
         hit(f, foe, spec) if foe && Math.hypot(foe.x - px, foe.y - py) <= spec.width + foe.radius
@@ -346,10 +415,15 @@ module RTB
       when :dash
         f.dash = { t: 0.0, spec: spec, hit: false }
       when :projectile, :status
+        homing = eff[:homing] || f.timers[:lock_on] > 0
         @projectiles.push(Projectile.new(owner: f, spec: spec,
                                          x: f.x + f.fx * f.radius, y: f.y + f.fy * f.radius,
                                          vx: f.fx * spec.speed, vy: f.fy * spec.speed,
-                                         dist: 0.0, max: spec.range, r: spec.width.to_f, dead: false))
+                                         dist: 0.0, max: spec.range, r: spec.width.to_f, dead: false,
+                                         homing: homing))
+      when :hazard
+        d = foe && facing_dot(f, foe) > 0.5 ? [dist(f, foe), spec.range].min : spec.range * 0.7
+        lay_hazard(f, spec, f.x + f.fx * d, f.y + f.fy * d)
       when :beam
         len = ray_length(f.x, f.y, f.fx, f.fy, spec.range)
         x2 = f.x + f.fx * len; y2 = f.y + f.fy * len
@@ -372,6 +446,8 @@ module RTB
       when :noop
         emit(:text, f, "#{spec.name}: ainda sem efeito no tempo real")
       end
+      f.timers[:lock_on] = 0 if spec.power.to_i > 0
+      after_release(f, spec, foe)
     end
 
     #--------------------------------------------------------------------------
@@ -379,22 +455,23 @@ module RTB
     #--------------------------------------------------------------------------
     def hit(att, dfn, spec)
       return if dfn.fainted?
-      if dfn.invuln > 0
-        emit(:text, dfn, "desviou!")
-        return
-      end
       eff = spec.effect || {}
-      if spec.power.to_i > 0 || eff[:fixed]
-        mult = @type_mult.call(spec.type, dfn.types)
+      return unless hit_allowed?(att, dfn, spec)
+      behind_sub = dfn.sub_hp > 0 && !sound?(spec)
+      if spec.power.to_i > 0 || eff[:fixed] || eff[:counter] || eff[:ohko]
+        mult = type_mult_for(att, dfn, spec)
         if mult == 0
           emit(:text, dfn, "não afeta")
           return
         end
         hits = eff[:hits] || 1
-        crit = rand_f < [1.0 / 24, 1.0 / 8, 0.5, 1.0][att.stages[:crit].clamp(0, 3)]
+        crit = crit_roll(att, dfn, spec)
         total = 0
         hits.times { total += calc_damage(att, dfn, spec, mult, crit) }
-        apply_damage(dfn, total, att, mult, crit)
+        total = special_damage(att, dfn, spec, total)
+        return if total.nil?
+        total = absorb_substitute(dfn, total, spec)
+        apply_damage(dfn, total, att, mult, crit, spec) if total > 0
         if eff[:recoil] && total > 0
           apply_damage(att, [(total * eff[:recoil]).floor, 1].max, nil, 1.0, false)
         end
@@ -406,46 +483,71 @@ module RTB
           emit(:text, dfn, "descongelou")
         end
       end
-      apply_target_effect(att, dfn, spec) unless dfn.fainted?
-      apply_self_effect(att, spec) if spec.kind != :buff && eff[:user_stages] && spec.power.to_i > 0
+      after_hit(att, dfn, spec)
+      if !dfn.fainted? && !behind_sub
+        apply_target_effect(att, dfn, spec)
+      elsif behind_sub && spec.power.to_i == 0
+        emit(:text, dfn, "o substituto bloqueou")
+      end
+      if spec.kind != :buff && eff[:user_stages] && spec.power.to_i > 0 &&
+         rand_f * 100 < (eff[:self_chance] || 100)
+        apply_stages(att, eff[:user_stages], att)
+      end
     end
 
     def calc_damage(att, dfn, spec, mult, crit)
       eff = spec.effect || {}
-      if eff[:fixed]
-        return eff[:fixed] == :level ? att.level : eff[:fixed]
-      end
+      return fixed_damage(att, dfn, eff[:fixed]) if eff[:fixed]
+      return 0 if eff[:counter] || eff[:ohko]
       physical = (spec.category == 0)
-      a = physical ? att.stat(:atk) : att.stat(:spa)
-      d = physical ? dfn.stat(:def) : dfn.stat(:spd)
+      a, d = attack_defense(att, dfn, spec, physical, crit)
       d = 1.0 if d < 1
-      base = (((2.0 * att.level / 5 + 2) * spec.power * a / d) / 50.0) + 2
-      base *= 1.5 if att.types.map(&:to_s).include?(spec.type.to_s)
+      power = power_for(att, dfn, spec)
+      base = (((2.0 * att.level / 5 + 2) * power * a / d) / 50.0) + 2
+      base *= 1.5 if att.type?(spec.type)
       base *= mult
       base *= 1.5 if crit
-      base *= 0.5 if physical && att.status == :BURN
+      base *= 0.5 if physical && att.status == :BURN && !(eff[:power_fn] == :facade)
+      base *= field_mult(att, dfn, spec, physical, crit)
       base *= (85 + @rng.rand(16)) / 100.0
       base *= RTB.damage_scale
       [base.floor, 1].max
     end
 
-    def apply_damage(f, dmg, by, mult, crit)
+    def apply_damage(f, dmg, by, mult, crit, spec = nil)
       return if f.fainted?
       dmg = f.hp if dmg > f.hp
+      if by && f.timers[:endure] > 0 && dmg >= f.hp
+        dmg = f.hp - 1
+        emit(:text, f, "aguentou!")
+      end
+      dmg = f.hp - 1 if by && spec && (spec.effect || {})[:false_swipe] && dmg >= f.hp
+      return if dmg <= 0
+      f.recent.push([@time, dmg, spec ? spec.category : nil, by ? by.side : nil])
+      f.recent.shift while f.recent.length > 8
       f.pkmn.hp -= dmg
       f.flash = 0.2
       f.stun = 0 if f.status == :SLEEP && by   # dano direto acorda
       emit(:damage, f, dmg, mult, crit)
+      if f.pending && f.pending[0].effect && f.pending[0].effect[:focus_punch] && by
+        f.lock = 0; f.pending = nil
+        emit(:text, f, "perdeu a concentração!")
+      end
       if f.fainted?
         f.pkmn.hp = 0
         f.pkmn.status = :NONE if f.pkmn.respond_to?(:status=)
-        f.lock = 0; f.pending = nil; f.dash = nil
+        f.lock = 0; f.pending = nil; f.dash = nil; f.semi = nil
         emit(:faint, f)
+        on_faint(f, by)
       end
     end
 
     def heal(f, amount)
       return if f.fainted? || amount <= 0
+      if f.timers[:heal_block] > 0
+        emit(:text, f, "não pode se curar")
+        return
+      end
       amount = f.totalhp - f.hp if f.hp + amount > f.totalhp
       f.pkmn.hp += amount
       emit(:heal, f, amount)
@@ -455,9 +557,17 @@ module RTB
       eff = spec.effect || {}
       chance = eff[:chance] || 100
       return if rand_f * 100 >= chance
-      if eff[:status]
-        set_status(dfn, eff[:status], spec)
+      return if eff[:if_poisoned] && dfn.status != :POISON
+      if eff[:gender_only] && !(att.gender < 2 && dfn.gender < 2 && att.gender != dfn.gender)
+        emit(:text, dfn, "não afeta")
+        return
       end
+      if eff[:status]
+        st = eff[:status] == :TRI ? [:BURN, :PARALYSIS, :FROZEN][@rng.rand(3)] : eff[:status]
+        set_status(dfn, st, spec)
+      end
+      flinch(dfn) if eff[:flinch] && spec.power.to_i > 0
+      more_target_effects(att, dfn, spec)
       if eff[:leech]
         if dfn.types.map(&:to_s).include?("GRASS")
           emit(:text, dfn, "não afeta")
@@ -467,21 +577,24 @@ module RTB
         end
       end
       emit(:force_out, dfn) if eff[:force_out]
-      if eff[:target_stages]
-        eff[:target_stages].each do |k, v|
-          dfn.stages[k] = (dfn.stages[k] + v).clamp(-6, 6)
-        end
-        emit(:stages, dfn, eff[:target_stages])
+      apply_stages(dfn, eff[:target_stages], att) if eff[:target_stages]
+    end
+
+    # Muda atributos (Mist protege das quedas causadas pelo adversário).
+    def apply_stages(f, stages, by)
+      if by && by.side != f.side && @side_fx[f.side][:mist] > 0 && stages.values.any?(&:negative?)
+        emit(:text, f, "a névoa protegeu")
+        stages = stages.select { |_, v| v > 0 }
+        return if stages.empty?
       end
+      stages.each { |k, v| f.stages[k] = (f.stages[k] + v).clamp(-6, 6) }
+      emit(:stages, f, stages)
     end
 
     def apply_self_effect(f, spec)
       eff = spec.effect || {}
-      if eff[:user_stages]
-        eff[:user_stages].each { |k, v| f.stages[k] = (f.stages[k] + v).clamp(-6, 6) }
-        emit(:stages, f, eff[:user_stages])
-      end
-      heal(f, (f.totalhp * eff[:heal]).floor) if eff[:heal]
+      apply_stages(f, eff[:user_stages], f) if eff[:user_stages]
+      heal(f, (f.totalhp * heal_frac(eff)).floor) if eff[:heal]
       if eff[:rest]
         f.pkmn.status = :SLEEP
         f.stun = 3.0
@@ -489,13 +602,18 @@ module RTB
       end
       if eff[:protect]
         f.invuln = [f.invuln, eff[:protect]].max
+        f.timers[:protect] = eff[:protect]
+        f.protect_kind = eff[:protect_kind]
         emit(:text, f, "se protegeu!")
       end
       if eff[:haze]
         @fighters.each { |x| x.stages.clear }
         emit(:text, f, "atributos de todos voltaram ao normal")
       end
-      emit(:flee, f) if eff[:flee]
+      if eff[:flee]
+        f.timers[:trapped] > 0 ? emit(:text, f, "está preso!") : emit(:flee, f)
+      end
+      more_self_effects(f, spec)
     end
 
     IMMUNE = {
@@ -504,6 +622,7 @@ module RTB
     }
 
     def set_status(f, status, spec)
+      return unless status_allowed?(f, status)
       if status == :CONFUSED
         f.confuse = 4.0
         emit(:status, f, :CONFUSED)
@@ -511,7 +630,7 @@ module RTB
       end
       return if f.status != :NONE && !f.status.nil?
       return if (IMMUNE[status] || []).any? { |t| f.types.map(&:to_s).include?(t) }
-      return if status == :PARALYSIS && spec.type.to_s == "ELECTRIC" && f.types.map(&:to_s).include?("GROUND")
+      return if status == :PARALYSIS && spec && spec.type.to_s == "ELECTRIC" && f.type?(:GROUND)
       f.pkmn.status = status
       f.pkmn.statusCount = 0 if f.pkmn.respond_to?(:statusCount=)
       case status
@@ -528,6 +647,7 @@ module RTB
     def step_projectiles(dt)
       @projectiles.each do |p|
         next if p.dead
+        steer(p, dt) if p.homing
         sx = p.vx * dt; sy = p.vy * dt
         p.x += sx; p.y += sy
         p.dist += Math.sqrt(sx * sx + sy * sy)
@@ -577,7 +697,7 @@ module RTB
       want_d = case spec && spec.kind
                when :melee, :dash then f.radius + foe.radius + 10
                when :pulse, :debuff then 55
-               when :projectile, :status, :strike then 150
+               when :projectile, :status, :strike, :hazard then 150
                when :beam then 190
                else 120
                end
@@ -623,17 +743,7 @@ module RTB
       best = nil; best_score = -1
       f.specs.each_with_index do |spec, i|
         next if f.cds[i] > 0 || (f.move_pp(i) <= 0 && !f.all_out_of_pp?)
-        score =
-          if spec.power.to_i > 0
-            spec.power * @type_mult.call(spec.type, foe.types) *
-              (f.types.map(&:to_s).include?(spec.type.to_s) ? 1.5 : 1.0)
-          elsif spec.kind == :status
-            (foe.status == :NONE || foe.status.nil?) ? 35 : 0
-          elsif spec.kind == :buff || spec.kind == :debuff
-            20
-          else
-            0
-          end
+        score = ai_score(f, foe, spec)
         score *= 0.6 + rand_f * 0.8
         next if score <= 0
         if score > best_score

@@ -91,6 +91,9 @@ module GameData
       o.instance_variable_set(:@flags, m['flags']); o.instance_variable_set(:@priority, m['priority'])
       o
     end
+    def self.each
+      MOVES.each_key { |k| yield get(k) }
+    end
   end
   class Item; def self.exists?(id) = true; end
   class TerrainTag; def self.try_get(*) = nil; end
@@ -188,6 +191,7 @@ def pbLearnMove(*); end
 
 load File.expand_path('../Mods/rt_battle/010_moves.rb', __dir__)
 load File.expand_path('../Mods/rt_battle/020_sim.rb', __dir__)
+load File.expand_path('../Mods/rt_battle/021_sim_effects.rb', __dir__)
 load File.expand_path('../Mods/rt_battle/025_map.rb', __dir__)
 load File.expand_path('../Mods/rt_battle/030_scene.rb', __dir__)
 module RTB

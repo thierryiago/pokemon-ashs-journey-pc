@@ -3,6 +3,7 @@
 require 'yaml'
 load File.expand_path('../Mods/rt_battle/010_moves.rb', __dir__)
 load File.expand_path('../Mods/rt_battle/020_sim.rb', __dir__)
+load File.expand_path('../Mods/rt_battle/021_sim_effects.rb', __dir__)
 
 MOVES = YAML.load_file(File.expand_path('../data/moves.yaml', __dir__)).to_h { |m| [m['id'], m] }
 TYPES = YAML.load_file(File.expand_path('../data/types.yaml', __dir__)).to_h { |t| [t['id'], t] }
@@ -41,7 +42,8 @@ check = ->(cond, msg) { if cond then puts "ok   #{msg}" else fails += 1; puts "F
 # 1) Classificação de golpes conhecidos
 { TACKLE: :melee, QUICKATTACK: :dash, THUNDERSHOCK: :projectile, EMBER: :projectile,
   ICEBEAM: :beam, SOLARBEAM: :beam, EARTHQUAKE: :pulse, GROWL: :debuff, TAILWHIP: :debuff,
-  THUNDERWAVE: :status, SWORDSDANCE: :buff, RECOVER: :buff, SPIKES: :noop, RAINDANCE: :noop,
+  THUNDERWAVE: :status, SWORDSDANCE: :buff, RECOVER: :buff, SPIKES: :hazard, RAINDANCE: :buff, FLY: :strike, DIG: :strike, PROTECT: :buff,
+  SUBSTITUTE: :buff, METRONOME: :buff, TAUNT: :status, PERISHSONG: :buff,
   FLAMETHROWER: :projectile, TAKEDOWN: :dash, HYPERVOICE: :pulse }.each do |id, kind|
   s = spec_for(id)
   check.(s.kind == kind, "#{id} -> #{kind} (veio #{s.kind}, recarga #{s.cooldown}s)")
@@ -116,6 +118,165 @@ s = RTB::Sim.new(arena: [0, 0, 416, 288], walkable: ->(x, y) { !x.between?(160, 
                  type_mult: method(:type_mult), rng: Random.new(3))
 check.(s.ray_length(100, 100, 1.0, 0.0, 260) < 70, 'feixe para na parede')
 check.(s.ray_length(100, 100, 0.0, 1.0, 150) == 150, 'feixe sem parede vai até o fim')
+
+# 7) Efeitos dos golpes (B2)
+def duel(a_moves, b_moves, seed: 5, **opts)
+  s = RTB::Sim.new(arena: [0, 0, 416, 288], walkable: ->(x, y) { true }, type_mult: method(:type_mult),
+                   rng: Random.new(seed), **opts)
+  a = PkmnStub.new('Ataca', 30, [:NORMAL], [90, 60, 50, 60, 50, 60], a_moves)
+  b = PkmnStub.new('Alvo', 30, [:NORMAL], [90, 60, 50, 60, 50, 60], b_moves)
+  fa = s.add(RTB::Fighter.new(a, 0, a_moves.map { |m| spec_for(m) }, 100, 100))
+  fb = s.add(RTB::Fighter.new(b, 1, b_moves.map { |m| spec_for(m) }, 140, 100))
+  fa.fx, fa.fy = 1.0, 0.0
+  [s, fa, fb]
+end
+idle = { mx: 0.0, my: 0.0 }
+use = ->(s, slot, t = 1.5) { s.update(0.02, { 0 => { mx: 0.0, my: 0.0, use: slot }, 1 => idle }); ((t / 0.02).to_i).times { s.update(0.02, { 0 => idle, 1 => idle }) } }
+
+s, fa, fb = duel([:RAINDANCE, :WATERGUN], [:TACKLE])
+use.(s, 0)
+check.(s.weather == :RAIN, 'Rain Dance liga a chuva')
+w = spec_for(:WATERGUN)
+check.(s.field_mult(fa, fb, w, false, false) == 1.5, 'chuva fortalece golpes de água')
+s, fa, fb = duel([:SANDSTORM], [:TACKLE])
+use.(s, 0, 4)
+check.(fb.hp < fb.totalhp && fa.hp < fa.totalhp, "tempestade de areia machuca quem não é Pedra/Terra/Aço (#{fb.hp}/#{fb.totalhp})")
+
+s, fa, fb = duel([:REFLECT], [:TACKLE])
+use.(s, 0)
+check.(s.side_fx[0][:reflect] > 0 && s.field_mult(fb, fa, spec_for(:TACKLE), true, false) == 0.5, 'Reflect corta dano físico pela metade')
+
+s, fa, fb = duel([:SUBSTITUTE], [:TACKLE, :THUNDERWAVE])
+use.(s, 0)
+check.(fa.sub_hp > 0 && fa.hp == fa.totalhp - fa.totalhp / 4, 'Substitute custa 1/4 da vida e cria o substituto')
+hp = fa.hp
+s.hit(fb, fa, spec_for(:THUNDERWAVE))
+check.(fa.status == :NONE, 'substituto bloqueia golpe de status')
+s.hit(fb, fa, spec_for(:TACKLE))
+check.(fa.hp == hp, 'substituto toma o dano no lugar')
+
+s, fa, fb = duel([:SPIKES], [:TACKLE])
+fb.x, fb.y = 390, 260
+use.(s, 0, 0.5)
+check.(s.hazards.length == 3, "Spikes espalha 3 pontas no chão (#{s.hazards.length})")
+hz = s.hazards.first
+fb.x, fb.y = hz.x, hz.y
+s.update(0.02, { 0 => idle, 1 => idle })
+check.(fb.hp == fb.totalhp - fb.totalhp / 8, "pisar numa ponta tira 1/8 da vida (#{fb.hp}/#{fb.totalhp})")
+fa.x, fa.y = s.hazards.first.x, s.hazards.first.y
+hpa = fa.hp
+s.update(0.02, { 0 => idle, 1 => idle })
+check.(fa.hp == hpa, 'quem jogou as pontas não se machuca nelas')
+
+s, fa, fb = duel([:DIG], [:TACKLE, :EARTHQUAKE])
+s.update(0.02, { 0 => { mx: 0, my: 0, use: 0 }, 1 => idle })
+check.(fa.semi == :dig, 'Dig: some debaixo da terra durante a preparação')
+s.hit(fb, fa, spec_for(:TACKLE))
+check.(fa.hp == fa.totalhp, 'Tackle não alcança quem está debaixo da terra')
+s.hit(fb, fa, spec_for(:EARTHQUAKE))
+check.(fa.hp < fa.totalhp, 'Earthquake alcança quem cavou')
+50.times { s.update(0.02, { 0 => idle, 1 => idle }) }
+check.(fa.semi.nil? && fb.hp < fb.totalhp, 'Dig sai do chão em cima do alvo')
+
+s, fa, fb = duel([:TACKLE], [:SOLARBEAM])
+s.update(0.02, { 0 => idle, 1 => { mx: 0, my: 0, use: 0 } })
+check.(fb.pending, 'Solar Beam carregando')
+s.instance_variable_get(:@rng).define_singleton_method(:rand) { |*a| a.empty? ? 0.0 : 0 }
+s.hit(fa, fb, spec_for(:HEADBUTT))
+check.(fb.pending.nil?, 'recuo (Headbutt) interrompe o golpe que o alvo preparava')
+
+s, fa, fb = duel([:WRAP], [:TACKLE])
+s.hit(fa, fb, spec_for(:WRAP))
+x0 = fb.x
+s.update(0.5, { 0 => idle, 1 => { mx: 1.0, my: 0.0 } })
+check.(fb.timers[:bound] > 0 && fb.x == x0, 'Wrap prende o alvo no lugar')
+check.(!s.can_escape?(fb), 'preso não foge')
+
+s, fa, fb = duel([:COUNTER], [:TACKLE])
+s.hit(fb, fa, spec_for(:TACKLE))
+taken = fa.totalhp - fa.hp
+s.hit(fa, fb, spec_for(:COUNTER))
+check.(fb.totalhp - fb.hp == taken * 2, "Counter devolve o dobro do dano físico recebido (#{taken} -> #{fb.totalhp - fb.hp})")
+
+s, fa, fb = duel([:FALSESWIPE], [:TACKLE])
+fb.pkmn.hp = 3
+s.hit(fa, fb, spec_for(:FALSESWIPE))
+check.(fb.hp == 1, 'False Swipe deixa com 1 PV (bom para capturar)')
+
+s, fa, fb = duel([:FISSURE], [:TACKLE])
+s.hit(fa, fb, spec_for(:FISSURE))
+check.(fb.fainted?, 'Fissure nocauteia num golpe quem tem nível igual ou menor')
+
+s, fa, fb = duel([:METRONOME], [:TACKLE], random_spec: ->(side) { spec_for(:EMBER) })
+use.(s, 0, 1.0)
+check.(s.events.any? { |e| e[0] == :text && e[2].to_s.include?('Ember') }, 'Metronome usa um golpe sorteado')
+
+s, fa, fb = duel([:SLEEPTALK, :TACKLE], [:TACKLE])
+fa.pkmn.status = :SLEEP; fa.stun = 3.0
+s.update(0.02, { 0 => { mx: 0, my: 0, use: 0 }, 1 => idle })
+check.(fa.pending || fa.cds[0] > 0, 'Sleep Talk funciona dormindo')
+
+s, fa, fb = duel([:PROTECT], [:TACKLE, :FEINT])
+use.(s, 0, 0.35)
+s.hit(fb, fa, spec_for(:TACKLE))
+check.(fa.hp == fa.totalhp, 'Protect bloqueia')
+s.hit(fb, fa, spec_for(:FEINT))
+check.(fa.hp < fa.totalhp, 'Feint atravessa o Protect')
+
+s, fa, fb = duel([:TAUNT], [:SWORDSDANCE, :TACKLE])
+s.hit(fa, fb, spec_for(:TAUNT))
+s.update(0.02, { 0 => idle, 1 => { mx: 0, my: 0, use: 0 } })
+check.(fb.stages[:atk] == 0 && fb.pending.nil?, 'provocado não usa golpe de status')
+
+s, fa, fb = duel([:TACKLE], [:TACKLE, :GROWL])
+s.update(0.02, { 0 => idle, 1 => { mx: 0, my: 0, use: 1 } })
+s.hit(fa, fb, spec_for(:DISABLE))
+check.(fb.cds[1] >= 5, 'Disable bloqueia o último golpe do alvo')
+
+s, fa, fb = duel([:PERISHSONG], [:TACKLE])
+use.(s, 0, 10)
+check.(fa.fainted? && fb.fainted?, 'Perish Song derruba os dois depois de 9 s')
+
+s, fa, fb = duel([:HEALINGWISH], [:TACKLE])
+use.(s, 0, 0.5)
+check.(fa.fainted?, 'Healing Wish: quem usa desmaia')
+c = PkmnStub.new('Reserva', 30, [:NORMAL], [90, 60, 50, 60, 50, 60], [:TACKLE]); c.hp = 10; c.status = :POISON
+fc = s.add(RTB::Fighter.new(c, 0, [spec_for(:TACKLE)], 100, 100))
+check.(fc.hp == fc.totalhp && c.status == :NONE, 'quem entra depois chega curado')
+
+s, fa, fb = duel([:SWIFT], [:TACKLE])
+fa.fx, fa.fy = 0.0, -1.0   # olhando para longe do alvo
+fb.x, fb.y = 260, 60
+use.(s, 0, 1.0)
+check.(fb.hp < fb.totalhp, 'Swift (sempre acerta) persegue o alvo')
+
+s, fa, fb = duel([:HYPERBEAM], [:TACKLE])
+fb.x = 200
+use.(s, 0, 0.5)
+check.(fa.stun > 0, 'Hyper Beam: precisa recarregar depois')
+
+s, fa, fb = duel([:BELLYDRUM], [:TACKLE])
+use.(s, 0, 0.5)
+check.(fa.stages[:atk] == 6 && fa.hp == fa.totalhp - fa.totalhp / 2, 'Belly Drum: metade da vida por Ataque no máximo')
+
+s, fa, fb = duel([:UTURN], [:TACKLE])
+s.hit(fa, fb, spec_for(:UTURN))
+check.(s.events.any? { |e| e[0] == :switch_out && e[1] == fa }, 'U-turn pede a troca depois de acertar')
+
+n = 0
+40.times do |i|
+  s, fa, fb = duel([:METALCLAW], [:TACKLE], seed: i)
+  s.hit(fa, fb, spec_for(:METALCLAW))
+  n += 1 if fa.stages[:atk] > 0
+end
+check.(n.between?(1, 12), "Metal Claw só sobe Ataque às vezes (10%): #{n}/40")
+s, fa, fb = duel([:CLOSECOMBAT], [:TACKLE])
+s.hit(fa, fb, spec_for(:CLOSECOMBAT))
+check.(fa.stages[:def] == -1 && fa.stages[:spd] == -1, 'Close Combat sempre baixa as defesas de quem usa')
+
+s, fa, fb = duel([:TACKLE], [:SPLASH])
+check.(s.ai_score(fb, fa, spec_for(:SPLASH)) > 0, 'Magikarp ainda usa Splash')
+check.(s.ai_score(fb, fa, spec_for(:EXPLOSION)) < 20, 'IA não explode com a vida cheia')
 
 puts fails.zero? ? "\nTUDO OK" : "\n#{fails} FALHA(S)"
 exit(fails.zero? ? 0 : 1)
