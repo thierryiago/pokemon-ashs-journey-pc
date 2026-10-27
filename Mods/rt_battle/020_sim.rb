@@ -295,14 +295,15 @@ module RTB
       emit(:windup, f, spec)
     end
 
-    # Ajuda na mira: se o alvo estiver até ~35° da direção, mira nele.
+    # Ajuda na mira: se o alvo estiver até ~45° da direção, mira nele (com 8 direções,
+    # isso cobre o espaço entre uma direção e a vizinha).
     def aim_assist(f, spec)
       foe = opponent(f)
       return unless foe
       return if [:buff, :noop, :pulse, :debuff].include?(spec.kind)
       dx, dy = norm(foe.x - f.x, foe.y - f.y)
       dx, dy = -dx, -dy if f.confuse > 0 && f.side == 1
-      if dx * f.fx + dy * f.fy > 0.8
+      if dx * f.fx + dy * f.fy > 0.7
         f.fx = dx; f.fy = dy
       end
     end
@@ -575,7 +576,7 @@ module RTB
       end
       input = { mx: mx, my: my, face: [ux, uy] }
       # Desvia de projéteis que vêm na direção dele
-      dodge_chance = [0.12, 0.3, 0.55][@ai_level] || 0.12
+      dodge_chance = [0.06, 0.2, 0.4][@ai_level] || 0.06
       @projectiles.each do |p|
         next if p.owner.side == f.side || ai[:dodged][p.object_id]
         next if Math.hypot(p.x - f.x, p.y - f.y) > 80

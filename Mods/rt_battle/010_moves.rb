@@ -145,7 +145,7 @@ module RTB
     case kind
     when :melee      then spec.range = 34;  spec.width = 0;  spec.windup = 0.12
     when :dash       then spec.range = 110; spec.width = 0;  spec.windup = 0.08
-    when :projectile then spec.range = 250; spec.width = 7;  spec.windup = 0.18; spec.speed = 300
+    when :projectile then spec.range = 260; spec.width = 10; spec.windup = 0.15; spec.speed = 560
     when :beam       then spec.range = 270; spec.width = 9;  spec.windup = 0.45
     when :pulse      then spec.range = 78;  spec.width = 0;  spec.windup = 0.3
     when :status     then spec.range = 230; spec.width = 9;  spec.windup = 0.2;  spec.speed = 260
@@ -162,7 +162,17 @@ module RTB
   end
 
   # Spec do Struggle, usado quando nenhum golpe tem PP.
-  # Vira "cai no ponto": usado para projéteis cuja animação acontece no alvo.
+  # Golpe de dano cuja animação acontece no alvo (Thunder Shock, Thunderbolt...):
+  # sai em linha reta e acerta na hora quem estiver na linha (fácil de mirar).
+  def to_zap(spec)
+    spec.kind = :beam
+    spec.width = 14
+    spec.windup = 0.15
+    spec.range = 260
+    spec
+  end
+
+  # Vira "cai no ponto": golpes de status cuja animação acontece no alvo (Thunder Wave...).
   def to_strike(spec)
     spec.kind = :strike
     spec.width = 22

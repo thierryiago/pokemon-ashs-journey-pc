@@ -26,15 +26,20 @@ No menu **Opções**:
 - "Batalha selvagem: Tempo real / Turnos" (padrão: Tempo real);
 - "Batalha de treinador: Turnos / Tempo real" (padrão: Turnos, até você testar).
 
-## Velocidade e animações (ajuste de 26/10)
+## Velocidade, animações e mira (ajustes de 26/10)
 
-- A luta roda a **0,3x** da velocidade original (`RT_TIME_SCALE` em `Mods/000_ash_journey.rb`):
-  andar, golpes, projéteis, recargas e a IA. As animações de golpe tocam na velocidade normal
-  (`RT_ANIM_SPEED`).
+- A luta roda a **0,5x** da velocidade original (`RT_TIME_SCALE` em `Mods/000_ash_journey.rb`).
+  As animações de golpe tocam na velocidade normal (`RT_ANIM_SPEED`).
 - Os golpes usam as **animações do próprio Fire Ash** (as mesmas das batalhas por turno), reduzidas para o mapa.
-- Golpes cuja animação acontece no alvo (Thunder Shock, Thunder Wave, Thunderbolt, Vine Whip...) agora
-  **caem num ponto**: aparece uma marca no chão durante a preparação e o golpe cai ali. Dá para sair da marca.
-- Golpes que viajam (Ember, Water Gun...) continuam como disparo, desenhados com o gráfico da animação.
+- **Golpes de dano à distância ficaram fáceis de acertar:**
+  - os que têm a animação no alvo (Thunder Shock, Thunderbolt, Vine Whip...) saem em linha reta e acertam
+    na hora quem estiver na linha;
+  - os que viajam (Ember, Water Gun...) seguem em linha reta, mais rápidos e com área de acerto maior:
+    se pegar no Pokémon, acertou; se não, passou;
+  - a ajuda de mira cobre até ~45° (o espaço entre duas das 8 direções);
+  - Pokémon selvagens desviam menos (6% dos disparos).
+- **Golpes de status** com animação no alvo (Thunder Wave, Sleep Powder...) continuam **caindo de cima** num
+  ponto marcado no chão, com tempo para sair da marca.
 
 ## O que conferir e me contar
 

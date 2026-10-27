@@ -36,11 +36,11 @@ fails = 0
 check = ->(c, m) { if c then puts "ok   #{m}" else fails += 1; puts "FALHA #{m}" end }
 
 spec = RTB.spec_for_move(PkMove.new(:THUNDERSHOCK), 0)
-check.(spec.kind == :strike && spec.anim, "Thunder Shock cai no ponto, com animação (#{spec.kind})")
+check.(spec.kind == :beam && spec.anim, "Thunder Shock sai em linha reta e acerta na hora, com animação (#{spec.kind})")
 spec = RTB.spec_for_move(PkMove.new(:EMBER), 0)
 check.(spec.kind == :projectile && spec.anim[:travel_pattern], 'Ember continua projétil, desenhado com a brasa da animação')
 spec = RTB.spec_for_move(PkMove.new(:THUNDERWAVE), 1)
-check.(spec.kind == :strike, 'Thunder Wave do adversário também cai no ponto')
+check.(spec.kind == :strike, 'Thunder Wave (status) cai de cima num ponto')
 
 setup_world([Pokemon.new(:PIKACHU, 12, [:THUNDERSHOCK, :THUNDERWAVE, :QUICKATTACK, :GROWL])], 0)
 b = RTB::Battle.new(Pokemon.new(:CHARMANDER, 6, [:EMBER, :SCRATCH, :GROWL]), true)

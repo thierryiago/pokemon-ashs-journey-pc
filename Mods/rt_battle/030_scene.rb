@@ -73,9 +73,10 @@ module RTB
                     flags: data.flags, priority: data.priority)
     info = RTB.respond_to?(:anim_info) ? RTB.anim_info(data.id, side) : nil
     spec.anim = info
-    # Animação que acontece no alvo (ex.: o raio do Thunder Shock): o golpe cai num ponto
+    # Animação que acontece no alvo: golpe de dano (Thunder Shock) sai em linha reta e acerta
+    # na hora; golpe de status (Thunder Wave) cai de cima num ponto marcado no chão.
     if info && [:projectile, :status].include?(spec.kind) && info[:on_target] && !info[:travel_pattern]
-      to_strike(spec)
+      spec.category == 2 ? to_strike(spec) : to_zap(spec)
     end
     spec
   end
