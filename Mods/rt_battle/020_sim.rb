@@ -25,6 +25,15 @@ module RTB
     defined?(AshJourney::RT_ANIM_SPEED) ? AshJourney::RT_ANIM_SPEED : 1.0
   end
 
+  def self.sprite_scale
+    defined?(AshJourney::RT_SPRITE_SCALE) ? AshJourney::RT_SPRITE_SCALE : 1.0
+  end
+
+  # Raio de acerto acompanha o tamanho do sprite, até 15 px (cabe num corredor de 1 tile).
+  def self.fighter_radius
+    (12.0 * sprite_scale).clamp(12.0, 15.0)
+  end
+
   def self.cooldown_scale
     defined?(AshJourney::RT_COOLDOWN_SCALE) ? AshJourney::RT_COOLDOWN_SCALE : 1.0
   end
@@ -46,7 +55,7 @@ module RTB
       @pkmn = pkmn; @side = side; @specs = specs
       @x = x.to_f; @y = y.to_f
       @fx = 0.0; @fy = (side == 0 ? -1.0 : 1.0)
-      @radius = 12.0
+      @radius = RTB.fighter_radius
       @cds = Array.new(specs.length, 0.0)
       @stages = Hash.new(0)
       @lock = 0.0; @pending = nil; @dash = nil; @dodge = nil; @dodge_cd = 0.0

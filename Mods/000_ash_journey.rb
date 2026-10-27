@@ -19,6 +19,8 @@ module AshJourney
 
   # Velocidade das animações de golpe (as mesmas das batalhas por turno).
   RT_ANIM_SPEED = 1.0
+  # Tamanho dos Pokémon na batalha em tempo real (1.0 = tamanho original do sprite)
+  RT_SPRITE_SCALE = 1.5
 end
 
 #------------------------------------------------------------------------------

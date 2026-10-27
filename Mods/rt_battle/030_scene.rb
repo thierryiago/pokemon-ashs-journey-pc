@@ -141,7 +141,10 @@ module RTB
       @sprite = Sprite.new(viewport)
       @shadow = Sprite.new(viewport)
       @shadow.bitmap = RTB.circle_bitmap(9, Color.new(0, 0, 0, 90))
-      @shadow.ox = 9; @shadow.oy = 9; @shadow.zoom_y = 0.5
+      @scale = RTB.sprite_scale
+      @shadow.ox = 9; @shadow.oy = 9
+      @shadow.zoom_x = @scale; @shadow.zoom_y = 0.5 * @scale
+      @sprite.zoom_x = @sprite.zoom_y = @scale
       @pmd = RTB.pmd_anims(fighter.pkmn.species)
       unless @pmd
         @sprite.bitmap = RTB.pokemon_bitmap(fighter.pkmn)
@@ -166,7 +169,7 @@ module RTB
       @pmd ? update_pmd(f, moving, dt) : update_follower(f, moving, dt)
       sx, sy = RTB.screen_xy(f.x, f.y)
       @sprite.x = sx; @sprite.y = sy
-      @shadow.x = sx; @shadow.y = sy + (@pmd ? 4 : 0)
+      @shadow.x = sx; @shadow.y = sy + (@pmd ? (4 * @scale).round : 0)
       @sprite.z = sy.to_i + 2
       @shadow.z = sy.to_i
       @appear += dt
@@ -764,7 +767,7 @@ module RTB
         s, f, age, dur, stack = t
         t[2] = age + dt
         sx, sy = RTB.screen_xy(f.x, f.y)
-        s.x = sx; s.y = sy - 48 - stack * 18 - t[2] * 18
+        s.x = sx; s.y = sy - (48 * RTB.sprite_scale).round - stack * 18 - t[2] * 18
         s.opacity = t[2] > dur - 0.25 ? [((dur - t[2]) / 0.25 * 255).to_i, 0].max : 255
       end
       @text_sprites.reject! { |t| (t[2] >= t[3]) && (t[0].bitmap.dispose; t[0].dispose; true) }

@@ -30,6 +30,7 @@ No menu **Opções**:
 
 - A luta roda a **0,5x** da velocidade original (`RT_TIME_SCALE` em `Mods/000_ash_journey.rb`).
   As animações de golpe tocam na velocidade normal (`RT_ANIM_SPEED`).
+- Os Pokémon aparecem **1,5x maiores** na batalha (`RT_SPRITE_SCALE`); a área de acerto deles cresceu junto (até 15 px de raio).
 - Os golpes usam as **animações do próprio Fire Ash** (as mesmas das batalhas por turno), reduzidas para o mapa.
 - **Golpes de dano à distância ficaram fáceis de acertar:**
   - os que têm a animação no alvo (Thunder Shock, Thunderbolt, Vine Whip...) saem em linha reta e acertam
