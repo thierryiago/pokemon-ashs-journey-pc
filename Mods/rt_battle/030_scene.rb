@@ -64,12 +64,20 @@ module RTB
   end
 
   # Spec de tempo real a partir de um golpe do Pokémon (Pokemon::Move).
-  def spec_for_move(move)
+  # side 0 = jogador, 1 = adversário (para achar a animação certa).
+  def spec_for_move(move, side = 0)
     data = GameData::Move.get(move.id)
-    classify(id: data.id, name: data.name, type: data.type, category: data.category,
-             power: data.base_damage, function_code: data.function_code,
-             effect_chance: data.effect_chance, target: data.target,
-             flags: data.flags, priority: data.priority)
+    spec = classify(id: data.id, name: data.name, type: data.type, category: data.category,
+                    power: data.base_damage, function_code: data.function_code,
+                    effect_chance: data.effect_chance, target: data.target,
+                    flags: data.flags, priority: data.priority)
+    info = RTB.respond_to?(:anim_info) ? RTB.anim_info(data.id, side) : nil
+    spec.anim = info
+    # Animação que acontece no alvo (ex.: o raio do Thunder Shock): o golpe cai num ponto
+    if info && [:projectile, :status].include?(spec.kind) && info[:on_target] && !info[:travel_pattern]
+      to_strike(spec)
+    end
+    spec
   end
 
   # Tile em que um Pokémon pode ficar (chão, sem parede, sem água).
@@ -346,12 +354,13 @@ module RTB
           @pause_sprite.visible = true
           next
         end
+        sdt = dt * RTB.time_scale   # tempo da luta (mais lento que o real)
         unless @end_t
           handle_input(dt)
-          @sim.update(dt, { 0 => @input })
+          @sim.update(sdt, { 0 => @input })
           process_events
         end
-        update_visuals(dt)
+        update_visuals(dt, sdt)
         check_end(dt)
         break if @end_t && @end_t <= 0
       end
@@ -404,6 +413,7 @@ module RTB
       @sprites = [FighterSprite.new(@mine, @viewport), FighterSprite.new(@enemy, @viewport)]
       @fx_sprites = []
       @text_sprites = []
+      @move_anims = []
       @border = Sprite.new(@viewport)
       @border.bitmap = Bitmap.new(aw * 32, ah * 32)
       c = Color.new(255, 255, 255, 110)
@@ -427,7 +437,7 @@ module RTB
     end
 
     def add_foe_fighter(pkmn, x, y)
-      @sim.add(Fighter.new(pkmn, 1, pkmn.moves.map { |m| RTB.spec_for_move(m) }, x, y))
+      @sim.add(Fighter.new(pkmn, 1, pkmn.moves.map { |m| RTB.spec_for_move(m, 1) }, x, y))
     end
 
     # Esconde quem segue o jogador (ex.: o Pikachu do Fire Ash) durante a luta,
@@ -495,7 +505,7 @@ module RTB
     def add_player_fighter(index, x, y)
       pkmn = $Trainer.party[index]
       @participants.push(index) unless @participants.include?(index)
-      @sim.add(Fighter.new(pkmn, 0, pkmn.moves.map { |m| RTB.spec_for_move(m) }, x, y))
+      @sim.add(Fighter.new(pkmn, 0, pkmn.moves.map { |m| RTB.spec_for_move(m, 0) }, x, y))
     end
 
     def intro
@@ -697,6 +707,11 @@ module RTB
           float_text(f, ev[2], Color.new(255, 255, 255), 0.8) unless ev[2].to_s.empty?
         when :use
           @hud_tick = 0
+        when :anim
+          spec = ev[2]
+          if spec && spec.anim
+            @move_anims.push(MoveAnimPlayer.new(spec.anim, @viewport, [ev[3], ev[4]], [ev[5], ev[6]], ev[7]))
+          end
         when :flee
           if f.side == 1 && !@trainer && !@end_t
             float_text(f, _INTL("{1} fugiu!", f.name), Color.new(255, 255, 255), 1.0)
@@ -736,8 +751,11 @@ module RTB
     #--------------------------------------------------------------------------
     # Desenho
     #--------------------------------------------------------------------------
-    def update_visuals(dt)
-      @sprites.each { |s| s.update(dt) }
+    # dt = tempo real (textos, animações de golpe); sdt = tempo da luta (sprites).
+    def update_visuals(dt, sdt = dt)
+      @sprites.each { |s| s.update(sdt) }
+      @move_anims.each { |a| a.update(dt * RTB.anim_speed) }
+      @move_anims.reject! { |a| a.done? && (a.dispose; true) }
       bx, by = RTB.screen_xy(@arena_tiles[0] * 32, @arena_tiles[1] * 32)
       @border.x = bx; @border.y = by
       draw_effects
@@ -769,23 +787,53 @@ module RTB
       s
     end
 
+    def use_bitmap(s, bmp)
+      s.bitmap = bmp
+      s.src_rect.set(0, 0, bmp.width, bmp.height)
+    end
+
     def draw_effects
       n = 0
       @sim.projectiles.each do |p|
         s = fx_sprite(n); n += 1
-        r = [p.r.to_i, 3].max
-        s.bitmap = RTB.circle_bitmap(r, RTB.type_color(p.spec.type))
-        s.ox = r; s.oy = r
+        info = p.spec.anim
+        sheet = info && info[:travel_pattern] && RTB.anim_sheet(info[:anim])
+        if sheet
+          # Desenho da própria animação do golpe (ex.: a brasa do Ember), girado na direção do disparo
+          pat = info[:travel_pattern]
+          s.bitmap = sheet
+          s.src_rect.set((pat % 5) * 192, (pat / 5) * 192, 192, 192)
+          s.ox = 96; s.oy = 96
+          s.zoom_x = s.zoom_y = RTB::ANIM_SCALE * 0.8
+          s.angle = Math.atan2(-p.vy, p.vx) * 180 / Math::PI - 26.6
+        else
+          r = [p.r.to_i, 3].max
+          use_bitmap(s, RTB.circle_bitmap(r, RTB.type_color(p.spec.type)))
+          s.ox = r; s.oy = r
+        end
         s.x, s.y = RTB.screen_xy(p.x, p.y)
         s.z = 9000
       end
       @sim.effects.each do |e|
+        # Com animação do Fire Ash, os círculos genéricos não aparecem (só a marca no chão)
+        # (o impacto de um projétil cuja animação não tem nada no alvo continua com o círculo)
+        if e.spec && e.spec.anim && e.kind != :telegraph
+          next unless e.kind == :puff && e.spec.kind == :projectile && !e.spec.anim[:on_target]
+        end
         prog = e.t / e.max
         s = fx_sprite(n); n += 1
         s.z = 9001
         case e.kind
+        when :telegraph
+          # Marca no chão onde o golpe vai cair: fica mais forte até a hora do impacto
+          r = [e.r.to_i, 4].max
+          use_bitmap(s, RTB.circle_bitmap(r, RTB.type_color(e.type, 200), true))
+          s.ox = r; s.oy = r
+          s.opacity = (90 + 165 * prog).to_i
+          s.z = 8000
+          s.x, s.y = RTB.screen_xy(e.x, e.y)
         when :beam
-          s.bitmap = RTB.circle_bitmap(e.r.to_i, RTB.type_color(e.type, 230))
+          use_bitmap(s, RTB.circle_bitmap(e.r.to_i, RTB.type_color(e.type, 230)))
           len = Math.hypot(e.x2 - e.x, e.y2 - e.y)
           s.ox = 0; s.oy = e.r.to_i
           s.zoom_x = len / (e.r * 2 + 1)
@@ -794,7 +842,7 @@ module RTB
           s.x, s.y = RTB.screen_xy(e.x, e.y)
         when :ring, :aura
           r = [e.r.to_i, 4].max
-          s.bitmap = RTB.circle_bitmap(r, RTB.type_color(e.type, 220), true)
+          use_bitmap(s, RTB.circle_bitmap(r, RTB.type_color(e.type, 220), true))
           s.ox = r; s.oy = r
           z = 0.3 + 0.7 * prog
           s.zoom_x = z; s.zoom_y = z
@@ -802,7 +850,7 @@ module RTB
           s.x, s.y = RTB.screen_xy(e.x, e.y)
         else # :slash, :puff
           r = [e.r.to_i, 4].max
-          s.bitmap = RTB.circle_bitmap(r, RTB.type_color(e.type, 170))
+          use_bitmap(s, RTB.circle_bitmap(r, RTB.type_color(e.type, 170)))
           s.ox = r; s.oy = r
           s.zoom_x = 0.6 + 0.6 * prog; s.zoom_y = s.zoom_x
           s.opacity = (200 * (1 - prog)).to_i
@@ -959,6 +1007,8 @@ module RTB
     def teardown
       (@sprites || []).each(&:dispose)
       (@fx_sprites || []).each(&:dispose)
+      (@move_anims || []).each(&:dispose)
+      RTB.clear_anim_sheets if RTB.respond_to?(:clear_anim_sheets)
       (@text_sprites || []).each { |t| t[0].bitmap.dispose; t[0].dispose }
       [@border, @hud, @pause_sprite].compact.each { |sp| sp.bitmap.dispose if sp.bitmap; sp.dispose }
       @viewport.dispose if @viewport

@@ -26,6 +26,16 @@ No menu **Opções**:
 - "Batalha selvagem: Tempo real / Turnos" (padrão: Tempo real);
 - "Batalha de treinador: Turnos / Tempo real" (padrão: Turnos, até você testar).
 
+## Velocidade e animações (ajuste de 26/10)
+
+- A luta roda a **0,3x** da velocidade original (`RT_TIME_SCALE` em `Mods/000_ash_journey.rb`):
+  andar, golpes, projéteis, recargas e a IA. As animações de golpe tocam na velocidade normal
+  (`RT_ANIM_SPEED`).
+- Os golpes usam as **animações do próprio Fire Ash** (as mesmas das batalhas por turno), reduzidas para o mapa.
+- Golpes cuja animação acontece no alvo (Thunder Shock, Thunder Wave, Thunderbolt, Vine Whip...) agora
+  **caem num ponto**: aparece uma marca no chão durante a preparação e o golpe cai ali. Dá para sair da marca.
+- Golpes que viajam (Ember, Water Gun...) continuam como disparo, desenhados com o gráfico da animação.
+
 ## O que conferir e me contar
 
 - O jogo abre sem erro? (Se der erro ao abrir, a mensagem cita o arquivo de `Mods/` e a linha.)

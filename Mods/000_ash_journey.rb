@@ -12,6 +12,13 @@ module AshJourney
   # Dano maior que 1.0 deixa as lutas mais curtas; recarga maior deixa mais lentas.
   RT_DAMAGE_SCALE   = 1.0
   RT_COOLDOWN_SCALE = 1.0
+
+  # Velocidade da batalha em tempo real (1.0 = normal, 0.3 = 30% da velocidade).
+  # Vale para tudo dentro da luta: andar, golpes, projéteis, recargas e a IA.
+  RT_TIME_SCALE = 0.3
+
+  # Velocidade das animações de golpe (as mesmas das batalhas por turno).
+  RT_ANIM_SPEED = 1.0
 end
 
 #------------------------------------------------------------------------------

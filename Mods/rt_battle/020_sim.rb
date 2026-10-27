@@ -17,6 +17,14 @@ module RTB
     defined?(AshJourney::RT_DAMAGE_SCALE) ? AshJourney::RT_DAMAGE_SCALE : 1.0
   end
 
+  def self.time_scale
+    defined?(AshJourney::RT_TIME_SCALE) ? AshJourney::RT_TIME_SCALE : 1.0
+  end
+
+  def self.anim_speed
+    defined?(AshJourney::RT_ANIM_SPEED) ? AshJourney::RT_ANIM_SPEED : 1.0
+  end
+
   def self.cooldown_scale
     defined?(AshJourney::RT_COOLDOWN_SCALE) ? AshJourney::RT_COOLDOWN_SCALE : 1.0
   end
@@ -110,7 +118,7 @@ module RTB
 
   Projectile = Struct.new(:owner, :spec, :x, :y, :vx, :vy, :dist, :max, :r, :dead,
                           keyword_init: true)
-  Effect = Struct.new(:kind, :x, :y, :x2, :y2, :r, :t, :max, :type, keyword_init: true)
+  Effect = Struct.new(:kind, :x, :y, :x2, :y2, :r, :t, :max, :type, :spec, keyword_init: true)
 
   #----------------------------------------------------------------------------
   # Simulação
@@ -218,6 +226,7 @@ module RTB
         foe = opponent(f)
         if foe && !d[:hit] && dist(f, foe) <= f.radius + foe.radius + 6
           d[:hit] = true
+          emit(:anim, f, d[:spec], f.x, f.y, foe.x, foe.y, :full)
           hit(f, foe, d[:spec])
         end
         f.dash = nil if d[:t] >= 0.2
@@ -226,9 +235,9 @@ module RTB
       if f.lock > 0
         f.lock -= dt
         if f.lock <= 0 && f.pending
-          spec, slot = f.pending
+          spec, slot, point = f.pending
           f.pending = nil
-          release(f, spec, slot)
+          release(f, spec, slot, point)
         end
         return
       end
@@ -274,6 +283,15 @@ module RTB
       aim_assist(f, spec)
       f.lock = spec.windup
       f.pending = [spec, slot]
+      if spec.kind == :strike
+        # O golpe cai num ponto: o alvo (se estiver na mira e no alcance) ou o fim do alcance.
+        foe = opponent(f)
+        d = foe ? dist(f, foe) : spec.range
+        d = spec.range if d > spec.range || (foe && facing_dot(f, foe) < 0.8)
+        px = f.x + f.fx * d; py = f.y + f.fy * d
+        f.pending = [spec, slot, [px, py]]
+        add_effect(:telegraph, px, py, r: spec.width, max: spec.windup, type: spec.type, spec: spec)
+      end
       emit(:windup, f, spec)
     end
 
@@ -289,17 +307,25 @@ module RTB
       end
     end
 
-    def release(f, spec, slot)
+    def release(f, spec, slot, point = nil)
       foe = opponent(f)
       emit(:use, f, spec)
       case spec.kind
+      when :strike
+        px, py = point || [f.x + f.fx * spec.range, f.y + f.fy * spec.range]
+        add_effect(:puff, px, py, r: spec.width, max: 0.25, type: spec.type, spec: spec)
+        emit(:anim, f, spec, f.x, f.y, px, py, :full)
+        hit(f, foe, spec) if foe && Math.hypot(foe.x - px, foe.y - py) <= spec.width + foe.radius
       when :melee
         cx = f.x + f.fx * (f.radius + spec.range / 2)
         cy = f.y + f.fy * (f.radius + spec.range / 2)
-        add_effect(:slash, cx, cy, r: spec.range / 2 + 6, max: 0.18, type: spec.type)
+        add_effect(:slash, cx, cy, r: spec.range / 2 + 6, max: 0.18, type: spec.type, spec: spec)
         if foe && dist(f, foe) <= f.radius + foe.radius + spec.range &&
            facing_dot(f, foe) > 0.25
+          emit(:anim, f, spec, f.x, f.y, foe.x, foe.y, :full)
           hit(f, foe, spec)
+        else
+          emit(:anim, f, spec, f.x, f.y, f.x + f.fx * 40, f.y + f.fy * 40, :full)
         end
       when :dash
         f.dash = { t: 0.0, spec: spec, hit: false }
@@ -310,15 +336,21 @@ module RTB
                                          dist: 0.0, max: spec.range, r: spec.width.to_f, dead: false))
       when :beam
         x2 = f.x + f.fx * spec.range; y2 = f.y + f.fy * spec.range
-        add_effect(:beam, f.x, f.y, x2: x2, y2: y2, r: spec.width, max: 0.3, type: spec.type)
-        if foe && seg_dist(foe.x, foe.y, f.x, f.y, x2, y2) <= spec.width + foe.radius
-          hit(f, foe, spec)
-        end
+        add_effect(:beam, f.x, f.y, x2: x2, y2: y2, r: spec.width, max: 0.3, type: spec.type, spec: spec)
+        hit_beam = foe && seg_dist(foe.x, foe.y, f.x, f.y, x2, y2) <= spec.width + foe.radius
+        tx, ty = hit_beam ? [foe.x, foe.y] : [f.x + f.fx * spec.range * 0.6, f.y + f.fy * spec.range * 0.6]
+        emit(:anim, f, spec, f.x, f.y, tx, ty, :full)
+        hit(f, foe, spec) if hit_beam
       when :pulse, :debuff
-        add_effect(:ring, f.x, f.y, r: spec.range, max: 0.35, type: spec.type)
-        hit(f, foe, spec) if foe && dist(f, foe) <= spec.range + foe.radius
+        add_effect(:ring, f.x, f.y, r: spec.range, max: 0.35, type: spec.type, spec: spec)
+        reach = foe && dist(f, foe) <= spec.range + foe.radius
+        tx, ty = reach ? [foe.x, foe.y] : [f.x + f.fx * 40, f.y + f.fy * 40]
+        emit(:anim, f, spec, f.x, f.y, tx, ty, :full)
+        hit(f, foe, spec) if reach
       when :buff
-        add_effect(:aura, f.x, f.y, r: f.radius + 10, max: 0.5, type: spec.type)
+        add_effect(:aura, f.x, f.y, r: f.radius + 10, max: 0.5, type: spec.type, spec: spec)
+        tx, ty = foe ? [foe.x, foe.y] : [f.x, f.y - 40]
+        emit(:anim, f, spec, f.x, f.y, tx, ty, :full)
         apply_self_effect(f, spec)
       when :noop
         emit(:text, f, "#{spec.name}: ainda sem efeito no tempo real")
@@ -484,14 +516,15 @@ module RTB
         p.dist += Math.sqrt(sx * sx + sy * sy)
         if p.dist >= p.max || !inside_arena?(p.x, p.y) || !@walkable.call(p.x, p.y)
           p.dead = true
-          add_effect(:puff, p.x, p.y, r: p.r + 4, max: 0.15, type: p.spec.type)
+          add_effect(:puff, p.x, p.y, r: p.r + 4, max: 0.15, type: p.spec.type, spec: p.spec)
           next
         end
         @fighters.each do |f|
           next if f.side == p.owner.side || f.fainted? || f.hidden
           next if Math.hypot(f.x - p.x, f.y - p.y) > f.radius + p.r
           p.dead = true
-          add_effect(:puff, p.x, p.y, r: p.r + 8, max: 0.2, type: p.spec.type)
+          add_effect(:puff, p.x, p.y, r: p.r + 8, max: 0.2, type: p.spec.type, spec: p.spec)
+          emit(:anim, p.owner, p.spec, p.owner.x, p.owner.y, f.x, f.y, :target)
           hit(p.owner, f, p.spec)
           break
         end
@@ -527,7 +560,7 @@ module RTB
       want_d = case spec && spec.kind
                when :melee, :dash then f.radius + foe.radius + 10
                when :pulse, :debuff then 55
-               when :projectile, :status then 150
+               when :projectile, :status, :strike then 150
                when :beam then 190
                else 120
                end
@@ -697,9 +730,9 @@ module RTB
       end
     end
 
-    def add_effect(kind, x, y, r: 0, max: 0.2, x2: nil, y2: nil, type: nil)
+    def add_effect(kind, x, y, r: 0, max: 0.2, x2: nil, y2: nil, type: nil, spec: nil)
       @effects.push(Effect.new(kind: kind, x: x, y: y, x2: x2, y2: y2, r: r, t: 0.0,
-                               max: max, type: type))
+                               max: max, type: type, spec: spec))
     end
   end
 end

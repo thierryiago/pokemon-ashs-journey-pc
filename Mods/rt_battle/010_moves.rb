@@ -15,6 +15,8 @@ module RTB
   #   :pulse      área em volta de quem usa
   #   :status     disparo sem dano que aplica um efeito no alvo
   #   :debuff     área sem dano que reduz atributos de quem estiver perto
+  #   :strike     cai num ponto marcado no chão, depois de uma preparação
+  #               (golpes cuja animação acontece no alvo, como Thunder Shock)
   #   :buff       efeito em si mesmo (atributos, cura)
   #   :noop       ainda sem versão em tempo real (armadilhas, clima, campo)
   MoveSpec = Struct.new(
@@ -25,6 +27,7 @@ module RTB
     :windup,   # preparação antes do golpe sair (s)
     :cooldown, # recarga (s)
     :effect,   # Hash: status, chance, user_stages, target_stages, heal, fixed, hits, recoil
+    :anim,     # animação do Fire Ash (preenchida no jogo por 035_move_anims.rb), ou nil
     keyword_init: true
   )
 
@@ -159,6 +162,15 @@ module RTB
   end
 
   # Spec do Struggle, usado quando nenhum golpe tem PP.
+  # Vira "cai no ponto": usado para projéteis cuja animação acontece no alvo.
+  def to_strike(spec)
+    spec.kind = :strike
+    spec.width = 22
+    spec.windup = [spec.windup, 0.45].max
+    spec.range = 230 if spec.range.to_i < 100
+    spec
+  end
+
   def struggle_spec
     classify(id: :STRUGGLE, name: "Struggle", type: :NORMAL, category: 0, power: 50,
              function_code: "0FA", target: "NearOther", flags: "ab", priority: 0)
